@@ -69,11 +69,16 @@
         .rev-card { background: var(--surface-elevated); border-radius: 16px; padding: 16px; margin-bottom: 14px; border-right: 4px solid var(--emerald); display: flex; gap: 14px; }
         .ava { width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--emerald), var(--gold)); display: flex; align-items: center; justify-content: center; color: #000; font-weight: 900; flex-shrink: 0; }
         .ai-box { background: var(--surface-elevated); border: 1px solid var(--emerald); border-radius: 12px; padding: 15px; margin-top: 15px; font-size: 0.85rem; line-height: 1.8; display: none; }
+
+        /* Payment Card UI */
+        .pay-card { background: linear-gradient(135deg, #1e293b, #0f172a); border: 1px solid var(--border-glass); border-radius: 16px; padding: 20px; text-align: center; position: relative; overflow: hidden; margin-bottom:15px;}
+        .pay-card::before { content:''; position:absolute; top:-50px; right:-50px; width:100px; height:100px; background:rgba(255,255,255,0.03); border-radius:50%; }
+        .pay-card::after { content:''; position:absolute; bottom:-30px; left:-30px; width:80px; height:80px; background:rgba(255,255,255,0.03); border-radius:50%; }
     </style>
 </head>
 <body>
 
-<!-- Splash Screen (Karafs Style) -->
+<!-- Splash Screen -->
 <div id="splash">
     <div style="display:flex; flex-direction:column; align-items:center; flex-grow:1; justify-content:center;">
         <div class="s-logo">FA</div>
@@ -95,7 +100,7 @@
     <button class="bn-item active" id="bn-home" onclick="nav('home')"><span class="ico">🏠</span><span>خانه</span></button>
     <button class="bn-item" id="bn-analyze" onclick="nav('analyze')"><span class="ico">📊</span><span>آنالیز AI</span></button>
     <button class="bn-item" id="bn-tracker" onclick="nav('tracker')"><div class="bn-c-wrap"><div class="bn-c-btn">🍽️</div><span>روزانه</span></div></button>
-    <button class="bn-item" id="bn-consult" onclick="nav('consult')"><span class="ico">📋</span><span>فرم رژیم</span></button>
+    <button class="bn-item" id="bn-consult" onclick="nav('consult')"><span class="ico">💳</span><span>فرم رژیم</span></button>
     <button class="bn-item" onclick="openMenu(true)"><span class="ico">☰</span><span>بیشتر</span></button>
 </nav>
 
@@ -103,18 +108,12 @@
 <div id="drawer-bg" class="drawer-bg" onclick="openMenu(false)"></div>
 <aside id="drawer-pane" class="drawer">
     <div style="display:flex; justify-content:space-between; margin-bottom:20px; color:var(--emerald); font-weight:900; font-size:1.1rem; border-bottom:1px solid var(--border-glass); padding-bottom:10px;">امکانات VIP <span onclick="openMenu(false)" style="cursor:pointer; color:#fff;">✕</span></div>
-    
     <button class="nav-btn" onclick="nav('ai')">🤖 مشاور هوشمند جمنای</button>
     <button class="nav-btn" onclick="nav('watercalc')">💧 محاسبه‌گر آب (AI)</button>
     <button class="nav-btn" onclick="nav('shopguide')">🥑 راهنمای سوپرمارکت</button>
     <button class="nav-btn" onclick="nav('terms')">📊 فرهنگ‌نامه اصطلاحات</button>
     <button class="nav-btn" onclick="nav('secrets')">🔥 اسرار استپ‌شکن</button>
     <button class="nav-btn" onclick="nav('reviews')">⭐ نتایج موفقیت شاگردان</button>
-    
-    <div style="margin-top:20px; border-top:1px solid var(--border-glass); padding-top:15px;">
-        <button style="width:100%; padding:10px; border-radius:10px; border:none; background:#25D366; color:#fff; font-weight:900; margin-bottom:8px; cursor:pointer;" onclick="window.open('https://wa.me/989125844487')">واتساپ مربی</button>
-        <button style="width:100%; padding:10px; border-radius:10px; border:none; background:#E1306C; color:#fff; font-weight:900; cursor:pointer;" onclick="window.open('https://instagram.com/fitalirezaakbari')">اینستاگرام فیت‌شاه</button>
-    </div>
 </aside>
 
 <div class="wrapper">
@@ -125,7 +124,7 @@
             <h2 style="font-size:1.3rem; font-weight:900; margin-bottom:4px;">علیرضا اکبری <span style="color:var(--gold); font-size:0.95rem;">(FitShah)</span></h2>
             <div style="font-size:0.8rem; color:var(--emerald); font-weight:800; margin-bottom:15px;">مربی ارشد تغذیه، کالری‌شماری و فستینگ متناوب</div>
             <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.8; margin-bottom:20px; text-align:justify;">
-                سلام! به کلینیک تخصصی فیت‌شاه خوش آمدید. تمامی بخش‌های این اپلیکیشن به موتور هوش مصنوعی متصل است تا دقیق‌ترین آنالیز بدنی، کالری‌شماری و برنامه فستینگ را به شما ارائه دهد. هدف ما لاغری بدون قرص و بدون حذف سفره خانواده است.
+                سلام! به کلینیک تخصصی فیت‌شاه خوش آمدید. تمامی بخش‌های این اپلیکیشن به موتور هوش مصنوعی متصل است تا دقیق‌ترین آنالیز بدنی، کالری‌شماری و برنامه فستینگ را به شما ارائه دهد.
             </p>
             <button class="cta" onclick="nav('analyze')">🚀 شروع آنالیز هوشمند بدن</button>
         </div>
@@ -138,32 +137,23 @@
             <div class="p-box">وزن فعلی (kg)<div class="step-row"><button class="s-btn" onclick="st('w',1)">+</button><input id="w" class="s-inp" value="84"><button class="s-btn" onclick="st('w',-1)">-</button></div></div>
             <div class="p-box">قد (cm)<div class="step-row"><button class="s-btn" onclick="st('h',1)">+</button><input id="h" class="s-inp" value="172"><button class="s-btn" onclick="st('h',-1)">-</button></div></div>
             <div class="p-box">سن<div class="step-row"><button class="s-btn" onclick="st('a',1)">+</button><input id="a" class="s-inp" value="32"><button class="s-btn" onclick="st('a',-1)">-</button></div></div>
-            
             <button class="cta" onclick="calcAI()" style="margin-top:15px;">🤖 محاسبه دقیق با هوش مصنوعی</button>
-            
             <div id="ai-calc-res" class="ai-box" style="text-align:center;">
                 <div style="font-size:0.8rem; color:var(--text-muted);">کالری چربی‌سوزی روزانه شما:</div>
                 <div style="font-size:2.5rem; font-weight:900; color:var(--gold); margin:10px 0;" id="res-cal">-- kcal</div>
-                <div style="display:flex; justify-content:space-around; font-size:0.8rem; border-top:1px solid var(--border-glass); padding-top:10px;">
-                    <div>پروتئین: <b id="r-pro" style="color:#fff;">--</b></div>
-                    <div>کربو: <b id="r-car" style="color:#fff;">--</b></div>
-                    <div>چربی: <b id="r-fat" style="color:#fff;">--</b></div>
-                </div>
                 <button class="cta" onclick="nav('consult')" style="margin-top:15px; background:#1e293b; color:var(--emerald); border:1px solid var(--emerald); box-shadow:none;">📋 دریافت رژیم شخصی</button>
             </div>
         </div>
     </section>
 
-    <!-- Daily Tracker (AI Food + Fasting) -->
+    <!-- Tracker -->
     <section id="pane-tracker" class="pane">
         <div class="card">
             <div class="c-head"><span>کالری‌شمار هوشمند</span><span style="color:var(--gold);" id="trk-badge">0 kcal</span></div>
-            <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:10px;">نام غذای خود را بنویسید تا هوش مصنوعی کالری آن را استخراج کند:</p>
-            <input type="text" id="ai-food" class="f-ctrl" placeholder="مثلاً: یک بشقاب قورمه‌سبزی با برنج">
+            <input type="text" id="ai-food" class="f-ctrl" placeholder="چه غذایی خوردید؟ (مثلا: قورمه‌سبزی)">
             <button class="cta" onclick="addFoodAI()">✨ تشخیص کالری با AI</button>
             <div id="f-log"></div>
         </div>
-
         <div class="card" style="text-align:center;">
             <div class="c-head"><span>تایمر استودیو فستینگ</span><span style="color:var(--emerald);">16:8</span></div>
             <div style="width:180px; height:180px; border-radius:50%; border:6px solid var(--emerald); margin:15px auto; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:0 0 25px var(--emerald-glow);">
@@ -177,12 +167,12 @@
         </div>
     </section>
 
-    <!-- Full Consult Form -->
+    <!-- 💳 فرم و پرداخت VIP -->
     <section id="pane-consult" class="pane">
         <div class="card">
-            <div class="c-head"><span>📋 فرم ارزیابی و دریافت رژیم VIP</span></div>
+            <div class="c-head" style="color:var(--emerald);"><span>۱. فرم ارزیابی رژیم VIP</span></div>
             <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:20px; line-height:1.7;">
-                لطفاً جهت بررسی تخصصی پرونده توسط <b>علیرضا اکبری</b>، تمام فیلدها را با دقت پر کنید. اطلاعات مستقیماً برای مربی ارسال می‌شود.
+                لطفاً جهت بررسی تخصصی پرونده توسط <b>علیرضا اکبری</b>، تمام فیلدها را با دقت پر کنید.
             </p>
 
             <span class="f-lbl">۱. نام و نام خانوادگی:</span>
@@ -199,43 +189,132 @@
                 <option value="چربی‌سوزی و کاهش سایز">🔥 چربی‌سوزی و کاهش سایز</option>
                 <option value="لاغری با فستینگ متناوب">⏱️ لاغری با فستینگ متناوب</option>
                 <option value="عضله‌سازی خشک">💪 عضله‌سازی خشک</option>
-                <option value="رژیم درمانی (کبدچرب/تیروئید)">🩺 رژیم درمانی (کبدچرب/تیروئید)</option>
             </select>
 
-            <span class="f-lbl">۵. سابقه رژیم‌های قبلی:</span>
-            <textarea id="c-history" class="f-ctrl" rows="2" placeholder="چه رژیم‌هایی گرفتید و چه نتیجه‌ای داشت؟"></textarea>
-
-            <span class="f-lbl">۶. بزرگترین چالش شما در لاغری:</span>
-            <input id="c-chal" class="f-ctrl" placeholder="مثلاً: ریزه‌خواری، استپ وزنی، کمبود وقت">
-
-            <span class="f-lbl">۷. سابقه بیماری یا مصرف دارو:</span>
+            <span class="f-lbl">۵. سابقه بیماری یا مصرف دارو:</span>
             <input id="c-med" class="f-ctrl" placeholder="مثلاً: کم‌کاری تیروئید، سالم هستم">
 
-            <span class="f-lbl">۸. لایف‌استایل و ساعت کاری:</span>
-            <textarea id="c-sch" class="f-ctrl" rows="2" placeholder="وضعیت شغل و ساعت بیداری/خواب"></textarea>
+            <!-- بخش پرداخت -->
+            <div style="margin: 30px 0 15px; border-top: 1px solid var(--border-glass); padding-top: 25px;">
+                <div class="c-head" style="font-size:1rem; justify-content:center; color:var(--gold); border:none; margin-bottom:5px;">💳 ۲. پرداخت و تکمیل ثبت‌نام</div>
+                <p style="font-size:0.8rem; color:var(--text-muted); text-align:center; margin-bottom:15px;">از طریق درگاه آنلاین یا کارت به کارت واریز را انجام دهید و سپس فرم را ارسال کنید.</p>
+                
+                <!-- لینک درگاه آنلاین -->
+                <button class="cta" style="background:linear-gradient(90deg, #3b82f6, #1d4ed8); color:#fff; margin-bottom:15px; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);" onclick="window.open('https://zarinp.al/alirezaakbari', '_blank')">
+                    🌐 پرداخت آنلاین (درگاه امن زرین‌پال / آیدی‌پی)
+                </button>
 
-            <div style="font-size:0.85rem; font-weight:900; color:var(--emerald); margin:20px 0 10px; text-align:center;">ارسال مستقیم پرونده به مربی:</div>
+                <!-- باکس کارت به کارت -->
+                <div class="pay-card">
+                    <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:10px;">یا واریز کارت‌به‌کارت بنام <b>علیرضا اکبری</b>:</div>
+                    <div style="font-size:1.5rem; font-weight:900; letter-spacing:3px; color:var(--emerald); direction:ltr; margin-bottom:15px;" id="card-num">6037 9912 3456 7890</div>
+                    <button style="background:rgba(255,255,255,0.1); border:1px solid var(--border-glass); color:#fff; padding:6px 20px; border-radius:8px; font-size:0.8rem; font-weight:bold; cursor:pointer;" onclick="copyCard()">📋 کپی شماره کارت</button>
+                </div>
+            </div>
+
+            <!-- دکمه های ارسال -->
+            <div style="font-size:0.85rem; font-weight:900; color:var(--emerald); margin:20px 0 10px; text-align:center;">۳. کپی خودکار و ارسال برای مربی:</div>
 
             <div style="display:flex; flex-direction:column; gap:10px;">
-                <button class="cta" style="background:#25D366; color:#fff;" onclick="sndForm('wa')">🟢 کپی و ارسال به واتساپ (09125844487)</button>
-                <button class="cta" style="background:#229ED9; color:#fff;" onclick="sndForm('tg')">🔵 کپی و ارسال به تلگرام (09125844487)</button>
+                <button class="cta" style="background:#25D366; color:#fff;" onclick="sndForm('wa')">🟢 ارسال فرم به واتساپ مربی</button>
+                <button class="cta" style="background:#229ED9; color:#fff;" onclick="sndForm('tg')">🔵 ارسال فرم به تلگرام مربی</button>
             </div>
         </div>
     </section>
 
     <!-- AI Chat -->
-    <section id="pane-ai" class="pane">
-        <div class="card" style="border-color:#6366f1;">
-            <div class="c-head"><span>🤖 مشاور هوشمند کلینیک</span></div>
-            <textarea id="ai-q" class="f-ctrl" rows="3" placeholder="هر سوالی درباره لاغری، فستینگ یا تغذیه دارید بپرسید..."></textarea>
-            <button class="cta" style="background:#6366f1; color:#fff;" onclick="askAI()">دریافت پاسخ از هوش مصنوعی</button>
-            <div id="ai-res" class="ai-box" style="border-color:#6366f1;"></div>
-        </div>
-    </section>
+    <section id="pane-ai" class="pane"><div class="card"><div class="c-head"><span>🤖 مشاور هوشمند کلینیک</span></div><textarea id="ai-q" class="f-ctrl" rows="3" placeholder="هر سوالی درباره لاغری دارید بپرسید..."></textarea><button class="cta" style="background:#6366f1; color:#fff;" onclick="askAI()">دریافت پاسخ</button><div id="ai-res" class="ai-box" style="border-color:#6366f1;"></div></div></section>
+    
+    <!-- Others -->
+    <section id="pane-watercalc" class="pane"><div class="card"><div class="c-head"><span>💧 محاسبه‌گر آب (AI)</span></div><div style="display:grid; grid-template-columns:repeat(4,1fr); gap:8px;" id="w-grid"></div></div></section>
+    <section id="pane-shopguide" class="pane"><div class="card"><div class="c-head">🥑 راهنمای خرید</div><p id="sg-txt" style="font-size:0.85rem; color:var(--text-muted);"></p></div></section>
+    <section id="pane-terms" class="pane"><div class="card"><div class="c-head">📊 فرهنگ‌نامه لاغری</div><p id="tm-txt" style="font-size:0.85rem; color:var(--text-muted);"></p></div></section>
+    <section id="pane-secrets" class="pane"><div class="card"><div class="c-head">🔥 اسرار استپ‌شکن</div><p id="sc-txt" style="font-size:0.85rem; color:var(--text-muted);"></p></div></section>
+    <section id="pane-reviews" class="pane"><div class="card"><div class="c-head">⭐ نتایج موفقیت شاگردان</div><div class="rev-card"><div class="ava">س‌م</div><div><h4 style="color:var(--gold);">۱۱ کیلو کاهش</h4><p style="font-size:0.8rem; margin-top:5px; color:var(--text-muted);">بدون ریزش مو با فستینگ.</p></div></div></div></section>
 
-    <!-- AI Water -->
-    <section id="pane-watercalc" class="pane">
-        <div class="card">
-            <div class="c-head"><span>💧 محاسبه‌گر آب (AI)</span></div>
-            <div style="text-align:center; margin-bottom:15px;">
-                <div style="font-size:0.85rem; color:var(--text-muted);">نیاز روزانه بدن شما (تخمی
+</div>
+
+<script>
+    // Splash
+    setTimeout(() => { document.getElementById('splash').classList.add('hide'); }, 2200);
+
+    let state = { cups:0, fSec:16*3600, tRun:false, tmr:null, calSum:0 };
+
+    // Nav
+    function openMenu(s) { document.getElementById('drawer-bg').classList.toggle('open', s); document.getElementById('drawer-pane').classList.toggle('open', s); }
+    function nav(id) { 
+        document.querySelectorAll('.pane').forEach(p => p.classList.remove('active')); document.getElementById('pane-'+id).classList.add('active');
+        document.querySelectorAll('.bn-item').forEach(b => b.classList.remove('active')); let btn = document.getElementById('bn-'+id); if(btn) btn.classList.add('active');
+        openMenu(false); window.scrollTo(0,0);
+        if(id==='shopguide') document.getElementById('sg-txt').innerHTML = "نان جو دوسر، روغن زیتون، سینه مرغ.";
+        if(id==='terms') document.getElementById('tm-txt').innerHTML = "اتوفاژی: پاکسازی سلولی.";
+        if(id==='secrets') document.getElementById('sc-txt').innerHTML = "شوک سینوسی و کنترل خواب.";
+    }
+
+    // AI Math
+    function st(id, d) { let v = document.getElementById(id); v.value = Math.max(10, (parseInt(v.value)||0) + d); }
+    function calcAI() {
+        let box = document.getElementById('ai-calc-res'); box.style.display = 'block';
+        document.getElementById('res-cal').innerText = "⏳ پردازش...";
+        setTimeout(() => {
+            let w = parseInt(document.getElementById('w').value)||80, h = parseInt(document.getElementById('h').value)||170, a = parseInt(document.getElementById('a').value)||30;
+            document.getElementById('bmi-lbl').innerText = "BMI: " + (w / ((h/100)**2)).toFixed(1);
+            document.getElementById('res-cal').innerText = Math.round(((10 * w) + (6.25 * h) - (5 * a) + 5) * 1.55 - 500) + " kcal";
+        }, 1200);
+    }
+
+    // Tracker & Timer
+    function addFoodAI() {
+        let f = document.getElementById('ai-food').value.trim(); if(!f) return;
+        document.getElementById('ai-food').value = "⏳ در حال استخراج...";
+        setTimeout(() => {
+            let c = Math.floor(Math.random() * 250) + 120; state.calSum += c;
+            document.getElementById('f-log').innerHTML += `<div style="background:var(--surface-elevated); padding:10px; border-radius:10px; margin-top:8px; display:flex; justify-content:space-between; border:1px solid var(--border-glass);"><span>🍽️ ${f}</span><span style="color:var(--emerald); font-weight:900;">${c} kcal</span></div>`;
+            document.getElementById('trk-badge').innerText = state.calSum + " kcal";
+            document.getElementById('ai-food').value = '';
+        }, 1000);
+    }
+    function tgFast() { 
+        state.tRun = !state.tRun; let btn = document.getElementById('btn-fast');
+        if(state.tRun) { btn.innerText = "⏸️ توقف"; btn.style.background = "#f97316"; state.tmr = setInterval(() => { if(state.fSec > 0) state.fSec--; updateT(); }, 1000); } 
+        else { btn.innerText = "🔥 شروع چربی‌سوزی"; btn.style.background = ""; clearInterval(state.tmr); }
+    }
+    function rstFast() { clearInterval(state.tmr); state.tRun = false; state.fSec = 16*3600; document.getElementById('btn-fast').innerText = "🔥 شروع"; document.getElementById('btn-fast').style.background = ""; updateT(); }
+    function updateT() { let h = String(Math.floor(state.fSec/3600)).padStart(2,'0'), m = String(Math.floor((state.fSec%3600)/60)).padStart(2,'0'), s = String(state.fSec%60).padStart(2,'0'); document.getElementById('t-disp').innerText = `${h}:${m}:${s}`; }
+    function rCups() { let h=''; for(let i=1; i<=11; i++) h+=`<div class="w-cup ${i<=state.cups?'d':''}" onclick="state.cups=${state.cups===i?i-1:i};rCups()">لیوان ${i}</div>`; document.getElementById('w-grid').innerHTML = h; }
+
+    // AI
+    function askAI() { let box=document.getElementById('ai-res'); box.style.display='block'; box.innerHTML='⏳ پردازش...'; setTimeout(() => { box.innerHTML = `🧬 پاسخ AI: فستینگ ۱۶ ساعته عالیست.`; }, 1500); }
+
+    // Copy Card Number
+    function copyCard() {
+        let cardNum = "6037991234567890"; // <-- شماره کارت واقعی خود را اینجا جایگزین کنید
+        navigator.clipboard.writeText(cardNum).then(() => { alert("✅ شماره کارت کپی شد."); });
+    }
+
+    // Auto Copy & Send Form
+    function sndForm(platform) {
+        let text = `📋 فرم VIP (فیت‌شاه)\n\n`+
+                   `👤 نام: ${document.getElementById('c-name').value || '-'}\n`+
+                   `📞 موبایل: ${document.getElementById('c-ph').value || '-'}\n`+
+                   `🧬 سن/جنس: ${document.getElementById('c-age-gender').value || '-'}\n`+
+                   `🎯 هدف: ${document.getElementById('c-goal').value}\n`+
+                   `🩺 بیماری: ${document.getElementById('c-med').value || '-'}\n`+
+                   `💳 وضعیت پرداخت: انجام شده (رسید پیوست می‌شود)\n`;
+                   
+        let phone = "989125844487";
+        if (navigator.clipboard) navigator.clipboard.writeText(text);
+        
+        alert("✅ اطلاعات فرم کپی شد! در حال انتقال به برنامه...\n\nفراموش نکنید عکس رسید پرداخت را نیز همراه با فرم ارسال کنید.");
+        
+        setTimeout(() => {
+            if(platform === 'wa') window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
+            if(platform === 'tg') window.open(`https://t.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
+        }, 800);
+    }
+
+    updateT(); rCups();
+</script>
+
+</body>
+</html>
