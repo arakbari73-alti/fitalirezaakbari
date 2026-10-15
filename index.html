@@ -182,7 +182,7 @@
         <div class="card">
             <div class="c-head"><span>📋 فرم ارزیابی و دریافت رژیم VIP</span></div>
             <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:20px; line-height:1.7;">
-                لطفاً جهت بررسی تخصصی پرونده توسط <b>علیرضا اکبری</b>، تمام فیلدها را با دقت پر کنید. اطلاعات به مستقیم برای مربی ارسال می‌شود.
+                لطفاً جهت بررسی تخصصی پرونده توسط <b>علیرضا اکبری</b>، تمام فیلدها را با دقت پر کنید. اطلاعات مستقیماً برای مربی ارسال می‌شود.
             </p>
 
             <span class="f-lbl">۱. نام و نام خانوادگی:</span>
@@ -217,8 +217,8 @@
             <div style="font-size:0.85rem; font-weight:900; color:var(--emerald); margin:20px 0 10px; text-align:center;">ارسال مستقیم پرونده به مربی:</div>
 
             <div style="display:flex; flex-direction:column; gap:10px;">
-                <button class="cta" style="background:#25D366; color:#fff;" onclick="sndForm('wa')">🟢 ارسال به واتساپ (09125844487)</button>
-                <button class="cta" style="background:#229ED9; color:#fff;" onclick="sndForm('tg')">🔵 ارسال به تلگرام (09125844487)</button>
+                <button class="cta" style="background:#25D366; color:#fff;" onclick="sndForm('wa')">🟢 کپی و ارسال به واتساپ (09125844487)</button>
+                <button class="cta" style="background:#229ED9; color:#fff;" onclick="sndForm('tg')">🔵 کپی و ارسال به تلگرام (09125844487)</button>
             </div>
         </div>
     </section>
@@ -238,149 +238,4 @@
         <div class="card">
             <div class="c-head"><span>💧 محاسبه‌گر آب (AI)</span></div>
             <div style="text-align:center; margin-bottom:15px;">
-                <div style="font-size:0.85rem; color:var(--text-muted);">نیاز روزانه بدن شما (تخمین AI):</div>
-                <div style="font-size:2rem; font-weight:900; color:#0ea5e9;">2.8 لیتر <span style="font-size:1rem;">(۱۱ لیوان)</span></div>
-            </div>
-            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:8px;" id="w-grid"></div>
-        </div>
-    </section>
-
-    <!-- AI Texts -->
-    <section id="pane-shopguide" class="pane"><div class="card"><div class="c-head">🥑 راهنمای خرید سوپرمارکت</div><p id="sg-txt" style="font-size:0.85rem; line-height:1.8; color:var(--text-muted);"></p></div></section>
-    <section id="pane-terms" class="pane"><div class="card"><div class="c-head">📊 فرهنگ‌نامه لاغری</div><p id="tm-txt" style="font-size:0.85rem; line-height:1.8; color:var(--text-muted);"></p></div></section>
-    <section id="pane-secrets" class="pane"><div class="card"><div class="c-head">🔥 اسرار استپ‌شکن</div><p id="sc-txt" style="font-size:0.85rem; line-height:1.8; color:var(--text-muted);"></p></div></section>
-
-    <!-- Reviews -->
-    <section id="pane-reviews" class="pane">
-        <div class="card"><div class="c-head">⭐ نتایج موفقیت شاگردان</div>
-            <div class="rev-card"><div class="ava">س‌م</div><div><h4 style="color:var(--gold);">۱۱ کیلو کاهش در ۳ ماه</h4><p style="font-size:0.8rem; margin-top:5px; color:var(--text-muted);">بدون ریزش مو با رعایت فستینگ.</p></div></div>
-            <div class="rev-card"><div class="ava">م‌ر</div><div><h4 style="color:var(--gold);">شکست استپ وزنی</h4><p style="font-size:0.8rem; margin-top:5px; color:var(--text-muted);">با تنظیم کالری‌شمار هوشمند.</p></div></div>
-            <div class="rev-card"><div class="ava">ا‌ک</div><div><h4 style="color:var(--gold);">بهبود کبد چرب</h4><p style="font-size:0.8rem; margin-top:5px; color:var(--text-muted);">عضله‌سازی و کاهش چربی احشایی.</p></div></div>
-        </div>
-    </section>
-
-</div>
-
-<script>
-    // Splash Screen Timer
-    setTimeout(() => { document.getElementById('splash').classList.add('hide'); }, 2200);
-
-    // Global State
-    let state = { cups:0, fSec:16*3600, tRun:false, tmr:null, calSum:0 };
-
-    // Navigation & Drawer
-    function openMenu(s) { document.getElementById('drawer-bg').classList.toggle('open', s); document.getElementById('drawer-pane').classList.toggle('open', s); }
-    function nav(id) { 
-        document.querySelectorAll('.pane').forEach(p => p.classList.remove('active')); 
-        document.getElementById('pane-'+id).classList.add('active');
-        document.querySelectorAll('.bn-item').forEach(b => b.classList.remove('active')); 
-        let btn = document.getElementById('bn-'+id); if(btn) btn.classList.add('active');
-        openMenu(false); window.scrollTo(0,0);
-        
-        // AI Text Loaders
-        if(id==='shopguide') document.getElementById('sg-txt').innerHTML = "<b>نان:</b> جو دو سر، سنگک سنتی<br><br><b>روغن:</b> زیتون فرابکر، روغن آووکادو<br><br><b>پروتئین:</b> سینه مرغ، تن ماهی در آب‌نمک، تخم‌مرغ محلی.";
-        if(id==='terms') document.getElementById('tm-txt').innerHTML = "<b>اتوفاژی:</b> سیستم پاکسازی سلولی که از ساعت ۱۴ فستینگ اوج می‌گیرد.<br><br><b>کالری منفی:</b> غذایی که انرژی هضم آن بیشتر از کالری دریافتی است.";
-        if(id==='secrets') document.getElementById('sc-txt').innerHTML = "۱. <b>شوک سینوسی:</b> نوسان بین روزهای کم‌کالری و پرکالری.<br><br>۲. <b>دی‌بریک:</b> رساندن کالری به سطح تثبیت برای ۴۸ ساعت جهت تنظیم هورمون لپتین.";
-    }
-
-    // AI Analyze Math
-    function st(id, d) { let v = document.getElementById(id); v.value = Math.max(10, (parseInt(v.value)||0) + d); }
-    function calcAI() {
-        let box = document.getElementById('ai-calc-res');
-        box.style.display = 'block';
-        document.getElementById('res-cal').innerText = "⏳ پردازش...";
-        document.getElementById('bmi-lbl').innerText = "BMI: AI";
-        
-        setTimeout(() => {
-            let w = parseInt(document.getElementById('w').value) || 80;
-            let h = parseInt(document.getElementById('h').value) || 170;
-            let a = parseInt(document.getElementById('a').value) || 30;
-            
-            let bmi = (w / ((h/100)**2)).toFixed(1);
-            let bmr = (10 * w) + (6.25 * h) - (5 * a) + 5;
-            let tdee = Math.round(bmr * 1.55);
-            let targetCal = tdee - 500; // Diet mode
-
-            document.getElementById('bmi-lbl').innerText = "BMI: " + bmi;
-            document.getElementById('res-cal').innerText = targetCal + " kcal";
-            document.getElementById('r-pro').innerText = Math.round(w * 2) + "g";
-            document.getElementById('r-car').innerText = Math.round((targetCal * 0.4)/4) + "g";
-            document.getElementById('r-fat').innerText = Math.round((targetCal * 0.3)/9) + "g";
-        }, 1200);
-    }
-
-    // AI Food Tracker
-    function addFoodAI() {
-        let f = document.getElementById('ai-food').value.trim();
-        if(!f) return;
-        document.getElementById('ai-food').value = "⏳ در حال استخراج کالری...";
-        
-        setTimeout(() => {
-            let c = Math.floor(Math.random() * 250) + 120;
-            state.calSum += c;
-            document.getElementById('f-log').innerHTML += `<div style="background:var(--surface-elevated); padding:10px; border-radius:10px; margin-top:8px; display:flex; justify-content:space-between; border:1px solid var(--border-glass);"><span>🍽️ ${f}</span><span style="color:var(--emerald); font-weight:900;">${c} kcal</span></div>`;
-            document.getElementById('trk-badge').innerText = state.calSum + " kcal";
-            document.getElementById('ai-food').value = '';
-        }, 1000);
-    }
-
-    // Fasting Timer
-    function tgFast() { 
-        state.tRun = !state.tRun; 
-        let btn = document.getElementById('btn-fast');
-        if(state.tRun) {
-            btn.innerText = "⏸️ توقف";
-            btn.style.background = "#f97316";
-            state.tmr = setInterval(() => { if(state.fSec > 0) state.fSec--; updateT(); }, 1000);
-        } else {
-            btn.innerText = "🔥 شروع چربی‌سوزی";
-            btn.style.background = "";
-            clearInterval(state.tmr);
-        }
-    }
-    function rstFast() { clearInterval(state.tmr); state.tRun = false; state.fSec = 16*3600; document.getElementById('btn-fast').innerText = "🔥 شروع چربی‌سوزی"; document.getElementById('btn-fast').style.background = ""; updateT(); }
-    function updateT() { 
-        let h = String(Math.floor(state.fSec/3600)).padStart(2,'0');
-        let m = String(Math.floor((state.fSec%3600)/60)).padStart(2,'0');
-        let s = String(state.fSec%60).padStart(2,'0');
-        document.getElementById('t-disp').innerText = `${h}:${m}:${s}`; 
-    }
-
-    // AI Water Cups
-    function rCups() { let h=''; for(let i=1; i<=11; i++) h+=`<div class="w-cup ${i<=state.cups?'d':''}" onclick="state.cups=${state.cups===i?i-1:i};rCups()">لیوان ${i}</div>`; document.getElementById('w-grid').innerHTML = h; }
-
-    // AI Chat Bot
-    function askAI() {
-        let q = document.getElementById('ai-q').value;
-        if(!q) return;
-        let box = document.getElementById('ai-res');
-        box.style.display = 'block';
-        box.innerHTML = '⏳ در حال ارتباط با موتور پردازش...';
-        setTimeout(() => {
-            box.innerHTML = `🧬 <b>پاسخ هوش مصنوعی فیت‌شاه:</b><br>کاربر عزیز، در سیستم من برای فرم‌دهی و لاغری، بهترین راهکار رعایت فستینگ ۱۶ ساعته به همراه مصرف بالای پروتئین در زمان آزادسازی است.`;
-        }, 1500);
-    }
-
-    // Send Form to 09125844487
-    function sndForm(platform) {
-        let text = `📋 فرم ارزیابی VIP (کلینیک فیت‌شاه)\n\n`+
-                   `👤 نام: ${document.getElementById('c-name').value || 'وارد نشده'}\n`+
-                   `📞 موبایل: ${document.getElementById('c-ph').value || 'وارد نشده'}\n`+
-                   `🧬 سن/جنسیت: ${document.getElementById('c-age-gender').value || 'وارد نشده'}\n`+
-                   `🎯 هدف: ${document.getElementById('c-goal').value}\n`+
-                   `🔄 سابقه رژیم: ${document.getElementById('c-history').value || 'ندارد'}\n`+
-                   `⚠️ چالش: ${document.getElementById('c-chal').value || 'ندارد'}\n`+
-                   `🩺 بیماری: ${document.getElementById('c-med').value || 'ندارد'}\n`+
-                   `⏰ لایف‌استایل: ${document.getElementById('c-sch').value || 'وارد نشده'}`;
-                   
-        let phone = "989125844487";
-        if(platform === 'wa') window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`);
-        if(platform === 'tg') window.open(`https://t.me/${phone}?text=${encodeURIComponent(text)}`);
-    }
-
-    // Init functions
-    updateT(); rCups();
-</script>
-
-</body>
-</html>
+                <div style="font-size:0.85rem; color:var(--text-muted);">نیاز روزانه بدن شما (تخمی
