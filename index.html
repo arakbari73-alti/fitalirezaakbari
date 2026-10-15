@@ -189,12 +189,12 @@
         <button type="button" class="main-cta" onclick="switchPane('consult', 'دریافت رژیم')">📋 تکمیل فرم دریافت رژیم شخصی</button>
     </section>
 
-    <!-- مشاور هوش مصنوعی جمنای (پاسخگویی زنده به سوالات) -->
+    <!-- مشاور هوش مصنوعی جمنای -->
     <section id="pane-ai" class="pane">
         <div class="card" style="background:linear-gradient(135deg, #121824 0%, #05080f 100%); border-color:#6366f1;">
             <div class="c-head" style="border-bottom-color:rgba(255,255,255,0.1);"><span class="c-title" style="color:var(--gold);">✨ مشاور هوشمند گوگل جمنای (AI)</span><span class="c-badge" style="background:#6366f1; color:#fff;">AI</span></div>
-            <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:12px;">هر سوالی در مورد کاهش وزن، استپ وزنی، فستینگ یا تغذیه دارید بپرسید:</p>
-            <div class="f-group"><textarea id="ai-q" rows="2" class="f-ctrl" style="background:#05080f; color:#fff;" placeholder="مثلاً: بهترین روش برای چربی‌سوزی شکم چیست؟"></textarea></div>
+            <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:12px;">هر سوالی در مورد کاهش وزن، استپ وزنی یا فستینگ دارید بپرسید:</p>
+            <div class="f-group"><textarea id="ai-q" rows="2" class="f-ctrl" style="background:#05080f; color:#fff;" placeholder="مثلاً: چه ساعت فستینگی برای چربی‌سوزی بهتر است؟"></textarea></div>
             <button type="button" class="main-cta" onclick="runAI()">✨ دریافت پاسخ هوشمند از AI</button>
             <div id="ai-res" style="background:#05080f; border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:12px; margin-top:12px; font-size:0.82rem; line-height:1.7; color:#f8fafc;">آماده پاسخگویی به سوالات شما...</div>
         </div>
@@ -211,7 +211,7 @@
                     <button type="button" class="t-btn" id="goal-bulk" onclick="setGoalMode('bulk')">💪 حجم / عضله‌سازی خشک</button>
                 </div>
             </div>
-            <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:10px;">هر غذایی که خور‌ده‌اید را بنویسید (مثلاً: <i>یک بشقاب قورمه‌سبزی</i>) تا هوش مصنوعی کالری آن را محاسبه کند:</p>
+            <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:10px;">هر غذایی که خور‌ده‌اید را بنویسید تا هوش مصنوعی کالری آن را محاسبه کند:</p>
             <div class="f-group">
                 <input type="text" id="ai-food-input" class="f-ctrl" placeholder="نام غذا یا خوراکی...">
             </div>
@@ -278,7 +278,7 @@
         </div>
     </section>
 
-    <!-- نتایج موفقیت شاگردان VIP (پر شده با عکس و نتایج واقعی) -->
+    <!-- نتایج موفقیت شاگردان VIP (با تصاویر و کارنامه‌های واقعی) -->
     <section id="pane-reviews" class="pane">
         <div class="card">
             <div class="c-head"><span class="c-title">⭐ نتایج موفقیت شاگردان VIP (fitalirezaakbari)</span><span class="badge">پرافتخار</span></div>
@@ -396,7 +396,7 @@
         if (id === 'secrets') loadAISecrets();
     };
 
-    // موتور هوش مصنوعی واقعی برای پاسخ به سوالات کلینیکی
+    // موتور هوش مصنوعی برای پاسخ به سوالات کلینیکی
     window.runAI = function() {
         var q = document.getElementById('ai-q').value.trim();
         var out = document.getElementById('ai-res');
