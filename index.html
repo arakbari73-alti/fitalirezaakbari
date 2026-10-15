@@ -24,40 +24,67 @@
         body { background-color: var(--bg-deep); color: var(--text-main); min-height: 100vh; padding-bottom: 50px; background-image: radial-gradient(rgba(16, 185, 129, 0.05) 1px, transparent 1px); background-size: 24px 24px; overflow-x: hidden; }
         
         /* =======================================
-           صفحه لودینگ (Splash Screen) اختصاصی
+           صفحه لودینگ مشابه اپلیکیشن کرفس (Karafs Style)
            ======================================= */
         #splash-screen {
-            position: fixed; inset: 0; background: var(--bg-deep); z-index: 9999; 
+            position: fixed; inset: 0; z-index: 9999;
+            background: linear-gradient(180deg, #10b981 0%, #047857 100%); /* سبز کرفسی/زمردی */
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
-            background-image: radial-gradient(rgba(16, 185, 129, 0.08) 1px, transparent 1px); background-size: 30px 30px;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
         }
         #splash-screen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
         
+        /* کانتینر اصلی در لودینگ */
+        .splash-content {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            flex-grow: 1; margin-bottom: 40px;
+        }
+        
+        /* لوگو (مشابه جایگاه لوگوی کرفس) */
         .splash-logo {
-            width: 100px; height: 100px; border-radius: 50%;
-            background: linear-gradient(135deg, var(--emerald), var(--gold));
+            width: 110px; height: 110px; border-radius: 30px;
+            background: #ffffff; /* پس‌زمینه سفید برای برجسته شدن لوگو روی سبز */
             display: flex; align-items: center; justify-content: center;
-            font-size: 2.5rem; font-weight: 900; color: #05080f;
-            box-shadow: 0 0 30px var(--emerald-glow);
-            animation: pulseLogo 1.5s infinite alternate; margin-bottom: 20px;
-        }
-        @keyframes pulseLogo { 
-            0% { transform: scale(0.95); box-shadow: 0 0 20px var(--emerald-glow); } 
-            100% { transform: scale(1.05); box-shadow: 0 0 50px var(--emerald); } 
+            font-size: 3.5rem; font-weight: 900; color: #047857; /* رنگ سبز تیره برای متن */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            margin-bottom: 15px;
+            animation: bounceIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
         
-        .splash-title { font-size: 1.8rem; font-weight: 900; color: #fff; letter-spacing: 2px; direction: ltr; margin-bottom: 5px; }
-        .splash-subtitle { font-size: 0.95rem; color: var(--emerald); font-weight: 800; }
-        
-        .loader {
-            border: 4px solid rgba(255,255,255,0.05); border-top-color: var(--emerald);
-            border-radius: 50%; width: 45px; height: 45px; margin-top: 40px;
-            animation: spinLoader 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+        .splash-title {
+            font-size: 2rem; font-weight: 900; color: #ffffff;
+            letter-spacing: 1px; direction: ltr; margin-bottom: 4px;
+            opacity: 0; animation: fadeIn 0.8s ease 0.3s forwards;
         }
-        @keyframes spinLoader { to { transform: rotate(360deg); } }
+        
+        .splash-subtitle {
+            font-size: 1rem; color: rgba(255,255,255,0.85); font-weight: 700;
+            opacity: 0; animation: fadeIn 0.8s ease 0.5s forwards;
+        }
+        
+        /* انیمیشن نقطه ای مشابه کرفس در پایین صفحه */
+        .splash-dots {
+            display: flex; gap: 8px; margin-bottom: 50px;
+            opacity: 0; animation: fadeIn 0.8s ease 0.8s forwards;
+        }
+        .splash-dots span {
+            width: 12px; height: 12px; background-color: #ffffff; border-radius: 50%;
+            display: inline-block; animation: typingBounce 1.4s infinite ease-in-out both;
+        }
+        .splash-dots span:nth-child(1) { animation-delay: -0.32s; }
+        .splash-dots span:nth-child(2) { animation-delay: -0.16s; }
+        
+        @keyframes bounceIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes fadeIn { to { opacity: 1; } }
+        @keyframes typingBounce {
+            0%, 80%, 100% { transform: scale(0); opacity: 0.5; } 
+            40% { transform: scale(1); opacity: 1; }
+        }
+        /* ======================================= */
 
-        /* بقیه استایل‌های برنامه */
         .navbar { position: sticky; top: 0; z-index: 100; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-glass); box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
         .ham-btn { background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); color: var(--emerald); width: 42px; height: 42px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; }
         .ham-btn span { display: block; width: 20px; height: 2px; background: var(--emerald); border-radius: 2px; }
@@ -123,14 +150,21 @@
 </head>
 <body>
 
-<!-- صفحه لودینگ (Splash Screen) -->
+<!-- صفحه لودینگ (مشابه طراحی کرفس) -->
 <div id="splash-screen">
-    <div class="splash-logo">FA</div>
-    <div class="splash-title">FitShah</div>
-    <div class="splash-subtitle">کلینیک تخصصی تغذیه و لاغری</div>
-    <div class="loader"></div>
+    <div class="splash-content">
+        <div class="splash-logo">FA</div>
+        <div class="splash-title">FitShah</div>
+        <div class="splash-subtitle">کلینیک تخصصی تغذیه و لاغری</div>
+    </div>
+    <div class="splash-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 </div>
 
+<!-- هدر -->
 <header class="navbar">
     <button type="button" class="ham-btn" onclick="openDrawer(true)" aria-label="منو">
         <span></span><span></span><span></span>
@@ -141,6 +175,7 @@
     <div id="head-ind" class="badge-ind">معرفی مربی</div>
 </header>
 
+<!-- منو -->
 <div id="drawer-bg" class="drawer-bg" onclick="openDrawer(false)"></div>
 <aside id="drawer-pane" class="drawer">
     <div>
@@ -378,11 +413,12 @@
 </div>
 
 <script>
-    // کنترل صفحه لودینگ اولیه (Splash Screen)
+    // بستن خودکار صفحه لودینگ (Splash Screen) پس از 2.5 ثانیه
     window.addEventListener('load', function() {
         setTimeout(function() {
-            document.getElementById('splash-screen').classList.add('hidden');
-        }, 2500); // زمان لودینگ 2.5 ثانیه تنظیم شده است
+            var splash = document.getElementById('splash-screen');
+            if(splash) splash.classList.add('hidden');
+        }, 2500);
     });
 
     var WA = "989125844487";
