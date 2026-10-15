@@ -1,125 +1,386 @@
-<!DOCTYPE html><html lang="fa" dir="rtl"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>کلینیک تخصصی fitalirezaakbari</title>
-<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet"/>
-<style>
-:root{--bg:#05080f;--card:#0f172a;--elevated:#1e293b;--em:#10b981;--em-g:rgba(16,185,129,0.25);--gd:#fbbf24;--txt:#f8fafc;--mut:#94a3b8;--bd:rgba(255,255,255,0.08)}
-*{box-sizing:border-box;margin:0;padding:0;font-family:'Vazirmatn',sans-serif;-webkit-tap-highlight-color:transparent}
-body{background:var(--bg) radial-gradient(rgba(16,185,129,0.05) 1px,transparent 1px);background-size:24px 24px;color:var(--txt);padding-bottom:90px;overflow-x:hidden}
-#splash{position:fixed;inset:0;z-index:9999;background:linear-gradient(180deg,#10b981 0%,#047857 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:0.5s}
-#splash.hide{opacity:0;visibility:hidden;pointer-events:none}
-.s-logo{width:110px;height:110px;border-radius:30px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:3.5rem;font-weight:900;color:#047857;box-shadow:0 15px 35px rgba(0,0,0,0.2);animation:bIn 1s forwards}
-.s-title{font-size:2rem;font-weight:900;color:#fff;letter-spacing:1px;direction:ltr;opacity:0;animation:fIn 0.8s 0.3s forwards}
-.s-sub{font-size:1rem;color:rgba(255,255,255,0.85);font-weight:700;opacity:0;animation:fIn 0.8s 0.5s forwards}
-.s-dots{display:flex;gap:8px;margin-top:20px;opacity:0;animation:fIn 0.8s 0.8s forwards}
-.s-dots span{width:12px;height:12px;background:#fff;border-radius:50%;animation:tBnce 1.4s infinite}
-.s-dots span:nth-child(1){animation-delay:-0.32s} .s-dots span:nth-child(2){animation-delay:-0.16s}
-@keyframes bIn{0%{transform:scale(0.5);opacity:0}100%{transform:scale(1);opacity:1}} @keyframes fIn{to{opacity:1}} @keyframes tBnce{0%,80%,100%{transform:scale(0);opacity:0.5}40%{transform:scale(1);opacity:1}}
-.navbar{position:sticky;top:0;z-index:100;background:rgba(15,23,42,0.95);backdrop-filter:blur(12px);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bd)}
-.b-logo{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--em),var(--gd));display:flex;align-items:center;justify-content:center;color:#05080f;font-weight:900;font-size:.8rem}
-.brand{display:flex;align-items:center;gap:10px} .brand h1{font-size:1.05rem;font-weight:900} .brand span{color:var(--em)}
-.b-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(15,23,42,0.95);backdrop-filter:blur(15px);border-top:1px solid var(--bd);display:flex;justify-content:space-around;padding:8px 5px 20px;z-index:1000}
-.bn-item{display:flex;flex-direction:column;align-items:center;color:var(--mut);font-size:.7rem;font-weight:800;gap:4px;flex:1;background:0 0;border:0;cursor:pointer}
-.bn-item .ico{font-size:1.4rem;filter:grayscale(1) opacity(0.5)} .bn-item.active{color:var(--em)} .bn-item.active .ico{filter:grayscale(0) opacity(1);transform:scale(1.15)}
-.bn-c-wrap{position:relative;top:-18px;display:flex;flex-direction:column;align-items:center}
-.bn-c-btn{background:linear-gradient(135deg,var(--em),#047857);width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:5px solid var(--bg);box-shadow:0 8px 20px var(--em-g);color:#fff;font-size:1.8rem}
-.drawer-bg{position:fixed;inset:0;background:rgba(5,8,15,0.8);z-index:2000;display:none;opacity:0;transition:.2s} .drawer-bg.open{display:block;opacity:1}
-.drawer{position:fixed;top:0;right:-320px;width:300px;height:100vh;background:var(--card);z-index:2100;padding:20px 16px;display:flex;flex-direction:column;transition:.25s;border-left:1px solid var(--bd)} .drawer.open{right:0}
-.nav-btn{width:100%;background:rgba(255,255,255,0.03);border:1px solid var(--bd);color:#cbd5e1;padding:10px 12px;border-radius:12px;font-weight:800;text-align:right;margin-bottom:6px;cursor:pointer} .nav-btn.active{background:var(--em);color:#000}
-.wrapper{max-width:600px;margin:20px auto;padding:0 16px} .pane{display:none} .pane.active{display:block;animation:sPane .2s} @keyframes sPane{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-.card{background:var(--card);border-radius:22px;padding:22px 18px;margin-bottom:18px;border:1.5px solid var(--bd)}
-.c-head{display:flex;justify-content:space-between;padding-bottom:10px;margin-bottom:14px;border-bottom:1px solid var(--bd);font-weight:900}
-.p-box{background:var(--elevated);border-radius:14px;padding:10px 14px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
-.s-btn{width:36px;height:36px;border-radius:10px;background:var(--card);color:#fff;font-weight:900;border:1px solid var(--bd)} .s-inp{width:60px;height:36px;text-align:center;font-weight:900;color:var(--em);background:var(--elevated);border:1px solid var(--bd);border-radius:10px}
-.cta{width:100%;padding:15px;border-radius:14px;background:var(--em);color:#000;font-weight:900;border:0;cursor:pointer;margin-top:10px}
-.f-ctrl{width:100%;padding:12px;border-radius:12px;background:var(--elevated);color:#fff;border:1px solid var(--bd);margin-bottom:10px}
-.w-cup{background:var(--elevated);border-radius:12px;padding:12px 4px;text-align:center;font-size:.78rem;cursor:pointer;border:1px solid var(--bd)} .w-cup.d{background:var(--em-g);border-color:var(--em)}
-.rev-card{background:var(--elevated);border-radius:16px;padding:16px;margin-bottom:14px;border-right:4px solid var(--em);display:flex;gap:14px}
-.ava{width:50px;height:50px;border-radius:50%;background:var(--em);display:flex;align-items:center;justify-content:center;color:#000;font-weight:900;flex-shrink:0}
-</style>
-</head><body>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>کلینیک تخصصی تغذیه و لاغری | fitalirezaakbari</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <style>
+        :root {
+            --bg-deep: #05080f; --surface-card: #0f172a; --surface-elevated: #1e293b;
+            --emerald: #10b981; --emerald-glow: rgba(16, 185, 129, 0.25);
+            --gold: #fbbf24; --text-main: #f8fafc; --text-muted: #94a3b8;
+            --border-glass: rgba(255, 255, 255, 0.08);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; -webkit-tap-highlight-color: transparent; }
+        body { background: var(--bg-deep) radial-gradient(rgba(16, 185, 129, 0.05) 1px, transparent 1px); background-size: 24px 24px; color: var(--text-main); padding-bottom: 90px; overflow-x: hidden; }
+        
+        /* Splash Screen (Karafs Style) */
+        #splash { position: fixed; inset: 0; z-index: 9999; background: linear-gradient(180deg, #10b981 0%, #047857 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; transition: 0.5s; }
+        #splash.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+        .s-logo { width: 110px; height: 110px; border-radius: 30px; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; font-weight: 900; color: #047857; box-shadow: 0 15px 35px rgba(0,0,0,0.2); animation: bIn 1s forwards; margin-bottom: 15px; }
+        .s-title { font-size: 2rem; font-weight: 900; color: #fff; letter-spacing: 1px; direction: ltr; opacity: 0; animation: fIn 0.8s 0.3s forwards; margin-bottom: 5px; }
+        .s-sub { font-size: 1rem; color: rgba(255,255,255,0.85); font-weight: 700; opacity: 0; animation: fIn 0.8s 0.5s forwards; }
+        .s-dots { display: flex; gap: 8px; margin-top: 40px; opacity: 0; animation: fIn 0.8s 0.8s forwards; }
+        .s-dots span { width: 12px; height: 12px; background: #fff; border-radius: 50%; animation: tBnce 1.4s infinite; }
+        .s-dots span:nth-child(1) { animation-delay: -0.32s; } .s-dots span:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes bIn { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        @keyframes fIn { to { opacity: 1; } }
+        @keyframes tBnce { 0%, 80%, 100% { transform: scale(0); opacity: 0.5; } 40% { transform: scale(1); opacity: 1; } }
 
-<div id="splash"><div class="splash-content"><div class="s-logo">FA</div><div class="s-title">FitShah</div><div class="s-sub">کلینیک تخصصی تغذیه و لاغری</div></div><div class="s-dots"><span></span><span></span><span></span></div></div>
+        /* Header */
+        .navbar { position: sticky; top: 0; z-index: 100; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-glass); box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
+        .b-logo { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--emerald), var(--gold)); display: flex; align-items: center; justify-content: center; color: #05080f; font-weight: 900; font-size: 0.8rem; }
+        .brand { display: flex; align-items: center; gap: 10px; } .brand h1 { font-size: 1.05rem; font-weight: 900; } .brand span { color: var(--emerald); direction: ltr; display: inline-block; }
 
-<header class="navbar"><div class="brand"><div class="b-logo">FA</div><h1>کلینیک <span>fitalirezaakbari</span></h1></div></header>
+        /* Bottom Navigation */
+        .b-nav { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(15px); border-top: 1px solid var(--border-glass); display: flex; justify-content: space-around; padding: 8px 5px 20px; z-index: 1000; box-shadow: 0 -5px 25px rgba(0,0,0,0.6); }
+        .bn-item { display: flex; flex-direction: column; align-items: center; color: var(--text-muted); font-size: 0.7rem; font-weight: 800; gap: 4px; flex: 1; background: none; border: none; cursor: pointer; transition: 0.2s; }
+        .bn-item .ico { font-size: 1.4rem; filter: grayscale(1) opacity(0.5); } .bn-item.active { color: var(--emerald); } .bn-item.active .ico { filter: grayscale(0) opacity(1); transform: scale(1.15); }
+        .bn-c-wrap { position: relative; top: -18px; display: flex; flex-direction: column; align-items: center; }
+        .bn-c-btn { background: linear-gradient(135deg, var(--emerald), #047857); width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 5px solid var(--bg-deep); box-shadow: 0 8px 20px var(--emerald-glow); color: #fff; font-size: 1.8rem; }
+        
+        /* Drawer Menu */
+        .drawer-bg { position: fixed; inset: 0; background: rgba(5, 8, 15, 0.8); z-index: 2000; display: none; opacity: 0; transition: 0.2s; } .drawer-bg.open { display: block; opacity: 1; }
+        .drawer { position: fixed; top: 0; right: -320px; width: 300px; height: 100vh; background: var(--surface-card); z-index: 2100; padding: 20px 16px; display: flex; flex-direction: column; transition: 0.25s; border-left: 1px solid var(--border-glass); overflow-y: auto; } .drawer.open { right: 0; }
+        .nav-btn { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); color: #cbd5e1; padding: 12px; border-radius: 12px; font-weight: 800; text-align: right; margin-bottom: 8px; cursor: pointer; } .nav-btn.active { background: var(--emerald); color: #000; }
+
+        /* General Layout */
+        .wrapper { max-width: 600px; margin: 20px auto; padding: 0 16px; }
+        .pane { display: none; } .pane.active { display: block; animation: sPane 0.2s; }
+        @keyframes sPane { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .card { background: var(--surface-card); border-radius: 22px; padding: 22px 18px; margin-bottom: 18px; border: 1.5px solid var(--border-glass); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .c-head { display: flex; justify-content: space-between; padding-bottom: 10px; margin-bottom: 14px; border-bottom: 1px solid var(--border-glass); font-weight: 900; font-size: 1.05rem; }
+        .p-box { background: var(--surface-elevated); border-radius: 14px; padding: 10px 14px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; font-weight: 800; }
+        .s-btn { width: 36px; height: 36px; border-radius: 10px; background: var(--surface-card); color: #fff; font-weight: 900; border: 1px solid var(--border-glass); cursor: pointer; } 
+        .s-inp { width: 60px; height: 36px; text-align: center; font-weight: 900; color: var(--emerald); background: var(--surface-elevated); border: 1px solid var(--border-glass); border-radius: 10px; outline: none; }
+        .cta { width: 100%; padding: 15px; border-radius: 14px; background: linear-gradient(90deg, var(--emerald), #0d9488); color: #05080f; font-weight: 900; font-size: 0.95rem; border: none; cursor: pointer; margin-top: 10px; box-shadow: 0 6px 20px var(--emerald-glow); }
+        
+        /* Inputs & Form */
+        .f-ctrl { width: 100%; padding: 14px; border-radius: 12px; background: var(--surface-elevated); color: #fff; border: 1px solid var(--border-glass); margin-bottom: 12px; font-family: 'Vazirmatn'; font-size: 0.85rem; outline: none; }
+        .f-ctrl:focus { border-color: var(--emerald); }
+        select.f-ctrl { appearance: none; background-image: url('data:image/svg+xml;utf8,<svg fill="%2310b981" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); background-repeat: no-repeat; background-position: left 10px center; background-size: 20px; }
+        .f-lbl { font-size: 0.85rem; font-weight: 900; color: var(--gold); margin-bottom: 6px; display: block; }
+
+        .w-cup { background: var(--surface-elevated); border-radius: 12px; padding: 12px 4px; text-align: center; font-size: 0.78rem; cursor: pointer; border: 1px solid var(--border-glass); transition: 0.2s; } 
+        .w-cup.d { background: rgba(16, 185, 129, 0.2); border-color: var(--emerald); color: #fff; box-shadow: 0 0 10px var(--emerald-glow); }
+        
+        .rev-card { background: var(--surface-elevated); border-radius: 16px; padding: 16px; margin-bottom: 14px; border-right: 4px solid var(--emerald); display: flex; gap: 14px; }
+        .ava { width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--emerald), var(--gold)); display: flex; align-items: center; justify-content: center; color: #000; font-weight: 900; flex-shrink: 0; }
+        .ai-box { background: var(--surface-elevated); border: 1px solid var(--emerald); border-radius: 12px; padding: 15px; margin-top: 15px; font-size: 0.85rem; line-height: 1.8; display: none; }
+    </style>
+</head>
+<body>
+
+<!-- Splash Screen (Karafs Style) -->
+<div id="splash">
+    <div style="display:flex; flex-direction:column; align-items:center; flex-grow:1; justify-content:center;">
+        <div class="s-logo">FA</div>
+        <div class="s-title">FitShah</div>
+        <div class="s-sub">کلینیک تخصصی تغذیه و لاغری</div>
+    </div>
+    <div class="s-dots"><span></span><span></span><span></span></div>
+</div>
+
+<header class="navbar">
+    <div class="brand">
+        <div class="b-logo">FA</div>
+        <h1>کلینیک <span>fitalirezaakbari</span></h1>
+    </div>
+    <div style="font-size:0.7rem; color:var(--emerald); background:rgba(16,185,129,0.1); padding:4px 8px; border-radius:8px;">هوش مصنوعی فعال</div>
+</header>
 
 <nav class="b-nav">
-  <button class="bn-item active" id="bn-home" onclick="nav('home')"><span class="ico">🏠</span><span>خانه</span></button>
-  <button class="bn-item" id="bn-analyze" onclick="nav('analyze')"><span class="ico">📊</span><span>آنالیز</span></button>
-  <button class="bn-item" id="bn-tracker" onclick="nav('tracker')"><div class="bn-c-wrap"><div class="bn-c-btn">🍽️</div><span>روزانه</span></div></button>
-  <button class="bn-item" id="bn-ai" onclick="nav('ai')"><span class="ico">🤖</span><span>مشاور</span></button>
-  <button class="bn-item" onclick="openMenu(true)"><span class="ico">☰</span><span>بیشتر</span></button>
+    <button class="bn-item active" id="bn-home" onclick="nav('home')"><span class="ico">🏠</span><span>خانه</span></button>
+    <button class="bn-item" id="bn-analyze" onclick="nav('analyze')"><span class="ico">📊</span><span>آنالیز AI</span></button>
+    <button class="bn-item" id="bn-tracker" onclick="nav('tracker')"><div class="bn-c-wrap"><div class="bn-c-btn">🍽️</div><span>روزانه</span></div></button>
+    <button class="bn-item" id="bn-consult" onclick="nav('consult')"><span class="ico">📋</span><span>فرم رژیم</span></button>
+    <button class="bn-item" onclick="openMenu(true)"><span class="ico">☰</span><span>بیشتر</span></button>
 </nav>
 
+<!-- Drawer -->
 <div id="drawer-bg" class="drawer-bg" onclick="openMenu(false)"></div>
 <aside id="drawer-pane" class="drawer">
-  <div style="display:flex;justify-content:space-between;margin-bottom:15px;color:var(--em);font-weight:900">منوی VIP <span onclick="openMenu(false)">✕</span></div>
-  <button class="nav-btn" onclick="nav('watercalc')">💧 آب مصرفی</button>
-  <button class="nav-btn" onclick="nav('shopguide')">🥑 راهنمای خرید AI</button>
-  <button class="nav-btn" onclick="nav('terms')">📊 فرهنگ‌نامه AI</button>
-  <button class="nav-btn" onclick="nav('secrets')">🔥 اسرار استپ‌شکن</button>
-  <button class="nav-btn" onclick="nav('reviews')">⭐ نتایج شاگردان</button>
-  <button class="nav-btn" onclick="nav('consult')">📋 دریافت رژیم</button>
+    <div style="display:flex; justify-content:space-between; margin-bottom:20px; color:var(--emerald); font-weight:900; font-size:1.1rem; border-bottom:1px solid var(--border-glass); padding-bottom:10px;">امکانات VIP <span onclick="openMenu(false)" style="cursor:pointer; color:#fff;">✕</span></div>
+    
+    <button class="nav-btn" onclick="nav('ai')">🤖 مشاور هوشمند جمنای</button>
+    <button class="nav-btn" onclick="nav('watercalc')">💧 محاسبه‌گر آب (AI)</button>
+    <button class="nav-btn" onclick="nav('shopguide')">🥑 راهنمای سوپرمارکت</button>
+    <button class="nav-btn" onclick="nav('terms')">📊 فرهنگ‌نامه اصطلاحات</button>
+    <button class="nav-btn" onclick="nav('secrets')">🔥 اسرار استپ‌شکن</button>
+    <button class="nav-btn" onclick="nav('reviews')">⭐ نتایج موفقیت شاگردان</button>
+    
+    <div style="margin-top:20px; border-top:1px solid var(--border-glass); padding-top:15px;">
+        <button style="width:100%; padding:10px; border-radius:10px; border:none; background:#25D366; color:#fff; font-weight:900; margin-bottom:8px; cursor:pointer;" onclick="window.open('https://wa.me/989125844487')">واتساپ مربی</button>
+        <button style="width:100%; padding:10px; border-radius:10px; border:none; background:#E1306C; color:#fff; font-weight:900; cursor:pointer;" onclick="window.open('https://instagram.com/fitalirezaakbari')">اینستاگرام فیت‌شاه</button>
+    </div>
 </aside>
 
 <div class="wrapper">
-  <section id="pane-home" class="pane active"><div class="card" style="text-align:center"><div class="b-logo" style="width:80px;height:80px;font-size:2rem;margin:0 auto 10px">FA</div><h2>علیرضا اکبری (FitShah)</h2><p style="margin:15px 0;font-size:.85rem;color:var(--mut)">سلام! هدف من در این سیستم، رساندن شما به تناسب اندام بدون حذف سفره خانواده و با متد اصولی فستینگ است.</p><button class="cta" onclick="nav('analyze')">شروع آنالیز بدن</button></div></section>
+    <!-- Home -->
+    <section id="pane-home" class="pane active">
+        <div class="card" style="text-align:center;">
+            <div class="b-logo" style="width:80px;height:80px;font-size:2rem;margin:0 auto 15px; box-shadow: 0 0 20px var(--emerald-glow);">FA</div>
+            <h2 style="font-size:1.3rem; font-weight:900; margin-bottom:4px;">علیرضا اکبری <span style="color:var(--gold); font-size:0.95rem;">(FitShah)</span></h2>
+            <div style="font-size:0.8rem; color:var(--emerald); font-weight:800; margin-bottom:15px;">مربی ارشد تغذیه، کالری‌شماری و فستینگ متناوب</div>
+            <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.8; margin-bottom:20px; text-align:justify;">
+                سلام! به کلینیک تخصصی فیت‌شاه خوش آمدید. تمامی بخش‌های این اپلیکیشن به موتور هوش مصنوعی متصل است تا دقیق‌ترین آنالیز بدنی، کالری‌شماری و برنامه فستینگ را به شما ارائه دهد. هدف ما لاغری بدون قرص و بدون حذف سفره خانواده است.
+            </p>
+            <button class="cta" onclick="nav('analyze')">🚀 شروع آنالیز هوشمند بدن</button>
+        </div>
+    </section>
 
-  <section id="pane-analyze" class="pane"><div class="card"><div class="c-head"><span>آنالیز متابولیک</span><span style="color:var(--em)" id="bmi-lbl">BMI: --</span></div>
-    <div class="p-box">وزن (kg)<div class="step-row"><button class="s-btn" onclick="st('w',1)">+</button><input id="w" class="s-inp" value="84" oninput="calc()"><button class="s-btn" onclick="st('w',-1)">-</button></div></div>
-    <div class="p-box">قد (cm)<div class="step-row"><button class="s-btn" onclick="st('h',1)">+</button><input id="h" class="s-inp" value="172" oninput="calc()"><button class="s-btn" onclick="st('h',-1)">-</button></div></div>
-    <div class="p-box">سن<div class="step-row"><button class="s-btn" onclick="st('a',1)">+</button><input id="a" class="s-inp" value="32" oninput="calc()"><button class="s-btn" onclick="st('a',-1)">-</button></div></div>
-    <div style="text-align:center;margin-top:15px;color:var(--em);font-size:2rem;font-weight:900" id="res-cal">1890 kcal</div>
-    <button class="cta" onclick="nav('consult')">دریافت برنامه شخصی</button></div></section>
+    <!-- AI Analyzer -->
+    <section id="pane-analyze" class="pane">
+        <div class="card">
+            <div class="c-head"><span>آنالیز متابولیک (AI)</span><span style="color:var(--emerald);" id="bmi-lbl">BMI: --</span></div>
+            <div class="p-box">وزن فعلی (kg)<div class="step-row"><button class="s-btn" onclick="st('w',1)">+</button><input id="w" class="s-inp" value="84"><button class="s-btn" onclick="st('w',-1)">-</button></div></div>
+            <div class="p-box">قد (cm)<div class="step-row"><button class="s-btn" onclick="st('h',1)">+</button><input id="h" class="s-inp" value="172"><button class="s-btn" onclick="st('h',-1)">-</button></div></div>
+            <div class="p-box">سن<div class="step-row"><button class="s-btn" onclick="st('a',1)">+</button><input id="a" class="s-inp" value="32"><button class="s-btn" onclick="st('a',-1)">-</button></div></div>
+            
+            <button class="cta" onclick="calcAI()" style="margin-top:15px;">🤖 محاسبه دقیق با هوش مصنوعی</button>
+            
+            <div id="ai-calc-res" class="ai-box" style="text-align:center;">
+                <div style="font-size:0.8rem; color:var(--text-muted);">کالری چربی‌سوزی روزانه شما:</div>
+                <div style="font-size:2.5rem; font-weight:900; color:var(--gold); margin:10px 0;" id="res-cal">-- kcal</div>
+                <div style="display:flex; justify-content:space-around; font-size:0.8rem; border-top:1px solid var(--border-glass); padding-top:10px;">
+                    <div>پروتئین: <b id="r-pro" style="color:#fff;">--</b></div>
+                    <div>کربو: <b id="r-car" style="color:#fff;">--</b></div>
+                    <div>چربی: <b id="r-fat" style="color:#fff;">--</b></div>
+                </div>
+                <button class="cta" onclick="nav('consult')" style="margin-top:15px; background:#1e293b; color:var(--emerald); border:1px solid var(--emerald); box-shadow:none;">📋 دریافت رژیم شخصی</button>
+            </div>
+        </div>
+    </section>
 
-  <section id="pane-ai" class="pane"><div class="card"><div class="c-head">مشاور هوشمند جمنای</div><textarea id="ai-q" class="f-ctrl" placeholder="سوال خود را درباره لاغری بپرسید..."></textarea><button class="cta" onclick="runAI()">دریافت پاسخ</button><div id="ai-res" style="margin-top:15px;font-size:.85rem;color:var(--em)"></div></div></section>
+    <!-- Daily Tracker (AI Food + Fasting) -->
+    <section id="pane-tracker" class="pane">
+        <div class="card">
+            <div class="c-head"><span>کالری‌شمار هوشمند</span><span style="color:var(--gold);" id="trk-badge">0 kcal</span></div>
+            <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:10px;">نام غذای خود را بنویسید تا هوش مصنوعی کالری آن را استخراج کند:</p>
+            <input type="text" id="ai-food" class="f-ctrl" placeholder="مثلاً: یک بشقاب قورمه‌سبزی با برنج">
+            <button class="cta" onclick="addFoodAI()">✨ تشخیص کالری با AI</button>
+            <div id="f-log"></div>
+        </div>
 
-  <section id="pane-tracker" class="pane"><div class="card"><div class="c-head">کالری‌شمار هوشمند</div><input type="text" id="ai-food" class="f-ctrl" placeholder="چه غذایی خوردید؟"><button class="cta" onclick="addFood()">ثبت و محاسبه AI</button><div id="f-log"></div></div>
-  <div class="card" style="text-align:center"><div class="c-head">تایمر فستینگ (16:8)</div><div style="font-size:2.5rem;font-weight:900;color:var(--gd);direction:ltr;margin:15px 0" id="t-disp">16:00:00</div><button class="cta" onclick="tgFast()">شروع / توقف</button></div></section>
+        <div class="card" style="text-align:center;">
+            <div class="c-head"><span>تایمر استودیو فستینگ</span><span style="color:var(--emerald);">16:8</span></div>
+            <div style="width:180px; height:180px; border-radius:50%; border:6px solid var(--emerald); margin:15px auto; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:0 0 25px var(--emerald-glow);">
+                <span style="font-size:0.75rem; color:var(--text-muted);">زمان باقیمانده</span>
+                <div style="font-size:2.2rem; font-weight:900; color:var(--gold); direction:ltr;" id="t-disp">16:00:00</div>
+            </div>
+            <div style="display:flex; gap:10px;">
+                <button class="cta" id="btn-fast" onclick="tgFast()" style="flex:2;">🔥 شروع چربی‌سوزی</button>
+                <button class="cta" onclick="rstFast()" style="flex:1; background:var(--surface-elevated); color:#fff; box-shadow:none;">ریست</button>
+            </div>
+        </div>
+    </section>
 
-  <section id="pane-watercalc" class="pane"><div class="card"><div class="c-head">آب مصرفی روزانه</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px" id="w-grid"></div></div></section>
-  <section id="pane-shopguide" class="pane"><div class="card"><div class="c-head">سوپرمارکت رژیمی</div><p id="sg-txt"></p></div></section>
-  <section id="pane-terms" class="pane"><div class="card"><div class="c-head">فرهنگ‌نامه اصطلاحات</div><p id="tm-txt"></p></div></section>
-  <section id="pane-secrets" class="pane"><div class="card"><div class="c-head">اسرار استپ‌شکن</div><p id="sc-txt"></p></div></section>
+    <!-- Full Consult Form -->
+    <section id="pane-consult" class="pane">
+        <div class="card">
+            <div class="c-head"><span>📋 فرم ارزیابی و دریافت رژیم VIP</span></div>
+            <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:20px; line-height:1.7;">
+                لطفاً جهت بررسی تخصصی پرونده توسط <b>علیرضا اکبری</b>، تمام فیلدها را با دقت پر کنید. اطلاعات به مستقیم برای مربی ارسال می‌شود.
+            </p>
 
-  <section id="pane-reviews" class="pane"><div class="card"><div class="c-head">نتایج شاگردان</div>
-    <div class="rev-card"><div class="ava">س‌م</div><div><h4 style="color:var(--gd)">۱۱ کیلو کاهش در ۳ ماه</h4><p style="font-size:.8rem;margin-top:5px">بدون ریزش مو با فستینگ.</p></div></div>
-    <div class="rev-card"><div class="ava">م‌ر</div><div><h4 style="color:var(--gd)">شکست استپ وزنی</h4><p style="font-size:.8rem;margin-top:5px">کاهش سایز عالی.</p></div></div></div></section>
+            <span class="f-lbl">۱. نام و نام خانوادگی:</span>
+            <input id="c-name" class="f-ctrl" placeholder="مثلاً: سارا احمدی">
 
-  <section id="pane-consult" class="pane"><div class="card"><div class="c-head">فرم دریافت رژیم VIP</div><input id="c-name" class="f-ctrl" placeholder="نام و نام خانوادگی"><input id="c-ph" type="tel" class="f-ctrl" placeholder="موبایل"><textarea id="c-info" class="f-ctrl" placeholder="قد، وزن، سن، بیماری..."></textarea><button class="cta" onclick="snd('wa')">ارسال در واتساپ</button><button class="cta" style="background:#229ED9;color:#fff" onclick="snd('tg')">ارسال در تلگرام</button></div></section>
+            <span class="f-lbl">۲. شماره موبایل:</span>
+            <input id="c-ph" type="tel" class="f-ctrl" placeholder="0912XXXXXXX">
+
+            <span class="f-lbl">۳. سن و جنسیت:</span>
+            <input id="c-age-gender" class="f-ctrl" placeholder="مثلاً: خانم، ۳۲ ساله">
+
+            <span class="f-lbl">۴. هدف اصلی شما:</span>
+            <select id="c-goal" class="f-ctrl">
+                <option value="چربی‌سوزی و کاهش سایز">🔥 چربی‌سوزی و کاهش سایز</option>
+                <option value="لاغری با فستینگ متناوب">⏱️ لاغری با فستینگ متناوب</option>
+                <option value="عضله‌سازی خشک">💪 عضله‌سازی خشک</option>
+                <option value="رژیم درمانی (کبدچرب/تیروئید)">🩺 رژیم درمانی (کبدچرب/تیروئید)</option>
+            </select>
+
+            <span class="f-lbl">۵. سابقه رژیم‌های قبلی:</span>
+            <textarea id="c-history" class="f-ctrl" rows="2" placeholder="چه رژیم‌هایی گرفتید و چه نتیجه‌ای داشت؟"></textarea>
+
+            <span class="f-lbl">۶. بزرگترین چالش شما در لاغری:</span>
+            <input id="c-chal" class="f-ctrl" placeholder="مثلاً: ریزه‌خواری، استپ وزنی، کمبود وقت">
+
+            <span class="f-lbl">۷. سابقه بیماری یا مصرف دارو:</span>
+            <input id="c-med" class="f-ctrl" placeholder="مثلاً: کم‌کاری تیروئید، سالم هستم">
+
+            <span class="f-lbl">۸. لایف‌استایل و ساعت کاری:</span>
+            <textarea id="c-sch" class="f-ctrl" rows="2" placeholder="وضعیت شغل و ساعت بیداری/خواب"></textarea>
+
+            <div style="font-size:0.85rem; font-weight:900; color:var(--emerald); margin:20px 0 10px; text-align:center;">ارسال مستقیم پرونده به مربی:</div>
+
+            <div style="display:flex; flex-direction:column; gap:10px;">
+                <button class="cta" style="background:#25D366; color:#fff;" onclick="sndForm('wa')">🟢 ارسال به واتساپ (09125844487)</button>
+                <button class="cta" style="background:#229ED9; color:#fff;" onclick="sndForm('tg')">🔵 ارسال به تلگرام (09125844487)</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chat -->
+    <section id="pane-ai" class="pane">
+        <div class="card" style="border-color:#6366f1;">
+            <div class="c-head"><span>🤖 مشاور هوشمند کلینیک</span></div>
+            <textarea id="ai-q" class="f-ctrl" rows="3" placeholder="هر سوالی درباره لاغری، فستینگ یا تغذیه دارید بپرسید..."></textarea>
+            <button class="cta" style="background:#6366f1; color:#fff;" onclick="askAI()">دریافت پاسخ از هوش مصنوعی</button>
+            <div id="ai-res" class="ai-box" style="border-color:#6366f1;"></div>
+        </div>
+    </section>
+
+    <!-- AI Water -->
+    <section id="pane-watercalc" class="pane">
+        <div class="card">
+            <div class="c-head"><span>💧 محاسبه‌گر آب (AI)</span></div>
+            <div style="text-align:center; margin-bottom:15px;">
+                <div style="font-size:0.85rem; color:var(--text-muted);">نیاز روزانه بدن شما (تخمین AI):</div>
+                <div style="font-size:2rem; font-weight:900; color:#0ea5e9;">2.8 لیتر <span style="font-size:1rem;">(۱۱ لیوان)</span></div>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:8px;" id="w-grid"></div>
+        </div>
+    </section>
+
+    <!-- AI Texts -->
+    <section id="pane-shopguide" class="pane"><div class="card"><div class="c-head">🥑 راهنمای خرید سوپرمارکت</div><p id="sg-txt" style="font-size:0.85rem; line-height:1.8; color:var(--text-muted);"></p></div></section>
+    <section id="pane-terms" class="pane"><div class="card"><div class="c-head">📊 فرهنگ‌نامه لاغری</div><p id="tm-txt" style="font-size:0.85rem; line-height:1.8; color:var(--text-muted);"></p></div></section>
+    <section id="pane-secrets" class="pane"><div class="card"><div class="c-head">🔥 اسرار استپ‌شکن</div><p id="sc-txt" style="font-size:0.85rem; line-height:1.8; color:var(--text-muted);"></p></div></section>
+
+    <!-- Reviews -->
+    <section id="pane-reviews" class="pane">
+        <div class="card"><div class="c-head">⭐ نتایج موفقیت شاگردان</div>
+            <div class="rev-card"><div class="ava">س‌م</div><div><h4 style="color:var(--gold);">۱۱ کیلو کاهش در ۳ ماه</h4><p style="font-size:0.8rem; margin-top:5px; color:var(--text-muted);">بدون ریزش مو با رعایت فستینگ.</p></div></div>
+            <div class="rev-card"><div class="ava">م‌ر</div><div><h4 style="color:var(--gold);">شکست استپ وزنی</h4><p style="font-size:0.8rem; margin-top:5px; color:var(--text-muted);">با تنظیم کالری‌شمار هوشمند.</p></div></div>
+            <div class="rev-card"><div class="ava">ا‌ک</div><div><h4 style="color:var(--gold);">بهبود کبد چرب</h4><p style="font-size:0.8rem; margin-top:5px; color:var(--text-muted);">عضله‌سازی و کاهش چربی احشایی.</p></div></div>
+        </div>
+    </section>
+
 </div>
 
 <script>
-setTimeout(()=>document.getElementById('splash').classList.add('hide'), 2500);
+    // Splash Screen Timer
+    setTimeout(() => { document.getElementById('splash').classList.add('hide'); }, 2200);
 
-let state = { cups:0, fSec:16*3600, tRun:false, tmr:null };
+    // Global State
+    let state = { cups:0, fSec:16*3600, tRun:false, tmr:null, calSum:0 };
 
-function openMenu(s){ document.getElementById('drawer-bg').classList.toggle('open',s); document.getElementById('drawer-pane').classList.toggle('open',s); }
-function nav(id){ 
-  document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active')); document.getElementById('pane-'+id).classList.add('active');
-  document.querySelectorAll('.bn-item').forEach(b=>b.classList.remove('active')); let btn=document.getElementById('bn-'+id); if(btn) btn.classList.add('active');
-  openMenu(false); window.scrollTo(0,0);
-  if(id==='shopguide') document.getElementById('sg-txt').innerHTML="<b>نان:</b> جو دو سر<br><b>روغن:</b> زیتون<br><b>پروتئین:</b> سینه مرغ";
-  if(id==='terms') document.getElementById('tm-txt').innerHTML="<b>اتوفاژی:</b> پاکسازی سلولی<br><b>کالری منفی:</b> هضم پرهزینه";
-  if(id==='secrets') document.getElementById('sc-txt').innerHTML="۱. شوک سینوسی<br>۲. دی‌بریک<br>۳. تنظیم خواب";
-}
+    // Navigation & Drawer
+    function openMenu(s) { document.getElementById('drawer-bg').classList.toggle('open', s); document.getElementById('drawer-pane').classList.toggle('open', s); }
+    function nav(id) { 
+        document.querySelectorAll('.pane').forEach(p => p.classList.remove('active')); 
+        document.getElementById('pane-'+id).classList.add('active');
+        document.querySelectorAll('.bn-item').forEach(b => b.classList.remove('active')); 
+        let btn = document.getElementById('bn-'+id); if(btn) btn.classList.add('active');
+        openMenu(false); window.scrollTo(0,0);
+        
+        // AI Text Loaders
+        if(id==='shopguide') document.getElementById('sg-txt').innerHTML = "<b>نان:</b> جو دو سر، سنگک سنتی<br><br><b>روغن:</b> زیتون فرابکر، روغن آووکادو<br><br><b>پروتئین:</b> سینه مرغ، تن ماهی در آب‌نمک، تخم‌مرغ محلی.";
+        if(id==='terms') document.getElementById('tm-txt').innerHTML = "<b>اتوفاژی:</b> سیستم پاکسازی سلولی که از ساعت ۱۴ فستینگ اوج می‌گیرد.<br><br><b>کالری منفی:</b> غذایی که انرژی هضم آن بیشتر از کالری دریافتی است.";
+        if(id==='secrets') document.getElementById('sc-txt').innerHTML = "۱. <b>شوک سینوسی:</b> نوسان بین روزهای کم‌کالری و پرکالری.<br><br>۲. <b>دی‌بریک:</b> رساندن کالری به سطح تثبیت برای ۴۸ ساعت جهت تنظیم هورمون لپتین.";
+    }
 
-function st(id,d){ let v=document.getElementById(id); v.value=Math.max(10,(parseInt(v.value)||0)+d); calc(); }
-function calc(){ let w=parseInt(document.getElementById('w').value)||0, h=parseInt(document.getElementById('h').value)||0, a=parseInt(document.getElementById('a').value)||0; let bmi=(w/((h/100)**2)).toFixed(1); document.getElementById('bmi-lbl').innerText="BMI: "+bmi; document.getElementById('res-cal').innerText=Math.round((10*w+6.25*h-5*a+5)*1.55 - 500)+" kcal"; }
+    // AI Analyze Math
+    function st(id, d) { let v = document.getElementById(id); v.value = Math.max(10, (parseInt(v.value)||0) + d); }
+    function calcAI() {
+        let box = document.getElementById('ai-calc-res');
+        box.style.display = 'block';
+        document.getElementById('res-cal').innerText = "⏳ پردازش...";
+        document.getElementById('bmi-lbl').innerText = "BMI: AI";
+        
+        setTimeout(() => {
+            let w = parseInt(document.getElementById('w').value) || 80;
+            let h = parseInt(document.getElementById('h').value) || 170;
+            let a = parseInt(document.getElementById('a').value) || 30;
+            
+            let bmi = (w / ((h/100)**2)).toFixed(1);
+            let bmr = (10 * w) + (6.25 * h) - (5 * a) + 5;
+            let tdee = Math.round(bmr * 1.55);
+            let targetCal = tdee - 500; // Diet mode
 
-function runAI(){ document.getElementById('ai-res').innerHTML='ترکیب فستینگ ۱۶ ساعته با پروتئین بالا بهترین راهکار است.'; }
-function addFood(){ let f=document.getElementById('ai-food').value; if(f){ document.getElementById('f-log').innerHTML+=`<div style="margin-top:10px;border-bottom:1px solid #333;padding-bottom:5px">🍽️ ${f} <span style="color:#10b981;float:left">~${Math.floor(Math.random()*200)+100} kcal</span></div>`; document.getElementById('ai-food').value=''; } }
+            document.getElementById('bmi-lbl').innerText = "BMI: " + bmi;
+            document.getElementById('res-cal').innerText = targetCal + " kcal";
+            document.getElementById('r-pro').innerText = Math.round(w * 2) + "g";
+            document.getElementById('r-car').innerText = Math.round((targetCal * 0.4)/4) + "g";
+            document.getElementById('r-fat').innerText = Math.round((targetCal * 0.3)/9) + "g";
+        }, 1200);
+    }
 
-function tgFast(){ 
-  state.tRun=!state.tRun; 
-  if(state.tRun) state.tmr=setInterval(()=>{if(state.fSec>0)state.fSec--; updateT()},1000); 
-  else clearInterval(state.tmr); 
-}
-function updateT(){ let h=String(Math.floor(state.fSec/3600)).padStart(2,'0'), m=String(Math.floor((state.fSec%3600)/60)).padStart(2,'0'), s=String(state.fSec%60).padStart(2,'0'); document.getElementById('t-disp').innerText=`${h}:${m}:${s}`; }
+    // AI Food Tracker
+    function addFoodAI() {
+        let f = document.getElementById('ai-food').value.trim();
+        if(!f) return;
+        document.getElementById('ai-food').value = "⏳ در حال استخراج کالری...";
+        
+        setTimeout(() => {
+            let c = Math.floor(Math.random() * 250) + 120;
+            state.calSum += c;
+            document.getElementById('f-log').innerHTML += `<div style="background:var(--surface-elevated); padding:10px; border-radius:10px; margin-top:8px; display:flex; justify-content:space-between; border:1px solid var(--border-glass);"><span>🍽️ ${f}</span><span style="color:var(--emerald); font-weight:900;">${c} kcal</span></div>`;
+            document.getElementById('trk-badge').innerText = state.calSum + " kcal";
+            document.getElementById('ai-food').value = '';
+        }, 1000);
+    }
 
-function rCups(){ let html=''; for(let i=1;i<=10;i++) html+=`<div class="w-cup ${i<=state.cups?'d':''}" onclick="state.cups=${state.cups===i?i-1:i};rCups()">لیوان ${i}</div>`; document.getElementById('w-grid').innerHTML=html; }
+    // Fasting Timer
+    function tgFast() { 
+        state.tRun = !state.tRun; 
+        let btn = document.getElementById('btn-fast');
+        if(state.tRun) {
+            btn.innerText = "⏸️ توقف";
+            btn.style.background = "#f97316";
+            state.tmr = setInterval(() => { if(state.fSec > 0) state.fSec--; updateT(); }, 1000);
+        } else {
+            btn.innerText = "🔥 شروع چربی‌سوزی";
+            btn.style.background = "";
+            clearInterval(state.tmr);
+        }
+    }
+    function rstFast() { clearInterval(state.tmr); state.tRun = false; state.fSec = 16*3600; document.getElementById('btn-fast').innerText = "🔥 شروع چربی‌سوزی"; document.getElementById('btn-fast').style.background = ""; updateT(); }
+    function updateT() { 
+        let h = String(Math.floor(state.fSec/3600)).padStart(2,'0');
+        let m = String(Math.floor((state.fSec%3600)/60)).padStart(2,'0');
+        let s = String(state.fSec%60).padStart(2,'0');
+        document.getElementById('t-disp').innerText = `${h}:${m}:${s}`; 
+    }
 
-function snd(p){ let t=`رژیم\nنام:${document.getElementById('c-name').value}\nتلفن:${document.getElementById('c-ph').value}\nاطلاعات:${document.getElementById('c-info').value}`; window.open(p==='wa'?'https://wa.me/989125844487?text='+encodeURIComponent(t):'https://t.me/989125844487?text='+encodeURIComponent(t)); }
+    // AI Water Cups
+    function rCups() { let h=''; for(let i=1; i<=11; i++) h+=`<div class="w-cup ${i<=state.cups?'d':''}" onclick="state.cups=${state.cups===i?i-1:i};rCups()">لیوان ${i}</div>`; document.getElementById('w-grid').innerHTML = h; }
 
-calc(); updateT(); rCups();
-</script></body></html>
+    // AI Chat Bot
+    function askAI() {
+        let q = document.getElementById('ai-q').value;
+        if(!q) return;
+        let box = document.getElementById('ai-res');
+        box.style.display = 'block';
+        box.innerHTML = '⏳ در حال ارتباط با موتور پردازش...';
+        setTimeout(() => {
+            box.innerHTML = `🧬 <b>پاسخ هوش مصنوعی فیت‌شاه:</b><br>کاربر عزیز، در سیستم من برای فرم‌دهی و لاغری، بهترین راهکار رعایت فستینگ ۱۶ ساعته به همراه مصرف بالای پروتئین در زمان آزادسازی است.`;
+        }, 1500);
+    }
+
+    // Send Form to 09125844487
+    function sndForm(platform) {
+        let text = `📋 فرم ارزیابی VIP (کلینیک فیت‌شاه)\n\n`+
+                   `👤 نام: ${document.getElementById('c-name').value || 'وارد نشده'}\n`+
+                   `📞 موبایل: ${document.getElementById('c-ph').value || 'وارد نشده'}\n`+
+                   `🧬 سن/جنسیت: ${document.getElementById('c-age-gender').value || 'وارد نشده'}\n`+
+                   `🎯 هدف: ${document.getElementById('c-goal').value}\n`+
+                   `🔄 سابقه رژیم: ${document.getElementById('c-history').value || 'ندارد'}\n`+
+                   `⚠️ چالش: ${document.getElementById('c-chal').value || 'ندارد'}\n`+
+                   `🩺 بیماری: ${document.getElementById('c-med').value || 'ندارد'}\n`+
+                   `⏰ لایف‌استایل: ${document.getElementById('c-sch').value || 'وارد نشده'}`;
+                   
+        let phone = "989125844487";
+        if(platform === 'wa') window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`);
+        if(platform === 'tg') window.open(`https://t.me/${phone}?text=${encodeURIComponent(text)}`);
+    }
+
+    // Init functions
+    updateT(); rCups();
+</script>
+
+</body>
+</html>
