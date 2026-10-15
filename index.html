@@ -21,8 +21,43 @@
             --shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.6);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', Tahoma, sans-serif; -webkit-tap-highlight-color: transparent; }
-        body { background-color: var(--bg-deep); color: var(--text-main); min-height: 100vh; padding-bottom: 50px; background-image: radial-gradient(rgba(16, 185, 129, 0.05) 1px, transparent 1px); background-size: 24px 24px; }
+        body { background-color: var(--bg-deep); color: var(--text-main); min-height: 100vh; padding-bottom: 50px; background-image: radial-gradient(rgba(16, 185, 129, 0.05) 1px, transparent 1px); background-size: 24px 24px; overflow-x: hidden; }
         
+        /* =======================================
+           صفحه لودینگ (Splash Screen) اختصاصی
+           ======================================= */
+        #splash-screen {
+            position: fixed; inset: 0; background: var(--bg-deep); z-index: 9999; 
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+            background-image: radial-gradient(rgba(16, 185, 129, 0.08) 1px, transparent 1px); background-size: 30px 30px;
+        }
+        #splash-screen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+        
+        .splash-logo {
+            width: 100px; height: 100px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--emerald), var(--gold));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.5rem; font-weight: 900; color: #05080f;
+            box-shadow: 0 0 30px var(--emerald-glow);
+            animation: pulseLogo 1.5s infinite alternate; margin-bottom: 20px;
+        }
+        @keyframes pulseLogo { 
+            0% { transform: scale(0.95); box-shadow: 0 0 20px var(--emerald-glow); } 
+            100% { transform: scale(1.05); box-shadow: 0 0 50px var(--emerald); } 
+        }
+        
+        .splash-title { font-size: 1.8rem; font-weight: 900; color: #fff; letter-spacing: 2px; direction: ltr; margin-bottom: 5px; }
+        .splash-subtitle { font-size: 0.95rem; color: var(--emerald); font-weight: 800; }
+        
+        .loader {
+            border: 4px solid rgba(255,255,255,0.05); border-top-color: var(--emerald);
+            border-radius: 50%; width: 45px; height: 45px; margin-top: 40px;
+            animation: spinLoader 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+        }
+        @keyframes spinLoader { to { transform: rotate(360deg); } }
+
+        /* بقیه استایل‌های برنامه */
         .navbar { position: sticky; top: 0; z-index: 100; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-glass); box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
         .ham-btn { background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); color: var(--emerald); width: 42px; height: 42px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; }
         .ham-btn span { display: block; width: 20px; height: 2px; background: var(--emerald); border-radius: 2px; }
@@ -87,6 +122,14 @@
     </style>
 </head>
 <body>
+
+<!-- صفحه لودینگ (Splash Screen) -->
+<div id="splash-screen">
+    <div class="splash-logo">FA</div>
+    <div class="splash-title">FitShah</div>
+    <div class="splash-subtitle">کلینیک تخصصی تغذیه و لاغری</div>
+    <div class="loader"></div>
+</div>
 
 <header class="navbar">
     <button type="button" class="ham-btn" onclick="openDrawer(true)" aria-label="منو">
@@ -335,6 +378,13 @@
 </div>
 
 <script>
+    // کنترل صفحه لودینگ اولیه (Splash Screen)
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            document.getElementById('splash-screen').classList.add('hidden');
+        }, 2500); // زمان لودینگ 2.5 ثانیه تنظیم شده است
+    });
+
     var WA = "989125844487";
     var TG = "989125844487";
     var IG = "fitalirezaakbari";
