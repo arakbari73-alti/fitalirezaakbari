@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>فیت‌شاه | کالری‌شمار و برنامه فستینگ</title>
-<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 <style>
 :root{--bg:#05080f;--card:#0f172a;--elev:#1e293b;--em:#10b981;--glow:rgba(16,185,129,.25);--gold:#fbbf24;--txt:#f8fafc;--mut:#94a3b8;--bd:rgba(255,255,255,.08);--warn:#f97316}
 *{box-sizing:border-box;margin:0;padding:0;font-family:'Vazirmatn',Tahoma,sans-serif;-webkit-tap-highlight-color:transparent}
@@ -30,3 +29,374 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .pane{display:none}.pane.active{display:block}
 .card{background:var(--card);border-radius:22px;padding:22px 18px;margin-bottom:18px;border:1.5px solid var(--bd)}
 .c-head{display:flex;justify-content:space-between;padding-bottom:10px;margin-bottom:14px;border-bottom:1px solid var(--bd);font-weight:900;font-size:1.05rem}
+.p-box{background:var(--elev);border-radius:14px;padding:10px 14px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;font-weight:800}
+.step-row{display:flex;gap:6px}
+.s-btn{width:40px;height:40px;border-radius:10px;background:var(--card);color:#fff;font-weight:900;border:1px solid var(--bd);cursor:pointer}
+.s-inp{width:64px;height:40px;text-align:center;font-weight:900;color:var(--em);background:var(--elev);border:1px solid var(--bd);border-radius:10px}
+.cta{width:100%;padding:15px;border-radius:14px;background:linear-gradient(90deg,var(--em),#0d9488);color:#05080f;font-weight:900;font-size:.95rem;border:none;cursor:pointer;margin-top:10px}
+.f-ctrl{width:100%;padding:14px;border-radius:12px;background:var(--elev);color:#fff;border:1px solid var(--bd);margin-bottom:12px;font-size:.85rem;resize:none}
+.f-ctrl:focus{border-color:var(--em)}
+.f-ctrl.err{border-color:#ef4444}
+select.f-ctrl{appearance:none}
+.f-lbl{font-size:.85rem;font-weight:900;color:var(--gold);margin-bottom:6px;display:block}
+.w-cup{background:var(--elev);border-radius:12px;padding:12px 4px;text-align:center;font-size:.78rem;cursor:pointer;border:1px solid var(--bd);color:var(--txt)}
+.w-cup.d{background:rgba(16,185,129,.2);border-color:var(--em)}
+.ai-box{background:var(--elev);border:1px solid var(--em);border-radius:12px;padding:15px;margin-top:15px;font-size:.85rem;line-height:1.8;display:none}
+.note{font-size:.78rem;color:var(--mut);line-height:1.8;background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.35);border-radius:12px;padding:10px 12px;margin-top:12px}
+.txt{font-size:.85rem;line-height:1.9;color:var(--mut)}.txt b{color:var(--txt)}
+.food-row{background:var(--elev);padding:10px;border-radius:10px;margin-top:8px;display:flex;justify-content:space-between;align-items:center;gap:8px;border:1px solid var(--bd)}
+.food-row button{background:none;border:none;color:#ef4444;font-size:1.1rem;cursor:pointer;padding:4px 8px}
+.row2{display:flex;gap:10px}
+.faq-q{width:100%;text-align:right;background:var(--elev);border:1px solid var(--bd);color:var(--txt);padding:12px;border-radius:12px;font-weight:800;margin-bottom:8px;cursor:pointer}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div id="splash"><div class="s-logo">FA</div><div class="s-title">FitShah</div><div class="s-sub">کالری‌شمار و برنامه فستینگ</div></div>
+
+<header class="navbar">
+  <div class="brand"><div class="b-logo">FA</div><h1>FitShah</h1></div>
+  <div style="font-size:.7rem;color:var(--em);background:rgba(16,185,129,.1);padding:4px 8px;border-radius:8px">مربی: علیرضا اکبری</div>
+</header>
+
+<nav class="b-nav" aria-label="منوی اصلی">
+  <button class="bn-item active" id="bn-home" data-nav="home"><span class="ico">🏠</span><span>خانه</span></button>
+  <button class="bn-item" id="bn-analyze" data-nav="analyze"><span class="ico">📊</span><span>محاسبه</span></button>
+  <button class="bn-item" id="bn-tracker" data-nav="tracker"><div class="bn-c"><div class="bn-c-btn">🍽️</div><span>روزانه</span></div></button>
+  <button class="bn-item" id="bn-consult" data-nav="consult"><span class="ico">📋</span><span>فرم رژیم</span></button>
+  <button class="bn-item" id="bn-more" aria-label="باز کردن منو"><span class="ico">☰</span><span>بیشتر</span></button>
+</nav>
+
+<div id="drawer-bg" class="drawer-bg"></div>
+<aside id="drawer" class="drawer" aria-label="منوی بیشتر">
+  <div style="display:flex;justify-content:space-between;margin-bottom:20px;color:var(--em);font-weight:900;font-size:1.1rem;border-bottom:1px solid var(--bd);padding-bottom:10px">امکانات
+    <button id="drawer-x" aria-label="بستن منو" style="background:none;border:none;color:#fff;font-size:1.2rem;cursor:pointer">✕</button></div>
+  <button class="nav-btn" data-nav="faq">❓ پرسش‌های متداول</button>
+  <button class="nav-btn" data-nav="watercalc">💧 محاسبه‌گر آب</button>
+  <button class="nav-btn" data-nav="shopguide">🥑 راهنمای سوپرمارکت</button>
+  <button class="nav-btn" data-nav="terms">📖 فرهنگ‌نامه اصطلاحات</button>
+  <button class="nav-btn" data-nav="secrets">🔥 نکات عبور از استپ وزنی</button>
+  <button class="nav-btn" data-nav="safety">⚠️ هشدارهای ایمنی</button>
+  <div style="margin-top:20px;border-top:1px solid var(--bd);padding-top:15px">
+    <a id="lnk-wa" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none;padding:10px;border-radius:10px;background:#25D366;color:#fff;font-weight:900;margin-bottom:8px">واتساپ مربی</a>
+    <a id="lnk-ig" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none;padding:10px;border-radius:10px;background:#E1306C;color:#fff;font-weight:900">اینستاگرام</a>
+  </div>
+</aside>
+
+<main class="wrapper">
+  <section id="pane-home" class="pane active">
+    <div class="card" style="text-align:center">
+      <div class="b-logo" style="width:80px;height:80px;font-size:2rem;margin:0 auto 15px">FA</div>
+      <h2 style="font-size:1.3rem;font-weight:900;margin-bottom:4px">علیرضا اکبری <span style="color:var(--gold);font-size:.95rem">(FitShah)</span></h2>
+      <div style="font-size:.8rem;color:var(--em);font-weight:800;margin-bottom:15px">مشاوره تغذیه، کالری‌شماری و فستینگ متناوب</div>
+      <p class="txt" style="margin-bottom:20px;text-align:justify">با این اپلیکیشن می‌توانید کالری مصرفی مورد نیاز خود را تخمین بزنید، غذاهای روزانه و آب مصرفی را ثبت کنید، تایمر فستینگ داشته باشید و پرونده خود را برای مربی بفرستید.</p>
+      <button class="cta" data-nav="analyze">🚀 شروع محاسبه</button>
+      <div class="note">این برنامه جایگزین مشاوره پزشک نیست. اعداد، تخمینی هستند.</div>
+    </div>
+  </section>
+
+  <section id="pane-analyze" class="pane">
+    <div class="card">
+      <div class="c-head"><span>محاسبه کالری و درشت‌مغذی‌ها</span><span style="color:var(--em)" id="bmi-lbl">BMI: --</span></div>
+      <span class="f-lbl">جنسیت</span>
+      <select id="sex" class="f-ctrl"><option value="f">خانم</option><option value="m">آقا</option></select>
+      <div class="p-box">وزن (kg)<div class="step-row"><button class="s-btn" data-st="w,1" aria-label="افزایش وزن">+</button><input id="w" class="s-inp" inputmode="numeric" value="75" aria-label="وزن"><button class="s-btn" data-st="w,-1" aria-label="کاهش وزن">-</button></div></div>
+      <div class="p-box">قد (cm)<div class="step-row"><button class="s-btn" data-st="h,1" aria-label="افزایش قد">+</button><input id="h" class="s-inp" inputmode="numeric" value="165" aria-label="قد"><button class="s-btn" data-st="h,-1" aria-label="کاهش قد">-</button></div></div>
+      <div class="p-box">سن<div class="step-row"><button class="s-btn" data-st="a,1" aria-label="افزایش سن">+</button><input id="a" class="s-inp" inputmode="numeric" value="30" aria-label="سن"><button class="s-btn" data-st="a,-1" aria-label="کاهش سن">-</button></div></div>
+      <span class="f-lbl">سطح فعالیت</span>
+      <select id="act" class="f-ctrl">
+        <option value="1.2">کم‌تحرک (کار پشت میز)</option>
+        <option value="1.375">کم (ورزش ۱-۳ روز)</option>
+        <option value="1.55" selected>متوسط (ورزش ۳-۵ روز)</option>
+        <option value="1.725">زیاد (ورزش ۶-۷ روز)</option>
+      </select>
+      <button class="cta" id="btn-calc">محاسبه</button>
+      <div id="calc-err" role="alert" style="color:#fca5a5;font-size:.82rem;margin-top:10px"></div>
+      <div id="calc-res" class="ai-box" style="text-align:center">
+        <div style="font-size:.8rem;color:var(--mut)">کالری پیشنهادی روزانه (کاهش وزن ملایم):</div>
+        <div style="font-size:2.5rem;font-weight:900;color:var(--gold);margin:10px 0" id="res-cal">-- kcal</div>
+        <div style="font-size:.75rem;color:var(--mut);margin-bottom:8px" id="res-info"></div>
+        <div style="display:flex;justify-content:space-around;font-size:.8rem;border-top:1px solid var(--bd);padding-top:10px">
+          <div>پروتئین: <b id="r-pro">--</b></div><div>کربو: <b id="r-car">--</b></div><div>چربی: <b id="r-fat">--</b></div>
+        </div>
+        <button class="cta" data-nav="consult" style="background:#1e293b;color:var(--em);border:1px solid var(--em)">📋 دریافت رژیم شخصی</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="pane-tracker" class="pane">
+    <div class="card">
+      <div class="c-head"><span>ثبت غذای روزانه</span><span style="color:var(--gold)" id="trk-badge">0 kcal</span></div>
+      <p class="txt" style="margin-bottom:10px">نام غذا را بنویسید. اگر در فهرست بود، کالری تقریبی هر پرس پر می‌شود؛ می‌توانید آن را اصلاح کنید.</p>
+      <input type="text" id="food-name" class="f-ctrl" list="food-list" placeholder="مثلاً: قورمه‌سبزی با برنج" maxlength="60" aria-label="نام غذا">
+      <datalist id="food-list"></datalist>
+      <input type="number" id="food-cal" class="f-ctrl" placeholder="کالری (kcal)" min="1" max="5000" inputmode="numeric" aria-label="کالری">
+      <button class="cta" id="btn-food">➕ افزودن</button>
+      <div id="f-log"></div>
+    </div>
+    <div class="card" style="text-align:center">
+      <div class="c-head"><span>تایمر فستینگ</span><span style="color:var(--em)">16:8</span></div>
+      <div style="width:180px;height:180px;border-radius:50%;border:6px solid var(--em);margin:15px auto;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 25px var(--glow)">
+        <span style="font-size:.75rem;color:var(--mut)">زمان باقیمانده</span>
+        <div style="font-size:2.2rem;font-weight:900;color:var(--gold);direction:ltr" id="t-disp" aria-live="off">16:00:00</div>
+      </div>
+      <div id="t-msg" role="status" style="font-size:.85rem;color:var(--em);min-height:22px"></div>
+      <div class="row2">
+        <button class="cta" id="btn-fast" style="flex:2">شروع فستینگ</button>
+        <button class="cta" id="btn-rst" style="flex:1;background:var(--elev);color:#fff">ریست</button>
+      </div>
+      <div class="note">فستینگ برای باردار، شیرده، دیابتی، افراد زیر ۱۸ سال و کسانی که سابقه اختلال خوردن دارند، بدون نظر پزشک مناسب نیست.</div>
+    </div>
+  </section>
+
+  <section id="pane-consult" class="pane">
+    <div class="card">
+      <div class="c-head"><span>📋 فرم ارزیابی</span></div>
+      <p class="txt" style="margin-bottom:20px">اطلاعات شما فقط با زدن دکمه ارسال و از طریق پیام‌رسان انتخابی شما برای مربی فرستاده می‌شود. هیچ داده‌ای روی سرور ذخیره نمی‌شود.</p>
+      <label class="f-lbl" for="c-name">۱. نام و نام خانوادگی *</label>
+      <input id="c-name" class="f-ctrl" placeholder="مثلاً: سارا احمدی" maxlength="80" autocomplete="name">
+      <label class="f-lbl" for="c-ph">۲. شماره موبایل *</label>
+      <input id="c-ph" type="tel" class="f-ctrl" placeholder="0912XXXXXXX" inputmode="numeric" maxlength="11" autocomplete="tel">
+      <label class="f-lbl" for="c-age-gender">۳. سن و جنسیت</label>
+      <input id="c-age-gender" class="f-ctrl" placeholder="مثلاً: خانم، ۳۲ ساله" maxlength="40">
+      <label class="f-lbl" for="c-goal">۴. هدف اصلی</label>
+      <select id="c-goal" class="f-ctrl">
+        <option>چربی‌سوزی و کاهش سایز</option>
+        <option>لاغری با فستینگ متناوب</option>
+        <option>عضله‌سازی و کاهش چربی</option>
+        <option>رژیم همراه با نظر پزشک (کبدچرب/تیروئید)</option>
+      </select>
+      <label class="f-lbl" for="c-history">۵. سابقه رژیم‌های قبلی</label>
+      <textarea id="c-history" class="f-ctrl" rows="2" maxlength="300" placeholder="چه رژیم‌هایی گرفتید و نتیجه چه بود؟"></textarea>
+      <label class="f-lbl" for="c-chal">۶. بزرگ‌ترین چالش</label>
+      <input id="c-chal" class="f-ctrl" placeholder="مثلاً: ریزه‌خواری، استپ وزنی" maxlength="100">
+      <label class="f-lbl" for="c-med">۷. بیماری یا داروی مصرفی</label>
+      <input id="c-med" class="f-ctrl" placeholder="مثلاً: کم‌کاری تیروئید، یا سالم هستم" maxlength="150">
+      <label class="f-lbl" for="c-sch">۸. لایف‌استایل و ساعت کاری</label>
+      <textarea id="c-sch" class="f-ctrl" rows="2" maxlength="300" placeholder="شغل و ساعت بیداری/خواب"></textarea>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:.8rem;color:var(--mut);margin:6px 0 10px;line-height:1.7">
+        <input type="checkbox" id="c-ok" style="margin-top:6px"> موافقم که اطلاعات بالا (شامل اطلاعات سلامت) از طریق پیام‌رسان انتخابی برای مربی ارسال شود. *
+      </label>
+      <div id="c-err" role="alert" style="color:#fca5a5;font-size:.82rem;min-height:18px"></div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <button class="cta" style="background:#25D366;color:#fff" data-send="wa">🟢 ارسال به واتساپ</button>
+        <button class="cta" style="background:#229ED9;color:#fff" data-send="tg">🔵 ارسال به تلگرام</button>
+        <button class="cta" style="background:var(--elev);color:#fff" data-send="copy">📄 کپی متن فرم</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="pane-faq" class="pane">
+    <div class="card">
+      <div class="c-head"><span>❓ پرسش‌های متداول</span></div>
+      <div id="faq-list"></div>
+      <div id="faq-ans" class="ai-box" role="status"></div>
+      <p class="txt" style="margin-top:14px">پاسخ‌های بالا عمومی‌اند. برای سؤال شخصی از فرم رژیم یا واتساپ مربی استفاده کنید.</p>
+    </div>
+  </section>
+
+  <section id="pane-watercalc" class="pane">
+    <div class="card">
+      <div class="c-head"><span>💧 محاسبه‌گر آب</span></div>
+      <div style="text-align:center;margin-bottom:15px">
+        <div class="txt">تخمین نیاز روزانه (حدود ۳۰ تا ۳۵ میلی‌لیتر به‌ازای هر کیلوگرم، بر اساس وزن واردشده در صفحه محاسبه):</div>
+        <div style="font-size:2rem;font-weight:900;color:#0ea5e9;margin-top:6px" id="w-total">-</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px" id="w-grid"></div>
+      <div class="note">هر لیوان ۲۵۰ میلی‌لیتر. در بیماری قلبی/کلیوی مقدار آب را با پزشک تنظیم کنید.</div>
+    </div>
+  </section>
+
+  <section id="pane-shopguide" class="pane"><div class="card"><div class="c-head">🥑 راهنمای خرید</div><p class="txt"><b>نان:</b> نان جو، سنگک کامل<br><br><b>روغن:</b> زیتون، کنجد (در مقدار کم)<br><br><b>پروتئین:</b> سینه مرغ، ماهی، تخم‌مرغ، ماست کم‌چرب، حبوبات<br><br><b>میان‌وعده:</b> میوه، مغزها (یک مشت)، خیار و هویج</p></div></section>
+
+  <section id="pane-terms" class="pane"><div class="card"><div class="c-head">📖 فرهنگ‌نامه</div><p class="txt"><b>BMR:</b> انرژی پایه‌ای که بدن در استراحت مصرف می‌کند.<br><br><b>TDEE:</b> کل انرژی مصرفی روزانه با احتساب فعالیت.<br><br><b>کسری کالری:</b> مصرف کمتر از TDEE که اساس کاهش وزن است.<br><br><b>اتوفاژی:</b> بازیافت اجزای سلول. شواهد مفید بودن آن در فستینگ انسانی هنوز محدود است و بیشتر از مطالعات حیوانی می‌آید.</p></div></section>
+
+  <section id="pane-secrets" class="pane"><div class="card"><div class="c-head">🔥 عبور از استپ وزنی</div><p class="txt">۱. <b>ثبت دقیق مصرف:</b> یک هفته همه‌چیز را وزن کنید و ثبت کنید.<br><br>۲. <b>پروتئین کافی و خواب ۷ تا ۸ ساعته.</b><br><br>۳. <b>افزایش حرکت روزانه</b> (قدم‌زدن) و تمرین مقاومتی.<br><br>۴. <b>صبر:</b> وزن در کوتاه‌مدت با آب بدن نوسان دارد؛ میانگین هفتگی را ببینید.<br><br>۵. اگر چند هفته بی‌تغییر ماندید با پزشک یا مربی مشورت کنید.</p></div></section>
+
+  <section id="pane-safety" class="pane"><div class="card"><div class="c-head">⚠️ هشدارهای ایمنی</div><p class="txt">• این برنامه آموزشی است و جایگزین پزشک یا متخصص تغذیه نیست.<br><br>• بیماران دیابتی، کبدی، کلیوی، تیروئیدی، باردار و شیرده پیش از هر رژیم یا فستینگ با پزشک مشورت کنند.<br><br>• سابقه اختلال خوردن (بی‌اشتهایی، پرخوری عصبی) دارید؟ رژیم کالری‌شماری را بدون نظارت درمانگر انجام ندهید.<br><br>• کاهش وزن سالم معمولاً حدود ۰٫۵ تا ۱ کیلو در هفته است.<br><br>• در سرگیجه، ضعف شدید یا تپش قلب، رژیم را متوقف کنید و به پزشک مراجعه کنید.</p></div></section>
+</main>
+
+<script>
+(function(){
+'use strict';
+const CFG={phone:'989125844487',instagram:'fitalirezaakbari',fastSec:16*3600};
+const $=id=>document.getElementById(id);
+const today=()=>new Date().toISOString().slice(0,10);
+const store={
+  get(k,d){try{const v=localStorage.getItem('fs_'+k);return v?JSON.parse(v):d}catch(e){return d}},
+  set(k,v){try{localStorage.setItem('fs_'+k,JSON.stringify(v))}catch(e){}}
+};
+const faDigits=s=>String(s).replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+
+$('lnk-wa').href='https://wa.me/'+CFG.phone;
+$('lnk-ig').href='https://instagram.com/'+CFG.instagram;
+
+/* Splash: once per session */
+const sp=$('splash');
+try{ if(sessionStorage.getItem('fs_seen')){sp.classList.add('hide')} else {sessionStorage.setItem('fs_seen','1');setTimeout(()=>sp.classList.add('hide'),1200)} }
+catch(e){setTimeout(()=>sp.classList.add('hide'),1200)}
+
+/* Navigation */
+function openMenu(s){$('drawer-bg').classList.toggle('open',s);$('drawer').classList.toggle('open',s)}
+function nav(id){
+  document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));
+  $('pane-'+id).classList.add('active');
+  document.querySelectorAll('.bn-item').forEach(b=>b.classList.remove('active'));
+  const b=$('bn-'+id); if(b) b.classList.add('active');
+  openMenu(false); window.scrollTo(0,0);
+  if(id==='watercalc') renderWater();
+}
+document.addEventListener('click',e=>{
+  const n=e.target.closest('[data-nav]'); if(n){nav(n.dataset.nav);return}
+  const s=e.target.closest('[data-st]'); if(s){const[i,d]=s.dataset.st.split(',');step(i,+d);return}
+  const sd=e.target.closest('[data-send]'); if(sd){sendForm(sd.dataset.send)}
+});
+$('bn-more').onclick=()=>openMenu(true);
+$('drawer-x').onclick=$('drawer-bg').onclick=()=>openMenu(false);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')openMenu(false)});
+
+/* Calculator */
+const LIM={w:[30,300],h:[100,230],a:[14,100]};
+function step(id,d){const v=$(id);const[min,max]=LIM[id];v.value=Math.min(max,Math.max(min,(parseInt(faDigits(v.value))||min)+d))}
+$('btn-calc').onclick=()=>{
+  const err=$('calc-err');err.textContent='';
+  const w=parseFloat(faDigits($('w').value)),h=parseFloat(faDigits($('h').value)),a=parseFloat(faDigits($('a').value));
+  for(const[k,n,v]of[['w','وزن',w],['h','قد',h],['a','سن',a]]){
+    if(!(v>=LIM[k][0]&&v<=LIM[k][1])){err.textContent=`${n} باید بین ${LIM[k][0]} و ${LIM[k][1]} باشد.`;$('calc-res').style.display='none';return}
+  }
+  const male=$('sex').value==='m';
+  const bmi=w/((h/100)**2);
+  const bmr=10*w+6.25*h-5*a+(male?5:-161);
+  const tdee=bmr*parseFloat($('act').value);
+  const floor=male?1500:1200;
+  let target=Math.max(Math.round(tdee*0.8),Math.round(tdee-500));
+  target=Math.max(target,floor);
+  const ideal=22.5*((h/100)**2);
+  const refW=bmi>25?Math.min(w,ideal*1.2):w;
+  const pro=Math.round(refW*1.6),fat=Math.round(target*0.28/9),car=Math.max(0,Math.round((target-pro*4-fat*9)/4));
+  $('bmi-lbl').textContent='BMI: '+bmi.toFixed(1);
+  $('res-cal').textContent=target+' kcal';
+  $('res-info').textContent=`نیاز نگهداری وزن حدود ${Math.round(tdee)} kcal. کف ایمن: ${floor} kcal.`;
+  $('r-pro').textContent=pro+'g';$('r-car').textContent=car+'g';$('r-fat').textContent=fat+'g';
+  $('calc-res').style.display='block';
+  store.set('weight',w);
+};
+
+/* Food tracker */
+const FOODS={'قورمه‌سبزی با برنج':650,'چلو کباب کوبیده':900,'چلو مرغ':700,'عدسی':350,'آش رشته':300,'املت':300,'نیمرو (۲ تخم‌مرغ)':180,'نان سنگک (۱ کف دست)':250,'نان جو (۱ برش)':80,'ماست کم‌چرب (۱ کاسه)':100,'سیب (۱ عدد)':95,'موز (۱ عدد)':105,'سالاد شیرازی':60,'سینه مرغ گریل (۱۵۰ گرم)':250,'فسنجان با برنج':800,'عدس‌پلو':550};
+$('food-list').innerHTML=Object.keys(FOODS).map(k=>`<option value="${k}">`).join('');
+$('food-name').addEventListener('input',e=>{if(FOODS[e.target.value])$('food-cal').value=FOODS[e.target.value]});
+let log=(store.get('log',{}).d===today())?store.get('log',{}).items:[];
+function renderLog(){
+  const box=$('f-log');box.textContent='';
+  let sum=0;
+  log.forEach((it,i)=>{
+    sum+=it.c;
+    const row=document.createElement('div');row.className='food-row';
+    const n=document.createElement('span');n.textContent='🍽️ '+it.n;
+    const c=document.createElement('span');c.style.cssText='color:var(--em);font-weight:900;margin-inline-start:auto';c.textContent=it.c+' kcal';
+    const x=document.createElement('button');x.textContent='✕';x.setAttribute('aria-label','حذف '+it.n);
+    x.onclick=()=>{log.splice(i,1);saveLog();renderLog()};
+    row.append(n,c,x);box.appendChild(row);
+  });
+  $('trk-badge').textContent=sum+' kcal';
+}
+function saveLog(){store.set('log',{d:today(),items:log})}
+$('btn-food').onclick=()=>{
+  const n=$('food-name').value.trim(),c=parseInt(faDigits($('food-cal').value));
+  if(!n||!(c>0&&c<=5000)){$('food-cal').classList.add('err');return}
+  $('food-cal').classList.remove('err');
+  log.push({n,c});saveLog();renderLog();
+  $('food-name').value='';$('food-cal').value='';
+};
+renderLog();
+
+/* Fasting timer: based on end timestamp, survives background/refresh */
+let fast=store.get('fast',{end:null,left:CFG.fastSec}),tmr=null;
+function fmt(s){const h=String(Math.floor(s/3600)).padStart(2,'0'),m=String(Math.floor(s%3600/60)).padStart(2,'0'),x=String(s%60).padStart(2,'0');return`${h}:${m}:${x}`}
+function remaining(){return fast.end?Math.max(0,Math.ceil((fast.end-Date.now())/1000)):fast.left}
+function tick(){
+  const r=remaining();$('t-disp').textContent=fmt(r);
+  if(fast.end&&r<=0){
+    clearInterval(tmr);tmr=null;fast={end:null,left:0};store.set('fast',fast);
+    $('btn-fast').textContent='شروع فستینگ';$('btn-fast').style.background='';
+    $('t-msg').textContent='✅ فستینگ تمام شد. می‌توانید غذا بخورید.';
+    try{if('Notification' in window&&Notification.permission==='granted')new Notification('فیت‌شاه',{body:'زمان فستینگ تمام شد'})}catch(e){}
+    if(navigator.vibrate)navigator.vibrate([200,100,200]);
+  }
+}
+function startLoop(){if(tmr)return;tmr=setInterval(tick,1000)}
+function paint(){
+  const run=!!fast.end;
+  $('btn-fast').textContent=run?'⏸️ توقف':(fast.left<CFG.fastSec&&fast.left>0?'ادامه فستینگ':'شروع فستینگ');
+  $('btn-fast').style.background=run?'var(--warn)':'';
+  tick();if(run)startLoop();
+}
+$('btn-fast').onclick=()=>{
+  $('t-msg').textContent='';
+  if(fast.end){fast={end:null,left:remaining()};clearInterval(tmr);tmr=null}
+  else{
+    if(fast.left<=0)fast.left=CFG.fastSec;
+    fast={end:Date.now()+fast.left*1000,left:fast.left};
+    try{if('Notification' in window&&Notification.permission==='default')Notification.requestPermission()}catch(e){}
+  }
+  store.set('fast',fast);paint();
+};
+$('btn-rst').onclick=()=>{clearInterval(tmr);tmr=null;fast={end:null,left:CFG.fastSec};store.set('fast',fast);$('t-msg').textContent='';paint()};
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)tick()});
+paint();
+
+/* Water */
+let cups=(store.get('cups',{}).d===today())?store.get('cups',{}).n:0;
+function renderWater(){
+  const w=store.get('weight',null);
+  const litres=w?Math.round(w*0.033*10)/10:2.5;
+  const n=Math.max(1,Math.round(litres*4));
+  $('w-total').textContent=`${litres.toString().replace('.','٫')} لیتر (${n} لیوان)`+(w?'':' - تخمین پیش‌فرض');
+  const g=$('w-grid');g.textContent='';
+  if(cups>n)cups=n;
+  for(let i=1;i<=n;i++){
+    const b=document.createElement('button');
+    b.type='button';b.className='w-cup'+(i<=cups?' d':'');b.textContent='لیوان '+i;
+    b.setAttribute('aria-pressed',i<=cups);
+    b.addEventListener('click',()=>{cups=(cups===i)?i-1:i;store.set('cups',{d:today(),n:cups});renderWater()});
+    g.appendChild(b);
+  }
+}
+renderWater();
+
+/* FAQ (static answers) */
+const FAQ=[
+  ['فستینگ ۱۶:۸ یعنی چه؟','۱۶ ساعت بدون کالری و ۸ ساعت زمان غذا خوردن. فقط یک روش مدیریت کالری است و برای همه مناسب نیست؛ ابتدا بخش هشدارهای ایمنی را بخوانید.'],
+  ['چقدر پروتئین نیاز دارم؟','برای کاهش وزن همراه با ورزش معمولاً ۱٫۶ تا ۲ گرم به‌ازای هر کیلوگرم وزن ایده‌آل کافی است.'],
+  ['چرا وزنم ثابت مانده؟','نوسان آب بدن، نمک، خواب و دوره قاعدگی وزن را جابه‌جا می‌کند. میانگین هفتگی را بسنجید و مصرف را دقیق ثبت کنید.'],
+  ['چقدر در هفته لاغر شوم؟','حدود ۰٫۵ تا ۱ کیلو در هفته سالم است. کاهش سریع‌تر خطر افت عضله و ریزش مو دارد.'],
+  ['آیا قرص لاغری لازم است؟','خیر. هر دارو یا مکملی باید فقط با تجویز پزشک مصرف شود.']
+];
+const fl=$('faq-list');
+FAQ.forEach(([q,a])=>{const b=document.createElement('button');b.className='faq-q';b.textContent=q;b.onclick=()=>{const r=$('faq-ans');r.textContent=a;r.style.display='block'};fl.appendChild(b)});
+
+/* Form sending */
+function openUrl(u){const w=window.open(u,'_blank','noopener');if(!w)location.href=u}
+function buildText(){
+  const v=id=>$(id).value.trim();
+  return `📋 فرم ارزیابی (فیت‌شاه)\n\n👤 نام: ${v('c-name')}\n📞 موبایل: ${faDigits(v('c-ph'))}\n🧬 سن/جنسیت: ${v('c-age-gender')||'وارد نشده'}\n🎯 هدف: ${$('c-goal').value}\n🔄 سابقه رژیم: ${v('c-history')||'ندارد'}\n⚠️ چالش: ${v('c-chal')||'ندارد'}\n🩺 بیماری/دارو: ${v('c-med')||'ندارد'}\n⏰ لایف‌استایل: ${v('c-sch')||'وارد نشده'}`;
+}
+function sendForm(p){
+  const err=$('c-err');err.textContent='';
+  ['c-name','c-ph'].forEach(i=>$(i).classList.remove('err'));
+  if(!$('c-name').value.trim()){$('c-name').classList.add('err');err.textContent='نام را وارد کنید.';return}
+  if(!/^09\d{9}$/.test(faDigits($('c-ph').value.trim()))){$('c-ph').classList.add('err');err.textContent='شماره موبایل معتبر نیست (مثال: 09123456789).';return}
+  if(!$('c-ok').checked){err.textContent='برای ارسال، تیک رضایت را بزنید.';return}
+  const t=buildText();
+  if(p==='wa')openUrl(`https://wa.me/${CFG.phone}?text=${encodeURIComponent(t)}`);
+  else if(p==='tg')openUrl(`https://t.me/share/url?url=${encodeURIComponent(' ')}&text=${encodeURIComponent(t)}`);
+  else{
+    (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{err.style.color='#6ee7b7';err.textContent='متن کپی شد.'}).catch(()=>{err.textContent='کپی انجام نشد.'});
+  }
+}
+})();
+</script>
+</body>
+</html>
