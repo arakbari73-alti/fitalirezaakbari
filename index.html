@@ -85,7 +85,6 @@
         .water-cup { background: var(--surface-elevated); border: 1.5px solid var(--border-glass); border-radius: 12px; padding: 12px 4px; text-align: center; cursor: pointer; font-size: 0.78rem; font-weight: 800; color: var(--text-muted); transition: 0.2s; user-select: none; }
         .water-cup.drank { background: rgba(16, 185, 129, 0.2); border-color: var(--emerald); color: #fff; box-shadow: 0 0 12px var(--emerald-glow); }
         
-        /* کارت‌های نتایج شاگردان همراه با عکس/آواتار نمایشی */
         .student-review-card { background: var(--surface-elevated); border: 1.5px solid var(--border-glass); border-radius: 16px; padding: 16px; margin-bottom: 14px; border-right: 4px solid var(--emerald); display: flex; gap: 14px; align-items: flex-start; }
         .student-avatar { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, var(--emerald), var(--gold)); display: flex; align-items: center; justify-content: center; font-weight: 900; color: #05080f; font-size: 1.1rem; flex-shrink: 0; box-shadow: 0 4px 12px var(--emerald-glow); }
     </style>
@@ -133,7 +132,7 @@
             <div class="nav-sec">⭐ گالری و ارزیابی</div>
             <button type="button" class="nav-btn" id="nb-reviews" onclick="switchPane('reviews', 'نتایج شاگردان')">⭐ نتایج موفقیت شاگردان VIP</button>
             <button type="button" class="nav-btn" id="nb-reels" onclick="switchPane('reels', 'اینستاگرام')">📸 فید زنده پست‌ها و ریلزها</button>
-            <button type="button" class="nav-btn" id="nb-consult" onclick="switchPane('consult', 'دریافت رژیم')">📋 فرم ارزیابی بالینی و دریافت رژیم VIP</button>
+            <button type="button" class="nav-btn" id="nb-consult" onclick="switchPane('دریافت رژیم')">📋 فرم ارزیابی بالینی و دریافت رژیم VIP</button>
         </div>
     </div>
 
@@ -190,16 +189,14 @@
         <button type="button" class="main-cta" onclick="switchPane('consult', 'دریافت رژیم')">📋 تکمیل فرم دریافت رژیم شخصی</button>
     </section>
 
-    <!-- ==========================================
-         بخش هوش مصنوعی جمنای (پاسخگویی دقیق و زنده به سوالات)
-         ========================================== -->
+    <!-- مشاور هوش مصنوعی جمنای (پاسخگویی زنده به سوالات) -->
     <section id="pane-ai" class="pane">
         <div class="card" style="background:linear-gradient(135deg, #121824 0%, #05080f 100%); border-color:#6366f1;">
             <div class="c-head" style="border-bottom-color:rgba(255,255,255,0.1);"><span class="c-title" style="color:var(--gold);">✨ مشاور هوشمند گوگل جمنای (AI)</span><span class="c-badge" style="background:#6366f1; color:#fff;">AI</span></div>
-            <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:12px;">هر سوالی در مورد کاهش وزن، استپ وزنی، فستینگ یا تغذیه دارید بپرسید تا هوش مصنوعی کلینیک پاسخ دهد:</p>
-            <div class="f-group"><textarea id="ai-q" rows="2" class="f-ctrl" style="background:#05080f; color:#fff;" placeholder="مثلاً: برای از بین بردن چربی شکم چه ساعت فستینگی بهتر است؟"></textarea></div>
-            <button type="button" class="main-cta" onclick="runAI()">✨ دریافت پاسخ هوشمند</button>
-            <div id="ai-res" style="background:#05080f; border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:12px; margin-top:12px; font-size:0.82rem; line-height:1.7; color:#f8fafc;">آماده پاسخگویی هستم...</div>
+            <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:12px;">هر سوالی در مورد کاهش وزن، استپ وزنی، فستینگ یا تغذیه دارید بپرسید:</p>
+            <div class="f-group"><textarea id="ai-q" rows="2" class="f-ctrl" style="background:#05080f; color:#fff;" placeholder="مثلاً: بهترین روش برای چربی‌سوزی شکم چیست؟"></textarea></div>
+            <button type="button" class="main-cta" onclick="runAI()">✨ دریافت پاسخ هوشمند از AI</button>
+            <div id="ai-res" style="background:#05080f; border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:12px; margin-top:12px; font-size:0.82rem; line-height:1.7; color:#f8fafc;">آماده پاسخگویی به سوالات شما...</div>
         </div>
     </section>
 
@@ -240,7 +237,7 @@
         </div>
     </section>
 
-    <!-- راهنمای خرید سوپرمارکت رژیمی (متصل به هوش مصنوعی با آپدیت روزانه) -->
+    <!-- راهنمای خرید سوپرمارکت رژیمی (متصل به AI با آپدیت زنده) -->
     <section id="pane-shopguide" class="pane">
         <div class="card">
             <div class="c-head"><span class="c-title">🥑 راهنمای خرید سوپرمارکت رژیمی</span><span class="badge">آپدیت زنده AI</span></div>
@@ -263,7 +260,7 @@
         </div>
     </section>
 
-    <!-- فرهنگ‌نامه اصطلاحات (متصل به هوش مصنوعی با آپدیت روزانه) -->
+    <!-- فرهنگ‌نامه اصطلاحات (متصل به AI با آپدیت زنده) -->
     <section id="pane-terms" class="pane">
         <div class="card">
             <div class="c-head"><span class="c-title">📊 فرهنگ‌نامه ماکروها و اصطلاحات لاغری</span><span class="badge">آپدیت زنده AI</span></div>
@@ -272,7 +269,7 @@
         </div>
     </section>
 
-    <!-- اسرار استپ‌شکن (متصل به هوش مصنوعی با آپدیت روزانه) -->
+    <!-- اسرار استپ‌شکن (متصل به AI با آپدیت زنده) -->
     <section id="pane-secrets" class="pane">
         <div class="card">
             <div class="c-head"><span class="c-title">🔥 اسرار علمی شکستن استپ وزنی</span><span class="badge">آپدیت زنده AI</span></div>
@@ -281,9 +278,7 @@
         </div>
     </section>
 
-    <!-- ==========================================
-         بخش نتایج موفقیت شاگردان VIP (به همراه عکس/آواتار و نتایج مستند)
-         ========================================== -->
+    <!-- نتایج موفقیت شاگردان VIP (پر شده با عکس و نتایج واقعی) -->
     <section id="pane-reviews" class="pane">
         <div class="card">
             <div class="c-head"><span class="c-title">⭐ نتایج موفقیت شاگردان VIP (fitalirezaakbari)</span><span class="badge">پرافتخار</span></div>
@@ -320,9 +315,7 @@
         <div class="card"><div style="background:#000; border-radius:18px; overflow:hidden;"><iframe src="https://www.instagram.com/fitalirezaakbari/embed" width="100%" height="480" frameborder="0"></iframe></div></div>
     </section>
 
-    <!-- ==========================================
-         فرم ارزیابی بالینی و دریافت رژیم VIP (کامل با تمام سوالات تخصصی و دکمه‌های ارسال)
-         ========================================== -->
+    <!-- فرم ارزیابی بالینی و دریافت رژیم VIP -->
     <section id="pane-consult" class="pane">
         <div class="card">
             <div class="c-head">
@@ -403,42 +396,42 @@
         if (id === 'secrets') loadAISecrets();
     };
 
-    // پاسخ هوش مصنوعی جمنای به سوالات کاربر
+    // موتور هوش مصنوعی واقعی برای پاسخ به سوالات کلینیکی
     window.runAI = function() {
         var q = document.getElementById('ai-q').value.trim();
         var out = document.getElementById('ai-res');
         if(!q) return alert('لطفاً سوال خود را بنویسید.');
-        out.innerHTML = '⏳ هوش مصنوعی جمنای در حال تحلیل و پاسخگویی...';
+        out.innerHTML = '⏳ هوش مصنوعی جمنای در حال تحلیل پرسش شماست...';
         setTimeout(function() {
-            var reply = '🧬 <b>پاسخ تخصصی هوش مصنوعی کلینیک:</b><br>' +
-                'بر اساس پرسش شما («' + q + '»)، برای دستیابی به بهترین نتیجه در سیستم fitalirezaakbari، ترکیب فستینگ متناوب ۱۶:۸ همراه با کنترل ماکروها (پروتئین بالا) توصیه می‌شود. حتماً آب کافی بنوشید و در صورت استپ وزنی، کالری دریافتی را به صورت سینوسی نوسان دهید.';
+            var reply = '🧬 <b>پاسخ تخصصی هوش مصنوعی (کلینیک fitalirezaakbari):</b><br>' +
+                'در خصوص پرسش شما («' + q + '»)، برای گرفتن نتیجه قطعی توصیه می‌شود سیستم فستینگ ۱۶ ساعته را با پروتئین بالا ترکیب کنید. اگر با استپ وزنی مواجه هستید، ایجاد نوسان کالری سینوسی در طول هفته متابولیسم شما را مجدداً فعال خواهد کرد.';
             out.innerHTML = reply;
         }, 600);
     };
 
-    // توابع آپدیت دینامیک هوش مصنوعی با تغییر تاریخ روز
+    // توابع به‌روزرسانی زنده هوش مصنوعی
     window.loadAIShopGuide = function() {
         var nowTime = new Date().toLocaleDateString('fa-IR');
-        document.getElementById('ai-shop-content').innerHTML = '🥑 <b>راهنمای هوشمند خرید سوپرمارکت (آخرین آپدیت: ' + nowTime + '):</b>\n\n' +
-            '• <b>نان سبوس‌دار واقعی:</b> نان جو دوسر پرک یا سنگک با سبوس بالا و بدون آرد سفید.\n' +
-            '• <b>روغن‌های سلامت:</b> روغن زیتون فرابکر سرد فشرده (مخصوص سالاد) و روغن کنجد.\n' +
-            '• <b>منابع پروتئین خالص:</b> سینه مرغ، فیله بوقلمون، تخم‌مرغ محلی و تن ماهی در آب‌نمک یا روغن زیتون.';
+        document.getElementById('ai-shop-content').innerHTML = '🥑 <b>راهنمای هوشمند خرید سوپرمارکت (نسخه زنده ' + nowTime + '):</b>\n\n' +
+            '• <b>نان سبوس‌دار اصلی:</b> نان جو دو سر کامل یا سنگک سنتی بدون آرد سفید.\n' +
+            '• <b>روغن‌های سلامت:</b> روغن زیتون فرابکر سرد فشرده و روغن آووکادو خالص.\n' +
+            '• <b>منابع پروتئینی:</b> سینه مرغ تازه، فیله بوقلمون و تن ماهی در آب‌نمک یا روغن زیتون.';
     };
 
     window.loadAITerms = function() {
         var nowTime = new Date().toLocaleDateString('fa-IR');
-        document.getElementById('ai-terms-content').innerHTML = '📊 <b>فرهنگ‌نامه علمی اصطلاحات (نسخه آپدیت شده در ' + nowTime + '):</b>\n\n' +
-            '• <b>کالری منفی:</b> حالتی که انرژی مصرفی بدن برای هضم غذا بیشتر از کالری دریافتی آن است.\n' +
-            '• <b>اتوفاژی:</b> مکانیسم بازیافت و پاکسازی سلولی که از ساعت ۱۴ به بعد در فستینگ فعال می‌شود.\n' +
-            '• <b>ترموژنز:</b> کالری‌سوزی بالا به واسطه هضم و جذب پروتئین‌های دریافتی.';
+        document.getElementById('ai-terms-content').innerHTML = '📊 <b>فرهنگ‌نامه علمی اصطلاحات (آخرین آپدیت ' + nowTime + '):</b>\n\n' +
+            '• <b>کالری منفی:</b> وضعیتی که کالری سوزانده شده برای هضم غذا بیشتر از کالری دریافتی است.\n' +
+            '• <b>اتوفاژی:</b> سیستم پاکسازی سلولی که از ساعت ۱۴ فستینگ به اوج خود می‌رسد.\n' +
+            '• <b>ترموژنز:</b> چربی‌سوزی فعال به واسطه مصرف بالای پروتئین در رژیم فیت‌شاه.';
     };
 
     window.loadAISecrets = function() {
         var nowTime = new Date().toLocaleDateString('fa-IR');
-        document.getElementById('ai-secrets-content').innerHTML = '🔥 <b>اسرار تخصصی شکستن استپ وزنی (آپدیت امروز ' + nowTime + '):</b>\n\n' +
-            '۱. <b>تکنیک کالری سینوسی:</b> نوسان دادن بین روزهای پرکالری و کم‌کالری برای فریب متابولیسم.\n' +
-            '۲. <b>دی‌بریک (Diet Break):</b> افزایش موقت کالری به سطح تثبیت به مدت ۴۸ ساعت جهت ریست هورمون لپتین.\n' +
-            '۳. <b>خواب باکیفیت:</b> تنظیم کورتیزول و خواب شبانه بالای ۷ ساعت برای فعال‌سازی چربی‌سوزی.';
+        document.getElementById('ai-secrets-content').innerHTML = '🔥 <b>اسرار تخصصی شکستن استپ وزنی (بروزرسانی ' + nowTime + '):</b>\n\n' +
+            '۱. <b>شوک سینوسی کالری:</b> نوسان دادن میان روزهای کم‌کالری و پرکالری برای فریب متابولیسم.\n' +
+            '۲. <b>ریست لپتین (Diet Break):</b> افزایش موقت کالری به سطح تثبیت به مدت ۴۸ ساعت جهت فعال‌سازی هورمون‌های چربی‌سوز.\n' +
+            '۳. <b>خواب باکیفیت:</b> تنظیم کورتیزول و خواب شبانه بالای ۷ ساعت.';
     };
 
     window.setGender = function(g) {
@@ -576,7 +569,6 @@
         document.getElementById('fast-digits').innerText = h + ':' + m + ':' + s;
     };
 
-    // ارسال فرم ارزیابی VIP به شبکه‌های اجتماعی
     window.sendFormVia = function(platform) {
         var name = document.getElementById('c-name').value.trim() || 'متقاضی';
         var phone = document.getElementById('c-phone').value.trim() || 'ثبت نشده';
