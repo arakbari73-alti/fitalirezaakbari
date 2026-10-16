@@ -1,24 +1,39 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl" data-theme="dark">
+<html lang="fa" dir="rtl" data-theme="dark" data-accent="emerald">
 <head>
 <meta charset="UTF-8">
-<meta name="theme-color" content="#10b981">
+<meta name="theme-color" content="#10b981" id="meta-theme-color">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="داشبورد کالری‌شمار، فستینگ و مربی هوشمند فیت‌شاه">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="FitShah">
+<link rel="manifest" href="manifest.webmanifest" id="manifest-link">
+<link rel="apple-touch-icon" href="icon-192.png" id="apple-icon">
+<link rel="icon" href="icon-192.png" id="favicon">
 <title>فیت‌شاه | داشبورد کالری و فستینگ</title>
 <style>
 @font-face{font-family:Vazirmatn;src:url(fonts/Vazirmatn.woff2) format('woff2');font-weight:100 900;font-display:swap}
-:root{--bg:#05080f;--panel:#0b1220;--card:#0f172a;--elev:#1e293b;--em:#10b981;--em2:#0d9488;--gold:#fbbf24;--txt:#f8fafc;--mut:#94a3b8;--bd:rgba(255,255,255,.08);--warn:#f97316;--blue:#0ea5e9;--violet:#8b5cf6;--pink:#ec4899}
+:root{--bg:#05080f;--panel:#0b1220;--card:#0f172a;--elev:#1e293b;--em:#10b981;--em2:#0d9488;--glow:rgba(16,185,129,.25);--gold:#fbbf24;--txt:#f8fafc;--mut:#94a3b8;--bd:rgba(255,255,255,.08);--warn:#f97316;--blue:#0ea5e9;--violet:#8b5cf6;--pink:#ec4899}
 [data-theme=light]{--bg:#f8fafc;--panel:#fff;--card:#fff;--elev:#f1f5f9;--txt:#0f172a;--mut:#64748b;--bd:rgba(15,23,42,.1)}
+[data-accent=ocean]{--em:#0ea5e9;--em2:#0284c7;--glow:rgba(14,165,233,.3)}
+[data-accent=violet]{--em:#8b5cf6;--em2:#7c3aed;--glow:rgba(139,92,246,.3)}
+[data-accent=rose]{--em:#ec4899;--em2:#db2777;--glow:rgba(236,72,153,.3)}
+[data-accent=sunset]{--em:#f97316;--em2:#ea580c;--glow:rgba(249,115,22,.3)}
+[data-accent=cyber]{--em:#06b6d4;--em2:#0891b2;--glow:rgba(6,182,212,.3)}
+[data-accent=lime]{--em:#84cc16;--em2:#65a30d;--glow:rgba(132,204,22,.3)}
+[data-accent=crimson]{--em:#ef4444;--em2:#dc2626;--glow:rgba(239,68,68,.3)}
+[data-accent=indigo]{--em:#6366f1;--em2:#4f46e5;--glow:rgba(99,102,241,.3)}
 *{box-sizing:border-box;margin:0;padding:0;font-family:Vazirmatn,Tahoma,sans-serif;-webkit-tap-highlight-color:transparent}
 body{background:var(--bg);color:var(--txt);overflow-x:hidden;transition:background .3s,color .3s;font-size:14px}
 button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 
-/* ============ TOP NAV ============ */
 .topnav{position:sticky;top:0;z-index:100;background:rgba(11,18,32,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);padding:0 20px;display:flex;align-items:center;gap:20px;height:64px}
 [data-theme=light] .topnav{background:rgba(255,255,255,.9)}
 .brand{display:flex;align-items:center;gap:10px;background:none;border:none;color:inherit;cursor:pointer;padding:6px 0;flex-shrink:0}
 .brand:active{opacity:.7}
-.b-logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--em),var(--gold));display:flex;align-items:center;justify-content:center;color:#05080f;font-weight:900;font-size:.8rem;box-shadow:0 4px 14px rgba(16,185,129,.35)}
+.b-logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--em),var(--gold));display:flex;align-items:center;justify-content:center;color:#05080f;font-weight:900;font-size:.8rem;box-shadow:0 4px 14px var(--glow);transition:background .3s}
 .brand-text{display:flex;flex-direction:column;line-height:1.15}
 .brand-text b{font-weight:900;font-size:1rem;letter-spacing:-.3px}
 .brand-text span{font-size:.68rem;color:var(--mut);font-weight:600}
@@ -26,23 +41,20 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .topnav-links::-webkit-scrollbar{display:none}
 .topnav-links button{background:none;border:none;color:var(--mut);padding:8px 14px;border-radius:10px;font-weight:700;font-size:.85rem;cursor:pointer;white-space:nowrap;transition:.2s;display:flex;align-items:center;gap:6px}
 .topnav-links button:hover{background:var(--elev);color:var(--txt)}
-.topnav-links button.active{background:rgba(16,185,129,.15);color:var(--em);box-shadow:inset 0 0 0 1px rgba(16,185,129,.3)}
+.topnav-links button.active{background:var(--glow);color:var(--em);box-shadow:inset 0 0 0 1px var(--glow)}
 .topnav-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
 .ic-btn{background:var(--card);border:1px solid var(--bd);color:var(--txt);width:38px;height:38px;border-radius:10px;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:.2s}
 .ic-btn:hover{border-color:var(--em);background:var(--elev)}
-#pro-badge{display:none;font-size:.7rem;color:#05080f;background:linear-gradient(90deg,#fbbf24,#f59e0b);padding:6px 10px;border-radius:8px;font-weight:900;box-shadow:0 4px 12px rgba(251,191,36,.3)}
-#user-chip{font-size:.78rem;color:var(--em);background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.3);padding:7px 12px;border-radius:10px;cursor:pointer;font-weight:800}
+#user-chip{font-size:.78rem;color:var(--em);background:var(--glow);border:1px solid var(--glow);padding:7px 12px;border-radius:10px;cursor:pointer;font-weight:800}
 #menu-toggle{display:none}
 
-/* ============ LAYOUT ============ */
 .wrapper{max-width:1240px;margin:0 auto;padding:24px 20px 60px}
 .pane{display:none}.pane.active{display:block;animation:fade .25s}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
-/* ============ DASHBOARD GRID ============ */
 .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
 .kpi{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:18px;position:relative;overflow:hidden}
-.kpi::before{content:'';position:absolute;top:0;right:0;width:70px;height:70px;background:radial-gradient(circle,rgba(16,185,129,.15),transparent 70%);pointer-events:none}
+.kpi::before{content:'';position:absolute;top:0;right:0;width:70px;height:70px;background:radial-gradient(circle,var(--glow),transparent 70%);pointer-events:none}
 .kpi .lbl{font-size:.75rem;color:var(--mut);font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px}
 .kpi .val{font-size:1.8rem;font-weight:900;direction:ltr;line-height:1;letter-spacing:-1px}
 .kpi.g{color:var(--em)}.kpi.a{color:var(--gold)}.kpi.b{color:var(--blue)}.kpi.v{color:var(--violet)}
@@ -53,22 +65,18 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .grid-2{display:grid;grid-template-columns:1fr 340px;gap:20px}
 .col-main{display:flex;flex-direction:column;gap:18px;min-width:0}
 .col-side{display:flex;flex-direction:column;gap:18px;min-width:0}
-.span2{grid-column:1/-1}
 
-/* ============ CARDS ============ */
 .card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:20px;transition:border-color .2s}
-.card:hover{border-color:rgba(16,185,129,.2)}
+.card:hover{border-color:var(--glow)}
 .c-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;margin-bottom:16px;border-bottom:1px solid var(--bd);font-weight:900;font-size:.95rem;gap:10px}
 .c-head .badge-stat{font-size:.75rem;color:var(--mut);font-weight:700}
 .c-sub{font-size:.78rem;color:var(--mut);margin-bottom:14px;line-height:1.7}
 
-/* ============ HERO ============ */
-.hero{background:linear-gradient(135deg,rgba(16,185,129,.12),rgba(251,191,36,.06));border:1px solid rgba(16,185,129,.3);border-radius:20px;padding:28px;position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;top:-60px;left:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(16,185,129,.18),transparent 70%);pointer-events:none}
+.hero{background:linear-gradient(135deg,var(--glow),rgba(251,191,36,.06));border:1px solid var(--glow);border-radius:20px;padding:28px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;top:-60px;left:-60px;width:200px;height:200px;background:radial-gradient(circle,var(--glow),transparent 70%);pointer-events:none}
 .hero h2{font-size:1.5rem;font-weight:900;line-height:1.5;margin-bottom:10px}
 .hero p{font-size:.9rem;color:var(--mut);line-height:1.9;margin-bottom:16px;max-width:520px}
 
-/* ============ FORMS ============ */
 .f-ctrl{width:100%;padding:12px 14px;border-radius:10px;background:var(--elev);color:var(--txt);border:1px solid var(--bd);margin-bottom:12px;font-size:.88rem;resize:none;font-family:inherit;transition:border-color .2s}
 .f-ctrl:focus{border-color:var(--em);outline:none}
 .f-ctrl.err{border-color:#ef4444}
@@ -78,7 +86,7 @@ select.f-ctrl{appearance:none;background-image:linear-gradient(45deg,transparent
 .row2>div{flex:1;min-width:0}
 
 .cta{width:100%;padding:13px 18px;border-radius:10px;background:linear-gradient(90deg,var(--em),var(--em2));color:#05080f;font-weight:900;font-size:.9rem;border:none;cursor:pointer;transition:.2s;font-family:inherit}
-.cta:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(16,185,129,.3)}
+.cta:hover{transform:translateY(-1px);box-shadow:0 8px 20px var(--glow)}
 .cta:active{transform:none}
 .cta[disabled]{opacity:.5;cursor:not-allowed;transform:none!important}
 .cta.ghost{background:var(--elev);color:var(--txt);border:1px solid var(--bd)}
@@ -91,25 +99,22 @@ select.f-ctrl{appearance:none;background-image:linear-gradient(45deg,transparent
 .p-box{background:var(--elev);border-radius:10px;padding:10px 14px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;font-weight:800;font-size:.85rem}
 .step-row{display:flex;gap:6px;align-items:center}
 
-/* ============ STATS / DATA ============ */
 .txt{font-size:.85rem;line-height:1.9;color:var(--mut)}.txt b{color:var(--txt)}
 .note{font-size:.78rem;color:var(--mut);line-height:1.8;background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.3);border-radius:10px;padding:10px 12px;margin-top:12px}
 .ai-box{background:var(--elev);border:1px solid var(--em);border-radius:12px;padding:16px;margin-top:14px;font-size:.86rem;line-height:1.8;display:none}
 .bar{height:8px;background:var(--elev);border-radius:99px;overflow:hidden;margin:12px 0}
 .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--em),var(--gold));transition:width .5s}
 
-/* ============ CHARTS ============ */
 #week-chart{padding:8px 0}
 #pg-chart{padding:8px 0}
 .heat{display:grid;grid-template-columns:repeat(15,1fr);gap:4px;margin:12px 0}
 .heat div{aspect-ratio:1;border-radius:4px;background:var(--elev);transition:.2s}
 .heat div:hover{transform:scale(1.3)}
-.heat div.l1{background:rgba(16,185,129,.3)}
-.heat div.l2{background:rgba(16,185,129,.55)}
-.heat div.l3{background:rgba(16,185,129,.8)}
+.heat div.l1{background:color-mix(in srgb,var(--em) 30%,transparent)}
+.heat div.l2{background:color-mix(in srgb,var(--em) 55%,transparent)}
+.heat div.l3{background:color-mix(in srgb,var(--em) 80%,transparent)}
 .heat div.l4{background:var(--em);box-shadow:0 0 8px var(--em)}
 
-/* ============ LISTS ============ */
 .food-row{background:var(--elev);padding:12px 14px;border-radius:10px;margin-top:8px;display:flex;justify-content:space-between;align-items:center;gap:10px;border:1px solid var(--bd);flex-wrap:wrap;font-size:.85rem}
 .food-row button{background:none;border:none;color:#ef4444;font-size:1rem;cursor:pointer;padding:4px 8px;border-radius:6px;transition:.2s}
 .food-row button:hover{background:rgba(239,68,68,.15)}
@@ -119,11 +124,8 @@ select.f-ctrl{appearance:none;background-image:linear-gradient(45deg,transparent
 .links button{display:flex;justify-content:space-between;align-items:center;width:100%;text-align:right;background:var(--elev);border:1px solid var(--bd);color:var(--txt);padding:12px 14px;border-radius:10px;font-weight:700;cursor:pointer;font-size:.85rem;transition:.2s}
 .links button:hover{border-color:var(--em);background:var(--card)}
 
-/* ============ FAQ & RECIPES ============ */
 .faq-q{width:100%;text-align:right;background:var(--elev);border:1px solid var(--bd);color:var(--txt);padding:12px 14px;border-radius:10px;font-weight:700;margin-bottom:8px;cursor:pointer;font-size:.86rem;transition:.2s}
 .faq-q:hover{border-color:var(--em)}
-details.opt{margin-bottom:12px}
-details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85rem;padding:8px 0}
 .rc{background:var(--elev);border-radius:12px;margin-bottom:10px;border:1px solid var(--bd);overflow:hidden}
 .rc summary{padding:14px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:800;list-style:none;font-size:.88rem;transition:.2s}
 .rc summary:hover{background:var(--card)}
@@ -134,32 +136,27 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 .rc ul,.rc ol{padding-inline-start:22px;font-size:.85rem;line-height:1.95;color:var(--mut)}
 .rc .meta{font-size:.75rem;color:var(--mut);font-weight:600}
 .rc .cta{margin-top:14px}
-.rc-body-ex{background:var(--card);padding:12px;border-radius:10px;margin-top:8px}
 .recipe-macros{display:flex;gap:8px;margin-top:10px;font-size:.72rem;flex-wrap:wrap}
 .recipe-macros span{background:var(--card);padding:5px 10px;border-radius:8px;border:1px solid var(--bd);font-weight:700}
-.ex-tag{display:inline-block;background:rgba(16,185,129,.15);color:var(--em);padding:3px 8px;border-radius:6px;font-size:.68rem;font-weight:800;margin-right:6px}
+.ex-tag{display:inline-block;background:var(--glow);color:var(--em);padding:3px 8px;border-radius:6px;font-size:.68rem;font-weight:800;margin-right:6px}
 
-/* ============ FILTERS ============ */
 .fl{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
 .fl button{background:var(--elev);border:1px solid var(--bd);color:var(--txt);padding:8px 14px;border-radius:999px;font-size:.78rem;font-weight:800;cursor:pointer;transition:.2s;font-family:inherit}
 .fl button:hover{border-color:var(--em)}
-.fl button.on{background:var(--em);color:#04120d;border-color:var(--em);box-shadow:0 4px 12px rgba(16,185,129,.3)}
+.fl button.on{background:var(--em);color:#04120d;border-color:var(--em);box-shadow:0 4px 12px var(--glow)}
 
-/* ============ WATER ============ */
 #w-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .w-cup{background:var(--elev);border-radius:10px;padding:12px 4px;text-align:center;font-size:.75rem;cursor:pointer;border:1px solid var(--bd);color:var(--txt);font-weight:700;transition:.2s;font-family:inherit}
 .w-cup:hover{border-color:var(--em)}
-.w-cup.d{background:rgba(16,185,129,.2);border-color:var(--em);color:var(--em)}
+.w-cup.d{background:var(--glow);border-color:var(--em);color:var(--em)}
 
-/* ============ FASTING TIMER ============ */
 .timer-wrap{display:flex;flex-direction:column;align-items:center;padding:16px 0}
-.timer-circle{width:200px;height:200px;border-radius:50%;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;background:conic-gradient(var(--em) 0deg,var(--elev) 0deg);margin:12px 0;box-shadow:0 0 40px rgba(16,185,129,.2)}
+.timer-circle{width:200px;height:200px;border-radius:50%;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;background:conic-gradient(var(--em) 0deg,var(--elev) 0deg);margin:12px 0;box-shadow:0 0 40px var(--glow);transition:background .5s}
 .timer-circle::before{content:'';position:absolute;inset:8px;border-radius:50%;background:var(--card)}
 .timer-circle>*{position:relative;z-index:1}
 .timer-circle .t-lbl{font-size:.72rem;color:var(--mut);font-weight:700;margin-bottom:4px}
 .timer-circle .t-val{font-size:2rem;font-weight:900;color:var(--gold);direction:ltr;letter-spacing:-1px}
 
-/* ============ PROFILE / ACHIEVEMENTS ============ */
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .stat{background:var(--elev);border:1px solid var(--bd);border-radius:12px;padding:16px 8px;text-align:center}
 .stat b{display:block;font-size:1.4rem;font-weight:900;color:var(--gold);direction:ltr;margin-bottom:4px}
@@ -171,7 +168,6 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 .ach .ic{font-size:1.6rem}
 .ach .nm{font-size:.65rem;font-weight:800;margin-top:6px;line-height:1.3}
 
-/* ============ CHAT ============ */
 .chat-box{max-height:55vh;overflow-y:auto;padding:14px;background:var(--elev);border-radius:12px;margin-bottom:14px;min-height:280px}
 .chat-box::-webkit-scrollbar{width:6px}
 .chat-box::-webkit-scrollbar-thumb{background:var(--bd);border-radius:99px}
@@ -185,17 +181,16 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 .typing span:nth-child(3){animation-delay:.4s}
 @keyframes typing{0%,80%,100%{transform:scale(.6);opacity:.4}40%{transform:scale(1);opacity:1}}
 .chat-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--bd)}
-.chat-avatar{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--em),var(--gold));display:flex;align-items:center;justify-content:center;font-weight:900;color:#05080f;font-size:.9rem;flex-shrink:0;box-shadow:0 4px 12px rgba(16,185,129,.3)}
+.chat-avatar{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--em),var(--gold));display:flex;align-items:center;justify-content:center;font-weight:900;color:#05080f;font-size:.9rem;flex-shrink:0;box-shadow:0 4px 12px var(--glow)}
 .chat-status{font-size:.72rem;color:var(--em);display:flex;align-items:center;gap:6px;font-weight:700;margin-top:3px}
 .chat-status::before{content:'';width:8px;height:8px;background:var(--em);border-radius:50%;display:inline-block;box-shadow:0 0 10px var(--em);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 .chip{display:inline-block;background:var(--elev);border:1px solid var(--bd);color:var(--txt);padding:8px 14px;border-radius:999px;font-size:.78rem;font-weight:700;margin:0 4px 8px 0;cursor:pointer;transition:.2s;font-family:inherit}
 .chip:hover{border-color:var(--em);color:var(--em)}
 
-/* ============ PLANS / PAY ============ */
 .plan{display:flex;align-items:center;gap:12px;width:100%;text-align:right;background:var(--elev);border:1.5px solid var(--bd);color:var(--txt);padding:16px;border-radius:12px;margin-bottom:10px;cursor:pointer;transition:.2s;font-family:inherit}
 .plan:hover{border-color:var(--em)}
-.plan.sel{border-color:var(--em);background:rgba(16,185,129,.1);box-shadow:0 4px 16px rgba(16,185,129,.15)}
+.plan.sel{border-color:var(--em);background:var(--glow);box-shadow:0 4px 16px var(--glow)}
 .plan.rec{border-color:rgba(251,191,36,.6)}
 .plan .pn{font-weight:900;font-size:.92rem}
 .plan .pd{font-size:.75rem;color:var(--mut);margin-top:2px}
@@ -205,7 +200,6 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 .badge{background:var(--gold);color:#05080f;font-size:.62rem;font-weight:900;padding:3px 8px;border-radius:999px;margin-inline-start:6px}
 .card-no{direction:ltr;text-align:center;font-size:1.2rem;font-weight:900;letter-spacing:3px;background:var(--elev);border:1.5px dashed var(--em);border-radius:12px;padding:16px;margin:12px 0;font-family:'Courier New',monospace}
 
-/* ============ INSTA ============ */
 .ig-top{display:flex;align-items:center;gap:18px;margin-bottom:14px}
 .ig-av{width:84px;height:84px;border-radius:50%;padding:3px;background:conic-gradient(#f9ce34,#ee2a7b,#6228d7,#f9ce34);flex-shrink:0}
 .ig-av>div{width:100%;height:100%;border-radius:50%;background:var(--bg);border:3px solid var(--bg);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.4rem;color:var(--em)}
@@ -223,33 +217,49 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 .ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:14px}
 .ig-grid button{aspect-ratio:1;border:0;padding:0;background:linear-gradient(135deg,#1e293b,#312e81);cursor:pointer;overflow:hidden;color:#fff;font-size:1.6rem;border-radius:6px}
 
-/* ============ MODALS ============ */
-#ig-modal,#search-modal,#onboard-modal,#backup-modal{position:fixed;inset:0;z-index:3000;background:rgba(5,8,15,.85);backdrop-filter:blur(6px);display:none;overflow-y:auto;padding:60px 20px 24px}
-#ig-modal.open,#search-modal.open,#onboard-modal.open,#backup-modal.open{display:block}
+#ig-modal,#search-modal,#onboard-modal,#theme-modal{position:fixed;inset:0;z-index:3000;background:rgba(5,8,15,.85);backdrop-filter:blur(6px);display:none;overflow-y:auto;padding:60px 20px 24px}
+#ig-modal.open,#search-modal.open,#onboard-modal.open,#theme-modal.open{display:block}
 .modal-box{max-width:500px;margin:0 auto;background:var(--card);border-radius:18px;padding:24px;border:1px solid var(--bd);box-shadow:0 20px 60px rgba(0,0,0,.5)}
 .modal-close{position:fixed;top:20px;left:20px;background:var(--elev);color:var(--txt);border:1px solid var(--bd);width:42px;height:42px;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:10}
 #send-sheet{position:fixed;inset:0;z-index:3500;background:rgba(5,8,15,.85);backdrop-filter:blur(6px);display:none;align-items:flex-end;justify-content:center}
 #send-sheet.open{display:flex}
 #send-sheet .sh{width:100%;max-width:600px;background:var(--card);border-radius:20px 20px 0 0;padding:20px 20px calc(20px + env(safe-area-inset-bottom));border:1px solid var(--bd);border-bottom:0}
 
-/* ============ TOAST ============ */
 #toast{position:fixed;top:80px;left:50%;transform:translateX(-50%);z-index:4000;background:var(--card);border:1px solid var(--em);padding:12px 18px;border-radius:12px;font-size:.85rem;display:none;max-width:90%;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.4)}
 #toast.undo{display:flex;gap:14px;align-items:center}
 #toast button{background:var(--gold);border:none;color:#05080f;padding:6px 14px;border-radius:8px;font-weight:900;cursor:pointer;font-family:inherit}
 
-/* ============ DRAWER (mobile only) ============ */
 .drawer-bg{position:fixed;inset:0;background:rgba(5,8,15,.7);backdrop-filter:blur(4px);z-index:2000;display:none}
 .drawer-bg.open{display:block}
 .drawer{position:fixed;top:0;right:-340px;width:320px;max-width:85vw;height:100%;background:var(--card);z-index:2100;padding:20px;display:flex;flex-direction:column;transition:right .28s cubic-bezier(.4,0,.2,1);border-left:1px solid var(--bd);overflow-y:auto}
 .drawer.open{right:0}
-.nav-btn{width:100%;background:var(--elev);border:1px solid var(--bd);color:var(--txt);padding:13px 14px;border-radius:11px;font-weight:700;text-align:right;margin-bottom:8px;cursor:pointer;font-size:.85rem;transition:.2s;font-family:inherit}
+.nav-btn{width:100%;background:var(--elev);border:1px solid var(--bd);color:var(--txt);padding:13px 14px;border-radius:11px;font-weight:700;text-align:right;margin-bottom:8px;cursor:pointer;font-size:.85rem;transition:.2s;font-family:inherit;display:flex;align-items:center;gap:10px;justify-content:flex-start}
 .nav-btn:hover{border-color:var(--em);background:var(--card)}
 
-/* ============ RESULTS ============ */
 .rs{display:flex;gap:12px;background:var(--elev);border-radius:12px;padding:14px;margin-bottom:10px;border-right:4px solid var(--em)}
 .rs img{width:64px;height:64px;border-radius:10px;object-fit:cover}
 
-/* ============ RESPONSIVE ============ */
+.theme-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.theme-swatch{background:var(--elev);border:2px solid var(--bd);border-radius:14px;padding:14px 8px;cursor:pointer;transition:.2s;text-align:center;font-family:inherit;color:var(--txt);display:flex;flex-direction:column;align-items:center;gap:8px}
+.theme-swatch:hover{border-color:var(--em);transform:translateY(-2px)}
+.theme-swatch.on{border-color:var(--em);box-shadow:0 6px 20px var(--glow);background:var(--card)}
+.theme-swatch .sw{width:38px;height:38px;border-radius:50%;box-shadow:0 4px 12px rgba(0,0,0,.3);position:relative}
+.theme-swatch .sw::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid transparent}
+.theme-swatch.on .sw::after{border-color:var(--gold)}
+.theme-swatch .tn{font-size:.72rem;font-weight:800}
+.theme-mode{display:flex;gap:8px;margin-bottom:14px}
+.theme-mode button{flex:1;padding:12px;border-radius:10px;background:var(--elev);border:1.5px solid var(--bd);color:var(--txt);cursor:pointer;font-weight:800;font-size:.85rem;font-family:inherit;transition:.2s}
+.theme-mode button.on{border-color:var(--em);background:var(--glow);color:var(--em)}
+
+#install-banner{position:fixed;bottom:20px;left:20px;right:20px;max-width:440px;margin:auto;background:var(--card);border:1px solid var(--em);border-radius:16px;padding:16px;box-shadow:0 20px 60px rgba(0,0,0,.5);z-index:3999;display:none;animation:slideUp .35s}
+#install-banner.show{display:flex;gap:12px;align-items:center}
+@keyframes slideUp{from{transform:translateY(120%);opacity:0}to{transform:none;opacity:1}}
+#install-banner .ic{font-size:2rem;flex-shrink:0}
+#install-banner .txt2{flex:1;font-size:.85rem;font-weight:700;line-height:1.6}
+#install-banner .txt2 small{display:block;color:var(--mut);font-weight:600;font-size:.75rem;margin-top:2px}
+#install-banner button{background:linear-gradient(90deg,var(--em),var(--em2));color:#05080f;border:none;padding:10px 16px;border-radius:10px;font-weight:900;cursor:pointer;font-size:.8rem;font-family:inherit;white-space:nowrap}
+#install-banner .close{background:none;border:none;color:var(--mut);font-size:1.2rem;cursor:pointer;padding:4px;font-family:inherit}
+
 @media (max-width:980px){
 .grid-2{grid-template-columns:1fr}
 .kpi-row{grid-template-columns:repeat(2,1fr)}
@@ -275,13 +285,13 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 .plan{flex-wrap:wrap}
 .plan .pp{width:100%;text-align:right;margin-top:6px}
 #w-grid{grid-template-columns:repeat(3,1fr)}
+.theme-grid{grid-template-columns:repeat(3,1fr)}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
 
-<!-- ==================== HEADER ==================== -->
 <header class="topnav">
 <button class="brand" id="brand-home" aria-label="صفحه اصلی">
 <span class="b-logo">FA</span>
@@ -297,14 +307,13 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 <button data-nav="fit">🏋️ ورزش</button>
 </nav>
 <div class="topnav-actions">
-<span id="pro-badge">⭐ PRO</span>
 <button id="user-chip" class="ic-btn" aria-label="پروفایل" style="width:auto;padding:0 12px">👤</button>
+<button id="btn-theme-modal" class="ic-btn" aria-label="تم رنگی">🎨</button>
 <button id="btn-theme" class="ic-btn" aria-label="تغییر تم">🌗</button>
 <button id="menu-toggle" class="ic-btn" aria-label="منو">☰</button>
 </div>
 </header>
 
-<!-- ==================== DRAWER (mobile) ==================== -->
 <div id="drawer-bg" class="drawer-bg"></div>
 <aside id="drawer" class="drawer" aria-label="منوی بیشتر">
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--bd)">
@@ -325,6 +334,8 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 <button class="nav-btn" data-nav="faq">❓ پرسش‌ها</button>
 <button class="nav-btn" data-nav="watercalc">💧 محاسبه‌گر آب</button>
 <button class="nav-btn" data-nav="consult">📋 ثبت‌نام</button>
+<button class="nav-btn" id="btn-theme-drawer">🎨 تم رنگی</button>
+<button class="nav-btn" id="btn-install-drawer">📲 نصب برنامه</button>
 <div style="margin-top:20px;border-top:1px solid var(--bd);padding-top:15px">
 <a id="lnk-wa" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none;padding:12px;border-radius:10px;background:#25D366;color:#fff;font-weight:900;margin-bottom:8px;font-size:.85rem">واتساپ مربی</a>
 <a id="lnk-ig" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none;padding:12px;border-radius:10px;background:linear-gradient(135deg,#f09433,#dc2743,#bc1888);color:#fff;font-weight:900;font-size:.85rem">اینستاگرام</a>
@@ -333,10 +344,18 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 
 <div id="toast" role="status"></div>
 
-<!-- ==================== MAIN ==================== -->
+<div id="install-banner" role="dialog">
+<span class="ic">📲</span>
+<div class="txt2">
+نصب فیت‌شاه روی گوشی
+<small>دسترسی سریع‌تر و کارکرد آفلاین</small>
+</div>
+<button id="install-yes">نصب</button>
+<button class="close" id="install-no" aria-label="بستن">✕</button>
+</div>
+
 <main class="wrapper">
 
-<!-- ============ DASHBOARD ============ -->
 <section id="pane-home" class="pane active">
 <div class="hero" style="margin-bottom:20px">
 <h2>کالری‌ات را بشمار، فستینگ‌ات را زمان‌بندی کن</h2>
@@ -344,35 +363,16 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 <button class="cta sm" data-nav="analyze" style="width:auto">🚀 شروع محاسبه</button>
 </div>
 
-<!-- KPI ROW -->
 <div class="kpi-row">
-<div class="kpi a">
-<div class="lbl">🔥 کالری امروز</div>
-<div class="val" id="h-cal">0</div>
-<div class="sub" id="k-cal-sub">بدون هدف</div>
-</div>
-<div class="kpi b">
-<div class="lbl">💧 آب مصرفی</div>
-<div class="val" id="h-water">0/0</div>
-<div class="sub">لیوان ۲۵۰ml</div>
-</div>
-<div class="kpi g">
-<div class="lbl">⏱️ فستینگ</div>
-<div class="val" id="h-fast">--</div>
-<div class="sub" id="h-fast-l">غیرفعال</div>
-</div>
-<div class="kpi v">
-<div class="lbl">🎮 سطح</div>
-<div class="val" id="lvl-badge">Lv.1</div>
-<div class="bar-mini"><i id="lvl-bar"></i></div>
-</div>
+<div class="kpi a"><div class="lbl">🔥 کالری امروز</div><div class="val" id="h-cal">0</div><div class="sub" id="k-cal-sub">بدون هدف</div></div>
+<div class="kpi b"><div class="lbl">💧 آب مصرفی</div><div class="val" id="h-water">0/0</div><div class="sub">لیوان ۲۵۰ml</div></div>
+<div class="kpi g"><div class="lbl">⏱️ فستینگ</div><div class="val" id="h-fast">--</div><div class="sub" id="h-fast-l">غیرفعال</div></div>
+<div class="kpi v"><div class="lbl">🎮 سطح</div><div class="val" id="lvl-badge">Lv.1</div><div class="bar-mini"><i id="lvl-bar"></i></div></div>
 </div>
 
 <div class="grid-2">
-<!-- MAIN COLUMN -->
 <div class="col-main">
 
-<!-- GOAL -->
 <div class="card" id="quick" style="display:none;border-color:rgba(251,191,36,.35)">
 <div class="c-head"><span>⚡ شروع سریع (۳۰ ثانیه)</span></div>
 <label class="f-lbl" for="q-goal">هدف شما</label>
@@ -390,8 +390,7 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 <button class="cta" id="q-go">نمایش نتیجه</button>
 </div>
 
-<!-- GOAL PROGRESS -->
-<div class="card" id="mygoal" style="display:none;border-color:rgba(16,185,129,.35)">
+<div class="card" id="mygoal" style="display:none;border-color:var(--glow)">
 <div class="c-head"><span>🎯 هدف و پیشرفت</span><button id="mg-edit" class="cta ghost sm" style="width:auto">ویرایش</button></div>
 <div class="kpi-row" style="margin-bottom:0">
 <div class="kpi g" style="border:none;padding:0;background:none"><div class="lbl">کالری روزانه</div><div class="val" id="mg-kcal" style="font-size:1.6rem">--</div></div>
@@ -409,20 +408,17 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 <button class="cta ghost" id="mg-cta" style="margin-top:12px">💳 دریافت برنامه شخصی از مربی</button>
 </div>
 
-<!-- WEEKLY CHART -->
 <div class="card">
 <div class="c-head"><span>📊 کالری ۷ روز اخیر</span><span class="badge-stat" id="week-avg"></span></div>
 <div id="week-chart"></div>
 </div>
 
-<!-- HEATMAP -->
 <div class="card">
 <div class="c-head"><span>🔥 تقویم فعالیت ۴۵ روز</span></div>
 <div class="heat" id="heatmap"></div>
 <div class="txt" style="font-size:.72rem;text-align:center">رنگ پررنگ‌تر = فعالیت بیشتر</div>
 </div>
 
-<!-- TODOS -->
 <div class="card">
 <div class="c-head"><span>✅ کارهای امروز</span></div>
 <div class="links" id="todo"></div>
@@ -430,16 +426,13 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 
 </div>
 
-<!-- SIDE COLUMN -->
 <div class="col-side">
 
-<!-- MOTIVATION -->
-<div class="card" style="background:linear-gradient(135deg,rgba(251,191,36,.1),rgba(16,185,129,.05));border-color:rgba(251,191,36,.3)">
+<div class="card" style="background:linear-gradient(135deg,rgba(251,191,36,.1),var(--glow));border-color:rgba(251,191,36,.3)">
 <div class="lbl" style="font-size:.72rem;color:var(--gold);font-weight:900;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px">✨ انگیزه امروز</div>
 <div id="quote-text" style="font-size:.95rem;font-weight:800;line-height:1.85"></div>
 </div>
 
-<!-- QUICK TOOLS -->
 <div class="card">
 <div class="c-head"><span>🛠️ ابزارهای سریع</span></div>
 <div class="links">
@@ -452,7 +445,6 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 </div>
 </div>
 
-<!-- NAV LINKS -->
 <div class="card">
 <div class="c-head"><span>📚 بیشتر بدانید</span></div>
 <div class="links">
@@ -466,14 +458,12 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 </div>
 </div>
 
-<!-- INSTALL -->
 <div class="card" id="install" style="display:none">
 <div class="c-head"><span>📲 نصب برنامه</span></div>
 <p class="txt" id="ins-txt" style="margin-bottom:10px"></p>
-<button class="cta" id="btn-install" style="display:none">نصب روی صفحه اصلی</button>
+<button class="cta" id="btn-install">نصب روی صفحه اصلی</button>
 </div>
 
-<!-- REMIND -->
 <div class="card" id="remind">
 <div class="c-head"><span>🔔 یادآور</span></div>
 <p class="txt" style="margin-bottom:10px">یادآور فقط وقتی برنامه بازه کار می‌کنه.</p>
@@ -484,7 +474,6 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 </div>
 </section>
 
-<!-- ============ ANALYZE ============ -->
 <section id="pane-analyze" class="pane">
 <div class="grid-2">
 <div class="col-main">
@@ -525,7 +514,6 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 </div>
 </section>
 
-<!-- ============ TRACKER ============ -->
 <section id="pane-tracker" class="pane">
 <div class="grid-2">
 <div class="col-main">
@@ -533,9 +521,7 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 <div class="c-head"><span>🍽️ ثبت غذا</span><span class="badge-stat" id="trk-badge" style="color:var(--gold);font-weight:900">0 kcal</span></div>
 <p class="txt" style="margin-bottom:12px">غذاهایی که خوردید رو بنویسید.</p>
 <textarea id="food-name" class="f-ctrl" rows="2" maxlength="250" placeholder="مثلاً: قورمه‌سبزی با برنج و نیمرو"></textarea>
-<div class="row2">
-<div style="flex:1"><input type="number" id="food-cal" class="f-ctrl" placeholder="کالری دستی (اختیاری)" min="1" max="5000" inputmode="numeric" style="margin:0"></div>
-</div>
+<div class="row2"><div style="flex:1"><input type="number" id="food-cal" class="f-ctrl" placeholder="کالری دستی (اختیاری)" min="1" max="5000" inputmode="numeric" style="margin:0"></div></div>
 <input id="food-note" class="f-ctrl" placeholder="📝 یادداشت (اختیاری)" maxlength="120" style="margin-top:12px">
 <div class="row2">
 <button class="cta" id="btn-food" style="flex:2">🔥 محاسبه و ثبت</button>
@@ -569,7 +555,6 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 </div>
 </section>
 
-<!-- ============ CHAT ============ -->
 <section id="pane-chat" class="pane">
 <div class="grid-2">
 <div class="col-main">
@@ -603,14 +588,13 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 </div>
 </section>
 
-<!-- ============ PROFILE ============ -->
 <section id="pane-profile" class="pane">
 <div class="grid-2">
 <div class="col-main">
 <div class="card">
 <div class="c-head"><span>👤 پروفایل</span><button class="cta ghost sm" id="prof-avatar-btn" style="width:auto">📷 عکس</button></div>
 <div style="display:flex;gap:16px;align-items:center;margin-bottom:18px">
-<div id="prof-avatar" style="width:80px;height:80px;border-radius:20px;background:linear-gradient(135deg,var(--em),var(--gold));display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:900;color:#05080f;background-size:cover;background-position:center;box-shadow:0 8px 24px rgba(16,185,129,.3)"></div>
+<div id="prof-avatar" style="width:80px;height:80px;border-radius:20px;background:linear-gradient(135deg,var(--em),var(--gold));display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:900;color:#05080f;background-size:cover;background-position:center;box-shadow:0 8px 24px var(--glow)"></div>
 <div style="flex:1">
 <input id="prof-name" class="f-ctrl" placeholder="اسمت چیه؟" style="margin-bottom:8px" maxlength="30">
 <input id="prof-bio" class="f-ctrl" placeholder="یه جمله درباره خودت" style="margin-bottom:0" maxlength="80">
@@ -635,14 +619,12 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 <button class="cta ghost" id="btn-restore" style="margin-bottom:8px">📥 بازیابی</button>
 <input type="file" id="restore-file" accept="application/json" style="display:none">
 <button class="cta ghost" id="btn-share" style="margin-bottom:8px">📤 اشتراک‌گذاری پیشرفت</button>
-<button class="cta ghost" id="btn-users" style="margin-bottom:8px">👥 تغییر کاربر</button>
-<button class="cta" id="btn-pro" style="background:linear-gradient(90deg,#fbbf24,#f59e0b)">⭐ نسخه Pro</button>
+<button class="cta ghost" id="btn-users">👥 تغییر کاربر</button>
 </div>
 </div>
 </div>
 </section>
 
-<!-- ============ MEASURE ============ -->
 <section id="pane-measure" class="pane">
 <div class="grid-2">
 <div class="col-main">
@@ -665,7 +647,7 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 <div class="val" id="fat-pct" style="font-size:2.2rem">--%</div>
 </div>
 <div class="txt" id="whtr-line" style="font-size:.82rem;margin-bottom:12px"></div>
-<div class="note" style="font-size:.75rem">این اعداد تخمینی هستند. برای دقیق‌تر با پزشک یا مربی مشورت کن.</div>
+<div class="note" style="font-size:.75rem">این اعداد تخمینی هستند.</div>
 </div>
 <div class="card">
 <div class="c-head"><span>📈 تاریخچه اندازه‌ها</span></div>
@@ -675,7 +657,6 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 </div>
 </section>
 
-<!-- ============ TOOLS ============ -->
 <section id="pane-tools" class="pane">
 <div class="grid-2">
 <div class="col-main">
@@ -691,7 +672,7 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 </div>
 <div class="card">
 <div class="c-head"><span>📸 عکس غذا + AI</span></div>
-<p class="c-sub">از غذات عکس بگیر تا AI تشخیص بده چیه و کالری‌اش چقدره. نیاز به تنظیم <code>CFG.visionUrl</code> داره.</p>
+<p class="c-sub">عکس بگیر تا AI تشخیص بده. نیاز به <code>CFG.visionUrl</code> داره.</p>
 <input type="file" id="photo-input" accept="image/*" capture="environment" style="display:none">
 <button class="cta" id="btn-photo">📷 انتخاب یا گرفتن عکس</button>
 <div id="photo-preview" style="margin-top:12px"></div>
@@ -715,13 +696,12 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 <button class="cta ghost" id="btn-backup2" style="margin-bottom:8px">💾 ذخیره فایل بکاپ (JSON)</button>
 <button class="cta ghost" id="btn-restore2">📥 بازیابی از فایل</button>
 <input type="file" id="restore-file2" accept="application/json" style="display:none">
-<div class="note">داده‌ها فقط در مرورگر خودت ذخیره می‌شن. با پاک کردن مرورگر از بین می‌رن. بکاپ بگیر!</div>
+<div class="note">داده‌ها فقط در مرورگر خودت ذخیره می‌شن. بکاپ بگیر!</div>
 </div>
 </div>
 </div>
 </section>
 
-<!-- ============ CHALLENGES ============ -->
 <section id="pane-challenges" class="pane">
 <div class="grid-2">
 <div class="col-main">
@@ -740,30 +720,37 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 </div>
 </section>
 
-<!-- ============ CONSULT ============ -->
 <section id="pane-consult" class="pane">
 <div class="grid-2">
 <div class="col-main">
 <div class="card">
 <div class="c-head"><span>📋 ۱. مشخصات شما</span></div>
-<p class="c-sub">فقط نام، موبایل و پلن لازمه. اطلاعات فقط با زدن دکمه ارسال فرستاده می‌شه.</p>
+<p class="c-sub">فقط نام و موبایل اجباریه؛ بقیه فیلدها برای برنامه‌ریزی دقیق‌تر کمک می‌کنن.</p>
 <label class="f-lbl" for="c-name">نام و نام خانوادگی *</label>
 <input id="c-name" class="f-ctrl" placeholder="سارا احمدی" maxlength="80" autocomplete="name">
 <label class="f-lbl" for="c-ph">شماره موبایل *</label>
 <input id="c-ph" type="tel" class="f-ctrl" placeholder="0912XXXXXXX" inputmode="numeric" maxlength="11" autocomplete="tel">
-<details class="opt"><summary>اطلاعات تکمیلی (اختیاری)</summary>
-<label class="f-lbl">سن و جنسیت</label><input id="c-age-gender" class="f-ctrl" placeholder="خانم، ۳۲ ساله" maxlength="40">
-<label class="f-lbl">هدف اصلی</label>
-<select id="c-goal" class="f-ctrl">
-<option value="">انتخاب نکرده‌ام</option>
-<option>چربی‌سوزی</option><option>لاغری با فستینگ</option><option>عضله‌سازی</option><option>رژیم با نظر پزشک</option>
+<div class="c-head" style="border:none;padding:0;margin:16px 0 10px;color:var(--gold);font-size:.85rem">📋 اطلاعات تکمیلی (الزامی)</div>
+<label class="f-lbl" for="c-age-gender">سن و جنسیت *</label>
+<input id="c-age-gender" class="f-ctrl" placeholder="مثلاً: خانم، ۳۲ ساله" maxlength="40" required>
+<label class="f-lbl" for="c-goal">هدف اصلی *</label>
+<select id="c-goal" class="f-ctrl" required>
+<option value="">انتخاب کن...</option>
+<option>چربی‌سوزی و کاهش سایز</option>
+<option>لاغری با فستینگ متناوب</option>
+<option>عضله‌سازی و کاهش چربی</option>
+<option>رژیم همراه با نظر پزشک</option>
 </select>
-<label class="f-lbl">سابقه رژیم</label><textarea id="c-history" class="f-ctrl" rows="2" maxlength="300" placeholder="چه رژیم‌هایی گرفتی؟"></textarea>
-<label class="f-lbl">بزرگ‌ترین چالش</label><input id="c-chal" class="f-ctrl" placeholder="مثلاً ریزه‌خواری" maxlength="100">
-<label class="f-lbl">بیماری یا دارو</label><input id="c-med" class="f-ctrl" placeholder="مثلاً کم‌کاری تیروئید" maxlength="150">
-<label class="f-lbl">لایف‌استایل</label><textarea id="c-sch" class="f-ctrl" rows="2" maxlength="300" placeholder="شغل و ساعت خواب"></textarea>
-<label class="f-lbl">کد معرف (اختیاری)</label><input id="c-ref" class="f-ctrl" placeholder="کد دوستت" maxlength="10">
-</details>
+<label class="f-lbl" for="c-history">سابقه رژیم‌های قبلی *</label>
+<textarea id="c-history" class="f-ctrl" rows="2" maxlength="300" placeholder="چه رژیم‌هایی گرفتی؟ نتیجه چی بود؟" required></textarea>
+<label class="f-lbl" for="c-chal">بزرگ‌ترین چالش *</label>
+<input id="c-chal" class="f-ctrl" placeholder="مثلاً: ریزه‌خواری، استپ وزنی" maxlength="100" required>
+<label class="f-lbl" for="c-med">بیماری یا داروی مصرفی *</label>
+<input id="c-med" class="f-ctrl" placeholder="مثلاً: کم‌کاری تیروئید، یا سالم هستم" maxlength="150" required>
+<label class="f-lbl" for="c-sch">لایف‌استایل و ساعت خواب *</label>
+<textarea id="c-sch" class="f-ctrl" rows="2" maxlength="300" placeholder="شغل و ساعت بیداری/خواب" required></textarea>
+<label class="f-lbl" for="c-ref">کد معرف (اختیاری)</label>
+<input id="c-ref" class="f-ctrl" placeholder="اگه دوستت معرفی کرده، کدش رو بزن" maxlength="10">
 </div>
 <div class="card">
 <div class="c-head"><span>💳 ۲. انتخاب پلن</span></div>
@@ -808,7 +795,6 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 </div>
 </section>
 
-<!-- ============ INSTA ============ -->
 <section id="pane-insta" class="pane">
 <div class="grid-2">
 <div class="col-main">
@@ -835,7 +821,6 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 </div>
 </section>
 
-<!-- ============ COOK ============ -->
 <section id="pane-cook" class="pane">
 <div class="card">
 <div class="c-head"><span>🍳 آشپزی سالم</span><span class="badge-stat" id="cook-count"></span></div>
@@ -845,7 +830,6 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 </div>
 </section>
 
-<!-- ============ FIT ============ -->
 <section id="pane-fit" class="pane">
 <div class="grid-2">
 <div class="col-main">
@@ -882,7 +866,6 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 </div>
 </section>
 
-<!-- ============ FAQ ============ -->
 <section id="pane-faq" class="pane">
 <div class="grid-2">
 <div class="col-main">
@@ -895,7 +878,6 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 </div>
 </section>
 
-<!-- ============ WATER ============ -->
 <section id="pane-watercalc" class="pane">
 <div class="grid-2">
 <div class="col-main">
@@ -915,7 +897,20 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 
 </main>
 
-<!-- ==================== MODALS ==================== -->
+<div id="theme-modal" role="dialog" aria-modal="true">
+<button class="modal-close" id="theme-close">✕</button>
+<div class="modal-box">
+<div style="font-size:1.15rem;font-weight:900;margin-bottom:6px">🎨 شخصی‌سازی تم</div>
+<p class="txt" style="font-size:.82rem;margin-bottom:14px">رنگ و حالت نمایش رو انتخاب کن. تغییرات خودکار ذخیره می‌شن.</p>
+<div class="theme-mode" id="theme-mode">
+<button data-mode="dark">🌙 شب</button>
+<button data-mode="light">☀️ روز</button>
+</div>
+<div style="font-weight:900;font-size:.85rem;color:var(--gold);margin-bottom:6px">🎨 رنگ اصلی</div>
+<div class="theme-grid" id="theme-grid"></div>
+</div>
+</div>
+
 <div id="send-sheet" role="dialog" aria-modal="true">
 <div class="sh">
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><b id="sh-title"></b>
@@ -938,9 +933,7 @@ details.opt summary{cursor:pointer;font-weight:800;color:var(--em);font-size:.85
 <div id="search-modal-results"></div>
 </div></div>
 
-<div id="onboard-modal" role="dialog"><div class="modal-box">
-<div id="onboard-content"></div>
-</div></div>
+<div id="onboard-modal" role="dialog"><div class="modal-box"><div id="onboard-content"></div></div></div>
 
 <script>
 (function(){
@@ -953,11 +946,12 @@ fastSec:16*3600,
 aiUrl:'',chatUrl:'',visionUrl:'',submitUrl:'',analyticsUrl:'',
 payEnabled:true,tgUser:'',payLink:'',cardNumber:'',cardOwner:'',
 coach:{name:'علیرضا اکبری',bio:'',credentials:[]},results:[],trial:null,
-proPrice:199000,refDiscount:10,
+refDiscount:10,
 plans:[
 {id:'m1',name:'پلن یک‌ماهه',desc:'برای شروع',price:500000,days:30,features:['رژیم شخصی','پیگیری هفتگی','پشتیبانی چت']},
 {id:'m3',name:'پلن سه‌ماهه',desc:'برای نتیجه پایدار',price:1200000,days:90,recommended:true,features:['رژیم شخصی','پیگیری هفتگی','اصلاح دوهفته‌ای','پشتیبانی چت']}
 ]};
+
 const $=id=>document.getElementById(id);
 const ymd=x=>x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0');
 const today=()=>ymd(new Date());
@@ -969,31 +963,134 @@ const store={
 get(k,d){try{const v=localStorage.getItem(`fs_${currentUser}_${k}`);return v?JSON.parse(v):d}catch(e){return d}},
 set(k,v){try{localStorage.setItem(`fs_${currentUser}_${k}`,JSON.stringify(v))}catch(e){}}
 };
+
+/* ===== THEME ===== */
+const THEMES=[
+{id:'emerald',name:'زمرد',c1:'#10b981',c2:'#0d9488'},
+{id:'ocean',name:'اقیانوس',c1:'#0ea5e9',c2:'#0284c7'},
+{id:'violet',name:'بنفشه',c1:'#8b5cf6',c2:'#7c3aed'},
+{id:'rose',name:'رز',c1:'#ec4899',c2:'#db2777'},
+{id:'sunset',name:'غروب',c1:'#f97316',c2:'#ea580c'},
+{id:'cyber',name:'فیروزه',c1:'#06b6d4',c2:'#0891b2'},
+{id:'lime',name:'لیمویی',c1:'#84cc16',c2:'#65a30d'},
+{id:'crimson',name:'قرمز',c1:'#ef4444',c2:'#dc2626'},
+{id:'indigo',name:'نیلی',c1:'#6366f1',c2:'#4f46e5'}
+];
 let theme=store.get('theme','dark');
-function applyTheme(){document.documentElement.setAttribute('data-theme',theme)}
+let accent=store.get('accent','emerald');
+function applyTheme(){
+document.documentElement.setAttribute('data-theme',theme);
+document.documentElement.setAttribute('data-accent',accent);
+const t=THEMES.find(x=>x.id===accent);
+const color=t?t.c1:'#10b981';
+const mtc=$('meta-theme-color');if(mtc)mtc.setAttribute('content',color);
+}
 applyTheme();
-const isPro=()=>store.get('pro',false);
-function updateProBadge(){$('pro-badge').style.display=isPro()?'inline-block':'none';}
-function getMyRefCode(){let c=store.get('refCode');if(!c){c='FS'+Math.random().toString(36).slice(2,8).toUpperCase();store.set('refCode',c)}return c;}
-function applyReferral(code){if(!code)return 0;const c=store.get('myRefCode');if(c===code)return 0;store.set('myRefCode',code);return CFG.refDiscount;}
+function renderThemeModal(){
+const mode=$('theme-mode');mode.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.mode===theme));
+const g=$('theme-grid');g.textContent='';
+THEMES.forEach(t=>{
+const b=document.createElement('button');b.className='theme-swatch'+(t.id===accent?' on':'');
+b.innerHTML=`<span class="sw" style="background:linear-gradient(135deg,${t.c1},${t.c2})"></span><span class="tn">${t.name}</span>`;
+b.onclick=()=>{accent=t.id;store.set('accent',accent);applyTheme();renderThemeModal();toast('🎨 تم '+t.name+' فعال شد')};
+g.appendChild(b);
+});
+mode.querySelectorAll('button').forEach(b=>{
+b.classList.toggle('on',b.dataset.mode===theme);
+b.onclick=()=>{theme=b.dataset.mode;store.set('theme',theme);applyTheme();renderThemeModal();toast(theme==='dark'?'🌙 حالت شب':'☀️ حالت روز')};
+});
+}
+function openThemeModal(){$('theme-modal').classList.add('open');renderThemeModal()}
+$('theme-close').onclick=()=>$('theme-modal').classList.remove('open');
+$('btn-theme-modal').onclick=openThemeModal;
+$('btn-theme-drawer').onclick=()=>{openMenu(false);setTimeout(openThemeModal,150)};
+$('theme-modal').addEventListener('click',e=>{if(e.target.id==='theme-modal')$('theme-modal').classList.remove('open')});
+
+/* ===== PWA ===== */
+const ICON_SVG=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#10b981"/><stop offset="1" stop-color="#fbbf24"/></linearGradient></defs><rect width="512" height="512" rx="112" fill="url(#g)"/><text x="256" y="340" font-family="Vazirmatn,system-ui,sans-serif" font-size="260" font-weight="900" fill="#05080f" text-anchor="middle" letter-spacing="-10">FA</text></svg>`;
+const ICON_URL='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(ICON_SVG);
+function initManifest(){
+const manifest={
+name:'فیت‌شاه | داشبورد کالری و فستینگ',
+short_name:'FitShah',
+description:'داشبورد کالری‌شمار، فستینگ و مربی هوشمند با علیرضا اکبری',
+start_url:'./',scope:'./',display:'standalone',
+display_override:['standalone','minimal-ui'],
+orientation:'portrait-primary',
+background_color:'#05080f',
+theme_color:THEMES.find(x=>x.id===accent)?.c1||'#10b981',
+dir:'rtl',lang:'fa',
+categories:['health','fitness','lifestyle'],
+icons:[
+{src:ICON_URL,sizes:'192x192',type:'image/svg+xml',purpose:'any'},
+{src:ICON_URL,sizes:'512x512',type:'image/svg+xml',purpose:'any'},
+{src:ICON_URL,sizes:'512x512',type:'image/svg+xml',purpose:'maskable'}
+]};
+const blob=new Blob([JSON.stringify(manifest)],{type:'application/manifest+json'});
+const url=URL.createObjectURL(blob);
+const link=$('manifest-link');if(link)link.href=url;
+const ai=$('apple-icon');if(ai)ai.href=ICON_URL;
+const fi=$('favicon');if(fi)fi.href=ICON_URL;
+}
+initManifest();
+async function initSW(){
+if(!('serviceWorker' in navigator))return;
+if(!/^https?:$/.test(location.protocol))return;
+try{
+const reg=await navigator.serviceWorker.register('sw.js',{scope:'./'});
+reg.addEventListener('updatefound',()=>{
+const nw=reg.installing;if(!nw)return;
+nw.addEventListener('statechange',()=>{if(nw.state==='installed'&&navigator.serviceWorker.controller){toast('✨ نسخه جدید آماده‌ست. صفحه رو رفرش کن.')}});
+});
+}catch(e){console.warn('SW registration failed (create sw.js file):',e.message)}
+}
+initSW();
+let deferredInstall=null;
+let installDismissed=store.get('installDismissed',false);
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredInstall=e;showInstallBanner();renderInstall()});
+window.addEventListener('appinstalled',()=>{deferredInstall=null;hideInstallBanner();toast('✅ فیت‌شاه نصب شد!');track('pwa_installed')});
+const standalone=()=>(window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone||window.matchMedia('(display-mode: minimal-ui)').matches;
+function showInstallBanner(){if(standalone()||installDismissed)return;setTimeout(()=>{if(deferredInstall)$('install-banner').classList.add('show')},3000)}
+function hideInstallBanner(){$('install-banner').classList.remove('show')}
+$('install-yes').onclick=async()=>{
+if(!deferredInstall){hideInstallBanner();return}
+try{deferredInstall.prompt();const{outcome}=await deferredInstall.userChoice;if(outcome==='accepted'){track('pwa_accept')}else{store.set('installDismissed',true)}}catch(e){}
+deferredInstall=null;hideInstallBanner();renderInstall();
+};
+$('install-no').onclick=()=>{hideInstallBanner();store.set('installDismissed',true)};
+$('btn-install-drawer').onclick=()=>{openMenu(false);if(deferredInstall){deferredInstall.prompt();deferredInstall.userChoice.then(()=>{deferredInstall=null;renderInstall()})}else{toast('اگه دکمه نصب نمیاد، در سافاری Share → Add to Home Screen بزن.')}};
+
+/* ===== Ref / Coupon ===== */
+function getMyRefCode(){let c=store.get('refCode');if(!c){c='FS'+Math.random().toString(36).slice(2,8).toUpperCase();store.set('refCode',c)}return c}
+function applyReferral(code){if(!code)return 0;const c=store.get('myRefCode');if(c===code)return 0;store.set('myRefCode',code);return CFG.refDiscount}
 const COUPONS={FIT10:10,WELCOME20:20,SUMMER15:15,PRO30:30};
-function applyCoupon(code){const c=String(code||'').trim().toUpperCase();if(!c)return{ok:false,msg:'کد رو وارد کن'};if(COUPONS[c]!==undefined)return{ok:true,percent:COUPONS[c],msg:`✅ کد معتبر: ${COUPONS[c]}٪ تخفیف`};return{ok:false,msg:'❌ کد نامعتبره'};}
+function applyCoupon(code){const c=String(code||'').trim().toUpperCase();if(!c)return{ok:false,msg:'کد رو وارد کن'};if(COUPONS[c]!==undefined)return{ok:true,percent:COUPONS[c],msg:`✅ کد معتبر: ${COUPONS[c]}٪ تخفیف`};return{ok:false,msg:'❌ کد نامعتبره'}}
+
+/* ===== Quotes ===== */
 const QUOTES=['امروز بهترین روز برای شروع تغییره','هر انتخاب کوچیک، تفاوت بزرگی می‌سازه','بدنت نتیجه تلاشت رو نشون می‌ده','استمرار مهم‌تر از شدته','خودت رو با دیروزت مقایسه کن، نه با دیگران','آب بخور، حرکت کن، نفس بکش','پیشرفت خطی نیست، اما ادامه بده','کالری‌شماری یعنی کنترل، نه محدودیت','یه قدم کوچیک بهتر از هیچ قدمیه','به بدنت گوش کن، اون بهترین مربیه','امروز رو ببر، فردا رو بساز','سخته، اما ارزشش رو داره'];
-function renderQuote(){const idx=(new Date().getDate()+new Date().getMonth()*31)%QUOTES.length;$('quote-text').textContent='«'+QUOTES[idx]+'»';}
+function renderQuote(){const idx=(new Date().getDate()+new Date().getMonth()*31)%QUOTES.length;$('quote-text').textContent='«'+QUOTES[idx]+'»'}
+
+/* ===== Gamification ===== */
 const LEVELS=[0,100,300,600,1000,1600,2500,4000,6000,10000];
-function calcPoints(){return store.get('days',[]).length*10+store.get('totalLogs',0)*2+store.get('workouts',[]).length*15+store.get('fullWaterDays',0)*5;}
-function calcLevel(){const p=calcPoints();let lv=1;for(let i=0;i<LEVELS.length;i++)if(p>=LEVELS[i])lv=i+1;return{points:p,level:lv};}
-function renderLevel(){const {points,level}=calcLevel();$('lvl-badge').textContent='Lv.'+level;const nextLv=LEVELS[level]||LEVELS[LEVELS.length-1];const prevLv=LEVELS[level-1]||0;const pct=Math.min(100,((points-prevLv)/(nextLv-prevLv))*100);$('lvl-bar').style.width=pct+'%';const titles=['تازه‌کار','شروع‌کننده','پیگیر','فعال','منظم','حرفه‌ای','قهرمان','استاد','افسانه','فیت‌شاه'];$('lvl-badge').title=`${titles[level-1]||'قهرمان'} • ${points} امتیاز • ${nextLv-points} امتیاز تا بعد`;}
+function calcPoints(){return store.get('days',[]).length*10+store.get('totalLogs',0)*2+store.get('workouts',[]).length*15+store.get('fullWaterDays',0)*5}
+function calcLevel(){const p=calcPoints();let lv=1;for(let i=0;i<LEVELS.length;i++)if(p>=LEVELS[i])lv=i+1;return{points:p,level:lv}}
+function renderLevel(){const{points,level}=calcLevel();$('lvl-badge').textContent='Lv.'+level;const nextLv=LEVELS[level]||LEVELS[LEVELS.length-1];const prevLv=LEVELS[level-1]||0;const pct=Math.min(100,((points-prevLv)/(nextLv-prevLv))*100);$('lvl-bar').style.width=pct+'%';const titles=['تازه‌کار','شروع‌کننده','پیگیر','فعال','منظم','حرفه‌ای','قهرمان','استاد','افسانه','فیت‌شاه'];$('lvl-badge').title=`${titles[level-1]||'قهرمان'} • ${points} امتیاز • ${nextLv-points} امتیاز تا بعد`}
+
+/* ===== Achievements ===== */
 const ACHIEVEMENTS=[
 {id:'first',n:'اولین قدم',i:'👟',check:s=>s.logs>=1},{id:'w1',n:'یه هفته',i:'📅',check:s=>s.days>=7},{id:'w4',n:'یه ماه',i:'🏆',check:s=>s.days>=30},
 {id:'l5',n:'۵ کیلو',i:'⚖️',check:s=>s.loss>=5},{id:'l10',n:'۱۰ کیلو',i:'🌟',check:s=>s.loss>=10},{id:'f100',n:'۱۰۰ وعده',i:'🍽️',check:s=>s.logs>=100},
 {id:'wo20',n:'ورزشکار',i:'💪',check:s=>s.workouts>=20},{id:'water10',n:'آب‌دوست',i:'💧',check:s=>s.water>=10},{id:'streak7',n:'۷ روز پیاپی',i:'🔥',check:s=>s.streak>=7},
-{id:'streak30',n:'۳۰ روز',i:'⚡',check:s=>s.streak>=30},{id:'chat10',n:'پرسشگر',i:'💬',check:s=>s.chats>=10},{id:'pro',n:'حرفه‌ای',i:'⭐',check:s=>s.isPro}
+{id:'streak30',n:'۳۰ روز',i:'⚡',check:s=>s.streak>=30},{id:'chat10',n:'پرسشگر',i:'💬',check:s=>s.chats>=10}
 ];
-function userStats(){const wlog=store.get('wlog',[]),pf=store.get('profile',null);const first=wlog.length?wlog[0].w:(pf?pf.w:0);const cur=wlog.length?wlog[wlog.length-1].w:(pf?pf.w:0);const loss=first&&cur?Math.max(0,first-cur):0;return{days:store.get('days',[]).length,logs:store.get('totalLogs',0),workouts:store.get('workouts',[]).length,water:store.get('fullWaterDays',0),streak:streak(),loss:Math.round(loss*10)/10,chats:store.get('chatCount',0),isPro:isPro()};}
-function renderAchievements(){const stats=userStats(),g=$('ach-grid');g.textContent='';let earned=0;ACHIEVEMENTS.forEach(a=>{const has=a.check(stats);if(has)earned++;const d=document.createElement('div');d.className='ach'+(has?' on':'');d.innerHTML='<div class="ic">'+a.i+'</div><div class="nm">'+a.n+'</div>';d.setAttribute('title',a.n);g.appendChild(d)});$('ach-count').textContent=earned+'/'+ACHIEVEMENTS.length;}
+function userStats(){const wlog=store.get('wlog',[]),pf=store.get('profile',null);const first=wlog.length?wlog[0].w:(pf?pf.w:0);const cur=wlog.length?wlog[wlog.length-1].w:(pf?pf.w:0);const loss=first&&cur?Math.max(0,first-cur):0;return{days:store.get('days',[]).length,logs:store.get('totalLogs',0),workouts:store.get('workouts',[]).length,water:store.get('fullWaterDays',0),streak:streak(),loss:Math.round(loss*10)/10,chats:store.get('chatCount',0)}}
+function renderAchievements(){const stats=userStats(),g=$('ach-grid');g.textContent='';let earned=0;ACHIEVEMENTS.forEach(a=>{const has=a.check(stats);if(has)earned++;const d=document.createElement('div');d.className='ach'+(has?' on':'');d.innerHTML='<div class="ic">'+a.i+'</div><div class="nm">'+a.n+'</div>';d.setAttribute('title',a.n);g.appendChild(d)});$('ach-count').textContent=earned+'/'+ACHIEVEMENTS.length}
+
+/* ===== Heatmap ===== */
 function renderHeatmap(){const days=store.get('dayActivity',{});const box=$('heatmap');box.textContent='';const now=new Date();for(let i=44;i>=0;i--){const d=new Date(now);d.setDate(d.getDate()-i);const k=ymd(d),count=days[k]||0;const div=document.createElement('div');const lvl=count===0?'':(count<2?'l1':count<4?'l2':count<6?'l3':'l4');if(lvl)div.className=lvl;div.title=k+' : '+count+' فعالیت';box.appendChild(div)}}
-function markActivity(){const d=store.get('dayActivity',{}),k=today();d[k]=(d[k]||0)+1;store.set('dayActivity',d);}
+function markActivity(){const d=store.get('dayActivity',{}),k=today();d[k]=(d[k]||0)+1;store.set('dayActivity',d)}
+
+/* ===== Week chart ===== */
 function renderWeekChart(){
 const hist=store.get('logHistory',{});const box=$('week-chart');box.textContent='';
 const days=[];const now=new Date();for(let i=6;i>=0;i--){const d=new Date(now);d.setDate(d.getDate()-i);days.push(ymd(d))}
@@ -1004,13 +1101,16 @@ const wrap=document.createElement('div');wrap.style.cssText='display:flex;gap:8p
 days.forEach((k,i)=>{const v=vals[i];const bar=document.createElement('div');bar.style.cssText=`flex:1;background:linear-gradient(180deg,var(--em),var(--em2));border-radius:8px 8px 0 0;height:${(v/max)*100}%;min-height:4px;position:relative;transition:.3s;cursor:pointer`;bar.title=k+' : '+v+' kcal';const lbl=document.createElement('div');lbl.style.cssText='position:absolute;bottom:-24px;left:0;right:0;text-align:center;font-size:.68rem;color:var(--mut);font-weight:700';lbl.textContent=new Date(k).toLocaleDateString('fa-IR',{weekday:'short'});bar.appendChild(lbl);wrap.appendChild(bar)});
 box.appendChild(wrap);
 }
-function calcNavyFat(sex,waist,neck,hip,height){let fat=0;if(sex==='m'){fat=495/(1.0324-0.19077*Math.log10(waist-neck)+0.15456*Math.log10(height))-450}else{fat=495/(1.29579-0.35004*Math.log10(waist+hip-neck)+0.22100*Math.log10(height))-450}return Math.max(3,Math.min(60,fat));}
-$('btn-measure').onclick=()=>{const w=num($('m-waist').value),n=num($('m-neck').value),h=num($('m-hip').value),ht=num($('m-height').value),sex=$('m-sex').value;if(!(w>30&&w<200&&n>20&&n<80&&ht>100&&ht<230)){alert('مقادیر معتبر وارد کن');return}if(sex==='f'&&!(h>40&&h<200)){alert('دور باسن رو وارد کن');return}const fat=calcNavyFat(sex,w,n,h||0,ht);const whtr=w/ht;$('fat-pct').textContent=fat.toFixed(1)+'%';let whtrTxt=whtr<0.4?'کمتر از حد نرمال':whtr<0.5?'نرمال ✅':whtr<0.6?'کمی بالا ⚠️':'بالا 🚨';$('whtr-line').textContent=`نسبت کمر به قد: ${whtr.toFixed(2)} (${whtrTxt})`;$('measure-res').style.display='block';const hist=store.get('measureHist',[]);hist.push({d:today(),waist:w,neck:n,hip:h,height:ht,sex,fat:Math.round(fat*10)/10});store.set('measureHist',hist.slice(-50));renderMeasureHistory();};
-function renderMeasureHistory(){const hist=store.get('measureHist',[]);const box=$('measure-history');box.textContent='';if(!hist.length){box.innerHTML='<p class="txt">هنوز اندازه‌ای ثبت نشده.</p>';return}hist.slice(-8).reverse().forEach(m=>{const d=document.createElement('div');d.className='food-row';d.innerHTML=`<span>📅 ${m.d}</span><span style="color:var(--gold);font-weight:900">${m.fat}% چربی</span>`;box.appendChild(d)});}
-function suggestWorkout(){const pf=store.get('profile',null),stats=userStats();const box=$('fit-suggest');box.textContent='';let name='تمام‌بدن مبتدی',days=3,note='مناسب شروع';if(pf&&pf.goal==='gain'){name='تمام‌بدن متوسط';days=4;note='برای عضله‌سازی، ۴ روز در هفته'}else if(pf&&pf.goal==='lose'){name=stats.workouts<5?'تمام‌بدن مبتدی':'تمام‌بدن متوسط';days=4;note='ترکیب تمرین مقاومتی + پیاده‌روی'}if(stats.workouts>=20){name='تمام‌بدن متوسط';days=5;note='سطح پیشرفته، ۵ روز در هفته'}const p=document.createElement('p');p.className='txt';p.innerHTML=`<b>${name}</b><br>${note}<br>تعداد جلسات: <b>${days} بار در هفته</b>`;box.appendChild(p);const btn=document.createElement('button');btn.className='cta sm';btn.textContent='▶️ شروع این تمرین';btn.onclick=()=>{fitCat='all';nav('fit');setTimeout(()=>{const d=$('fit-list').querySelector('details');if(d)d.open=true},100)};box.appendChild(btn);}
-function initPWA(){if(!('serviceWorker' in navigator))return;if(!/^https?:$/.test(location.protocol))return;const swCode=`const C='fitshah-v1';self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(['./','./index.html']).catch(()=>{})))});self.addEventListener('activate',e=>e.waitUntil(self.clients.claim()));self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).then(res=>{if(res.ok&&e.request.url.startsWith(self.location.origin)){const cl=res.clone();caches.open(C).then(c=>c.put(e.request,cl))}return res}).catch(()=>caches.match('./index.html'))))});`;try{const blob=new Blob([swCode],{type:'application/javascript'});navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(()=>{})}catch(e){}}
 
-/* ==================== CHAT ==================== */
+/* ===== Measure ===== */
+function calcNavyFat(sex,waist,neck,hip,height){let fat=0;if(sex==='m'){fat=495/(1.0324-0.19077*Math.log10(waist-neck)+0.15456*Math.log10(height))-450}else{fat=495/(1.29579-0.35004*Math.log10(waist+hip-neck)+0.22100*Math.log10(height))-450}return Math.max(3,Math.min(60,fat))}
+$('btn-measure').onclick=()=>{const w=num($('m-waist').value),n=num($('m-neck').value),h=num($('m-hip').value),ht=num($('m-height').value),sex=$('m-sex').value;if(!(w>30&&w<200&&n>20&&n<80&&ht>100&&ht<230)){alert('مقادیر معتبر وارد کن');return}if(sex==='f'&&!(h>40&&h<200)){alert('دور باسن رو وارد کن');return}const fat=calcNavyFat(sex,w,n,h||0,ht);const whtr=w/ht;$('fat-pct').textContent=fat.toFixed(1)+'%';let whtrTxt=whtr<0.4?'کمتر از حد نرمال':whtr<0.5?'نرمال ✅':whtr<0.6?'کمی بالا ⚠️':'بالا 🚨';$('whtr-line').textContent=`نسبت کمر به قد: ${whtr.toFixed(2)} (${whtrTxt})`;$('measure-res').style.display='block';const hist=store.get('measureHist',[]);hist.push({d:today(),waist:w,neck:n,hip:h,height:ht,sex,fat:Math.round(fat*10)/10});store.set('measureHist',hist.slice(-50));renderMeasureHistory()};
+function renderMeasureHistory(){const hist=store.get('measureHist',[]);const box=$('measure-history');box.textContent='';if(!hist.length){box.innerHTML='<p class="txt">هنوز اندازه‌ای ثبت نشده.</p>';return}hist.slice(-8).reverse().forEach(m=>{const d=document.createElement('div');d.className='food-row';d.innerHTML=`<span>📅 ${m.d}</span><span style="color:var(--gold);font-weight:900">${m.fat}% چربی</span>`;box.appendChild(d)})}
+
+/* ===== Workout suggest ===== */
+function suggestWorkout(){const pf=store.get('profile',null),stats=userStats();const box=$('fit-suggest');box.textContent='';let name='تمام‌بدن مبتدی',days=3,note='مناسب شروع';if(pf&&pf.goal==='gain'){name='تمام‌بدن متوسط';days=4;note='برای عضله‌سازی، ۴ روز در هفته'}else if(pf&&pf.goal==='lose'){name=stats.workouts<5?'تمام‌بدن مبتدی':'تمام‌بدن متوسط';days=4;note='ترکیب تمرین مقاومتی + پیاده‌روی'}if(stats.workouts>=20){name='تمام‌بدن متوسط';days=5;note='سطح پیشرفته، ۵ روز در هفته'}const p=document.createElement('p');p.className='txt';p.innerHTML=`<b>${name}</b><br>${note}<br>تعداد جلسات: <b>${days} بار در هفته</b>`;box.appendChild(p);const btn=document.createElement('button');btn.className='cta sm';btn.textContent='▶️ شروع این تمرین';btn.onclick=()=>{fitCat='all';nav('fit');setTimeout(()=>{const d=$('fit-list').querySelector('details');if(d)d.open=true},100)};box.appendChild(btn)}
+
+/* ===== CHAT ===== */
 const FALLBACK_ANSWERS=[
 {k:['فستینگ','16:8','روزه','ناشتا'],a:'فستینگ متناوب یعنی دوره‌های غذا خوردن و نخوردن. محبوب‌ترین نوعش ۱۶:۸ هست: ۱۶ ساعت ناشتا، ۸ ساعت غذا.\n\n⚠️ برای همه مناسب نیست. اگه باردار، شیرده، دیابتی یا دچار اختلال خوردن هستی، اول با پزشک مشورت کن.'},
 {k:['پروتئین'],a:'برای کاهش وزن همراه با ورزش، ۱.۶ تا ۲ گرم به‌ازای هر کیلوگرم وزن ایده‌آل.\n\nمثال: وزن ایده‌آل ۶۰ کیلو → ۹۶ تا ۱۲۰ گرم پروتئین در روز.\n\nمنابع خوب: سینه مرغ، ماهی، تخم‌مرغ، ماست یونانی، حبوبات.'},
@@ -1027,13 +1127,13 @@ const FALLBACK_ANSWERS=[
 {k:['اشتهای زیاد','گرسنه','ویار'],a:'اشتهای زیاد می‌تونه از این‌ها باشه:\n• کم‌خوابی\n• استرس\n• کم‌آبی\n• پروتئین کم\n• فیبر کم\n\nاین‌ها رو چک کن. اگه ادامه داره با پزشک مشورت کن.'},
 {k:['بارداری','باردار','شیرده'],a:'در دوران بارداری و شیردهی، هر رژیم و فستینگ بدون نظر پزشک ممنوعه.\n\nبا پزشک یا متخصص تغذیه مشورت کن.'},
 {k:['دیابت','قند خون','انسولین'],a:'در دیابت، فستینگ و رژیم باید زیر نظر پزشک باشه.\n\nکارهایی که کمک می‌کنه:\n• حذف کربوی ساده\n• وعده‌های منظم\n• پایش قند خون\n• ورزش روزانه\n\n⚠️ بدون مشورت پزشک خطرناکه.'},
-{k:['تخم مرغ','تخم‌مرغ'],a:'تخم‌مرغ یکی از بهترین منابع پروتئینه!\n\nهر تخم‌مرغ: ~۷۵ کالری، ۶ گرم پروتئین\n\nمصرف ۱-۳ عدد در روز امنه. کلسترول غذایی تأثیر کمی روی خون داره.'},
+{k:['تخم مرغ','تخم‌مرغ'],a:'تخم‌مرغ یکی از بهترین منابع پروتئینه!\n\nهر تخم‌مرغ: ~۷۵ کالری، ۶ گرم پروتئین\n\nمصرف ۱-۳ عدد در روز امنه.'},
 {k:['میان وعده','میان‌وعده','اسنک'],a:'میان‌وعده‌های سالم:\n• ماست یونانی + گردو\n• سیب + کره بادام‌زمینی\n• خیار و هویج\n• یه مشت مغز خام\n• پنیر کم‌چرب + نان جو\n\nپرهیز: چیپس، کیک، بیسکویت.'},
 {k:['فست فود','پیتزا','همبرگر'],a:'فست‌فود رو کامل حذف نکن، ولی هفته‌ای ۱ بار محدود کن.\n\nاگه می‌خوری:\n• نسخه خونگی بساز\n• سایز کوچک\n• با سالاد\n• بدون نوشابه'},
 {k:['صبحانه'],a:'صبحانه خوب باید پروتئین بالا داشته باشه:\n\n• املت با سبزیجات\n• جو دوسر + ماست یونانی + میوه\n• نان جو + پنیر + گردو + تخم‌مرغ\n\nپروتئین صبحگاهی از پرخوری طول روز جلوگیری می‌کنه.'},
 {k:['تشکر','ممنون','مرسی','سپاس'],a:'خواهش می‌کنم! 🙏\nاگه سوال دیگه‌ای داری بپرس. موفق باشی! 💪'}
 ];
-function defaultChatReply(q){const n=norm(q);for(const item of FALLBACK_ANSWERS){for(const k of item.k){if(n.includes(norm(k)))return item.a}}return 'سوالت رو متوجه شدم، ولی برای جواب دقیق‌تر یکی از موضوعات زیر رو بپرس:\n\n• فستینگ چیه؟\n• چقدر پروتئین بخورم؟\n• چه بخورم؟\n• استپ وزنی\n• چقدر آب بخورم؟\n• کالری روزانه\n• تمرین مناسب\n\nاگه سوال شخصی داری، با مربی در واتساپ در تماس باش.';}
+function defaultChatReply(q){const n=norm(q);for(const item of FALLBACK_ANSWERS){for(const k of item.k){if(n.includes(norm(k)))return item.a}}return 'سوالت رو متوجه شدم، ولی برای جواب دقیق‌تر یکی از موضوعات زیر رو بپرس:\n\n• فستینگ چیه؟\n• چقدر پروتئین بخورم؟\n• چه بخورم؟\n• استپ وزنی\n• چقدر آب بخورم؟\n• کالری روزانه\n• تمرین مناسب\n\nاگه سوال شخصی داری، با مربی در واتساپ در تماس باش.'}
 const CHAT_CHIPS=['فستینگ چیه؟','چقدر پروتئین بخورم؟','چه بخورم؟','استپ وزنی','چقدر آب بخورم؟','کالری روزانه','تمرین مناسب','خواب','قند و شیرینی','مکمل لازم دارم؟','میان‌وعده چی بخورم؟'];
 function renderChatChips(){const box=$('chat-chips');box.textContent='';CHAT_CHIPS.forEach(q=>{const c=document.createElement('span');c.className='chip';c.textContent=q;c.onclick=()=>{$('chat-inp').value=q;sendChat()};box.appendChild(c)})}
 function chatSave(msgs){store.set('chatHistory',msgs.slice(-60))}
@@ -1041,12 +1141,13 @@ function chatLoad(){return store.get('chatHistory',[])}
 function addChatMsg(text,who,save=true){const box=$('chat-box');const m=document.createElement('div');m.className='msg '+who;const t=document.createElement('div');t.style.whiteSpace='pre-line';t.textContent=text;m.appendChild(t);const tm=document.createElement('div');tm.className='msg-time';tm.textContent=new Date().toLocaleTimeString('fa-IR',{hour:'2-digit',minute:'2-digit'});m.appendChild(tm);box.appendChild(m);box.scrollTop=box.scrollHeight;if(save){const h=chatLoad();h.push({t:text,w:who,ts:Date.now()});chatSave(h)}}
 function showTyping(){hideTyping();const box=$('chat-box');const w=document.createElement('div');w.className='typing';w.id='typing';w.innerHTML='<span></span><span></span><span></span>';box.appendChild(w);box.scrollTop=box.scrollHeight}
 function hideTyping(){const t=$('typing');if(t)t.remove()}
-async function sendChat(){const inp=$('chat-inp'),q=inp.value.trim();if(!q)return;addChatMsg(q,'u');inp.value='';store.set('chatCount',(store.get('chatCount',0)+1));showTyping();let ans=defaultChatReply(q);if(CFG.chatUrl){try{const ctl=new AbortController();setTimeout(()=>ctl.abort(),15000);const r=await fetch(CFG.chatUrl,{method:'POST',headers:{'Content-Type':'application/json'},signal:ctl.signal,body:JSON.stringify({q,context:userStats()})});const d=await r.json();if(d.answer)ans=d.answer}catch(e){}}await new Promise(r=>setTimeout(r,600));hideTyping();addChatMsg(ans,'a');}
+async function sendChat(){const inp=$('chat-inp'),q=inp.value.trim();if(!q)return;addChatMsg(q,'u');inp.value='';store.set('chatCount',(store.get('chatCount',0)+1));showTyping();let ans=defaultChatReply(q);if(CFG.chatUrl){try{const ctl=new AbortController();setTimeout(()=>ctl.abort(),15000);const r=await fetch(CFG.chatUrl,{method:'POST',headers:{'Content-Type':'application/json'},signal:ctl.signal,body:JSON.stringify({q,context:userStats()})});const d=await r.json();if(d.answer)ans=d.answer}catch(e){}}await new Promise(r=>setTimeout(r,600));hideTyping();addChatMsg(ans,'a')}
 function initChat(){const hist=chatLoad();const box=$('chat-box');box.textContent='';if(hist.length){hist.forEach(m=>addChatMsg(m.t,m.w,false))}else{addChatMsg('سلام 👋 من مربی هوشمند فیت‌شاهم.\n\nهر سوالی درباره تغذیه، فستینگ، کالری یا ورزش داری بپرس.\nبرای شروع یکی از دکمه‌های زیر رو بزن یا خودت تایپ کن.','a',false)}renderChatChips()}
 $('chat-send').onclick=sendChat;
 $('chat-inp').addEventListener('keydown',e=>{if(e.key==='Enter')sendChat()});
 $('chat-clear').onclick=()=>{if(!confirm('تاریخچه چت پاک بشه؟'))return;store.set('chatHistory',[]);const box=$('chat-box');box.textContent='';addChatMsg('چت پاک شد. از نو شروع کنیم 💬','a',false)};
 
+/* ===== Calorie warning / Undo ===== */
 function checkCalorieWarning(){const pf=store.get('profile',null),box=$('cal-warn');if(!pf){box.textContent='';return}const q=quickPlan(pf);const sum=log.reduce((s,i)=>s+i.c,0);const pct=(sum/q.target)*100;box.textContent='';if(pct>=90&&pct<100){const d=document.createElement('div');d.className='note';d.textContent=`⚠️ به حد کالری روزانه نزدیک شدی (${Math.round(pct)}٪)`;box.appendChild(d)}else if(pct>=100){const d=document.createElement('div');d.className='note';d.style.cssText+=';border-color:#ef4444;color:#fca5a5';d.textContent=`🚨 از کالری هدف رد شدی! (${Math.round(pct)}٪). یه پیاده‌روی ۲۰ دقیقه‌ای کمک می‌کنه.`;box.appendChild(d)}}
 function toastUndo(msg,onUndo){const e=$('toast');e.innerHTML='';e.classList.add('undo');const t=document.createElement('span');t.textContent=msg;const b=document.createElement('button');b.textContent='بازگردانی';b.onclick=()=>{onUndo();e.style.display='none';e.classList.remove('undo')};e.append(t,b);e.style.display='flex';clearTimeout(toastUndo.t);toastUndo.t=setTimeout(()=>{e.style.display='none';e.classList.remove('undo')},6000)}
 $('btn-yesterday').onclick=()=>{const hist=store.get('logHistory',{});const y=new Date();y.setDate(y.getDate()-1);const items=hist[ymd(y)]||[];if(!items.length){$('food-msg').style.color='#fca5a5';$('food-msg').textContent='دیروز چیزی ثبت نکرده بودی.';return}items.forEach(it=>log.push({...it}));saveLog();renderLog();$('food-msg').style.color='#6ee7b7';$('food-msg').textContent=`✅ ${items.length} وعده از دیروز کپی شد`};
@@ -1055,14 +1156,22 @@ function renderSearchResults(q,box){box.textContent='';if(!q){box.innerHTML='<p 
 $('search-inp').addEventListener('input',e=>renderSearchResults(e.target.value.trim(),$('search-results')));
 $('search-modal-inp').addEventListener('input',e=>renderSearchResults(e.target.value.trim(),$('search-modal-results')));
 $('search-x').onclick=()=>$('search-modal').classList.remove('open');
+
+/* ===== Barcode ===== */
 let scanStream=null;
 $('btn-scan').onclick=async()=>{if(!('BarcodeDetector' in window)){$('scan-msg').textContent='❌ مرورگرت اسکن بارکد رو پشتیبانی نمی‌کنه.';return}try{scanStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}});const v=$('scan-video');v.srcObject=scanStream;await v.play();$('scan-video-wrap').style.display='block';$('scan-msg').textContent='📷 دوربین رو به بارکد بگیر...';const det=new BarcodeDetector({formats:['ean_13','ean_8','upc_a','upc_e']});const loop=async()=>{if(!scanStream)return;try{const codes=await det.detect(v);if(codes.length){const code=codes[0].rawValue;$('scan-msg').textContent='🔍 پیدا شد: '+code;stopScan();const info=await fetchOFF(code);if(info){$('scan-msg').innerHTML=`✅ <b>${info.name}</b><br>کالری ۱۰۰ گرم: <b style="color:var(--gold)">${info.kcal} kcal</b><br><button class="cta sm" id="scan-add" style="margin-top:8px">➕ ثبت ۱۰۰ گرم</button>`;$('scan-add').onclick=()=>{log.push({n:info.name+' (۱۰۰g)',c:info.kcal});saveLog();renderLog();toast('✅ ثبت شد')}}else $('scan-msg').textContent='❌ پیدا نشد.';return}}catch(e){}requestAnimationFrame(loop)};loop()}catch(e){$('scan-msg').textContent='❌ دسترسی به دوربین نشد: '+e.message}};
 function stopScan(){if(scanStream){scanStream.getTracks().forEach(t=>t.stop());scanStream=null}$('scan-video-wrap').style.display='none'}
 $('btn-scan-stop').onclick=stopScan;
 async function fetchOFF(barcode){try{const r=await fetch('https://world.openfoodfacts.org/api/v0/product/'+barcode+'.json');const d=await r.json();if(d.status!==1)return null;const p=d.product,n=p.product_name||p.product_name_fa||p.product_name_en||'محصول';const kcal=Math.round(p.nutriments?.['energy-kcal_100g']||0);if(!kcal)return null;return{name:n,kcal}}catch(e){return null}}
-$('btn-photo').onclick=()=>{if(!isPro()){toast('این ویژگی مخصوص نسخه Pro هست');return}$('photo-input').click()};
+
+/* ===== Photo ===== */
+$('btn-photo').onclick=()=>$('photo-input').click();
 $('photo-input').onchange=async e=>{const f=e.target.files[0];if(!f)return;const box=$('photo-preview');box.innerHTML='';const img=new Image();img.src=URL.createObjectURL(f);img.style.cssText='width:100%;border-radius:12px;max-height:240px;object-fit:cover';box.appendChild(img);$('photo-msg').textContent='⏳ در حال تحلیل...';if(!CFG.visionUrl){$('photo-msg').textContent='⚠️ CFG.visionUrl تنظیم نشده.';return}try{const b64=await new Promise(res=>{const r=new FileReader();r.onload=()=>res(r.result.split(',')[1]);r.readAsDataURL(f)});const ctl=new AbortController();setTimeout(()=>ctl.abort(),30000);const r=await fetch(CFG.visionUrl,{method:'POST',headers:{'Content-Type':'application/json'},signal:ctl.signal,body:JSON.stringify({image:b64,mime:f.type})});const d=await r.json();if(d.items&&d.items.length){$('photo-msg').innerHTML='✅ تشخیص داده شد:';d.items.forEach(it=>{const row=document.createElement('div');row.className='food-row';row.innerHTML=`<span>🍽️ ${it.name}</span><span style="color:var(--em);font-weight:900">${it.kcal} kcal</span>`;const add=document.createElement('button');add.textContent='➕';add.style.color='var(--em)';add.onclick=()=>{log.push({n:it.name,c:it.kcal});saveLog();renderLog();toast('✅ اضافه شد')};row.appendChild(add);box.appendChild(row)})}else $('photo-msg').textContent='❌ چیزی تشخیص داده نشد.'}catch(e){$('photo-msg').textContent='❌ خطا: '+e.message}};
+
+/* ===== OpenFoodFacts Search ===== */
 $('btn-off-search').onclick=async()=>{const q=$('off-search').value.trim();if(!q)return;const box=$('off-results');box.innerHTML='<p class="txt">در حال جستجو...</p>';try{const r=await fetch('https://world.openfoodfacts.org/cgi/search.pl?search_terms='+encodeURIComponent(q)+'&search_simple=1&action=process&json=1&page_size=8');const d=await r.json();box.innerHTML='';(d.products||[]).forEach(p=>{const kcal=Math.round(p.nutriments?.['energy-kcal_100g']||0);if(!kcal)return;const name=p.product_name||p.product_name_en||'محصول';const row=document.createElement('div');row.className='food-row';row.innerHTML=`<span>${name} (۱۰۰g)</span><span style="color:var(--em);font-weight:900">${kcal}</span>`;const add=document.createElement('button');add.textContent='➕';add.style.color='var(--em)';add.onclick=()=>{log.push({n:name+' (۱۰۰g)',c:kcal});saveLog();renderLog();toast('✅ اضافه شد')};row.appendChild(add);box.appendChild(row)});if(!box.children.length)box.innerHTML='<p class="txt">چیزی پیدا نشد.</p>'}catch(e){box.innerHTML='<p class="txt">خطا در جستجو.</p>'}};
+
+/* ===== Backup ===== */
 function backup(){const data={version:1,date:new Date().toISOString(),user:currentUser,data:{}};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k.startsWith('fs_'+currentUser+'_'))data.data[k]=localStorage.getItem(k)}const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='fitshah-backup-'+today()+'.json';a.click();toast('✅ فایل بکاپ ذخیره شد')}
 function restoreFile(f){const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!d.data){alert('فایل نامعتبره');return}Object.entries(d.data).forEach(([k,v])=>{localStorage.setItem(k,v)});toast('✅ داده‌ها بازیابی شد...');setTimeout(()=>location.reload(),1500)}catch(e){alert('خطا: '+e.message)}};r.readAsText(f)}
 $('btn-backup').onclick=$('btn-backup2').onclick=backup;
@@ -1070,158 +1179,29 @@ $('btn-restore').onclick=()=>$('restore-file').click();
 $('btn-restore2').onclick=()=>$('restore-file2').click();
 $('restore-file').onchange=e=>e.target.files[0]&&restoreFile(e.target.files[0]);
 $('restore-file2').onchange=e=>e.target.files[0]&&restoreFile(e.target.files[0]);
-$('btn-share').onclick=async()=>{const stats=userStats();const c=document.createElement('canvas');c.width=1080;c.height=1080;const ctx=c.getContext('2d');const g=ctx.createLinearGradient(0,0,1080,1080);g.addColorStop(0,'#10b981');g.addColorStop(1,'#047857');ctx.fillStyle=g;ctx.fillRect(0,0,1080,1080);ctx.fillStyle='rgba(0,0,0,.15)';ctx.fillRect(60,60,960,960);ctx.fillStyle='#fff';ctx.font='bold 72px Vazirmatn,sans-serif';ctx.textAlign='center';ctx.direction='rtl';ctx.fillText('پیشرفت من در فیت‌شاه',540,200);ctx.font='bold 160px Vazirmatn,sans-serif';ctx.fillStyle='#fbbf24';ctx.fillText(stats.loss+' kg',540,480);ctx.font='bold 60px Vazirmatn,sans-serif';ctx.fillStyle='#fff';ctx.fillText('کاهش وزن',540,580);ctx.font='bold 48px Vazirmatn,sans-serif';ctx.fillText('🔥 '+stats.days+' روز فعال',540,720);ctx.fillText('🍽️ '+stats.logs+' وعده',540,800);ctx.fillText('💪 '+stats.workouts+' تمرین',540,880);ctx.font='bold 40px Vazirmatn,sans-serif';ctx.fillStyle='#cbd5e1';ctx.fillText('fitshah • علیرضا اکبری',540,990);c.toBlob(async b=>{const file=new File([b],'fitshah-progress.png',{type:'image/png'});if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:'پیشرفت من',text:'پیشرفت من در فیت‌شاه'})}catch(e){}}else{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='fitshah-progress.png';a.click();toast('✅ تصویر ذخیره شد.')}})};
+
+/* ===== Share ===== */
+$('btn-share').onclick=async()=>{const stats=userStats();const c=document.createElement('canvas');c.width=1080;c.height=1080;const ctx=c.getContext('2d');const g=ctx.createLinearGradient(0,0,1080,1080);const t=THEMES.find(x=>x.id===accent)||THEMES[0];g.addColorStop(0,t.c1);g.addColorStop(1,t.c2);ctx.fillStyle=g;ctx.fillRect(0,0,1080,1080);ctx.fillStyle='rgba(0,0,0,.15)';ctx.fillRect(60,60,960,960);ctx.fillStyle='#fff';ctx.font='bold 72px Vazirmatn,sans-serif';ctx.textAlign='center';ctx.direction='rtl';ctx.fillText('پیشرفت من در فیت‌شاه',540,200);ctx.font='bold 160px Vazirmatn,sans-serif';ctx.fillStyle='#fbbf24';ctx.fillText(stats.loss+' kg',540,480);ctx.font='bold 60px Vazirmatn,sans-serif';ctx.fillStyle='#fff';ctx.fillText('کاهش وزن',540,580);ctx.font='bold 48px Vazirmatn,sans-serif';ctx.fillText('🔥 '+stats.days+' روز فعال',540,720);ctx.fillText('🍽️ '+stats.logs+' وعده',540,800);ctx.fillText('💪 '+stats.workouts+' تمرین',540,880);ctx.font='bold 40px Vazirmatn,sans-serif';ctx.fillStyle='#cbd5e1';ctx.fillText('fitshah • علیرضا اکبری',540,990);c.toBlob(async b=>{const file=new File([b],'fitshah-progress.png',{type:'image/png'});if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:'پیشرفت من',text:'پیشرفت من در فیت‌شاه'})}catch(e){}}else{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='fitshah-progress.png';a.click();toast('✅ تصویر ذخیره شد.')}})};
+
+/* ===== Users ===== */
 $('btn-users').onclick=()=>{const u=prompt('اسم کاربر جدید:',currentUser);if(u&&u!==currentUser)setUser(u.trim().slice(0,20))};
-$('btn-pro').onclick=()=>{if(isPro()){alert('شما Pro هستید ⭐');return}const c=confirm(`نسخه Pro با قیمت ${CFG.proPrice.toLocaleString('fa-IR')} تومان:\n✅ AI چت نامحدود\n✅ تحلیل عکس غذا\n✅ بدون محدودیت\n\nفعال شود؟`);if(c){store.set('pro',true);updateProBadge();toast('⭐ نسخه Pro فعال شد!')}};
+
+/* ===== Onboarding ===== */
 function startOnboarding(){if(store.get('onboardDone',false))return;const steps=[{t:'👋 خوش اومدی به فیت‌شاه!',d:'داشبورد کالری‌شمار و برنامه فستینگ با مربی علیرضا اکبری.',b:'بزن بریم'},{t:'🎯 هدف اصلیت چیه؟',d:'با انتخاب هدف، برنامه کالری‌ات شخصی‌سازی می‌شه.',opts:[{k:'lose',n:'🔥 کاهش وزن'},{k:'gain',n:'💪 عضله‌سازی'},{k:'keep',n:'⚖️ حفظ وزن'}]},{t:'📊 مشخصات اولیه',d:'وزن، قد و سنت رو وارد کن.',form:true}];let i=0;const box=$('onboard-content');$('onboard-modal').classList.add('open');let chosen=null;const render=()=>{const s=steps[i];box.innerHTML='';const h=document.createElement('div');h.style.cssText='font-size:1.3rem;font-weight:900;margin-bottom:12px';h.textContent=s.t;const p=document.createElement('p');p.className='txt';p.style.marginBottom='16px';p.textContent=s.d;box.append(h,p);if(s.opts){s.opts.forEach(o=>{const b=document.createElement('button');b.className='cta ghost';b.textContent=o.n;b.style.marginBottom='8px';b.onclick=()=>{chosen=o.k;i++;render()};box.appendChild(b)})}else if(s.form){const inp=(ph,id)=>{const el=document.createElement('input');el.id=id;el.className='f-ctrl';el.placeholder=ph;el.inputMode='decimal';return el};box.append(inp('وزن (kg)','ob-w'),inp('قد (cm)','ob-h'),inp('سن','ob-age'));const btn=document.createElement('button');btn.className='cta';btn.textContent='شروع!';btn.onclick=()=>{const w=num($('ob-w').value),h=num($('ob-h').value),a=num($('ob-age').value);if(w>=30&&w<=300&&h>=100&&h<=230&&a>=14&&a<=100){store.set('profile',{goal:chosen||'lose',male:false,w,h,age:a,t:0});store.set('onboardDone',true);$('onboard-modal').classList.remove('open');addWeight(w);renderHome();toast('🎉 خوش اومدی!')}else{alert('مقادیر معتبر وارد کن')}};box.appendChild(btn)}else{const b=document.createElement('button');b.className='cta';b.textContent=s.b;b.onclick=()=>{i++;render()};box.appendChild(b)}};render()}
+
+/* ===== Nav ===== */
 $('lnk-wa').href='https://wa.me/'+CFG.phone;
 $('lnk-ig').href=CFG.igUrl;
 function openMenu(s){$('drawer-bg').classList.toggle('open',s);$('drawer').classList.toggle('open',s)}
-function nav(id){const t=$('pane-'+id);if(!t)return;document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));t.classList.add('active');document.querySelectorAll('[data-nav]').forEach(b=>{if(b.classList.contains('active')||b.id==='topnav')b.classList.remove('active')});document.querySelectorAll('#topnav button').forEach(b=>{if(b.dataset.nav===id)b.classList.add('active')});openMenu(false);window.scrollTo({top:0,behavior:'smooth'});if(id==='watercalc')renderWater();if(id==='home')refreshHome();if(id==='consult')prefillForm();if(id==='cook')renderCook();if(id==='fit'){renderFit();suggestWorkout()}if(id==='profile'){renderProfile();renderAchievements()}if(id==='measure')renderMeasureHistory();if(id==='insta')renderInsta();if(id==='challenges')renderChallenges();if(id==='chat')initChat();track('tab_'+id)}
+function nav(id){const t=$('pane-'+id);if(!t)return;document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));t.classList.add('active');document.querySelectorAll('#topnav button').forEach(b=>b.classList.toggle('active',b.dataset.nav===id));openMenu(false);window.scrollTo({top:0,behavior:'smooth'});if(id==='watercalc')renderWater();if(id==='home')refreshHome();if(id==='consult')prefillForm();if(id==='cook')renderCook();if(id==='fit'){renderFit();suggestWorkout()}if(id==='profile'){renderProfile();renderAchievements()}if(id==='measure')renderMeasureHistory();if(id==='insta')renderInsta();if(id==='challenges')renderChallenges();if(id==='chat')initChat();track('tab_'+id)}
 document.addEventListener('click',e=>{const n=e.target.closest('[data-nav]');if(n){nav(n.dataset.nav);return}const s=e.target.closest('[data-st]');if(s){const[i,d]=s.dataset.st.split(',');step(i,+d);return}const sd=e.target.closest('[data-send]');if(sd){sendForm(sd.dataset.send)}});
 $('menu-toggle').onclick=()=>openMenu(true);
 $('drawer-x').onclick=$('drawer-bg').onclick=()=>openMenu(false);
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){openMenu(false);$('search-modal').classList.remove('open');$('onboard-modal').classList.remove('open')}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){openMenu(false);$('search-modal').classList.remove('open');$('onboard-modal').classList.remove('open');$('theme-modal').classList.remove('open')}});
 $('user-chip').onclick=()=>nav('profile');
 $('brand-home').onclick=()=>nav('home');
 $('btn-theme').onclick=()=>{theme=theme==='dark'?'light':'dark';store.set('theme',theme);applyTheme();toast(theme==='dark'?'🌙 حالت شب':'☀️ حالت روز')};
-updateProBadge();
+
+/* ===== Calculator ===== */
 const LIM={w:[30,300],h:[100,230],a:[14,100]};
-function step(id,d){const v=$(id);const[min,max]=LIM[id];v.value=Math.min(max,Math.max(min,(parseInt(faDigits(v.value))||min)+d))}
-$('btn-calc').onclick=()=>{const err=$('calc-err');err.textContent='';const w=parseFloat(faDigits($('w').value)),h=parseFloat(faDigits($('h').value)),a=parseFloat(faDigits($('a').value));for(const[k,n,v]of[['w','وزن',w],['h','قد',h],['a','سن',a]]){if(!(v>=LIM[k][0]&&v<=LIM[k][1])){err.textContent=`${n} باید بین ${LIM[k][0]} و ${LIM[k][1]} باشد.`;$('calc-res').style.display='none';return}}const male=$('sex').value==='m';const bmi=w/((h/100)**2);const bmr=10*w+6.25*h-5*a+(male?5:-161);const tdee=bmr*parseFloat($('act').value);const floor=male?1500:1200;let target=Math.max(Math.round(tdee*0.8),Math.round(tdee-500));target=Math.max(target,floor);const ideal=22.5*((h/100)**2);const refW=bmi>25?Math.min(w,ideal*1.2):w;const pro=Math.round(refW*1.6),fat=Math.round(target*0.28/9),car=Math.max(0,Math.round((target-pro*4-fat*9)/4));$('bmi-lbl').textContent='BMI: '+bmi.toFixed(1);$('res-cal').textContent=target+' kcal';$('res-info').textContent=`نیاز نگهداری حدود ${Math.round(tdee)} kcal. کف ایمن: ${floor} kcal.`;$('r-pro').textContent=pro+'g';$('r-car').textContent=car+'g';$('r-fat').textContent=fat+'g';$('calc-res').style.display='block';store.set('weight',w)};
-const FOODS=[[['قورمهسبزی','قورمه'],450,'قورمه‌سبزی'],[['قیمه'],500,'خورش قیمه'],[['فسنجان'],550,'فسنجان'],[['خورشکرفس','کرفس'],350,'خورش کرفس'],[['چلوکباب'],900,'چلوکباب'],[['کبابکوبیده','کوبیده'],450,'کباب کوبیده'],[['جوجه'],450,'جوجه‌کباب'],[['زرشکپلو','چلومرغ'],700,'زرشک‌پلو با مرغ'],[['سبزیپلو'],450,'سبزی‌پلو'],[['عدسپلو'],550,'عدس‌پلو'],[['لوبیاپلو'],550,'لوبیاپلو'],[['باقالیپلو'],550,'باقالی‌پلو'],[['برنج','چلو','پلو'],350,'برنج'],[['عدسی'],300,'عدسی'],[['آشرشته','آش'],350,'آش'],[['حلیم'],350,'حلیم'],[['آبگوشت','دیزی'],600,'آبگوشت'],[['ماکارونی'],450,'ماکارونی'],[['لوبیا'],300,'خوراک لوبیا'],[['املت'],300,'املت'],[['نیمرو'],100,'نیمرو'],[['تخممرغ'],75,'تخم‌مرغ'],[['کوکو'],200,'کوکو'],[['کتلت'],150,'کتلت'],[['میرزاقاسمی'],250,'میرزاقاسمی'],[['کشکبادمجان'],300,'کشک بادمجان'],[['سالاد'],60,'سالاد'],[['ماست'],100,'ماست'],[['دوغ'],60,'دوغ'],[['پنیر'],80,'پنیر'],[['شیرینی'],250,'شیرینی'],[['شیر'],120,'شیر'],[['نانسنگک','سنگک'],250,'نان سنگک'],[['نانلواش','لواش'],90,'نان لواش'],[['نانبربری','بربری'],350,'نان بربری'],[['نانجو'],80,'نان جو'],[['نان'],150,'نان'],[['سیبزمینی'],365,'سیب‌زمینی'],[['سیب'],95,'سیب'],[['موز'],105,'موز'],[['پرتقال'],60,'پرتقال'],[['خیار'],15,'خیار'],[['گوجه'],20,'گوجه'],[['سینهمرغ','مرغ'],250,'مرغ'],[['تنماهی'],120,'تن ماهی'],[['ماهی'],250,'ماهی'],[['همبرگر'],500,'همبرگر'],[['ساندویچ'],450,'ساندویچ'],[['پیتزا'],285,'پیتزا'],[['چیپس'],150,'چیپس'],[['چای'],5,'چای'],[['قند'],20,'قند'],[['نوشابه'],140,'نوشابه'],[['آبمیوه'],110,'آبمیوه'],[['شکلات'],150,'شکلات'],[['بیسکویت'],50,'بیسکویت'],[['کیک'],300,'کیک'],[['خرما'],25,'خرما'],[['گردو','بادام','پسته','مغز'],170,'مغزها'],[['کره'],35,'کره'],[['عسل'],60,'عسل']];
-const NUMW={'یک':1,'دو':2,'سه':3,'چهار':4,'پنج':5,'شش':6,'هفت':7,'هشت':8,'نه':9,'ده':10,'نصف':.5,'نیم':.5};
-const norm=t=>faDigits(String(t)).replace(/[\u200c\u200f]/g,'').replace(/ي/g,'ی').replace(/ك/g,'ک').replace(/\s+/g,' ').trim();
-function estimateLocal(text){const items=[],unknown=[];norm(text).split(/\s*(?:[،,+\n\/]|\sو\s|\sبا\s)\s*/).forEach(part=>{if(!part)return;let cnt=1;for(const tk of part.split(' ')){if(/^\d+(\.\d+)?$/.test(tk)){cnt=Math.min(20,parseFloat(tk));break}if(NUMW[tk]!==undefined){cnt=NUMW[tk];break}}const flat=part.replace(/ /g,'');let best=null,bl=0;FOODS.forEach(f=>f[0].forEach(k=>{if(flat.includes(k)&&k.length>bl){best=f;bl=k.length}}));if(best)items.push({n:(cnt!==1?cnt+' × ':'')+best[2],c:Math.round(best[1]*cnt)});else unknown.push(part)});return{items,unknown}}
-const aiOn=/^(https:\/\/|http:\/\/localhost)/.test(CFG.aiUrl);
-async function estimateAI(text){const ctl=new AbortController(),to=setTimeout(()=>ctl.abort(),20000);try{const r=await fetch(CFG.aiUrl,{method:'POST',headers:{'Content-Type':'application/json'},signal:ctl.signal,body:JSON.stringify({type:'food',text})});if(!r.ok)throw new Error('http');const d=await r.json();const items=(d.items||[]).map(x=>({n:String(x.name||'').slice(0,80),c:Math.round(Number(x.kcal))})).filter(x=>x.n&&x.c>0&&x.c<=5000).slice(0,10);if(!items.length)throw new Error('empty');return items}finally{clearTimeout(to)}}
-const savedLog=store.get('log',{});
-let log=(savedLog.d===today())?savedLog.items||[]:[];
-function renderLog(){const box=$('f-log');box.textContent='';let sum=0;log.forEach((it,i)=>{sum+=it.c;const row=document.createElement('div');row.className='food-row';const n=document.createElement('span');n.textContent='🍽️ '+it.n;const c=document.createElement('span');c.style.cssText='color:var(--em);font-weight:900;margin-inline-start:auto';c.textContent=it.c+' kcal';const x=document.createElement('button');x.textContent='✕';x.setAttribute('aria-label','حذف');x.onclick=()=>{const removed=log.splice(i,1)[0];saveLog();renderLog();toastUndo('🗑️ حذف شد: '+removed.n,()=>{log.push(removed);saveLog();renderLog();toast('✅ بازگردانی شد')})};row.append(n,c,x);if(it.note){const nt=document.createElement('div');nt.className='food-note';nt.textContent='📝 '+it.note;row.appendChild(nt)}box.appendChild(row)});$('trk-badge').textContent=sum+' kcal';checkCalorieWarning()}
-function saveLog(){store.set('log',{d:today(),items:log});const hist=store.get('logHistory',{});hist[today()]=log.map(x=>({n:x.n,c:x.c}));store.set('logHistory',hist);markDay();markActivity();const prev=store.get('totalLogs',0);store.set('totalLogs',prev+1)}
-$('btn-food').onclick=async()=>{const msg=$('food-msg'),btn=$('btn-food');msg.style.color='';msg.textContent='';const text=$('food-name').value.trim();const note=$('food-note').value.trim();if(!text){msg.style.color='#fca5a5';msg.textContent='غذا رو بنویس.';return}const manual=parseInt(faDigits($('food-cal').value));if(manual>0&&manual<=5000){log.push({n:text.slice(0,80),c:manual,note:note||undefined});saveLog();renderLog();$('food-name').value='';$('food-cal').value='';$('food-note').value='';msg.style.color='#6ee7b7';msg.textContent='✅ ثبت شد.';return}btn.disabled=true;btn.textContent='⏳ در حال محاسبه...';let items=null,unknown=[],src='local';if(aiOn){try{items=await estimateAI(text);src='ai'}catch(e){items=null}}if(!items){const r=estimateLocal(text);items=r.items;unknown=r.unknown;src='local'}btn.disabled=false;btn.textContent='🔥 محاسبه و ثبت';if(!items.length){msg.style.color='#fca5a5';msg.textContent='کالری پیدا نشد. دستی وارد کن.';$('food-cal').focus();return}items.forEach(i=>log.push({...i,note:note||undefined}));saveLog();renderLog();$('food-name').value='';$('food-note').value='';const sum=items.reduce((x,i)=>x+i.c,0);msg.style.color='#6ee7b7';msg.textContent='✅ '+items.length+' مورد ثبت شد ('+sum+' kcal) - '+(src==='ai'?'AI':'داخلی');if(unknown.length){const w=document.createElement('div');w.style.color='#fbbf24';w.textContent='برای «'+unknown.join('، ')+'» کالری پیدا نشد.';msg.appendChild(w)}};
-renderLog();
-let fastTotal=Math.min(72*3600,Math.max(60,+store.get('fastTotal',CFG.fastSec)||CFG.fastSec));
-let fast=store.get('fast',{end:null,left:fastTotal}),tmr=null;
-function fmt(s){const h=String(Math.floor(s/3600)).padStart(2,'0'),m=String(Math.floor(s%3600/60)).padStart(2,'0'),x=String(s%60).padStart(2,'0');return`${h}:${m}:${x}`}
-function remaining(){return fast.end?Math.max(0,Math.ceil((fast.end-Date.now())/1000)):fast.left}
-function tick(){const r=remaining();$('t-disp').textContent=fmt(r);const circ=document.querySelector('.timer-circle');if(circ){const tot=fast.end?fastTotal:(fastTotal||1);const pct=fast.end?Math.max(0,Math.min(360,(1-r/tot)*360)):0;circ.style.background=`conic-gradient(var(--em) ${pct}deg, var(--elev) ${pct}deg)`}if(fast.end&&r<=0){clearInterval(tmr);tmr=null;fast={end:null,left:0};store.set('fast',fast);$('btn-fast').textContent='شروع فستینگ';$('btn-fast').style.background='';$('t-msg').textContent='✅ فستینگ تمام شد.';notify('فیت‌شاه','زمان فستینگ تمام شد');if(navigator.vibrate)navigator.vibrate([200,100,200])}}
-function startLoop(){if(tmr)return;tmr=setInterval(tick,1000)}
-function paint(){const run=!!fast.end;$('fs-h').disabled=$('fs-m').disabled=run;$('btn-fast').textContent=run?'⏸️ توقف':(fast.left<fastTotal&&fast.left>0?'ادامه':'شروع فستینگ');$('btn-fast').style.background=run?'linear-gradient(90deg,var(--warn),#dc2626)':'';tick();if(run)startLoop()}
-$('btn-fast').onclick=()=>{$('t-msg').textContent='';if(fast.end){fast={end:null,left:remaining()};clearInterval(tmr);tmr=null}else{if(fast.left<=0)fast.left=fastTotal;fast={end:Date.now()+fast.left*1000,left:fast.left};markDay();markActivity();try{if('Notification' in window&&Notification.permission==='default')Notification.requestPermission()}catch(e){}}store.set('fast',fast);paint()};
-$('btn-rst').onclick=()=>{clearInterval(tmr);tmr=null;fast={end:null,left:fastTotal};store.set('fast',fast);$('t-msg').textContent='';paint()};
-document.addEventListener('visibilitychange',()=>{if(!document.hidden)tick()});
-function fastBadge(){const h=Math.floor(fastTotal/3600),m=Math.floor(fastTotal%3600/60);$('fast-badge').textContent=(h?h+' ساعت':'')+(h&&m?' و ':'')+(m?m+' دقیقه':'')}
-function fastInputs(){$('fs-h').value=Math.floor(fastTotal/3600);$('fs-m').value=Math.floor(fastTotal%3600/60)}
-function applyFastInputs(){if(fast.end)return;const h=Math.min(72,Math.max(0,parseInt(faDigits($('fs-h').value))||0)),m=Math.min(59,Math.max(0,parseInt(faDigits($('fs-m').value))||0));fastTotal=Math.max(60,h*3600+m*60);fast={end:null,left:fastTotal};store.set('fastTotal',fastTotal);store.set('fast',fast);$('t-msg').textContent='';fastInputs();fastBadge();paint()}
-$('fs-h').addEventListener('change',applyFastInputs);$('fs-m').addEventListener('change',applyFastInputs);
-fastInputs();fastBadge();paint();
-const savedCups=store.get('cups',{});
-let cups=(savedCups.d===today())?savedCups.n:0;
-function renderWater(){const w=store.get('weight',null);const litres=w?Math.round(w*0.033*10)/10:2.5;const n=Math.max(1,Math.round(litres*4));$('w-total').textContent=`${litres.toString().replace('.','٫')} لیتر (${n} لیوان)`+(w?'':' - تخمین');const g=$('w-grid');g.textContent='';if(cups>n){cups=n;store.set('cups',{d:today(),n:cups})}for(let i=1;i<=n;i++){const b=document.createElement('button');b.type='button';b.className='w-cup'+(i<=cups?' d':'');b.textContent='لیوان '+i;b.setAttribute('aria-pressed',i<=cups);b.addEventListener('click',()=>{cups=(cups===i)?i-1:i;store.set('cups',{d:today(),n:cups});markDay();markActivity();renderWater();if(cups>=n){const d=store.get('fullWaterDays',0);if(!store.get('waterDay_'+today())){store.set('waterDay_'+today(),1);store.set('fullWaterDays',d+1)}}});g.appendChild(b)}}
-renderWater();
-const FAQ=[['فستینگ ۱۶:۸ یعنی چه؟','۱۶ ساعت بدون کالری و ۸ ساعت غذا. برای همه مناسب نیست.'],['چقدر پروتئین نیاز دارم؟','معمولاً ۱٫۶ تا ۲ گرم به‌ازای هر کیلوگرم وزن ایده‌آل.'],['چرا وزنم ثابت مانده؟','نوسان آب، نمک، خواب و قاعدگی. میانگین هفتگی رو ببین.'],['چقدر در هفته لاغر شوم؟','۰٫۵ تا ۱ کیلو در هفته سالم است.'],['آیا قرص لاغری لازم است؟','خیر، فقط با تجویز پزشک.']];
-const faqList=$('faq-list');
-FAQ.forEach(([q,a])=>{const b=document.createElement('button');b.className='faq-q';b.textContent=q;b.onclick=()=>{const r=$('faq-ans');r.textContent=a;r.style.display='block'};faqList.appendChild(b)});
-let igReady=false;
-function renderInsta(){if(igReady)return;igReady=true;const u=CFG.igUser;$('ig-handle').textContent='@'+u;$('ig-follow').href=CFG.igUrl;$('ig-open').href=CFG.igUrl;$('ig-dm').href='https://ig.me/m/'+u;const st=$('ig-stats');[['posts','پست'],['followers','دنبال‌کننده'],['following','دنبال‌شونده']].forEach(([k,l])=>{const v=(CFG.igStats||{})[k];if(!v)return;const d=document.createElement('div'),b=document.createElement('b'),sp=document.createElement('span');b.textContent=v;sp.textContent=l;d.append(b,sp);st.appendChild(d)});const hl=$('ig-hl');const items=[{title:'استوری',url:'https://www.instagram.com/stories/'+u+'/',emoji:'⭕'}].concat(CFG.highlights||[]);items.forEach(h=>{if(!/^https:\/\/(www\.)?instagram\.com\//.test(h.url))return;const a=document.createElement('a');a.href=h.url;a.target='_blank';a.rel='noopener';const rg=document.createElement('div');rg.className='rg';const inner=document.createElement('div');inner.textContent=h.emoji||'✨';rg.appendChild(inner);const t=document.createElement('span');t.textContent=h.title;a.append(rg,t);hl.appendChild(a)});const posts=(CFG.posts||[]).filter(x=>/^https:\/\/(www\.)?instagram\.com\/(p|reel|tv)\/[\w-]+/.test(x.url));if(!posts.length){$('ig-live').style.display='block';return}const g=$('ig-grid');posts.forEach(x=>{const b=document.createElement('button');b.type='button';b.textContent='📷';b.onclick=()=>openPost(x.url);g.appendChild(b)})}
-function openPost(url){$('ig-post-link').href=url;const box=$('ig-embed');box.textContent='';const bq=document.createElement('blockquote');bq.className='instagram-media';bq.setAttribute('data-instgrm-permalink',url);bq.setAttribute('data-instgrm-version','14');box.appendChild(bq);$('ig-modal').classList.add('open');if(window.instgrm)window.instgrm.Embeds.process();else{const sc=document.createElement('script');sc.async=true;sc.src='https://www.instagram.com/embed.js';sc.onload=()=>window.instgrm&&window.instgrm.Embeds.process();document.body.appendChild(sc)}}
-$('ig-x').onclick=()=>$('ig-modal').classList.remove('open');
-function track(e){try{const k='ev_'+e;store.set(k,(+store.get(k,0)||0)+1);if(/^https:\/\//.test(CFG.analyticsUrl)&&navigator.sendBeacon)navigator.sendBeacon(CFG.analyticsUrl,JSON.stringify({type:'event',e}))}catch(x){}}
-function markDay(){const d=store.get('days',[]),t=today();if(d[d.length-1]!==t){d.push(t);store.set('days',d.slice(-365))}}
-function streak(){const set=new Set(store.get('days',[])),d=new Date();let n=0;if(!set.has(ymd(d)))d.setDate(d.getDate()-1);while(set.has(ymd(d))){n++;d.setDate(d.getDate()-1)}return n}
-const wlog=()=>store.get('wlog',[]);
-const profile=()=>store.get('profile',null);
-function addWeight(w){const a=wlog().filter(x=>x.d!==today());a.push({d:today(),w});a.sort((x,y)=>x.d<y.d?-1:1);store.set('wlog',a.slice(-365));store.set('weight',w);markDay();markActivity();track('weight_log')}
-function quickPlan(p){const bmr=10*p.w+6.25*p.h-5*p.age+(p.male?5:-161),tdee=bmr*1.375,floor=p.male?1500:1200;let t=tdee;if(p.goal==='lose')t=Math.max(Math.round(tdee*0.8),Math.round(tdee-500));if(p.goal==='gain')t=Math.round(tdee+250);t=Math.round(Math.max(t,floor));let weeks=null;if(p.t&&p.goal==='lose'&&p.t<p.w){const wk=Math.min(1,Math.max(.25,Math.abs(tdee-t)*7/7700));weeks=Math.min(104,Math.ceil((p.w-p.t)/wk))}if(p.t&&p.goal==='gain'&&p.t>p.w)weeks=Math.min(104,Math.ceil((p.t-p.w)/0.25));return{target:t,weeks}}
-$('q-go').onclick=()=>{const err=$('q-err');err.textContent='';const pf={goal:$('q-goal').value,male:$('q-sex').value==='m',age:num($('q-age').value),h:num($('q-h').value),w:num($('q-w').value),t:num($('q-t').value)||0};if(!(pf.age>=14&&pf.age<=100)){err.textContent='سن ۱۴-۱۰۰';return}if(!(pf.h>=100&&pf.h<=230)){err.textContent='قد ۱۰۰-۲۳۰';return}if(!(pf.w>=30&&pf.w<=300)){err.textContent='وزن ۳۰-۳۰۰';return}if(pf.t&&(pf.t/((pf.h/100)**2)<18.5||pf.t>300)){err.textContent='وزن هدف نامعتبر';return}store.set('profile',pf);addWeight(pf.w);$('w').value=Math.round(pf.w);$('h').value=Math.round(pf.h);$('a').value=Math.round(pf.age);$('sex').value=pf.male?'m':'f';track('onboard_done');renderHome();window.scrollTo({top:0,behavior:'smooth'})};
-$('mg-edit').onclick=()=>{const pf=profile();if(pf){$('q-goal').value=pf.goal;$('q-sex').value=pf.male?'m':'f';$('q-age').value=pf.age;$('q-h').value=pf.h;$('q-w').value=pf.w;$('q-t').value=pf.t||''}store.set('profile',null);renderHome()};
-$('mg-w').addEventListener('input',()=>$('mg-w').classList.remove('err'));
-$('mg-save').onclick=()=>{const w=num($('mg-w').value);if(!(w>=30&&w<=300)){$('mg-w').classList.add('err');return}$('mg-w').classList.remove('err');addWeight(w);$('mg-w').value='';renderHome()};
-$('mg-cta').onclick=()=>{const r=CFG.plans.find(x=>x.recommended)||CFG.plans[0];plan=r;payTracked=false;renderPlans();track('goal_cta');nav('consult')};
-function prefillForm(){const pf=profile();if(!pf)return;if(!$('c-age-gender').value)$('c-age-gender').value=(pf.male?'آقا':'خانم')+'، '+pf.age+' ساله';if(!$('c-goal').value)$('c-goal').value=({lose:'چربی‌سوزی',gain:'عضله‌سازی'})[pf.goal]||''}
-function drawChart(arr){const box=$('pg-chart');box.textContent='';if(arr.length<2)return;const pts=arr.slice(-12),W=300,H=100,P=16,ws=pts.map(x=>x.w),mn=Math.min(...ws),mx=Math.max(...ws),rg=(mx-mn)||1;const X=i=>P+i*(W-2*P)/(pts.length-1),Y=w=>H-P-((w-mn)/rg)*(H-2*P),ns='http://www.w3.org/2000/svg';const svg=document.createElementNS(ns,'svg');svg.setAttribute('viewBox','0 0 '+W+' '+H);svg.setAttribute('role','img');svg.setAttribute('aria-label','نمودار وزن');svg.style.cssText='width:100%;height:auto;direction:ltr';const pl=document.createElementNS(ns,'polyline');pl.setAttribute('points',pts.map((x,i)=>X(i)+','+Y(x.w)).join(' '));pl.setAttribute('fill','none');pl.setAttribute('stroke','#10b981');pl.setAttribute('stroke-width','2.5');svg.appendChild(pl);pts.forEach((x,i)=>{const c=document.createElementNS(ns,'circle');c.setAttribute('cx',X(i));c.setAttribute('cy',Y(x.w));c.setAttribute('r','3.5');c.setAttribute('fill','#fbbf24');svg.appendChild(c);if(i===0||i===pts.length-1){const t=document.createElementNS(ns,'text');t.setAttribute('x',X(i));t.setAttribute('y',Y(x.w)-8);t.setAttribute('fill',store.get('theme')==='light'?'#0f172a':'#f8fafc');t.setAttribute('font-size','11');t.setAttribute('text-anchor',i?'end':'start');t.textContent=x.w;svg.appendChild(t)}});box.appendChild(svg)}
-function renderProfile(){const pf=profile()||{};const stats=userStats();$('prof-name').value=pf.name||store.get('userName','')||'';$('prof-bio').value=pf.bio||'';const av=store.get('avatar','');if(av){$('prof-avatar').style.backgroundImage='url('+av+')';$('prof-avatar').textContent=''}else{$('prof-avatar').textContent=(pf.name||'?')[0].toUpperCase()}$('stat-days').textContent=stats.days;$('stat-loss').textContent=stats.loss;$('stat-logs').textContent=stats.logs}
-$('prof-name').addEventListener('input',e=>{const pf=profile()||{};pf.name=e.target.value;store.set('profile',pf);store.set('userName',e.target.value)});
-$('prof-bio').addEventListener('input',e=>{const pf=profile()||{};pf.bio=e.target.value;store.set('profile',pf)});
-$('prof-avatar-btn').onclick=()=>$('prof-avatar-file').click();
-$('prof-avatar-file').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{store.set('avatar',r.result);renderProfile()};r.readAsDataURL(f)};
-function renderHome(){const pf=profile();$('quick').style.display=pf?'none':'block';$('mygoal').style.display=pf?'block':'none';if(pf){const q=quickPlan(pf),wl=wlog(),cur=wl.length?wl[wl.length-1].w:pf.w,ch=Math.round((cur-pf.w)*10)/10;$('mg-kcal').textContent=q.target+' kcal';$('mg-line').textContent=q.weeks?'رسیدن از '+pf.w+' به '+pf.t+' کیلو: حدود '+q.weeks+' هفته':({lose:'برای کاهش وزن',gain:'برای عضله',keep:'برای حفظ'})[pf.goal];let pct=0;if(pf.t&&pf.t!==pf.w)pct=Math.max(0,Math.min(100,Math.round((cur-pf.w)/(pf.t-pf.w)*100)));$('mg-bar').style.width=pct+'%';const mgPct=$('mg-pct');if(mgPct)mgPct.textContent=pct+'%';$('mg-msg').textContent=pf.t?(pct+'٪ از مسیر. '):'';$('mg-msg').textContent+=ch===0?'اولین وزن ثبت شد.':(ch<0?'نسبت به شروع '+Math.abs(ch)+' کیلو کمتر شده‌اید 👏':'نسبت به شروع '+ch+' کیلو بیشتر شده‌اید.');drawChart(wl);const n=streak();$('mg-streak').textContent=n?'🔥 '+n+' روز پیاپی فعال':'امروز رو شروع کن'}}
-const w=store.get('weight',null);
-function renderTodos(){const nw=w?Math.max(1,Math.round(w*0.033*4)):10,wl2=wlog(),last=wl2.length?wl2[wl2.length-1].d:'';const weekAgo=new Date();weekAgo.setDate(weekAgo.getDate()-7);const todo=[[log.length>0,'ثبت غذای امروز',log.length+' مورد','tracker'],[cups>=nw,'نوشیدن آب',cups+'/'+nw,'watercalc'],[!!last&&last>=ymd(weekAgo),'ثبت وزن این هفته',last?'':'ثبت نشده','home'],[store.get('workouts',[]).some(x=>x.d===today()),'تمرین امروز','','fit']],box=$('todo');box.textContent='';todo.forEach(([done,t,d,go])=>{const b=document.createElement('button');b.dataset.nav=go;const a=document.createElement('span');a.textContent=(done?'✅ ':'⬜ ')+t;const c=document.createElement('span');c.textContent=d;b.append(a,c);box.appendChild(b)})}
-let deferredInstall=null;
-window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredInstall=e;renderInstall()});
-const standalone=()=>(window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone;
-function renderInstall(){const ios=/iphone|ipad|ipod/i.test(navigator.userAgent),show=!standalone()&&(deferredInstall||ios);$('install').style.display=show?'block':'none';$('btn-install').style.display=deferredInstall?'block':'none';$('ins-txt').textContent=deferredInstall?'برای نصب، دکمه زیر رو بزن.':'در سافاری دکمه Share رو بزن و Add to Home Screen رو انتخاب کن.'}
-$('btn-install').onclick=()=>{if(!deferredInstall)return;deferredInstall.prompt();deferredInstall.userChoice.finally(()=>{deferredInstall=null;renderInstall()})};
-function toast(t){const e=$('toast');e.classList.remove('undo');e.textContent=t;e.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>{e.style.display='none'},7000)}
-function notify(t,b){try{if(!('Notification' in window)||Notification.permission!=='granted')return;if(navigator.serviceWorker&&navigator.serviceWorker.getRegistration)navigator.serviceWorker.getRegistration().then(r=>r?r.showNotification(t,{body:b,icon:'icon-192.png',lang:'fa',dir:'rtl'}):new Notification(t,{body:b}));else new Notification(t,{body:b})}catch(e){}}
-const RSLOTS=[[10,0,'💧 وقت نوشیدن آب است'],[12,30,'💧 یک لیوان آب بنوش'],[14,0,'🍽️ ناهار رو ثبت کن'],[16,30,'💧 آب فراموش نشه'],[19,0,'💧 یک لیوان آب'],[21,0,'🍽️ غذاهای امروز رو ثبت کن']];
-function remindTick(){if(!store.get('remind',false))return;const now=new Date(),mins=now.getHours()*60+now.getMinutes();let f=store.get('rfired',{d:'',ids:[]});if(f.d!==today())f={d:today(),ids:[]};RSLOTS.forEach((s2,i)=>{const m=s2[0]*60+s2[1];if(mins>=m&&mins<m+20&&f.ids.indexOf(i)<0){f.ids.push(i);toast(s2[2]);notify('فیت‌شاه',s2[2]);if(navigator.vibrate)navigator.vibrate(200)}});store.set('rfired',f)}
-function renderRemind(){$('btn-remind').textContent=store.get('remind',false)?'🔕 غیرفعال':'🔔 فعال کن'}
-$('btn-remind').onclick=()=>{const on=!store.get('remind',false);store.set('remind',on);if(on&&'Notification' in window&&Notification.permission==='default')try{Notification.requestPermission()}catch(e){}if(on)toast('یادآور فعال شد.');renderRemind()};
-function initExtras(){if(store.get('lastVisit','')!==today()){store.set('lastVisit',today());track('visit')}$('pane-consult').addEventListener('input',()=>track('form_start'),{once:true});setInterval(remindTick,60000);remindTick();initPWA()}
-const RECIPES=[
-{c:'b',n:'املت سبزیجات کامل',k:280,m:12,s:1,prot:18,carb:8,fat:19,ing:['۲ عدد تخم‌مرغ کامل','۱ عدد گوجه‌فرنگی متوسط، خرد‌شده','نصف فلفل دلمه‌ای رنگی','۱ قاشق چای‌خوری روغن زیتون','نمک، فلفل سیاه، زردچوبه'],st:['روغن زیتون رو در ماهیتابه نچسب با حرارت ملایم گرم کن.','فلفل دلمه‌ای رو ۲ دقیقه تفت بده تا نرم بشه.','گوجه رو اضافه کن و ۲ دقیقه بذار آبش کشیده بشه.','تخم‌مرغ‌ها رو در کاسه با نمک، فلفل و زردچوبه هم بزن و روی سبزیجات بریز.','درب ماهیتابه رو بذار و ۴ تا ۵ دقیقه با حرارت کم بپز.','با نان سنگک یا نان جو سرو کن.']},
-{c:'b',n:'جو دوسر با موز و دارچین',k:330,m:8,s:1,prot:14,carb:52,fat:8,ing:['۴۰ گرم جو دوسر پرک','۲۰۰ میلی‌لیتر شیر کم‌چرب','نصف موز رسیده','۱ قاشق غذاخوری گردو خرد‌شده','نصف قاشق چای‌خوری دارچین'],st:['جو دوسر و شیر رو در قابلمه کوچک بریز.','با حرارت ملایم ۵ دقیقه هم بزن تا غلیظ بشه.','در کاسه بریز و موز، گردو و دارچین رو روش بذار.','اگه شیرین‌تر می‌خوای، ۱ قاشق چای‌خوری عسل اضافه کن.']},
-{c:'b',n:'پنکیک پروتئینی',k:310,m:15,s:1,prot:26,carb:28,fat:10,ing:['۲ عدد تخم‌مرغ','۳۰ گرم جو دوسر آردشده','۱ اسکوپ پودر پروتئین وانیلی (اختیاری)','نصف موز','نصف قاشق چای‌خوری بیکینگ پودر'],st:['همه مواد رو در مخلوط‌کن بریز و ۳۰ ثانیه بزن.','ماهیتابه نچسب رو با حرارت متوسط گرم کن.','با ملاقه، مخلوط رو در ماهیتابه بریز و ۲ دقیقه صبر کن.','وقتی حباب زد، برگردون و ۱ دقیقه دیگه بپز.','با موز یا توت‌فرنگی سرو کن.']},
-{c:'m',n:'کوکو سبزی کم‌روغن',k:210,m:35,s:4,prot:12,carb:10,fat:14,ing:['۲ دسته بزرگ سبزی کوکو (۳۰۰ گرم)','۴ عدد تخم‌مرغ','۱ قاشق غذاخوری آرد نخودچی','۳۰ گرم گردو خرد‌شده','نمک، فلفل، زردچوبه','۲ قاشق غذاخوری روغن'],st:['سبزی کوکو رو بشور، خشک کن و ریز خرد کن.','تخم‌مرغ‌ها رو با ادویه و آرد نخودچی هم بزن.','سبزی و گردو رو اضافه کن و ملایم مخلوط کن.','قالب یا ماهیتابه رو با کمی روغن چرب کن و مخلوط رو بریز.','در فر ۱۸۰ درجه حدود ۲۵ دقیقه بپز.','به ۴ قسمت تقسیم کن؛ هر قسمت یک پرس است.']},
-{c:'m',n:'خوراک مرغ و سبزیجات مدیترانه',k:320,m:30,s:1,prot:38,carb:15,fat:11,ing:['۱۵۰ گرم سینه مرغ بدون استخوان','۱ عدد کدو سبز متوسط','۱ عدد هویج','نصف پیاز قرمز','۱ قاشق چای‌خوری روغن زیتون','سیر، نمک، فلفل، پاپریکا، آب‌لیمو'],st:['مرغ رو مکعبی خرد کن و با ادویه مزه‌دار کن، ۱۵ دقیقه بذار بمونه.','روغن رو در تابه گرم کن و پیاز رو تفت بده.','مرغ رو اضافه کن تا هر طرف ۳-۴ دقیقه تغییر رنگ بده.','سبزیجات رو اضافه کن و ۱۰ دقیقه درب‌دار با حرارت ملایم بپز.','آخر کار آب‌لیمو بزن و با سالاد سرو کن.']},
-{c:'m',n:'عدسی خوشمزه',k:220,m:40,s:4,prot:14,carb:32,fat:5,ing:['۱ پیمانه عدس (۲۰۰ گرم)','۱ عدد پیاز متوسط','۳ حبه سیر','۱ قاشق غذاخوری روغن','زیره، زردچوبه، نمک، فلفل','۵ پیمانه آب','آب‌لیمو و نعناع خشک'],st:['عدس رو بشور و کنار بذار.','پیاز و سیر رو در روغن تفت بده تا طلایی بشه.','ادویه‌ها رو ۳۰ ثانیه تفت بده تا عطرشون باز بشه.','عدس و آب رو اضافه کن و بذار بجوشه.','حرارت رو کم کن و ۳۰-۴۰ دقیقه بپز تا عدس نرم بشه.','با آب‌لیمو و نعناع خشک سرو کن. هر پرس ربع دیگ است.']},
-{c:'m',n:'ماهی کبابی با لیمو',k:260,m:25,s:1,prot:35,carb:3,fat:12,ing:['۱ فیله ماهی قزل‌آلا یا ماهی سفید (۱۵۰ گرم)','۱ قاشق چای‌خوری روغن زیتون','۲ قاشق غذاخوری آب‌لیمو تازه','۲ حبه سیر رنده‌شده','نمک، فلفل سیاه','سبزی تازه'],st:['ماهی رو با نمک، فلفل، سیر و آب‌لیمو مزه‌دار کن، ۱۵ دقیقه در یخچال.','روغن زیتون رو روی فیله بمال.','فر رو روی ۲۰۰ درجه گرم کن.','ماهی رو در سینی فر با کاغذ روغنی بذار.','۱۲ تا ۱۵ دقیقه بپز تا مغز ماهی کدر بشه.','با سالاد و لیمو سرو کن.']},
-{c:'m',n:'سالاد مرغ و نخود پروتئینی',k:380,m:15,s:1,prot:36,carb:28,fat:12,ing:['۱۲۰ گرم سینه مرغ پخته ریش‌ریش‌شده','نصف پیمانه نخود پخته','۱ عدد خیار خرد‌شده','۱ عدد گوجه خرد‌شده','نصف پیاز قرمز کوچک','۱ قاشق چای‌خوری روغن زیتون و آب‌لیمو','نمک، سبزی تازه'],st:['همه مواد رو در کاسه بزرگ بریز.','روغن زیتون و آب‌لیمو رو با نمک مخلوط کن و روی سالاد بریز.','فوری سرو کن که سبزیجات تازه بمونن.']},
-{c:'m',n:'ماکارونی سبوس‌دار Bolognese',k:420,m:35,s:2,prot:28,carb:48,fat:12,ing:['۱۵۰ گرم ماکارونی سبوس‌دار','۲۰۰ گرم گوشت چرخ‌کرده کم‌چرب','۱ عدد پیاز','۲ حبه سیر','۴۰۰ گرم سس گوجه','۱ قاشق چای‌خوری روغن زیتون','ریحان تازه'],st:['ماکارونی رو در آب جوش با کمی نمک بپز.','پیاز و سیر رو تفت بده.','گوشت چرخ‌کرده رو اضافه کن و تا تغییر رنگ بده.','سس گوجه و ریحان اضافه کن، ۱۵ دقیقه بذار قل بزنه.','ماکارونی رو آبکش کن و با سس مخلوط کن.','هر پرس نصف مقدار است (۴۲۰ kcal).']},
-{c:'m',n:'خورش کرفس کم‌چرب',k:280,m:60,s:4,prot:22,carb:12,fat:14,ing:['۳۰۰ گرم گوشت خورشی کم‌چرب','۴ ساقه کرفس','۱ عدد پیاز','رب گوجه ۱ ق.غ','نعناع خشک','آب‌لیمو، نمک، زردچوبه'],st:['گوشت رو با پیاز و ادویه تفت بده.','رب رو ۱ دقیقه تفت بده تا رنگ باز شه.','آب اضافه کن و ۴۵ دقیقه با حرارت ملایم بپز.','کرفس خرد‌شده رو اضافه کن و ۱۵ دقیقه دیگه بپز.','آخر کار نعناع و آب‌لیمو بزن. هر پرس ربع دیگ است.']},
-{c:'m',n:'کباب مرغ خانگی',k:290,m:30,s:2,prot:42,carb:5,fat:11,ing:['۳۰۰ گرم سینه یا ران مرغ بدون پوست','۱ عدد پیاز بزرگ رنده‌شده','زعفران دم‌کرده','آب‌لیمو، نمک، فلفل','۱ قاشق غذاخوری روغن زیتون'],st:['مرغ رو مکعبی خرد کن.','پیاز رنده‌شده رو آبش رو بگیری و به مرغ اضافه کن.','ادویه، زعفران و روغن رو اضافه کن و ۲ ساعت در یخچال بذار.','به سیخ بکش.','روی گریل یا ماهیتابه داغ بپز تا طلایی بشه.']},
-{c:'s',n:'ماست، خیار و گردو',k:150,m:5,s:1,prot:11,carb:10,fat:8,ing:['۱۵۰ گرم ماست یونانی کم‌چرب','۱ عدد خیار متوسط','۱ قاشق غذاخوری گردو خرد‌شده','نعناع خشک، نمک'],st:['خیار رو نگینی خرد کن.','با ماست مخلوط کن.','گردو و نعناع رو روش بپاش.']},
-{c:'s',n:'سیب با کره بادام‌زمینی',k:190,m:3,s:1,prot:6,carb:22,fat:10,ing:['۱ سیب متوسط','۱ قاشق غذاخوری کره بادام‌زمینی بدون شکر'],st:['سیب رو برش بزن.','کره بادام‌زمینی رو کنار بذار و برش‌ها رو در اون بزن.']},
-{c:'s',n:'اسموتی توت‌فرنگی پروتئینی',k:240,m:5,s:1,prot:22,carb:26,fat:5,ing:['۱ پیمانه توت‌فرنگی یخ‌زده','۱ اسکوپ پروتئین وانیلی','۲۰۰ میلی‌لیتر شیر بادام','نصف موز'],st:['همه مواد رو در مخلوط‌کن بریز.','۳۰ ثانیه با سرعت بالا بزن.','در لیوان بریز و فوری میل کن.']}
-];
-let cookCat='all';
-function renderCook(){const filterBox=$('cook-filter');filterBox.textContent='';[['all','همه'],['b','صبحانه'],['m','ناهار و شام'],['s','میان‌وعده']].forEach(([k,l])=>{const b=document.createElement('button');b.type='button';b.textContent=l;b.className=cookCat===k?'on':'';b.onclick=()=>{cookCat=k;renderCook()};filterBox.appendChild(b)});const box=$('cook-list');box.textContent='';const list=RECIPES.filter(r=>cookCat==='all'||r.c===cookCat);$('cook-count').textContent=list.length+' دستور';list.forEach(r=>{const d=document.createElement('details');d.className='rc';const sm=document.createElement('summary'),a=document.createElement('span'),b=document.createElement('span');a.textContent=r.n;b.style.cssText='color:var(--gold);white-space:nowrap';b.textContent=r.k+' kcal';sm.append(a,b);const w=document.createElement('div');w.className='in';const meta=document.createElement('div');meta.className='meta';meta.textContent='⏱️ '+r.m+' دقیقه • '+(r.s>1?r.s+' پرس':'۱ پرس');const macros=document.createElement('div');macros.className='recipe-macros';if(r.prot)macros.innerHTML=`<span>🥩 پروتئین: ${r.prot}g</span><span>🍚 کربو: ${r.carb}g</span><span>🥑 چربی: ${r.fat}g</span>`;const h1=document.createElement('h4');h1.textContent='مواد لازم';const ul=document.createElement('ul');r.ing.forEach(x=>{const li=document.createElement('li');li.textContent=x;ul.appendChild(li)});const h2=document.createElement('h4');h2.textContent='طرز تهیه';const ol=document.createElement('ol');r.st.forEach(x=>{const li=document.createElement('li');li.textContent=x;ol.appendChild(li)});const bt=document.createElement('button');bt.className='cta';bt.textContent='➕ ثبت در غذای امروز';bt.onclick=()=>{log.push({n:r.n+' (۱ پرس)',c:r.k});saveLog();renderLog();toast('✅ ثبت شد')};w.append(meta,macros,h1,ul,h2,ol,bt);d.append(sm,w);box.appendChild(d)})}
-const WORKOUTS=[
-{c:'b',n:'تمام‌بدن مبتدی (شروع)',m:25,k:'۹۰-۱۵۰',lvl:'مبتدی',ex:[['گرم کردن','۵ دقیقه راه رفتن درجا، چرخش شانه، لگن و مچ پا'],['اسکوات','۳ ست × ۱۰ تکرار. پاها به عرض شانه، باسن به عقب، زانو هم‌راستای پنجه پا'],['شنا روی زانو','۳ ست × ۸ تکرار. بدن در یک خط، آرنج نزدیک بدن'],['پل باسن','۳ ست × ۱۲ تکرار. باسن رو بالا ببر و ۱ ثانیه نگه دار'],['لانج ثابت','۲ ست × ۸ تکرار برای هر پا'],['پلانک','۳ ست × ۲۰ ثانیه. شکم سفت، کمر صاف'],['سرد کردن','۵ دقیقه کشش ران، سینه، شانه']]},
-{c:'i',n:'تمام‌بدن متوسط (قدرتی)',m:40,k:'۱۸۰-۲۸۰',lvl:'متوسط',ex:[['گرم کردن','۵ دقیقه حرکت درجا و چرخش مفاصل'],['اسکوات','۴ ست × ۱۵ تکرار'],['شنا','۴ ست × ۱۰ تکرار'],['لانج راه‌رفتنی','۴ ست × ۱۰ تکرار برای هر پا'],['کوهنوردی','۳ ست × ۳۰ ثانیه'],['پلانک','۴ ست × ۴۰ ثانیه'],['برپی','۳ ست × ۸ تکرار'],['کرانچ دوچرخه','۳ ست × ۲۰ تکرار'],['پل باسن تک‌پا','۳ ست × ۱۰ برای هر پا'],['سرد کردن','۵ دقیقه کشش کامل']]},
-{c:'i',n:'بالاتنه و شکم',m:30,k:'۱۵۰-۲۲۰',lvl:'متوسط',ex:[['گرم کردن','۳ دقیقه چرخش شانه و بازو'],['شنا','۴ ست × ۱۰-۱۲'],['شنا دست‌جمع','۳ ست × ۸'],['دیپ روی صندلی','۳ ست × ۱۰'],['پلانک پهلو','۳ ست × ۳۰ ثانیه هر طرف'],['کرانچ','۳ ست × ۱۵'],['V-up','۳ ست × ۱۰'],['سوپرمن','۳ ست × ۱۲']]},
-{c:'i',n:'پایین‌تنه و باسن',m:35,k:'۱۶۰-۲۴۰',lvl:'متوسط',ex:[['گرم کردن','۵ دقیقه راه رفتن سریع'],['اسکوات عمیق','۴ ست × ۱۵'],['لانج راه‌رفتنی','۴ ست × ۱۲ هر پا'],['پل باسن تک‌پا','۳ ست × ۱۲ هر پا'],['اسکوات بلغاری','۳ ست × ۱۰ هر پا'],['ساق پا ایستاده','۴ ست × ۲۰'],['ددلیفت رومانیایی','۳ ست × ۱۲'],['سرد کردن','۵ دقیقه کشش پا']]},
-{c:'c',n:'پیاده‌روی تند',m:40,k:'۱۲۰-۲۲۰',lvl:'همه',ex:[['شروع','۵ دقیقه پیاده‌روی آرام'],['اصلی','۲۰ تا ۳۰ دقیقه با سرعتی که بتونی صحبت کنی'],['اینتروال (اختیاری)','۱ دقیقه تند + ۲ دقیقه آرام × ۸ بار'],['پایان','۵ دقیقه پیاده‌روی آرام']]},
-{c:'c',n:'HIIT ۱۵ دقیقه‌ای',m:15,k:'۱۵۰-۲۵۰',lvl:'پیشرفته',ex:[['گرم کردن','۳ دقیقه'],['برپی','۴۰ ثانیه + ۲۰ ثانیه استراحت × ۳'],['اسکوات پرشی','۴۰ ثانیه + ۲۰ ثانیه استراحت × ۳'],['کوهنوردی','۴۰ ثانیه + ۲۰ ثانیه استراحت × ۳'],['لانج پرشی','۴۰ ثانیه + ۲۰ ثانیه استراحت × ۳'],['پلانک','۴۰ ثانیه + ۲۰ ثانیه استراحت × ۳'],['سرد کردن','۳ دقیقه']]},
-{c:'c',n:'دویدن اینتروال',m:30,k:'۲۵۰-۴۰۰',lvl:'پیشرفته',ex:[['گرم کردن','۵ دقیقه دویدن آرام'],['دوره اینتروال','۲ دقیقه تند + ۱ دقیقه راه رفتن × ۶ بار'],['سرد کردن','۵ دقیقه دویدن آرام']]},
-{c:'s',n:'کشش و تحرک فعال',m:15,k:'۳۰-۶۰',lvl:'همه',ex:[['گردن و شانه','۳۰ ثانیه هر طرف'],['سینه','۳۰ ثانیه در چارچوب در'],['جلوی ران','۳۰ ثانیه هر پا'],['پشت ران','۳۰ ثانیه هر پا'],['باسن (حالت کبوتر)','۴۵ ثانیه هر طرف'],['کمر (حالت کودک)','۴۵ ثانیه'],['چرخش ستون فقرات','۳۰ ثانیه هر طرف'],['مچ پا و پا','۳۰ ثانیه']]}
-];
-let fitCat='all';
-function renderFit(){const done=store.get('workouts',[]),wk=new Date();wk.setDate(wk.getDate()-6);$('fit-week').textContent='۷ روز: '+done.filter(x=>x.d>=ymd(wk)).length+' جلسه';const filterBox=$('fit-filter');filterBox.textContent='';[['all','همه'],['b','مبتدی'],['i','قدرتی'],['c','کاردیو'],['s','کشش']].forEach(([k,l])=>{const b=document.createElement('button');b.type='button';b.textContent=l;b.className=fitCat===k?'on':'';b.onclick=()=>{fitCat=k;renderFit()};filterBox.appendChild(b)});const box=$('fit-list');box.textContent='';WORKOUTS.filter(x=>fitCat==='all'||x.c===fitCat).forEach(x=>{const d=document.createElement('details');d.className='rc';const sm=document.createElement('summary'),a=document.createElement('span'),b=document.createElement('span');a.innerHTML=x.n+' <span class="ex-tag">'+x.lvl+'</span>';b.style.cssText='color:var(--gold);white-space:nowrap';b.textContent=x.m+' دقیقه';sm.append(a,b);const w=document.createElement('div');w.className='in';const meta=document.createElement('div');meta.className='meta';meta.textContent='🔥 مصرف انرژی: '+x.k+' کیلوکالری';const ol=document.createElement('ol');x.ex.forEach(e=>{const li=document.createElement('li'),bb=document.createElement('b');bb.textContent=e[0]+': ';li.append(bb,document.createTextNode(e[1]));ol.appendChild(li)});const bt=document.createElement('button');bt.className='cta';bt.textContent='✅ این تمرین را انجام دادم';bt.onclick=()=>{const a2=store.get('workouts',[]);a2.push({d:today(),n:x.n});store.set('workouts',a2.slice(-365));markDay();markActivity();track('workout_done');toast('✅ ثبت شد');renderFit()};w.append(meta,ol,bt);d.append(sm,w);box.appendChild(d)})}
-let restT=null;
-function rest(sec){clearInterval(restT);let n=sec;const e=$('rest-disp');e.textContent=n;restT=setInterval(()=>{n--;e.textContent=n>0?n:'برو!';if(n<=0){clearInterval(restT);if(navigator.vibrate)navigator.vibrate([200,100,200]);toast('⏱️ استراحت تمام شد')}},1000)}
-document.querySelectorAll('[data-rest]').forEach(b=>b.addEventListener('click',()=>rest(+b.dataset.rest)));
-function renderChallenges(){const box=$('challenges-list');box.textContent='';const CH=[{id:'c30',n:'چالش ۳۰ روزه چربی‌سوزی',d:'با کد تخفیف FIT10 شرکت کن',done:Math.min(30,store.get('days',[]).length),max:30},{id:'water7',n:'۷ روز آب کافی',d:'۷ روز پیاپی آب کافی بنوش',done:Math.min(7,store.get('fullWaterDays',0)),max:7}];CH.forEach(c=>{const d=document.createElement('div');d.className='rc';const sm=document.createElement('summary'),a=document.createElement('span'),b=document.createElement('span');a.textContent=c.n;b.style.cssText='color:var(--gold)';b.textContent=c.done+'/'+c.max;sm.append(a,b);const w=document.createElement('div');w.className='in';const p=document.createElement('p');p.className='txt';p.textContent=c.d;const bar=document.createElement('div');bar.className='bar';const i=document.createElement('i');i.style.width=(c.done/c.max*100)+'%';bar.appendChild(i);w.append(p,bar);d.append(sm,w);box.appendChild(d)})}
-function refreshHome(){renderHome();renderTodos();$('h-cal').textContent=log.reduce((x,i)=>x+i.c,0);const w=store.get('weight',null);$('h-water').textContent=cups+'/'+(w?Math.max(1,Math.round(w*0.033*4)):10);const r=remaining();if(fast.end){$('h-fast').textContent=fmt(r);$('h-fast-l').textContent='فعال'}else if(fast.left<fastTotal&&fast.left>0){$('h-fast').textContent=fmt(r);$('h-fast-l').textContent='متوقف'}else{$('h-fast').textContent='--';$('h-fast-l').textContent='غیرفعال'}const pf=store.get('profile',null);if(pf){const q=quickPlan(pf);$('k-cal-sub').textContent='هدف: '+q.target+' kcal'}renderLevel();renderWeekChart();renderHeatmap();renderQuote();renderInstall();renderRemind()}
-function copyText(t){if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(t);return new Promise((res,rej)=>{const ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;opacity:0;top:0';document.body.appendChild(ta);ta.select();let ok=false;try{ok=document.execCommand('copy')}catch(e){}ta.remove();ok?res():rej()})}
-function openUrl(u){const a=document.createElement('a');a.href=u;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()}
-function chatUrl(p,text){const base=p==='wa'?'https://wa.me/'+CFG.phone:(CFG.tgUser?'https://t.me/'+CFG.tgUser.replace(/^@/,''):'https://t.me/+'+CFG.phone);const u=base+'?text='+encodeURIComponent(text);return u.length<=1900?u:base}
-function sendVia(p,text){const url=chatUrl(p,text),full=url.indexOf('?text=')>-1,name=p==='wa'?'واتساپ':'تلگرام';$('sh-title').textContent='ارسال به '+name;$('sh-text').value=text;$('sh-open').href=url;$('sh-open').textContent='باز کردن چت مربی';$('sh-hint').textContent=full?'چت با متن آماده باز می‌شه.':'متن طولانیه؛ Paste کن.';const m=$('sh-msg');m.style.color='#6ee7b7';m.textContent='';copyText(text).then(()=>{m.textContent='✅ متن کپی شد.'}).catch(()=>{m.style.color='#fca5a5';m.textContent='کپی نشد.'});$('send-sheet').classList.add('open');openUrl(url)}
-$('sh-x').onclick=()=>$('send-sheet').classList.remove('open');
-$('sh-copy').onclick=()=>{const m=$('sh-msg');copyText($('sh-text').value).then(()=>{m.style.color='#6ee7b7';m.textContent='✅ کپی شد.'}).catch(()=>{$('sh-text').select();m.textContent='دستی کپی کن.'})};
-let plan=null,couponPct=0,refPct=0;
-const toman=n=>Number(n).toLocaleString('fa-IR')+' تومان';
-const allPlans=()=>CFG.trial?[{id:'trial',name:CFG.trial.name,desc:CFG.trial.desc||'',price:0,free:true,features:CFG.trial.features||[]}].concat(CFG.plans):CFG.plans;
-let payTracked=false;
-function renderPlans(){const list=$('plan-list');list.textContent='';allPlans().forEach(pl=>{const sel=plan&&plan.id===pl.id;const b=document.createElement('button');b.type='button';b.className='plan'+(sel?' sel':'')+(pl.recommended?' rec':'');const l=document.createElement('div');l.style.flex='1';const n=document.createElement('div');n.className='pn';n.textContent=pl.name;if(pl.recommended){const g=document.createElement('span');g.className='badge';g.textContent='پیشنهادی';n.appendChild(g)}const d=document.createElement('div');d.className='pd';d.textContent=pl.desc;l.append(n,d);if(pl.features&&pl.features.length){const u=document.createElement('ul');u.className='feat';pl.features.forEach(f=>{const li=document.createElement('li');li.textContent='✓ '+f;u.appendChild(li)});l.appendChild(u)}const pr=document.createElement('div');pr.className='pr';const disc=couponPct+refPct;const finalPrice=disc>0&&!pl.free?Math.round(pl.price*(1-disc/100)):pl.price;const p1=document.createElement('div');p1.className='pp';p1.textContent=pl.free?'رایگان':toman(finalPrice);pr.appendChild(p1);if(disc>0&&!pl.free){const p0=document.createElement('div');p0.style.cssText='font-size:.7rem;color:#ef4444;text-decoration:line-through';p0.textContent=toman(pl.price);pr.appendChild(p0)}if(!pl.free&&pl.days){const p2=document.createElement('div');p2.className='perday';p2.textContent='روزی '+toman(Math.round(finalPrice/pl.days));pr.appendChild(p2)}b.append(l,pr);b.setAttribute('aria-pressed',!!sel);b.onclick=()=>{plan=pl;payTracked=false;track('plan_'+pl.id);renderPlans()};list.appendChild(b)});if(plan&&plan.free){$('send-title').textContent='۳. ارسال درخواست';$('pay-sec').style.display='none';return}if(!plan){$('send-title').textContent='۳. ارسال برای مربی';$('pay-sec').style.display='none';return}$('pay-sec').style.display='block';if(!payTracked){payTracked=true;track('pay_view')}const on=!!CFG.payEnabled;const disc=couponPct+refPct;const finalPrice=disc>0?Math.round(plan.price*(1-disc/100)):plan.price;$('pay-amt').textContent=toman(finalPrice);$('pay-soon').style.display=on?'none':'block';$('pay-methods').style.display=on?'block':'none';$('send-title').textContent=on?'۴. ارسال فرم و رسید':'۴. ارسال برای مربی';if(!on)return;const onl=$('pay-online');if(/^https:\/\//.test(CFG.payLink)){onl.href=CFG.payLink;onl.style.display='block'}else onl.style.display='none';const c=faDigits(CFG.cardNumber).replace(/\D/g,'');const hasCard=/^\d{16}$/.test(c);$('pay-card').style.display=hasCard?'block':'none';if(hasCard){$('pay-cardno').textContent=c.replace(/(\d{4})(?=\d)/g,'$1 ');$('pay-owner').textContent=CFG.cardOwner||''}const none=(onl.style.display==='none'&&!hasCard);$('pay-none').style.display=none?'block':'none';$('ref-wrap').style.display=none?'none':'block'}
-$('btn-coupon').onclick=()=>{const r=applyCoupon($('coupon').value);const m=$('coupon-msg');m.textContent=r.msg;m.style.color=r.ok?'#6ee7b7':'#fca5a5';if(r.ok){couponPct=r.percent;renderPlans()}};
-$('btn-copycard').onclick=()=>{const c=faDigits(CFG.cardNumber).replace(/\D/g,'');const btn=$('btn-copycard'),old=btn.textContent;copyText(c).then(()=>{btn.textContent='✅ کپی شد';setTimeout(()=>{btn.textContent=old},1500)}).catch(()=>{btn.textContent='دستی کپی کن';setTimeout(()=>{btn.textContent=old},2000)})};
-renderPlans();
-const autoOk=/^(https:\/\/|http:\/\/localhost)/.test(CFG.submitUrl);
-if(autoOk)$('btn-auto').style.display='block';
-let sending=false;
-function sendAuto(t){if(sending)return;sending=true;const err=$('c-err'),btn=$('btn-auto'),old=btn.textContent;btn.disabled=true;btn.textContent='⏳ ارسال...';const ctl=new AbortController(),to=setTimeout(()=>ctl.abort(),15000);fetch(CFG.submitUrl,{method:'POST',headers:{'Content-Type':'application/json'},signal:ctl.signal,body:JSON.stringify({text:t,plan:plan.name})}).then(r=>{if(!r.ok)throw new Error();err.style.color='#6ee7b7';err.textContent='✅ ارسال شد.'}).catch(()=>{err.style.color='#fca5a5';err.textContent='ارسال خودکار نشد.'}).finally(()=>{clearTimeout(to);sending=false;btn.disabled=false;btn.textContent=old})}
-function buildText(){const v=id=>$(id).value.trim(),pf=profile();const L=['📋 فرم ثبت‌نام (فیت‌شاه)','','👤 نام: '+v('c-name'),'📞 موبایل: '+faDigits(v('c-ph'))];[['c-age-gender','🧬 سن/جنسیت'],['c-history','🔄 سابقه'],['c-chal','⚠️ چالش'],['c-med','🩺 بیماری'],['c-sch','⏰ لایف‌استایل']].forEach(([i,l])=>{if(v(i))L.push(l+': '+v(i))});if($('c-goal').value)L.push('🎯 هدف: '+$('c-goal').value);if(v('c-ref'))L.push('🎫 کد معرف: '+v('c-ref'));if(pf)L.push('📊 مشخصات: وزن '+pf.w+'kg، قد '+pf.h+'cm'+(pf.t?'، هدف '+pf.t+'kg':''));const disc=couponPct+refPct;const finalPrice=disc>0?Math.round(plan.price*(1-disc/100)):plan.price;L.push('','📦 پلن: '+plan.name,'💰 مبلغ: '+(plan.free?'رایگان':toman(finalPrice))+(disc>0?' (تخفیف '+disc+'٪)':''));if(CFG.payEnabled&&!plan.free&&$('ref-wrap').style.display!=='none')L.push('🧾 پیگیری: '+(faDigits(v('pay-ref'))||'ندارم، عکس رسید رو می‌فرستم'));return L.join('\n')}
-function sendForm(p){const err=$('c-err');err.style.color='#fca5a5';err.textContent='';['c-name','c-ph'].forEach(i=>$(i).classList.remove('err'));if(!$('c-name').value.trim()){$('c-name').classList.add('err');err.textContent='نام رو وارد کن.';return}if(!/^09\d{9}$/.test(faDigits($('c-ph').value.trim()))){$('c-ph').classList.add('err');err.textContent='موبایل معتبر نیست.';return}if(!plan){err.textContent='پلن رو انتخاب کن.';$('plan-list').scrollIntoView({behavior:'smooth',block:'center'});return}if(!$('c-ok').checked){err.textContent='تیک رضایت رو بزن.';return}const t=buildText();track('send_'+p);if($('c-ref').value.trim())applyReferral($('c-ref').value.trim());if(p==='auto'){if(autoOk)sendAuto(t);return}if(p==='wa'||p==='tg')sendVia(p,t);else copyText(t).then(()=>{err.style.color='#6ee7b7';err.textContent='کپی شد.'}).catch(()=>{err.textContent='کپی نشد.'})}
-initExtras();
-updateProBadge();
-initChat();
-if(!store.get('onboardDone',false))startOnboarding();
-refreshHome();
-})();
-</script>
-</body>
-</html>
+function step(id,d){
