@@ -369,6 +369,153 @@ body.scrolling #water-fab{transform:none;transition:none}
 .card,.kpi{contain:content}.heat div:hover{transform:none}.card:hover{border-color:var(--bd)}
 }
 @media(prefers-reduced-motion:reduce){.fs-ring .fgc,.bar i,.pane.active{animation:none!important;transition:none!important}}
+
+/* ================= RESPONSIVE LAYER ================= */
+/* --- fluid typography (works from 320px to 4K) --- */
+.hero h2{font-size:clamp(1.05rem,3.4vw,1.55rem)}
+.hero p{font-size:clamp(.76rem,2.4vw,.92rem)}
+.kpi .vl{font-size:clamp(1.25rem,4.6vw,1.8rem)}
+.kpi .lb{font-size:clamp(.66rem,2.2vw,.75rem)}
+.fs-ring .cnt .vl{font-size:clamp(1.55rem,6.8vw,2.4rem)}
+.ex-result .vl{font-size:clamp(1.5rem,6vw,2rem)}
+.sw-item b{font-size:clamp(1rem,4.4vw,1.4rem)}
+.card h3,.card .ch span{font-size:clamp(.82rem,2.8vw,.95rem)}
+
+/* --- form rows wrap gracefully instead of squashing --- */
+.r2>*{flex:1 1 160px;min-width:0}
+.r2>.full{flex:1 1 100%}
+
+/* --- never allow sideways scroll --- */
+html,body{max-width:100%}
+.wrap{max-width:min(1240px,100%)}
+.card,.kpi,.frow,.sug-food,.plan-preview{min-width:0;overflow-wrap:anywhere}
+img,canvas,svg,video{max-width:100%;height:auto}
+#wchart,#cmp-chart{width:100%;display:block}
+.plan-schedule .meal-row{display:flex;gap:8px;flex-wrap:wrap}
+
+/* --- lead form (فرم شروع با من) --- */
+.plan-form-card{background:linear-gradient(160deg,var(--glow),transparent 55%);border:1px solid var(--bd);border-radius:20px;padding:clamp(14px,3vw,22px)}
+.plan-form-card>h3{font-size:clamp(1rem,3.6vw,1.35rem);margin-bottom:6px}
+.plan-form-card>p{color:var(--mut);font-size:clamp(.76rem,2.5vw,.85rem);line-height:1.9;margin-bottom:16px}
+.fp-chan-title{font-size:.82rem;font-weight:900;color:var(--em);margin-bottom:10px}
+.fp-channels{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.fp-ch{display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 6px;border-radius:12px;font-weight:900;font-size:.8rem;border:1.5px solid var(--bd);background:var(--elev);color:var(--txt);transition:.2s}
+.fp-ch:hover{transform:translateY(-1px);border-color:var(--em)}
+.fp-ch[data-ch=wa]{border-color:rgba(37,211,102,.5)}
+.fp-ch[data-ch=tg]{border-color:rgba(41,161,220,.5)}
+.fp-ch[data-ch=sms]{border-color:rgba(251,191,36,.5)}
+.fp-ch .ic2{font-size:1.25rem}
+.fp-ch.on{background:var(--em);color:#04120d;border-color:var(--em);transform:translateY(-1px)}
+.fp-send-note{font-size:.72rem;color:var(--mut);line-height:1.9;margin-top:10px}
+#fp-actions.sent .fp-send-note{color:var(--em);font-weight:800}
+.fp-dest{font-size:.7rem;color:var(--gold);margin-top:6px;word-break:break-all}
+
+/* --- top tab bar: no clipped tabs on tablets / small laptops --- */
+.tnl::-webkit-scrollbar{display:none;height:0}
+.tnl{-ms-overflow-style:none}
+@media(min-width:960px) and (max-width:1180px){
+.topnav{gap:10px;padding:0 12px}
+.brand-text span{display:none}
+.topnav .tnl{gap:2px}
+.topnav .tnl button{padding:7px 8px;font-size:.72rem;letter-spacing:-.2px}
+.topnav .tnl button.hl-plan{padding:7px 10px}
+}
+@media(min-width:960px) and (max-width:1050px){
+.topnav .tnl button{padding:6px 6px;font-size:.68rem}
+}
+
+/* --- tablets / small laptops --- */
+@media(max-width:1100px){
+.g2{grid-template-columns:1fr}
+.kr{grid-template-columns:repeat(2,1fr)}
+.wrap{padding:20px 16px 72px}
+.tnl button{padding:8px 11px;font-size:.8rem}
+}
+
+/* --- large desktop --- */
+@media(min-width:1400px){
+.wrap{max-width:1320px}
+.kr{gap:18px}
+.g2{grid-template-columns:1fr 380px}
+}
+
+/* --- phones --- */
+@media(max-width:680px){
+.sw-grid{grid-template-columns:repeat(2,1fr)}
+.tg{grid-template-columns:repeat(2,1fr)}
+.ex-grid{grid-template-columns:1fr}
+.lib-grid{grid-template-columns:1fr}
+.fs-stats{grid-template-columns:repeat(2,1fr)}
+.fs-hero{padding:18px 14px;border-radius:18px}
+.plan-step{padding:12px}
+}
+@media(max-width:560px){
+.wrap{padding:14px 12px calc(84px + env(safe-area-inset-bottom))}
+.topnav{padding:0 12px;gap:8px;height:56px}
+.b-logo{width:32px;height:32px;font-size:.7rem}
+.icb{width:34px;height:34px;font-size:1rem}
+.tna{gap:6px}
+#uc{font-size:.72rem;padding:6px 9px}
+#btn-thm{display:none}
+.kr{gap:10px;margin-bottom:14px}
+.kpi{padding:13px;border-radius:14px}
+.card{padding:14px;border-radius:14px}
+.hero{padding:16px;border-radius:16px}
+.mdl{padding:34px 12px calc(18px + env(safe-area-inset-bottom))}
+.mb{padding:16px;border-radius:16px}
+.install-modal-box{padding:22px 16px;border-radius:20px}
+.dr{padding:16px;width:min(92vw,320px)}
+#water-fab{width:46px;height:46px;font-size:1.15rem;bottom:calc(14px + env(safe-area-inset-bottom));inset-inline-end:12px}
+.fs-ring{width:186px;height:186px;margin:10px auto}
+.fs-presets button{padding:10px 4px;font-size:.72rem}
+.mtabs button{flex:1 1 44%;min-width:0;font-size:.72rem}
+.mtabs button .ct{font-size:.6rem}
+.phase-bar .p{font-size:.5rem;letter-spacing:-.2px}
+.tm button{padding:10px;font-size:.78rem}
+.tsw .sw{width:32px;height:32px}
+.tsw{padding:12px 6px}
+.lks button{padding:11px 12px;font-size:.82rem}
+.fp-channels{grid-template-columns:1fr;gap:6px}
+.fp-ch{flex-direction:row;justify-content:center;gap:8px;padding:13px}
+.fs-controls button{min-width:100%}
+.fs-controls .reset{flex:1 1 100%;min-width:0}
+.sw-item{padding:12px 8px}
+.meal-total{font-size:.8rem}
+.frow{font-size:.8rem}
+.st b{font-size:1.05rem}
+}
+
+/* --- very small phones (320-380px) --- */
+@media(max-width:380px){
+.kr{grid-template-columns:1fr}
+.brand-text{display:none}
+.kpi .vl{font-size:1.5rem}
+.mtabs button{flex:1 1 100%}
+.fs-stats{grid-template-columns:1fr 1fr}
+.fp-channels{grid-template-columns:1fr}
+.wrap{padding:12px 10px calc(80px + env(safe-area-inset-bottom))}
+}
+
+/* --- landscape phones --- */
+@media(max-height:540px) and (orientation:landscape){
+.topnav{height:48px}
+.fs-ring{width:150px;height:150px}
+.fs-ring .cnt .vl{font-size:1.5rem}
+.mdl{padding-top:20px}
+.hero{padding:12px}
+}
+
+/* --- touch devices: no hover lift --- */
+@media(hover:none){
+.card:hover{border-color:var(--bd)}
+.icb:hover,.fp-ch:hover,.nb.highlight:hover,.cta:hover{transform:none}
+.tnl button:hover{background:none;color:var(--mut)}
+}
+
+/* --- safe areas for notched phones --- */
+.topnav{padding-inline-start:max(12px,env(safe-area-inset-left));padding-inline-end:max(12px,env(safe-area-inset-right))}
+.dr{padding-bottom:calc(20px + env(safe-area-inset-bottom))}
+#ts{max-width:calc(100vw - 24px)}
 </style>
 </head>
 <body>
@@ -380,7 +527,7 @@ body.scrolling #water-fab{transform:none;transition:none}
 </button>
 <nav class="tnl" id="tn">
 <button data-nav="home" class="active">🏠 داشبورد</button>
-<button data-nav="fasting-plan" class="hl-plan">🚀 شروع با من</button>
+<button data-nav="fasting-plan" class="hl-plan">📝 شروع با من</button>
 <button data-nav="tracker">🍽️ ثبت غذا</button>
 <button data-nav="fasting">⏱️ فستینگ</button>
 <button data-nav="analyze">📊 محاسبه</button>
@@ -406,7 +553,7 @@ body.scrolling #water-fab{transform:none;transition:none}
 
 <div class="menu-group">
 <div class="menu-group-title">🎯 شروع سریع</div>
-<button class="nb highlight" data-nav="fasting-plan">🚀 شروع فستینگ با من</button>
+<button class="nb highlight" data-nav="fasting-plan">📝 فرم شروع با من</button>
 </div>
 
 <div class="menu-group">
@@ -459,7 +606,7 @@ body.scrolling #water-fab{transform:none;transition:none}
 <div class="hero" style="margin-bottom:20px">
 <h2>امروزت رو با فیت‌شاه بساز</h2>
 <p>کالری روزانه‌ات رو حساب کن، غذاها رو در وعده‌های درست ثبت کن و پیشرفتت رو هفته‌به‌هفته ببین.</p>
-<button class="cta sm" data-nav="fasting-plan" style="width:auto;background:linear-gradient(90deg,var(--gold),#f59e0b);color:#05080f;margin-inline-end:8px">🚀 شروع فستینگ با من</button>
+<button class="cta sm" data-nav="fasting-plan" style="width:auto;background:linear-gradient(90deg,var(--gold),#f59e0b);color:#05080f;margin-inline-end:8px">📝 فرم شروع با من</button>
 <button class="cta sm" data-nav="analyze" style="width:auto">📊 محاسبه</button>
 </div>
 <div class="kr">
@@ -610,8 +757,8 @@ body.scrolling #water-fab{transform:none;transition:none}
 
 <section id="p-fasting-plan" class="pane">
 <div class="plan-form-card">
-<h3>🚀 برنامه فستینگ شخصی‌سازی‌شده</h3>
-<p>چند قدم کوتاه؛ خروجی: کالری هدف، ساعت وعده‌ها و متن آماده برای واتساپ یا کپی.</p>
+<h3>📝 فرم شروع با من</h3>
+<p>مشخصاتت رو پر کن؛ برنامه‌ی اختصاصی‌ت (کالری هدف، ساعت وعده‌ها و پلن فستینگ) ساخته می‌شه و می‌تونی همون لحظه برام بفرستی — واتساپ، تلگرام یا پیامک.</p>
 <div class="plan-step">
 <div class="plan-step-title"><span class="num">۱</span> هدفت چیه؟</div>
 <div class="flt" id="fp-goal">
@@ -637,22 +784,32 @@ body.scrolling #water-fab{transform:none;transition:none}
 <div class="r2">
 <div><label class="fl2" for="fp-plan">پلن</label><select id="fp-plan" class="fc"><option value="16" selected>۱۶:۸</option><option value="18">۱۸:۶</option><option value="20">۲۰:۴</option><option value="24">۲۴:۰</option><option value="12">۱۲:۱۲</option></select></div>
 <div><label class="fl2" for="fp-meals">تعداد وعده</label><select id="fp-meals" class="fc"><option value="2">۲</option><option value="3" selected>۳</option><option value="4">۴</option><option value="5">۵</option></select></div>
-</div>
-<div class="r2">
 <div><label class="fl2" for="fp-starttime">ساعت شروع خوردن</label><input type="time" id="fp-starttime" class="fc" value="12:00"></div>
 </div>
+</div>
+<div class="plan-step">
+<div class="plan-step-title"><span class="num">۴</span> راه تماس با تو</div>
 <div class="r2">
-<div><label class="fl2" for="fp-name">اسم تو</label><input id="fp-name" class="fc" placeholder="اختیاری"></div>
-<div><label class="fl2" for="fp-phone">واتساپ (با کد کشور)</label><input id="fp-phone" class="fc" inputmode="tel" placeholder="98912..."></div>
+<div><label class="fl2" for="fp-name">اسم تو</label><input id="fp-name" class="fc" placeholder="مثلاً رضا"></div>
+<div><label class="fl2" for="fp-phone">شماره تماس (اختیاری)</label><input id="fp-phone" class="fc" inputmode="tel" placeholder="0912..."></div>
 </div>
 <div id="fp-err" style="color:#fca5a5;font-size:.82rem;min-height:18px"></div>
 </div>
-<button class="cta" id="fp-generate">✨ ساخت برنامه</button>
+<button class="cta" id="fp-generate">✨ ساخت فرم برنامه</button>
 <div id="fp-preview" class="plan-preview" style="display:none"></div>
-<div class="r2" id="fp-actions" style="display:none;margin-top:14px">
-<button class="cta sm" id="fp-send-wa" style="flex:2">📤 ارسال به واتساپ</button>
-<button class="cta sm gh" id="fp-apply" style="flex:1">اعمال هدف</button>
-<button class="cta sm gh" id="fp-copy" style="flex:1">کپی متن</button>
+<div id="fp-actions" style="display:none;margin-top:14px">
+<div class="fp-chan-title">📤 فرم و برنامه رو از کدوم راه بفرستم؟</div>
+<div class="fp-channels">
+<button class="fp-ch" data-ch="wa" type="button"><span class="ic2">💬</span>واتساپ</button>
+<button class="fp-ch" data-ch="tg" type="button"><span class="ic2">✈️</span>تلگرام</button>
+<button class="fp-ch" data-ch="sms" type="button"><span class="ic2">📱</span>پیامک</button>
+</div>
+<div class="fp-send-note" id="fp-send-note">با انتخاب هر کانال، متن فرم خودکار کپی می‌شه و همون اپ باز می‌شه؛ فقط دکمه‌ی ارسال رو بزن.</div>
+<div class="fp-dest" id="fp-dest"></div>
+<div class="r2" style="margin-top:10px">
+<button class="cta sm gh" id="fp-apply" style="flex:1">💾 اعمال هدف در اپ</button>
+<button class="cta sm gh" id="fp-copy" style="flex:1">📋 کپی دستی متن</button>
+</div>
 </div>
 <p class="csub" style="margin-top:14px">این برنامه پیشنهادیه؛ در صورت داشتن بیماری زمینه‌ای حتماً با پزشک مشورت کن.</p>
 </div>
@@ -1066,7 +1223,23 @@ if(isIOS()||!_installPrompt)showInstallModal();
 buildManifest();registerServiceWorker();
 
 /* ================= CONFIG ================= */
-var CFG={igUser:'fitalirezaakbari',igUrl:'https://instagram.com/fitalirezaakbari',visionUrl:'',offApi:'https://world.openfoodfacts.org'};
+var CFG={
+igUser:'fitalirezaakbari',
+igUrl:'https://instagram.com/fitalirezaakbari',
+visionUrl:'',
+offApi:'https://world.openfoodfacts.org',
+/* مقصد ارسال فرم «شروع با من» -------------------------------------------------
+   leadPhone : شماره واتساپ خودت با کد کشور، بدون + و بدون صفر   مثال: '989123456789'
+   leadTg    : آیدی تلگرام خودت بدون @                          مثال: 'myusername'
+   leadSms   : شماره پیامک خودت با +                            مثال: '+989123456789'
+   اگر خالی بماند، اپ همان اپ (واتساپ/تلگرام/پیامک) را باز می‌کند و
+   خودِ کاربر مخاطب را انتخاب می‌کند؛ متن فرم همیشه از قبل کپی شده است.
+------------------------------------------------------------------------------ */
+leadPhone:'',
+leadTg:'',
+leadSms:'',
+leadUrl:''
+};
 
 /* ================= HELPERS ================= */
 function $(id){return document.getElementById(id);}
@@ -2352,8 +2525,10 @@ if($('fp-w'))$('fp-w').value=pf.w||75;
 if($('fp-sex'))$('fp-sex').value=pf.male?'m':'f';
 if($('fp-act'))$('fp-act').value=String(pf.activity||1.375);
 if(pf.goal&&(pf.goal==='lose'||pf.goal==='keep'||pf.goal==='gain'))fpGoal=pf.goal;
+if(pf.name&&$('fp-name')&&!$('fp-name').value)$('fp-name').value=pf.name;
 }
 updateFpGoalBtns();
+var dn=$('fp-dest');if(dn)dn.textContent=fpDestLabel();
 }
 function fpValidate(){
 var err=$('fp-err');
@@ -2409,16 +2584,27 @@ rb.appendChild(el('span',null,'💧 آب ~'+pd(Math.round(d.s.w*35/250))+' لی�
 rb.appendChild(el('span',null,'💪 پروتئین ~'+pd(Math.round(d.s.w*1.3))+' گرم'));
 box.appendChild(rb);
 box.style.display='block';
-act.style.display='flex';
+act.style.display='block';
+var dn=$('fp-dest');if(dn)dn.textContent=fpDestLabel();
+var sn=$('fp-send-note');if(sn)sn.textContent='با انتخاب هر کانال، متن فرم خودکار کپی می‌شه و همون اپ باز می‌شه؛ فقط دکمه‌ی ارسال رو بزن.';
 }
 function fpBuildText(){
 var d=fpPlanData;if(!d)return '';
 var nm=norm(($('fp-name')||{}).value||'');
+var ph=norm(($('fp-phone')||{}).value||'');
+var ageTxt=d.s.age+' ساله';
 var L=[];
-L.push('🚀 برنامه فیت‌شاه'+(nm?' برای '+nm:''));
+L.push('📝 فرم شروع با من — فیت‌شاه');
+L.push('');
+L.push('👤 نام: '+(nm||'—'));
+L.push('📞 شماره تماس: '+(ph||'—'));
+L.push('🎂 سن / جنسیت: '+ageTxt+' — '+(d.s.male?'آقا':'خانم'));
+L.push('📏 قد / وزن: '+d.s.h+' cm / '+d.s.w+' kg');
+L.push('🏃 سطح فعالیت: '+d.s.activity);
 L.push('');
 L.push('🎯 هدف: '+(fpGoal==='lose'?'کاهش وزن':fpGoal==='gain'?'افزایش عضله':'حفظ وزن'));
 L.push('🔥 کالری روزانه: '+d.target+' kcal');
+L.push('📊 BMR / TDEE: '+d.bmr+' / '+d.tdee);
 L.push('⏱️ فستینگ: '+d.plan+':'+(24-d.plan)+' (پنجره خوردن '+d.eating+' ساعته)');
 L.push('🍽️ تعداد وعده: '+d.meals+' (هر وعده ~'+d.perMeal+' kcal)');
 L.push('');
@@ -2428,23 +2614,72 @@ L.push('');
 L.push('💧 آب: ~'+Math.round(d.s.w*35/250)+' لیوان در روز');
 L.push('💪 پروتئین: ~'+Math.round(d.s.w*1.3)+' گرم');
 L.push('');
-L.push('ساخته‌شده با اپ فیت‌شاه 🌿');
+L.push('تاریخ: '+shamsi(new Date()));
+L.push('ساخته‌شده با اپ فیت‌شاه 🌿'+(CFG.leadUrl?(' | '+CFG.leadUrl):''));
 return L.join('\n');
 }
 function fpApply(){
 if(!fpPlanData){fpRender();if(!fpPlanData)return;}
 var d=fpPlanData,old=profile()||{};
-store.set('profile',{goal:fpGoal,male:d.s.male,age:d.s.age,h:d.s.h,w:d.s.w,t:old.t||0,activity:d.s.activity,name:old.name||''});
+store.set('profile',{goal:fpGoal,male:d.s.male,age:d.s.age,h:d.s.h,w:d.s.w,t:old.t||0,activity:d.s.activity,name:norm(($('fp-name')||{}).value||'')||old.name||''});
 addWeight(d.s.w,{silent:true});
 store.set('fastingPlan',{plan:d.plan,meals:d.meals,target:d.target,schedule:d.schedule,eating:d.eating});
 renderHome();toast('✅ هدف در پروفایل ذخیره شد');
 }
-function fpSendWa(){
-if(!fpPlanData)fpRender();
-var txt=encodeURIComponent(fpBuildText());
-var phone=fa(norm(($('fp-phone')||{}).value||'')).replace(/\D/g,'');
-var url=phone?('https://wa.me/'+phone+'?text='+txt):('https://api.whatsapp.com/send?text='+txt);
-window.open(url,'_blank');
+function fpDestLabel(){
+var parts=[];
+parts.push(CFG.leadPhone?('واتساپ: '+CFG.leadPhone):'واتساپ: مخاطب را خودت انتخاب می‌کنی');
+parts.push(CFG.leadTg?('تلگرام: @'+String(CFG.leadTg).replace(/^@/,'')):'تلگرام: مخاطب را خودت انتخاب می‌کنی');
+parts.push(CFG.leadSms?('پیامک: '+CFG.leadSms):'پیامک: شماره را خودت وارد می‌کنی');
+return '📬 '+parts.join(' • ');
+}
+function openLink(url,sameTab){
+try{
+var a=document.createElement('a');
+a.href=url;
+a.rel='noopener';
+if(!sameTab)a.target='_blank';
+document.body.appendChild(a);
+a.click();
+setTimeout(function(){if(a.parentNode)a.parentNode.removeChild(a);},1500);
+return true;
+}catch(e){
+try{if(sameTab)location.href=url;else window.open(url,'_blank');return true;}catch(e2){return false;}
+}
+}
+function fpSend(ch){
+if(!fpPlanData){fpRender();if(!fpPlanData)return;}
+var txt=fpBuildText();
+var copied=false;
+try{copied=copyText(txt);}catch(e){copied=false;}
+var note=$('fp-send-note');
+if(note)note.textContent=copied?'📋 متن فرم کپی شد. حالا در اپِ بازشده فقط «Paste / ارسال» را بزن.':'⚠️ کپی خودکار ممکن نشد؛ با دکمه‌ی «کپی دستی متن» متن را کپی کن.';
+toast(copied?'📋 متن فرم کپی شد':'⚠️ کپی نشد؛ دستی کپی کن');
+var url='',sameTab=false,enc=encodeURIComponent(txt);
+if(ch==='wa'){
+var n=fa(norm(CFG.leadPhone||'')).replace(/\D/g,'');
+url=n?('https://wa.me/'+n+'?text='+enc):('https://api.whatsapp.com/send?text='+enc);
+}
+else if(ch==='tg'){
+var t=norm(CFG.leadTg||'').replace(/^@/,'').replace(/\s/g,'');
+url=t?('https://t.me/'+encodeURIComponent(t)+'?text='+enc)
+     :('https://t.me/share/url?url='+encodeURIComponent(CFG.leadUrl||CFG.igUrl)+'&text='+enc);
+}
+else if(ch==='sms'){
+var s=fa(norm(CFG.leadSms||'')).replace(/[^\d+]/g,'');
+url='sms:'+s+'?&body='+enc;
+sameTab=true;
+}
+if(!url)return;
+try{
+var sent=store.get('leadSends',{})||{};
+sent[ch]=(sent[ch]||0)+1;
+store.setNow('leadSends',sent);
+markActivity();
+}catch(e){}
+openLink(url,sameTab);
+var box=$('fp-actions');
+if(box)box.classList.add('sent');
 }
 
 /* ================= NAVIGATION ================= */
@@ -3388,9 +3623,21 @@ if(lt)lt.style.display=(fsWizLastTime==='custom')?'block':'none';
 }
 }
 if($('fp-generate'))$('fp-generate').onclick=fpRender;
-if($('fp-copy'))$('fp-copy').onclick=function(){if(!fpPlanData)fpRender();copyText(fpBuildText());toast('📋 متن برنامه کپی شد');};
+if($('fp-copy'))$('fp-copy').onclick=function(){if(!fpPlanData)fpRender();copyText(fpBuildText());toast('📋 متن فرم کپی شد');};
 if($('fp-apply'))$('fp-apply').onclick=fpApply;
-if($('fp-send-wa'))$('fp-send-wa').onclick=fpSendWa;
+var fch=document.querySelectorAll('#p-fasting-plan .fp-ch');
+for(var fi=0;fi<fch.length;fi++){
+(function(b){
+b.onclick=function(){
+var ch=b.getAttribute('data-ch');
+var box=$('fp-actions');
+if(box)box.classList.add('sent');
+b.classList.add('on');
+fpSend(ch);
+setTimeout(function(){b.classList.remove('on');},900);
+};
+})(fch[fi]);
+}
 if($('fp-goal')){
 var gb=$('fp-goal').querySelectorAll('button');
 for(var k=0;k<gb.length;k++){
