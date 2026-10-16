@@ -50,6 +50,8 @@ body.scrolling #water-fab{transform:none;transition:none}
 .tnl button{background:none;border:none;color:var(--mut);padding:8px 14px;border-radius:10px;font-weight:700;font-size:.85rem;white-space:nowrap;transition:.2s}
 .tnl button:hover{background:var(--elev);color:var(--txt)}
 .tnl button.active{background:var(--glow);color:var(--em);box-shadow:inset 0 0 0 1px var(--glow)}
+.tnl button.hl-plan{background:linear-gradient(90deg,var(--em),var(--em2));color:#05080f;font-weight:900}
+.tnl button.hl-plan:hover{transform:translateY(-1px);box-shadow:0 6px 16px var(--glow)}
 .tna{display:flex;align-items:center;gap:8px}
 .icb{background:var(--card);border:1px solid var(--bd);color:var(--txt);width:38px;height:38px;border-radius:10px;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:.2s}
 .icb:hover{border-color:var(--em)}
@@ -150,6 +152,13 @@ body.scrolling #water-fab{transform:none;transition:none}
 .dr.open{right:0}
 .nb{width:100%;background:var(--elev);border:1px solid var(--bd);color:var(--txt);padding:13px 14px;border-radius:11px;font-weight:700;text-align:right;margin-bottom:8px;font-size:.85rem;transition:.2s;display:flex;gap:10px}
 .nb:hover{border-color:var(--em)}
+.menu-group{background:var(--elev);border:1px solid var(--bd);border-radius:14px;padding:10px;margin-bottom:12px}
+.menu-group-title{font-size:.7rem;font-weight:900;color:var(--gold);padding:4px 8px 10px;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:6px}
+.menu-group-title::before{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--bd));order:-1}
+.menu-group .nb{margin-bottom:6px;background:var(--card)}
+.menu-group .nb:last-child{margin-bottom:0}
+.menu-group .nb.highlight{background:linear-gradient(90deg,var(--em),var(--em2));color:#05080f;font-weight:900;box-shadow:0 4px 14px var(--glow)}
+.menu-group .nb.highlight:hover{transform:translateY(-1px)}
 .tg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
 .tsw{background:var(--elev);border:2px solid var(--bd);border-radius:14px;padding:14px 8px;text-align:center;color:var(--txt);display:flex;flex-direction:column;align-items:center;gap:8px}
 .tsw.on{border-color:var(--em);box-shadow:0 6px 20px var(--glow)}
@@ -311,7 +320,23 @@ body.scrolling #water-fab{transform:none;transition:none}
 .ig-st span{font-size:.72rem;color:var(--mut)}
 .ig-btns{display:flex;gap:8px;margin:14px 0}
 .ig-btns a{flex:1;text-align:center;text-decoration:none;padding:10px;border-radius:10px;font-weight:800;font-size:.85rem}
-/* Install Modal */
+.plan-form-card{background:linear-gradient(135deg,var(--glow),transparent);border:1px solid var(--em);border-radius:18px;padding:22px}
+.plan-form-card h3{font-size:1.15rem;font-weight:900;color:var(--gold);margin-bottom:6px}
+.plan-form-card>p{font-size:.82rem;color:var(--mut);line-height:1.8;margin-bottom:18px}
+.plan-step{background:var(--card);border-radius:12px;padding:14px;margin-bottom:12px;border:1px solid var(--bd)}
+.plan-step-title{font-size:.82rem;font-weight:900;color:var(--em);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.plan-step-title .num{background:var(--em);color:#05080f;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900}
+.plan-preview{background:linear-gradient(135deg,rgba(251,191,36,.08),transparent);border:1px solid rgba(251,191,36,.3);border-radius:14px;padding:16px;margin-top:14px}
+.plan-preview h4{font-size:.9rem;font-weight:900;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.plan-preview .row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--bd);font-size:.83rem}
+.plan-preview .row:last-child{border-bottom:none}
+.plan-preview .row b{color:var(--gold);font-weight:900;direction:ltr}
+.plan-schedule{background:var(--elev);border-radius:10px;padding:12px;margin-top:10px;font-size:.82rem;line-height:1.9}
+.plan-schedule .meal-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed var(--bd);gap:8px}
+.plan-schedule .meal-row:last-child{border-bottom:none}
+.plan-schedule .meal-row .time{color:var(--em);font-weight:900;direction:ltr;font-family:monospace;font-size:.85rem;flex-shrink:0}
+.plan-schedule .meal-row .name{color:var(--txt);font-weight:700;flex:1}
+.plan-schedule .meal-row .cal{color:var(--gold);font-weight:900;font-size:.8rem;flex-shrink:0}
 .install-modal{position:fixed;inset:0;z-index:5000;background:rgba(5,8,15,.92);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:20px}
 .install-modal.show{display:flex;animation:fadeIn .3s}
 .install-modal-box{max-width:400px;width:100%;background:var(--card);border:1px solid var(--em);border-radius:24px;padding:28px 22px;text-align:center;box-shadow:0 25px 60px rgba(0,0,0,.6);animation:slideUp2 .4s;max-height:90vh;overflow-y:auto}
@@ -352,6 +377,7 @@ body.scrolling #water-fab{transform:none;transition:none}
 </button>
 <nav class="tnl" id="tn">
 <button data-nav="home" class="active">🏠 داشبورد</button>
+<button data-nav="fasting-plan" class="hl-plan">🚀 شروع با من</button>
 <button data-nav="fasting">⏱️ فستینگ</button>
 <button data-nav="analyze">📊 محاسبه</button>
 <button data-nav="tracker">🍽️ ثبت</button>
@@ -369,27 +395,52 @@ body.scrolling #water-fab{transform:none;transition:none}
 
 <div id="db" class="db"></div>
 <aside id="dr" class="dr">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--bd)">
-<div style="font-weight:900;color:var(--em)">منو</div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--bd)">
+<div style="font-weight:900;color:var(--em);font-size:1.05rem">منو</div>
 <button id="drx" style="background:none;border:none;color:var(--txt);font-size:1.3rem">✕</button>
 </div>
+
+<div class="menu-group">
+<div class="menu-group-title">🎯 شروع سریع</div>
+<button class="nb highlight" data-nav="fasting-plan">🚀 شروع فستینگ با من</button>
+</div>
+
+<div class="menu-group">
+<div class="menu-group-title">📊 اصلی</div>
 <button class="nb" data-nav="home">🏠 داشبورد</button>
-<button class="nb" data-nav="fasting">⏱️ فستینگ</button>
 <button class="nb" data-nav="analyze">📊 محاسبه کالری</button>
 <button class="nb" data-nav="tracker">🍽️ ثبت غذا</button>
+<button class="nb" data-nav="fasting">⏱️ تایمر فستینگ</button>
+</div>
+
+<div class="menu-group">
+<div class="menu-group-title">💪 سلامتی و پیشرفت</div>
 <button class="nb" data-nav="exercise">🔥 کالری سوزی</button>
 <button class="nb" data-nav="sleep">💤 لاگ خواب</button>
-<button class="nb" data-nav="library">📚 کتابخانه آموزشی</button>
-<button class="nb" data-nav="diary">📔 دفترچه خاطرات</button>
-<button class="nb" data-nav="profile">👤 پروفایل</button>
 <button class="nb" data-nav="measure">📏 تناسب اندام</button>
-<button class="nb" data-nav="tools">🛠️ ابزارها</button>
-<button class="nb" data-nav="challenges">🏆 چالش‌ها</button>
-<button class="nb" data-nav="cook">🍳 آشپزی</button>
 <button class="nb" data-nav="fit">🏋️ تمرین‌ها</button>
+<button class="nb" data-nav="challenges">🏆 چالش‌ها</button>
+</div>
+
+<div class="menu-group">
+<div class="menu-group-title">📚 محتوا و آموزش</div>
+<button class="nb" data-nav="cook">🍳 آشپزی</button>
+<button class="nb" data-nav="library">📚 کتابخانه آموزشی</button>
 <button class="nb" data-nav="insta">📸 اینستاگرام</button>
+</div>
+
+<div class="menu-group">
+<div class="menu-group-title">⚙️ شخصی و ابزارها</div>
+<button class="nb" data-nav="profile">👤 پروفایل</button>
+<button class="nb" data-nav="diary">📔 دفترچه خاطرات</button>
+<button class="nb" data-nav="tools">🛠️ ابزارها</button>
 <button class="nb" data-nav="watercalc">💧 محاسبه‌گر آب</button>
+</div>
+
+<div class="menu-group">
+<div class="menu-group-title">🎨 ظاهر</div>
 <button class="nb" id="btm">🎨 تم رنگی</button>
+</div>
 </aside>
 
 <div id="ts" role="status"></div>
@@ -404,7 +455,8 @@ body.scrolling #water-fab{transform:none;transition:none}
 <div class="hero" style="margin-bottom:20px">
 <h2>امروزت رو با فیت‌شاه بساز</h2>
 <p>کالری روزانه‌ات رو حساب کن، غذاها رو در وعده‌های درست ثبت کن و پیشرفتت رو هفته‌به‌هفته ببین.</p>
-<button class="cta sm" data-nav="analyze" style="width:auto">🚀 شروع محاسبه</button>
+<button class="cta sm" data-nav="fasting-plan" style="width:auto;background:linear-gradient(90deg,var(--gold),#f59e0b);color:#05080f;margin-inline-end:8px">🚀 شروع فستینگ با من</button>
+<button class="cta sm" data-nav="analyze" style="width:auto">📊 محاسبه</button>
 </div>
 <div class="kr">
 <div class="kpi a"><div class="lb">🔥 کالری امروز</div><div class="vl" id="hcal">0</div><div class="sb" id="kcsub">بدون هدف</div></div>
@@ -522,12 +574,12 @@ body.scrolling #water-fab{transform:none;transition:none}
 <div class="card">
 <div class="ch"><span>🛠️ ابزارها</span></div>
 <div class="lks">
+<button data-nav="fasting-plan"><span>🚀 شروع فستینگ با من</span><span>›</span></button>
 <button data-nav="fasting"><span>⏱️ تایمر فستینگ</span><span>›</span></button>
 <button data-nav="tracker"><span>🍽️ ثبت غذا</span><span>›</span></button>
 <button data-nav="exercise"><span>🔥 کالری سوزی</span><span>›</span></button>
 <button data-nav="sleep"><span>💤 لاگ خواب</span><span>›</span></button>
 <button data-nav="diary"><span>📔 خاطرات</span><span>›</span></button>
-<button data-nav="library"><span>📚 آموزش</span><span>›</span></button>
 </div>
 </div>
 <div class="card">
@@ -544,6 +596,114 @@ body.scrolling #water-fab{transform:none;transition:none}
 <div class="ch"><span>🔔 یادآور</span></div>
 <p class="tx" style="margin-bottom:10px">یادآور فقط وقتی برنامه بازه کار می‌کنه.</p>
 <button class="cta gh" id="brem"></button>
+</div>
+</div>
+</div>
+</section>
+
+<section id="p-fasting-plan" class="pane">
+<div class="g2">
+<div class="cm">
+<div class="card plan-form-card">
+<h3>🚀 شروع فستینگ با من</h3>
+<p>این فرم رو پر کن تا برنامه فستینگ شخصی + منوی غذایی مخصوص خودت رو بگیری. مربی علیرضا اکبری برنامه‌ات رو بررسی و تنظیم می‌کنه.</p>
+
+<div class="plan-step">
+<div class="plan-step-title"><span class="num">۱</span>اطلاعات شخصی</div>
+<label class="fl2" for="fp-name">نام و نام خانوادگی *</label>
+<input id="fp-name" class="fc" placeholder="مثلاً سارا احمدی" maxlength="60">
+<div class="r2">
+<div><label class="fl2" for="fp-age">سن *</label><input id="fp-age" class="fc" inputmode="numeric" placeholder="30"></div>
+<div><label class="fl2" for="fp-sex">جنسیت *</label><select id="fp-sex" class="fc"><option value="f">خانم</option><option value="m">آقا</option></select></div>
+</div>
+<div class="r2">
+<div><label class="fl2" for="fp-h">قد (cm) *</label><input id="fp-h" class="fc" inputmode="numeric" placeholder="165"></div>
+<div><label class="fl2" for="fp-w">وزن (kg) *</label><input id="fp-w" class="fc" inputmode="decimal" placeholder="75"></div>
+</div>
+<label class="fl2" for="fp-phone">شماره تماس *</label>
+<input id="fp-phone" class="fc" type="tel" inputmode="numeric" maxlength="11" placeholder="0912XXXXXXX">
+</div>
+
+<div class="plan-step">
+<div class="plan-step-title"><span class="num">۲</span>هدف و سابقه</div>
+<label class="fl2" for="fp-goal">هدف اصلی *</label>
+<select id="fp-goal" class="fc">
+<option value="fat">🔥 چربی‌سوزی و کاهش سایز</option>
+<option value="weight">⚖️ کاهش وزن تدریجی</option>
+<option value="muscle">💪 عضله‌سازی و تناسب</option>
+<option value="health">💚 سلامت عمومی</option>
+</select>
+<label class="fl2" for="fp-activity">سطح فعالیت روزانه *</label>
+<select id="fp-activity" class="fc">
+<option value="1.2">کم‌تحرک (کار پشت میز)</option>
+<option value="1.375">کم (۱-۳ روز ورزش)</option>
+<option value="1.55" selected>متوسط (۳-۵ روز ورزش)</option>
+<option value="1.725">زیاد (۶-۷ روز ورزش)</option>
+</select>
+<label class="fl2" for="fp-history">سابقه رژیم قبلی</label>
+<textarea id="fp-history" class="fc" rows="2" maxlength="250" placeholder="چه رژیم‌هایی گرفتی؟ نتیجه چی بود؟"></textarea>
+</div>
+
+<div class="plan-step">
+<div class="plan-step-title"><span class="num">۳</span>ترجیحات فستینگ</div>
+<label class="fl2" for="fp-fasting-pref">کدوم نوع فستینگ برات راحت‌تره؟</label>
+<select id="fp-fasting-pref" class="fc">
+<option value="auto" selected>🤖 خودت پیشنهاد بده</option>
+<option value="14">🌱 مبتدی (14:10)</option>
+<option value="16">⭐ محبوب (16:8)</option>
+<option value="18">🔥 پیشرفته (18:6)</option>
+<option value="20">💎 حرفه‌ای (20:4)</option>
+<option value="24">🌟 اتوفاژی (24h)</option>
+</select>
+<label class="fl2" for="fp-eat-start">چه ساعتی معمولاً اولین وعده‌ات رو می‌خوری؟</label>
+<input id="fp-eat-start" type="time" class="fc" value="09:00" step="60">
+<label class="fl2" for="fp-meals">چند وعده در روز ترجیح می‌دی؟</label>
+<select id="fp-meals" class="fc">
+<option value="3" selected>۳ وعده اصلی</option>
+<option value="2">۲ وعده (صبح و شب)</option>
+<option value="4">۳ وعده + ۱ میان‌وعده</option>
+<option value="5">۳ وعده + ۲ میان‌وعده</option>
+</select>
+</div>
+
+<div class="plan-step">
+<div class="plan-step-title"><span class="num">۴</span>ترجیحات غذایی</div>
+<label class="fl2" for="fp-food-pref">غذای مورد علاقه (اختیاری)</label>
+<input id="fp-food-pref" class="fc" placeholder="مثلاً: مرغ، ماهی، برنج قهوه‌ای" maxlength="120">
+<label class="fl2" for="fp-allergy">حساسیت یا غذایی که دوست نداری</label>
+<input id="fp-allergy" class="fc" placeholder="مثلاً: لاکتوز، گوشت قرمز" maxlength="120">
+<label class="fl2" for="fp-medical">بیماری یا داروی خاص</label>
+<input id="fp-medical" class="fc" placeholder="مثلاً: کم‌کاری تیروئید یا سالم هستم" maxlength="120">
+</div>
+
+<div id="fp-err" style="color:#fca5a5;font-size:.82rem;min-height:20px;margin-bottom:10px"></div>
+
+<label style="display:flex;gap:8px;align-items:flex-start;font-size:.8rem;color:var(--mut);margin:0 0 12px;line-height:1.7">
+<input type="checkbox" id="fp-ok" style="margin-top:6px">
+موافقم اطلاعات برای تهیه برنامه شخصی به مربی ارسال بشه. *
+</label>
+
+<div class="row2">
+<button class="cta" id="fp-generate" style="flex:2">📋 نمایش پیش‌نمایش برنامه</button>
+<button class="cta gh" id="fp-clear" style="flex:1">پاک کن</button>
+</div>
+</div>
+</div>
+
+<div class="cs">
+<div class="card">
+<div class="ch"><span>💡 راهنما</span></div>
+<p class="tx">پس از پر کردن فرم و ثبت، برنامه فستینگ شخصی + منوی غذایی پیشنهادی نشون داده می‌شه. مربی برنامه رو بررسی و نهایی می‌کنه.</p>
+<div class="nt">اطلاعات سلامتی شما محرمانه است و فقط برای تهیه برنامه ارسال می‌شه.</div>
+</div>
+
+<div class="card" id="fp-preview-card" style="display:none">
+<div class="ch"><span>📋 پیش‌نمایش برنامه شما</span></div>
+<div id="fp-preview"></div>
+<div class="row2" style="margin-top:14px">
+<button class="cta" id="fp-send-wa" style="background:#25D366;color:#fff;flex:1">🟢 ارسال به واتساپ</button>
+<button class="cta" id="fp-send-copy" style="background:var(--elev);color:var(--txt);flex:1">📄 کپی</button>
+</div>
 </div>
 </div>
 </div>
@@ -1045,13 +1205,10 @@ var manifest={
 name:'فیت‌شاه | کالری‌شمار و فستینگ',
 short_name:'FitShah',
 description:'کالری‌شمار، فستینگ و برنامه غذایی',
-start_url:'./',
-scope:'./',
-display:'standalone',
+start_url:'./',scope:'./',display:'standalone',
 display_override:['standalone','minimal-ui'],
 orientation:'portrait-primary',
-background_color:'#05080f',
-theme_color:PWA.themeColor,
+background_color:'#05080f',theme_color:PWA.themeColor,
 dir:'rtl',lang:'fa',
 categories:['health','fitness','lifestyle'],
 icons:[
@@ -1177,7 +1334,6 @@ hideInstallModal();
 sessionStorage.setItem('fs_install_later','1');
 });
 
-/* Auto show modal on load */
 setTimeout(function(){
 if(isStandalone())return;
 if(sessionStorage.getItem('fs_install_later'))return;
@@ -2393,6 +2549,238 @@ box.appendChild(frag);
 }
 document.addEventListener('visibilitychange',function(){if(!document.hidden&&fsState.end)fsTick();});
 
+/* ==================== FASTING PLAN FORM ==================== */
+var _fpPlan=null;
+
+function initFastPlan(){
+var pf=profile();
+if(pf){
+if(!$('fp-age').value)$('fp-age').value=pf.age||'';
+if(!$('fp-h').value)$('fp-h').value=pf.h||'';
+if(!$('fp-w').value)$('fp-w').value=pf.w||'';
+$('fp-sex').value=pf.male?'m':'f';
+if(pf.goal==='lose')$('fp-goal').value='weight';
+else if(pf.goal==='gain')$('fp-goal').value='muscle';
+}
+}
+
+function fpValidate(){
+var err=$('fp-err');err.textContent='';
+var checks=[
+['fp-name','نام رو وارد کن'],
+['fp-age','سن رو وارد کن'],
+['fp-h','قد رو وارد کن'],
+['fp-w','وزن رو وارد کن'],
+['fp-phone','شماره موبایل رو وارد کن']
+];
+for(var i=0;i<checks.length;i++){
+var el=$(checks[i][0]);
+el.style.borderColor='';
+if(!el.value.trim()){el.style.borderColor='#ef4444';err.textContent=checks[i][1];el.focus();return false;}
+}
+var age=parseInt(fa($('fp-age').value))||0;
+var h=parseFloat(fa($('fp-h').value))||0;
+var w=parseFloat(fa($('fp-w').value))||0;
+if(age<14||age>100){err.textContent='سن باید بین ۱۴ تا ۱۰۰ باشه';return false;}
+if(h<100||h>230){err.textContent='قد باید بین ۱۰۰ تا ۲۳۰ باشه';return false;}
+if(w<30||w>300){err.textContent='وزن باید بین ۳۰ تا ۳۰۰ باشه';return false;}
+if(!/^09\d{9}$/.test(fa($('fp-phone').value.trim()))){err.textContent='شماره موبایل معتبر نیست';$('fp-phone').style.borderColor='#ef4444';return false;}
+if(!$('fp-ok').checked){err.textContent='تیک رضایت رو بزن';return false;}
+return true;
+}
+
+function fpCalculate(){
+var age=parseInt(fa($('fp-age').value));
+var h=parseFloat(fa($('fp-h').value));
+var w=parseFloat(fa($('fp-w').value));
+var male=$('fp-sex').value==='m';
+var goal=$('fp-goal').value;
+var activity=parseFloat($('fp-activity').value);
+
+var bmr=10*w+6.25*h-5*age+(male?5:-161);
+var tdee=bmr*activity;
+var floor=male?1500:1200;
+
+var target;
+if(goal==='fat'||goal==='weight')target=Math.max(Math.round(tdee*0.8),Math.round(tdee-500),floor);
+else if(goal==='muscle')target=Math.round(tdee+250);
+else target=Math.round(tdee);
+
+var fastingPref=$('fp-fasting-pref').value;
+var fastingHours;
+if(fastingPref==='auto'){
+if(goal==='fat')fastingHours=16;
+else if(goal==='muscle')fastingHours=14;
+else if(goal==='health')fastingHours=14;
+else fastingHours=16;
+if(age>55||w>100)fastingHours=Math.max(12,fastingHours-2);
+}else{
+fastingHours=parseInt(fastingPref);
+}
+
+var mealsCount=parseInt($('fp-meals').value)||3;
+var eatStart=$('fp-eat-start').value||'09:00';
+var parts=eatStart.split(':');
+var startMinutes=parseInt(parts[0])*60+parseInt(parts[1]);
+var eatingWindow=24-fastingHours;
+var endMinutes=(startMinutes+eatingWindow*60)%1440;
+
+function fmtT(min){
+min=(min+1440)%1440;
+return String(Math.floor(min/60)).padStart(2,'0')+':'+String(min%60).padStart(2,'0');
+}
+
+var distribution;
+if(mealsCount===2)distribution=[0.45,0.55];
+else if(mealsCount===3)distribution=[0.30,0.40,0.30];
+else if(mealsCount===4)distribution=[0.25,0.10,0.40,0.25];
+else distribution=[0.25,0.10,0.30,0.10,0.25];
+
+var mealNames;
+if(mealsCount===2)mealNames=['🍳 وعده اول','🍽️ وعده دوم'];
+else if(mealsCount===3)mealNames=['🌅 صبحانه','☀️ ناهار','🌙 شام'];
+else if(mealsCount===4)mealNames=['🌅 صبحانه','🍎 میان‌وعده','☀️ ناهار','🌙 شام'];
+else mealNames=['🌅 صبحانه','🍎 میان‌وعده','☀️ ناهار','🍏 عصرانه','🌙 شام'];
+
+var gap=(eatingWindow*60)/(mealsCount-1||1);
+var schedule=[];
+for(var i=0;i<mealsCount;i++){
+var mealTime=startMinutes+i*gap;
+schedule.push({
+time:fmtT(Math.round(mealTime)),
+name:mealNames[i],
+cal:Math.round(target*distribution[i])
+});
+}
+
+var idealW=22.5*((h/100)*(h/100));
+var refW=w>idealW*1.2?Math.min(w,idealW*1.2):w;
+var prot=Math.round(refW*(goal==='muscle'?2:1.6));
+var fat=Math.round(target*0.28/9);
+var carb=Math.max(0,Math.round((target-prot*4-fat*9)/4));
+
+return{
+age:age,h:h,w:w,male:male,goal:goal,
+bmr:Math.round(bmr),tdee:Math.round(tdee),
+target:target,fastingHours:fastingHours,
+eatingWindow:eatingWindow,
+startTime:fmtT(startMinutes),
+endTime:fmtT(endMinutes),
+schedule:schedule,
+prot:prot,fat:fat,carb:carb
+};
+}
+
+function fpGoalLabel(g){
+return({fat:'🔥 چربی‌سوزی',weight:'⚖️ کاهش وزن',muscle:'💪 عضله‌سازی',health:'💚 سلامت عمومی'})[g]||g;
+}
+
+function renderFpPreview(p){
+var box=$('fp-preview');
+var html='';
+
+html+='<div class="plan-preview">';
+html+='<h4>🎯 برنامه پیشنهادی فستینگ</h4>';
+html+='<div class="row"><span>مدت فستینگ</span><b>'+p.fastingHours+' ساعت</b></div>';
+html+='<div class="row"><span>پنجره غذا خوردن</span><b>'+p.eatingWindow+' ساعت</b></div>';
+html+='<div class="row"><span>شروع غذا خوردن</span><b>'+p.startTime+'</b></div>';
+html+='<div class="row"><span>پایان غذا خوردن</span><b>'+p.endTime+'</b></div>';
+html+='<div class="row"><span>هدف</span><b>'+fpGoalLabel(p.goal)+'</b></div>';
+html+='</div>';
+
+html+='<div class="plan-preview" style="margin-top:10px">';
+html+='<h4>📊 کالری و درشت‌مغذی</h4>';
+html+='<div class="row"><span>متابولیسم پایه (BMR)</span><b>'+p.bmr+' kcal</b></div>';
+html+='<div class="row"><span>نیاز نگهداری (TDEE)</span><b>'+p.tdee+' kcal</b></div>';
+html+='<div class="row"><span>کالری هدف روزانه</span><b>'+p.target+' kcal</b></div>';
+html+='<div class="row"><span>🥩 پروتئین</span><b>'+p.prot+'g</b></div>';
+html+='<div class="row"><span>🍚 کربوهیدرات</span><b>'+p.carb+'g</b></div>';
+html+='<div class="row"><span>🥑 چربی</span><b>'+p.fat+'g</b></div>';
+html+='</div>';
+
+html+='<div class="plan-preview" style="margin-top:10px">';
+html+='<h4>🍽️ زمان‌بندی وعده‌ها</h4>';
+html+='<div class="plan-schedule">';
+p.schedule.forEach(function(m){
+html+='<div class="meal-row"><span class="time">'+m.time+'</span><span class="name">'+m.name+'</span><span class="cal">'+m.cal+' kcal</span></div>';
+});
+html+='</div></div>';
+
+html+='<div class="nt" style="margin-top:14px">⚠️ این پیش‌نمایش کلیه. برای برنامه دقیق با لیست غذاها، مربی برنامه رو بررسی و نهایی می‌کنه.</div>';
+
+box.innerHTML=html;
+$('fp-preview-card').style.display='block';
+$('fp-preview-card').scrollIntoView({behavior:'smooth',block:'start'});
+_fpPlan=p;
+}
+
+function fpBuildText(){
+var p=_fpPlan;
+var L=['📋 فرم شروع فستینگ با من',''];
+L.push('👤 نام: '+$('fp-name').value.trim());
+L.push('📞 موبایل: '+fa($('fp-phone').value.trim()));
+L.push('🧬 سن: '+p.age+' | جنسیت: '+(p.male?'آقا':'خانم'));
+L.push('📏 قد: '+p.h+' cm | وزن: '+p.w+' kg');
+L.push('🎯 هدف: '+fpGoalLabel(p.goal));
+L.push('');
+L.push('--- 📊 برنامه پیشنهادی ---');
+L.push('⏱️ فستینگ: '+p.fastingHours+' ساعت');
+L.push('🍽️ پنجره غذا: '+p.startTime+' تا '+p.endTime);
+L.push('🔥 کالری هدف: '+p.target+' kcal');
+L.push('🥩 پروتئین: '+p.prot+'g | 🍚 کربو: '+p.carb+'g | 🥑 چربی: '+p.fat+'g');
+L.push('');
+L.push('🍱 زمان‌بندی وعده‌ها:');
+p.schedule.forEach(function(m){L.push('• '+m.time+' — '+m.name+' ('+m.cal+' kcal)');});
+if($('fp-food-pref').value.trim()){L.push('');L.push('💚 علاقه: '+$('fp-food-pref').value.trim());}
+if($('fp-allergy').value.trim())L.push('🚫 حساسیت: '+$('fp-allergy').value.trim());
+if($('fp-medical').value.trim())L.push('🩺 بیماری/دارو: '+$('fp-medical').value.trim());
+if($('fp-history').value.trim())L.push('🔄 سابقه: '+$('fp-history').value.trim());
+L.push('');
+L.push('✅ منتظر برنامه دقیق و لیست غذاها هستم');
+return L.join('\n');
+}
+
+$('fp-generate').onclick=function(){
+if(!fpValidate())return;
+var p=fpCalculate();
+renderFpPreview(p);
+toast('✅ پیش‌نمایش آماده شد');
+};
+
+$('fp-clear').onclick=function(){
+if(!confirm('فرم پاک بشه؟'))return;
+['fp-name','fp-age','fp-h','fp-w','fp-phone','fp-history','fp-food-pref','fp-allergy','fp-medical'].forEach(function(id){if($(id))$(id).value='';});
+$('fp-ok').checked=false;
+$('fp-preview-card').style.display='none';
+$('fp-err').textContent='';
+_fpPlan=null;
+};
+
+$('fp-send-wa').onclick=function(){
+if(!_fpPlan){toast('اول پیش‌نمایش رو ببین');return;}
+var text=fpBuildText();
+var url='https://wa.me/989125844487?text='+encodeURIComponent(text);
+if(url.length>1900){
+var copyPromise=navigator.clipboard?navigator.clipboard.writeText(text):Promise.reject();
+copyPromise.then(function(){toast('متن کپی شد. در واتساپ Paste کن.');}).catch(function(){toast('متن رو دستی کپی کن');});
+url='https://wa.me/989125844487';
+}
+window.open(url,'_blank');
+};
+
+$('fp-send-copy').onclick=function(){
+if(!_fpPlan){toast('اول پیش‌نمایش رو ببین');return;}
+var text=fpBuildText();
+if(navigator.clipboard){
+navigator.clipboard.writeText(text).then(function(){toast('✅ متن کپی شد');}).catch(function(){toast('کپی نشد');});
+}else{
+var ta=document.createElement('textarea');ta.value=text;ta.style.cssText='position:fixed;opacity:0';
+document.body.appendChild(ta);ta.select();
+try{document.execCommand('copy');toast('✅ متن کپی شد');}catch(e){toast('کپی نشد');}
+ta.remove();
+}
+};
+
 /* NAV */
 function openMenu(s){$('db').classList.toggle('open',s);$('dr').classList.toggle('open',s);}
 function nav(id){
@@ -2401,7 +2789,8 @@ document.querySelectorAll('.pane').forEach(function(p){p.classList.remove('activ
 t.classList.add('active');
 document.querySelectorAll('#tn button').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-nav')===id);});
 openMenu(false);window.scrollTo({top:0,behavior:'smooth'});
-if(id==='watercalc')renderWater();
+if(id==='fasting-plan'){initFastPlan();}
+else if(id==='watercalc')renderWater();
 else if(id==='home')refreshHome();
 else if(id==='cook')renderCook();
 else if(id==='fit'){renderFit();suggestWorkout();renderWeekPlan();}
@@ -2695,11 +3084,6 @@ renderRemind();
 };
 
 var _rhP=false;
-function scheduleRefresh(){
-if(_rhP)return;
-_rhP=true;
-requestAnimationFrame(function(){_rhP=false;refreshHome();});
-}
 function refreshHome(){
 if(_rhP)return;
 var totCal=totalCal();
