@@ -660,6 +660,20 @@ body.widget-mode .topnav,body.widget-mode .dr,body.widget-mode .db,body.widget-m
 body.widget-mode .wrap>section{display:none}
 body.widget-mode #p-widget{display:block;animation:none}
 body.widget-mode .wrap{padding:12px}
+
+/* --- منوی موبایل: همه‌ی گزینه‌ها دیده شوند --- */
+.dr{height:100dvh;max-height:100dvh;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.dr>*{flex:0 0 auto}
+@media(max-width:680px){
+.dr{padding:8px;padding-bottom:calc(12px + env(safe-area-inset-bottom));width:min(96vw,360px)}
+.menu-group{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:4px;margin-bottom:3px}
+.menu-group-title{grid-column:1 / -1;padding:0 3px 3px;font-size:.6rem;letter-spacing:.2px}
+.menu-group .nb{margin:0;padding:6px 3px;font-size:.75rem;line-height:1.25;justify-content:center;text-align:center;gap:3px;word-break:break-word}
+.menu-group .nb.highlight{grid-column:1 / -1;padding:8px;font-size:.8rem}
+}
+@media(max-width:380px){
+.menu-group .nb{font-size:.68rem;padding:6px 2px}
+}
 </style>
 </head>
 <body>
