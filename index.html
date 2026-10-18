@@ -680,47 +680,48 @@ body.widget-mode #mfast{display:none!important}
 
 /* --- ری‌دیزاین پنل فست هوشمند --- */
 #p-fastgear>.card{position:relative;overflow:hidden}
-#p-fastgear .card:first-child>.ch{background:linear-gradient(90deg,var(--glow),transparent 75%);border-radius:14px;padding:10px 12px}
-#p-fastgear .card:first-child>.ch span:first-child{background:linear-gradient(90deg,var(--em),var(--violet),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+#p-fastgear .card:first-child>.ch{background:linear-gradient(90deg,var(--glow),transparent 75%);border-radius:14px;padding:11px 12px;font-size:1.02rem}
+#p-fastgear .card:first-child>.ch span:first-child{color:var(--em);font-size:1.05rem}
 #p-fastgear .cd-card.hero{position:relative;overflow:hidden;border:none;color:#fff;background:linear-gradient(130deg,var(--em),var(--em2) 45%,var(--violet));border-radius:20px;padding:22px 16px;text-align:center;box-shadow:0 14px 30px var(--glow)}
 #p-fastgear .cd-card.hero::before{content:'';position:absolute;top:-45%;left:-12%;width:65%;height:65%;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.3),transparent 70%)}
 #p-fastgear .cd-card.hero::after{content:'⏱️';position:absolute;left:-8px;bottom:-18px;font-size:5rem;opacity:.16;transform:rotate(-14deg);pointer-events:none}
 #p-fastgear .cd-card.hero.wait{background:linear-gradient(130deg,#f59e0b,#ec4899 55%,#8b5cf6)}
-#p-fastgear .cd-card.hero>div:first-child{position:relative;font-size:.78rem;font-weight:800;letter-spacing:.3px;color:rgba(255,255,255,.92)}
+#p-fastgear .cd-card.hero>div:first-child{position:relative;font-size:.9rem;font-weight:800;color:rgba(255,255,255,.95)}
 #p-fastgear .cd-card.hero .cd-time{position:relative;font-size:2.7rem;font-weight:900;line-height:1.3;letter-spacing:2px;text-shadow:0 4px 16px rgba(0,0,0,.3);font-variant-numeric:tabular-nums}
-#p-fastgear .cd-card.hero.wait .cd-time{opacity:.72}
-#p-fastgear .cd-card.hero .cd-sub{position:relative;color:rgba(255,255,255,.95);margin-top:4px}
+#p-fastgear .cd-card.hero.wait .cd-time{opacity:.9}
+#p-fastgear .cd-card.hero .cd-sub{position:relative;color:#fff;margin-top:5px;font-size:.9rem;font-weight:700;text-shadow:0 1px 6px rgba(0,0,0,.22)}
 #p-fastgear .cd-card.hero .prog2{position:relative;background:rgba(255,255,255,.28);height:10px;box-shadow:inset 0 2px 6px rgba(0,0,0,.2)}
 #p-fastgear .cd-card.hero .prog2 i{background:linear-gradient(90deg,#fff,#fef08a)}
 #p-fastgear .cd-card.hero .r2{position:relative;margin-top:14px;gap:10px}
 #p-fastgear .cd-card.hero .r2 .cta{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.45);box-shadow:none;font-weight:900}
 #p-fastgear .cd-card.hero .r2 .cta:hover{background:rgba(255,255,255,.28)}
 #p-fastgear .r2>.cta{border-radius:14px;box-shadow:0 8px 18px var(--glow)}
-#p-fastgear .pgrid{gap:12px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+#p-fastgear .pgrid{gap:12px;grid-template-columns:repeat(auto-fill,minmax(165px,1fr))}
 #p-fastgear .pcard{position:relative;background:var(--elev);border:1px solid var(--bd);border-radius:16px;padding:14px;transition:.22s;overflow:hidden;text-align:start}
 #p-fastgear .pcard::before{content:'';position:absolute;top:-30px;left:-30px;width:92px;height:92px;border-radius:50%;background:radial-gradient(circle,var(--glow),transparent 72%);opacity:.85}
 #p-fastgear .pcard:hover{transform:translateY(-3px);border-color:var(--em);box-shadow:0 12px 24px var(--glow)}
-#p-fastgear .pcard>div:first-child{position:relative;display:inline-block;font-size:1.6rem;background:var(--card);border:1px solid var(--bd);border-radius:13px;padding:8px 10px;margin-bottom:10px;box-shadow:0 3px 8px rgba(0,0,0,.16)}
-#p-fastgear .pcard b{position:relative;display:block;font-size:.9rem;margin-bottom:5px}
-#p-fastgear .pcard p{position:relative;font-size:.67rem;color:var(--mut);line-height:1.75}
-#p-fastgear .pcard .phr{position:relative;display:inline-block;font-size:.62rem;font-weight:900;color:#05080f;background:linear-gradient(90deg,var(--gold),#f59e0b);border-radius:99px;padding:3px 9px;margin-top:8px}
-#p-fastgear .pcard .plock{position:absolute;top:12px;inset-inline-start:12px;font-size:.66rem;font-weight:900;color:#fca5a5;background:rgba(239,68,68,.18);border:1px solid rgba(239,68,68,.35);border-radius:99px;padding:2px 8px;z-index:1}
-#p-fastgear .pcard.locked{opacity:.62;filter:grayscale(.35)}
+#p-fastgear .pcard>div:first-child{position:relative;display:inline-block;font-size:1.7rem;background:var(--card);border:1px solid var(--bd);border-radius:13px;padding:8px 10px;margin-bottom:10px;box-shadow:0 3px 8px rgba(0,0,0,.16)}
+#p-fastgear .pcard b{position:relative;display:block;font-size:1.02rem;margin-bottom:6px}
+#p-fastgear .pcard p{position:relative;font-size:.82rem;color:var(--txt);opacity:.8;line-height:1.95}
+#p-fastgear .pcard .phr{position:relative;display:inline-block;font-size:.74rem;font-weight:900;color:#05080f;background:linear-gradient(90deg,var(--gold),#f59e0b);border-radius:99px;padding:3px 11px;margin-top:9px}
+#p-fastgear .pcard .plock{position:absolute;top:12px;inset-inline-start:12px;font-size:.74rem;font-weight:900;color:#b91c1c;background:rgba(239,68,68,.16);border:1px solid rgba(239,68,68,.35);border-radius:99px;padding:3px 10px;z-index:1}
+#p-fastgear .pcard.locked{opacity:.72;filter:grayscale(.3)}
 #p-fastgear .pcard.on{border-color:transparent;border-width:2px;background:linear-gradient(var(--elev),var(--elev)) padding-box,linear-gradient(120deg,var(--em),var(--em2)) border-box;box-shadow:0 10px 24px var(--glow)}
-#p-fastgear .pcard.on::after{content:'انتخاب شد ✓';position:relative;display:block;width:max-content;font-size:.62rem;font-weight:900;color:#05080f;background:linear-gradient(90deg,var(--em),var(--em2));padding:3px 9px;border-radius:99px;margin-top:8px}
+#p-fastgear .pcard.on::after{content:'انتخاب شد ✓';position:relative;display:block;width:max-content;font-size:.72rem;font-weight:900;color:#05080f;background:linear-gradient(90deg,var(--em),var(--em2));padding:4px 11px;border-radius:99px;margin-top:9px}
 #p-fastgear .tabs2{background:var(--elev);border:1px solid var(--bd);border-radius:14px;padding:4px;gap:0;overflow:hidden;margin-bottom:14px;scrollbar-width:none}
-#p-fastgear .tabs2 button{flex:1;min-width:0;text-align:center;background:none;border:none;border-radius:10px;padding:9px 10px;font-size:.76rem;font-weight:800;color:var(--mut);white-space:nowrap}
+#p-fastgear .tabs2 button{flex:1;min-width:0;text-align:center;background:none;border:none;border-radius:10px;padding:11px 10px;font-size:.88rem;font-weight:800;color:var(--mut);white-space:nowrap}
 #p-fastgear .tabs2 button:hover{color:var(--txt);background:rgba(127,127,127,.08)}
 #p-fastgear .tabs2 button.on{background:linear-gradient(135deg,var(--em),var(--em2));color:#fff;box-shadow:0 4px 12px var(--glow)}
-#p-fastgear .tstage{padding:10px 0}
+#p-fastgear .tstage{padding:11px 0}
 #p-fastgear .tstage:last-child{padding-bottom:2px}
-#p-fastgear .tstage .dot2{width:14px;height:14px;border:3px solid var(--bd);background:var(--elev);margin-top:4px}
+#p-fastgear .tstage .dot2{width:14px;height:14px;border:3px solid var(--bd);background:var(--elev);margin-top:5px}
 #p-fastgear .tstage.done .dot2{border-color:transparent;background:linear-gradient(135deg,var(--em),var(--em2))}
 #p-fastgear .tstage.cur .dot2{border-color:transparent;background:linear-gradient(135deg,var(--gold),#f59e0b);box-shadow:0 0 0 5px rgba(251,191,36,.18);animation:fgPulse 1.6s ease-in-out infinite}
 #p-fastgear .tstage.cur .tx2 b{color:var(--gold)}
-#p-fastgear .tstage .tx2{font-size:.8rem;line-height:1.9}
-#p-fastgear .tstage .tx2 b{font-size:.86rem;line-height:1.9;display:block}
-#p-fastgear .chk button{background:var(--elev);border:1.5px solid var(--bd);border-radius:999px;padding:8px 14px;font-size:.75rem;font-weight:800;color:var(--txt);transition:.2s}
+#p-fastgear .tstage .tx2{font-size:.86rem;line-height:2}
+#p-fastgear .tstage .tx2 b{font-size:.98rem;line-height:1.9;display:block}
+#p-fastgear .tstage .tx2 span{font-size:.8rem}
+#p-fastgear .chk button{background:var(--elev);border:1.5px solid var(--bd);border-radius:999px;padding:9px 15px;font-size:.84rem;font-weight:800;color:var(--txt);transition:.2s}
 #p-fastgear .chk button:hover{border-color:var(--em)}
 #p-fastgear .chk button.on{background:linear-gradient(90deg,var(--em),var(--em2));color:#fff;border-color:transparent;box-shadow:0 4px 12px var(--glow)}
 #p-fastgear .adv{border-radius:14px}
@@ -728,6 +729,20 @@ body.widget-mode #mfast{display:none!important}
 #p-fastgear .warn2.ok2{background:linear-gradient(120deg,var(--glow),rgba(139,92,246,.12));border-color:var(--glow)}
 #p-fastgear .stat2{border-radius:14px}
 #p-fastgear .stat2 b{background:linear-gradient(120deg,var(--em),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* --- خوانایی متنهای پنل فست --- */
+#p-fastgear .ch{font-size:1rem}
+#p-fastgear .bs{font-size:.74rem}
+#p-fastgear .fl2{font-size:.85rem}
+#p-fastgear .csub{font-size:.8rem;line-height:1.9}
+#p-fastgear .warn2{font-size:.85rem;line-height:2}
+#p-fastgear .adv{font-size:.85rem;line-height:1.95}
+#p-fastgear .adv .ic3{font-size:1.2rem}
+#p-fastgear .rw{font-size:.86rem;line-height:1.8}
+#p-fastgear .rw .r{font-size:.77rem}
+#p-fastgear .stat2 span{font-size:.78rem}
+#p-fastgear .stat2 b{font-size:1.35rem}
+#p-fastgear .tx{font-size:.86rem;line-height:1.95}
 @keyframes fgPulse{0%,100%{box-shadow:0 0 0 4px rgba(251,191,36,.16)}50%{box-shadow:0 0 0 9px rgba(251,191,36,.05)}}
 
 /* --- تم شاد: کل برنامه رنگی و سرزنده --- */
@@ -761,6 +776,49 @@ html[data-theme=joy] .menu-group{background:#fdf2f8;border-color:rgba(63,42,86,.
 html[data-theme=joy] .menu-group .nb{background:#fff}
 html[data-theme=joy] .menu-group-title{color:#c026d3}
 html[data-theme=joy] #p-fastgear .cd-card.hero.wait{background:linear-gradient(130deg,#f472b6,#a78bfa 55%,#38bdf8)}
+
+/* --- لایه انگیزه و بازی (فاز ۱۴) --- */
+@media(max-width:560px){#uc,#btn-dk{display:none}}
+#sx-banner{display:none;position:fixed;top:64px;left:0;right:0;z-index:90;align-items:center;gap:8px;padding:9px 12px;background:linear-gradient(90deg,var(--em),var(--em2));color:#fff;font-size:.8rem;font-weight:700;box-shadow:0 4px 14px var(--glow);border-radius:0 0 14px 14px}
+body.widget-mode #sx-banner,.install-modal-active #sx-banner{display:none!important}
+#sx-banner .sxb-x{margin-inline-start:auto;background:rgba(255,255,255,.22);border:none;color:#fff;border-radius:99px;width:24px;height:24px;font-size:.75rem;flex:0 0 auto;cursor:pointer}
+#sx-banner b{font-weight:900}
+body.sx-b-on .wrap{padding-top:58px}
+.m21-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:10px}
+.m21-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:10px;background:var(--elev);border:1px dashed var(--bd);font-size:.76rem;color:var(--mut);font-weight:800}
+.m21-day.done{background:linear-gradient(135deg,var(--em),var(--em2));color:#fff;border:none;box-shadow:0 4px 10px var(--glow)}
+.m21-day.today{border:2px solid var(--gold);color:var(--em)}
+.mtree-stage{text-align:center;padding:16px 8px;border-radius:16px;background:linear-gradient(160deg,rgba(16,185,129,.09),rgba(251,191,36,.08));border:1px solid var(--bd)}
+.mtree-emoji{font-size:3.2rem;line-height:1;filter:drop-shadow(0 6px 10px rgba(16,185,129,.3))}
+.mtree-bar{height:10px;border-radius:99px;background:var(--elev);border:1px solid var(--bd);margin-top:12px;overflow:hidden}
+.mtree-bar i{display:block;height:100%;background:linear-gradient(90deg,#22c55e,#84cc16);border-radius:99px;transition:width .5s}
+.mwheel-wrap{text-align:center}
+#mwheel-cv{max-width:250px;width:100%}
+#mwheel-rot{transition:transform 3.2s cubic-bezier(.2,.7,.2,1);display:inline-block}
+.sx-medal-pop{position:fixed;inset:0;z-index:3100;display:none;align-items:center;justify-content:center;background:rgba(10,15,30,.55);backdrop-filter:blur(3px)}
+.sx-medal-pop.open{display:flex}
+.sx-medal-box{background:#fff;border-radius:22px;padding:28px 22px 22px;text-align:center;max-width:330px;width:calc(100% - 40px);box-shadow:0 30px 70px rgba(0,0,0,.35);animation:medalBounce .7s cubic-bezier(.2,1.6,.4,1);position:relative;overflow:hidden}
+.sx-medal-ic{font-size:4.2rem;line-height:1;animation:medalSpin 1.1s .15s both}
+.sx-medal-box b{display:block;font-size:1.15rem;color:#0f172a;margin-top:8px}
+.sx-medal-box p{font-size:.83rem;color:#475569;margin:4px 0 12px}
+@keyframes medalBounce{0%{transform:scale(.5) translateY(30px);opacity:0}100%{transform:scale(1) translateY(0);opacity:1}}
+@keyframes medalSpin{0%{transform:scale(0) rotate(-180deg)}100%{transform:scale(1) rotate(0)}}
+/* حالت تمرکز فست */
+#sx-focus{display:none;position:fixed;inset:0;z-index:2600;background:linear-gradient(165deg,#064e3b,#065f46 55%,#1e1b4b);color:#fff;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:22px;text-align:center}
+#sx-focus.open{display:flex}
+#sx-focus .fcov{width:min(78vw,290px);aspect-ratio:1;border-radius:50%;background:conic-gradient(#34d399 var(--p,0%),rgba(255,255,255,.14) 0);display:flex;align-items:center;justify-content:center;position:relative}
+#sx-focus .fcov::before{content:'';position:absolute;inset:11px;border-radius:50%;background:#06342a}
+#sx-focus .fct{position:relative;font-size:2.05rem;font-weight:900;direction:ltr;font-variant-numeric:tabular-nums;letter-spacing:1px}
+#sx-focus .fcl{font-size:.88rem;color:rgba(255,255,255,.88);line-height:2}
+#sx-focus .fr2{display:flex;gap:10px;margin-top:6px;flex-wrap:wrap;justify-content:center}
+#sx-focus .fr2 button{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:12px;padding:10px 14px;font-weight:800;cursor:pointer}
+body.focus-on #sx-banner,body.focus-on #mfast,body.focus-on #water-fab{display:none!important}
+/* جستجوی سراسری */
+#sx-search .mb{max-height:82vh;overflow:auto}
+.sxq{display:flex;align-items:center;gap:10px;width:100%;text-align:start;background:var(--elev);border:1px solid var(--bd);border-radius:12px;padding:9px 11px;margin-top:7px;font-size:.84rem;cursor:pointer;color:var(--txt)}
+.sxq:hover{border-color:var(--em)}
+.sxq .ic{font-size:1.15rem;flex:0 0 auto}
+.sxq .mt2{margin-inline-start:auto;color:var(--mut);font-size:.7rem;flex:0 0 auto}
 </style>
 </head>
 <body>
@@ -783,11 +841,14 @@ html[data-theme=joy] #p-fastgear .cd-card.hero.wait{background:linear-gradient(1
 </nav>
 <div class="tna">
 <button id="uc" aria-label="پروفایل">👤</button>
+<button id="btn-search" class="icb" aria-label="جستجوی سریع">🔍</button>
 <button id="btn-thm" class="icb" aria-label="تم رنگی">🎨</button>
 <button id="btn-dk" class="icb" aria-label="تغییر ظاهر: روشن و شاد">☀️</button>
 <button id="mt" class="icb" aria-label="منو">☰</button>
 </div>
 </header>
+
+<div id="sx-banner"></div>
 
 <div id="db" class="db"></div>
 <aside id="dr" class="dr" aria-label="منوی اصلی">
@@ -816,12 +877,14 @@ html[data-theme=joy] #p-fastgear .cd-card.hero.wait{background:linear-gradient(1
 <button class="nb" data-nav="fit">🏋️ تمرین‌ها</button>
 <button class="nb" data-nav="sleep">💤 لاگ خواب</button>
 <button class="nb" data-nav="measure">📏 تناسب اندام</button>
+<button class="nb" data-nav="cyc" style="display:none">🌸 چرخه و انرژی</button>
 </div>
 
 <div class="menu-group">
 <div class="menu-group-title">🏆 انگیزه و چالش</div>
 <button class="nb" data-nav="challenges">🏆 چالش‌ها</button>
 <button class="nb" data-nav="diary">📔 دفترچه خاطرات</button>
+<button class="nb" data-nav="motiv">🎮 بازی و انگیزه</button>
 </div>
 
 <div class="menu-group">
@@ -1426,6 +1489,10 @@ html[data-theme=joy] #p-fastgear .cd-card.hero.wait{background:linear-gradient(1
 <div class="ch"><span>👨‍👩‍👧 اعضای خانواده و چند پروفایل</span></div>
 <div id="ux-family"></div>
 </div>
+<div class="card">
+<div class="ch"><span>🌸 بخش چرخه و انرژی (ویژه بانوان)</span></div>
+<div id="ux-cyc"></div>
+</div>
 </section>
 
 <section id="p-course" class="pane">
@@ -1570,7 +1637,41 @@ html[data-theme=joy] #p-fastgear .cd-card.hero.wait{background:linear-gradient(1
 </section>
 
 <section id="p-challenges" class="pane">
-<div class="card"><div class="ch"><span>🏆 چالش‌ها</span><span class="bs" id="ch-sub"></span></div><div id="challenges"></div></div>
+<div class="card"><div class="ch"><span>🏆 چالش‌ها</span><span class="bs" id="ch-sub"></span></div><div id="challenges"></div><button class="cta gh" id="go-motiv" style="margin-top:12px">🎮 بازی و انگیزه: چرخ شانس، دوئل، درخت عادت</button></div>
+</section>
+
+<section id="p-motiv" class="pane">
+<div class="card"><div class="ch"><span>🏁 چالش ۲۱ روزه فستینگ</span><span class="bs" id="m21-badge"></span></div><div id="m21"></div></div>
+<div class="card"><div class="ch"><span>🌱 درخت عادت</span><span class="bs" id="mtree-badge"></span></div><div id="mtree"></div></div>
+<div class="card"><div class="ch"><span>🎡 چرخ شانس هفتگی</span><span class="bs" id="mwheel-badge"></span></div><div id="mwheel"></div></div>
+<div class="card"><div class="ch"><span>⚔️ دوئل فست با دوست</span><span class="bs" id="mduel-badge"></span></div><div id="mduel"></div></div>
+<div class="card"><div class="ch"><span>📊 گزارش هفته</span><button class="cta gh sm" id="mweek-btn" style="width:auto">🖼 ساخت کارت</button></div><div id="mweek"></div></div>
+<div class="card"><div class="ch"><span>🎧 درس صوتی روزانه</span></div><div id="maudio"></div></div>
+<div class="card"><div class="ch"><span>🎁 کد هدیه و معرفی</span></div><div id="mref"></div></div>
+</section>
+
+<section id="p-cyc" class="pane">
+<div class="card">
+<div class="ch"><span>🌸 چرخه و انرژی</span><span class="bs" id="cy-badge"></span></div>
+<div id="cy-main"></div>
+</div>
+<div class="card">
+<div class="ch"><span>💡 توصیه‌های فاز جاری</span></div>
+<div id="cy-adv"></div>
+</div>
+<div class="card">
+<div class="ch"><span>🩹 علائم امروز</span><span class="bs" id="cy-sym-badge"></span></div>
+<div id="cy-sym"></div>
+</div>
+<div class="card">
+<div class="ch"><span>📆 سوابق دوره‌ها</span><span class="bs" id="cy-hist-badge"></span></div>
+<div id="cy-hist"></div>
+</div>
+<div class="card">
+<div class="ch"><span>📚 یادگیری بیشتر</span></div>
+<button class="cta gh sm" id="cy-course" style="width:auto">📖 دوره «فستینگ و چرخه‌ی زنان»</button>
+<div class="csub" style="margin-top:6px">این بخش تقریبی و آموزشی است، جای پزشک را نمی‌گیرد؛ اگر بی‌نظمی شدیدی داری حتماً با پزشک هماهنگ کن. همه‌ی داده‌ها فقط در حافظه‌ی همین گوشی می‌مانند.</div>
+</div>
 </section>
 
 <section id="p-cook" class="pane">
@@ -1631,6 +1732,39 @@ html[data-theme=joy] #p-fastgear .cd-card.hero.wait{background:linear-gradient(1
 </div>
 <div class="fl2">رنگ اصلی</div>
 <div class="tg" id="thm-colors"></div>
+<div class="fl2" style="margin-top:12px">اندازه متن</div>
+<div class="tm" id="thm-fs">
+<button data-fs="1">عادی</button>
+<button data-fs="1.09">درشت</button>
+<button data-fs="1.2">بزرگ‌تر</button>
+</div>
+</div>
+</div>
+
+<div id="sxsearch" class="mdl" role="dialog" aria-modal="true" aria-label="جستجوی سریع">
+<div class="mb">
+<div class="ch"><span>🔍 جستجوی سریع</span><button class="cta gh sm" id="sx-search-x">بستن</button></div>
+<input id="sx-search-i" class="fc" placeholder="غذا، دستور، درس، مقاله…" autocomplete="off">
+<div id="sx-search-out"></div>
+</div>
+</div>
+
+<div id="sx-medal-pop" class="sx-medal-pop" role="dialog" aria-modal="true" aria-label="مدال تازه">
+<div class="sx-medal-box" id="sx-medal-box">
+<div class="sx-medal-ic" id="sx-medal-ic">🏅</div>
+<b id="sx-medal-nm">مدال تازه!</b>
+<p id="sx-medal-ds"></p>
+<button class="cta" id="sx-medal-x">آفرین!</button>
+</div>
+</div>
+
+<div id="sx-focus">
+<div class="fcl" id="sf-phase">🧊 حالت تمرکز</div>
+<div class="fcov" id="sf-cover"><div class="fct" id="sf-time">00:00:00</div></div>
+<div class="fcl" id="sf-sub"></div>
+<div class="fr2">
+<button id="sf-water">💧 لیوان آب</button>
+<button id="sf-exit">✕ خروج از تمرکز</button>
 </div>
 </div>
 
@@ -1744,6 +1878,8 @@ leadPhone:'989123456789',
 leadTg:'arakbari73',
 leadSms:'+989123456789',
 leadUrl:'',
+/* آدرس سرور معرفی (referral-api.gs روی Google Apps Script) — راهنما: README. خالی = غیرفعال */
+refUrl:'',
 /* ---- تنظیمات لایه‌ی سوپر اپ (همه اختیاری) ---------------------------
    apiUrl        : آدرس بک‌اند برای حساب/OTP و همگام‌سازی ابری
    cgmUrl        : آدرس سرویس CGM برای خواندن خودکار قند خون
@@ -1788,12 +1924,13 @@ var _swp={},_swt=null,_quotaWarned=false;
 function _sflush(){
 if(_swt){clearTimeout(_swt);_swt=null;}
 for(var k in _swp){try{localStorage.setItem(storageKey(k),_swp[k]);}catch(e){if(!_quotaWarned){_quotaWarned=true;try{toast('⚠️ حافظه مرورگر پر شده؛ بعضی داده‌ها ذخیره نشد');}catch(_){}}}}
+try{for(var mk in _swp){try{sxMirror(storageKey(mk),_swp[mk]);}catch(me){}}}catch(me){}
 _swp={};
 }
 function storeSet(k,v){_swp[k]=JSON.stringify(v);if(_swt)clearTimeout(_swt);_swt=setTimeout(_sflush,300);}
 function storeSetMany(o){for(var k in o)_swp[k]=JSON.stringify(o[k]);if(_swt)clearTimeout(_swt);_swt=setTimeout(_sflush,300);}
 function storeGet(k,d){try{if(Object.prototype.hasOwnProperty.call(_swp,k)){var p=_swp[k];return p==null?d:JSON.parse(p);}var raw=localStorage.getItem(storageKey(k));return raw==null?d:JSON.parse(raw);}catch(e){return d;}}
-function storeSetNow(k,v){try{localStorage.setItem(storageKey(k),JSON.stringify(v));}catch(e){}}
+function storeSetNow(k,v){try{var _r=JSON.stringify(v);localStorage.setItem(storageKey(k),_r);try{sxMirror(storageKey(k),_r);}catch(me){}}catch(e){}}
 var store={set:storeSet,setMany:storeSetMany,get:storeGet,setNow:storeSetNow,flush:_sflush};
 function setUser(u){_sflush();currentUser=u||'main';}
 window.addEventListener('beforeunload',_sflush);
@@ -1806,6 +1943,7 @@ function themeById(id){for(var i=0;i<THEMES.length;i++)if(THEMES[i].id===id)retu
 function applyTheme(){
 document.documentElement.setAttribute('data-theme',theme);
 document.documentElement.setAttribute('data-accent',accent);
+try{document.documentElement.style.setProperty('--fscale',String(store.get('fscale',1)||1));}catch(e){}
 var t=themeById(accent);
 PWA.themeColor=t.c1;
 var mtc=$('meta-tc');if(mtc)mtc.setAttribute('content',t.c1);
@@ -1817,6 +1955,8 @@ var tb=$('thm-btns');
 if(tb){var bs=tb.querySelectorAll('button');for(var i=0;i<bs.length;i++){(function(b){b.classList.toggle('on',b.getAttribute('data-theme')===theme);b.onclick=function(){theme=b.getAttribute('data-theme');store.set('theme',theme);applyTheme();renderThemeModal();};})(bs[i]);}}
 var tc=$('thm-colors');
 if(tc){tc.innerHTML='';THEMES.forEach(function(t){var b=el('button','tsw'+(t.id===accent?' on':''));var sw=el('span','sw');sw.style.background=t.c1;b.appendChild(sw);b.appendChild(el('span','tn',t.n));b.onclick=function(){accent=t.id;store.set('accent',accent);applyTheme();renderThemeModal();};tc.appendChild(b);});}
+var tf=$('thm-fs');
+if(tf){var fsb=tf.querySelectorAll('button');for(var iy=0;iy<fsb.length;iy++){(function(b){var v=parseFloat(b.getAttribute('data-fs'))||1;var cur=(sxObj('uxA11y')&&sxObj('uxA11y').fs)||1;b.classList.toggle('on',Math.abs(cur-v)<0.01);b.onclick=function(){var a=sxObj('uxA11y');a.fs=v;store.set('uxA11y',a);try{uxApplyA11y();}catch(e){try{document.body.style.setProperty('--fscale',String(v));}catch(e2){}}renderThemeModal();try{toast(v>1?'🔤 فونت بزرگ‌تر شد':'🔤 فونت عادی شد');}catch(e){}};})(fsb[iy]);}}
 }
 applyTheme();
 
@@ -1834,7 +1974,7 @@ var logs=store.get('totalLogs',0);
 var fsOK=store.get('fsHistory',[]).filter(function(x){return x.ok;}).length;
 var wl=store.get('wlog',[]).length;
 var st=store.get('streak',0);
-return Math.round(logs*2+days*5+fsOK*15+wl*3+st*4);
+return Math.round(logs*2+days*5+fsOK*15+wl*3+st*4+(store.get('bonusPoints',0)||0));
 }
 function calcLevel(){var points=calcPoints(),level=1;for(var i=0;i<LEVELS.length;i++)if(points>=LEVELS[i])level=i+1;return{points:points,level:Math.min(level,LEVELS.length)};}
 function renderLevel(){
@@ -1857,7 +1997,15 @@ var ACH=[
 {id:'streak3',ic:'⚡',n:'۳ روز پیاپی',d:'استریک ۳ روزه',chk:function(s){return store.get('streak',0)>=3;}},
 {id:'streak7',ic:'💥',n:'۷ روز پیاپی',d:'استریک ۷ روزه',chk:function(s){return store.get('streak',0)>=7;}},
 {id:'w5',ic:'⚖️',n:'۵ ثبت وزن',d:'۵ ثبت وزن',chk:function(s){return store.get('wlog',[]).length>=5;}},
-{id:'act15',ic:'🔥',n:'۱۵ روز فعال',d:'۱۵ روز فعالیت',chk:function(s){return s.actDays>=15;}}
+{id:'act15',ic:'🔥',n:'۱۵ روز فعال',d:'۱۵ روز فعالیت',chk:function(s){return s.actDays>=15;}},
+{id:'fast48',ic:'🛑',n:'فست ۴۸ ساعته',d:'یک فست کامل ۴۸ ساعته',chk:function(){var ok=false;sxArr('fsHistory').forEach(function(x){if(x.ok&&(x.dur||0)>=172800)ok=true;});return ok;}},
+{id:'streak14',ic:'🧨',n:'۱۴ روز پیاپی',d:'استریک ۱۴ روزه',chk:function(){return store.get('streak',0)>=14;}},
+{id:'water100',ic:'💧',n:'۱۰۰ لیوان آب',d:'مجموع ۱۰۰ لیوان آب',chk:function(){return (store.get('waterTotal',0)||0)>=100;}},
+{id:'logs200',ic:'🍱',n:'۲۰۰ وعده',d:'۲۰۰ وعده ثبت‌شده',chk:function(s){return s.logs>=200;}},
+{id:'tree14',ic:'🌳',n:'درخت شکوفه',d:'۱۴ روز پیوسته فعال بودی',chk:function(){return mvTreeDays()>=14;}},
+{id:'duel1',ic:'⚔️',n:'اولین دوئل',d:'یک دوئل فست انجام شد',chk:function(){return sxArr('mduels').length>=1;}},
+{id:'wheel1',ic:'🎡',n:'اولین چرخ',d:'چرخ شانس را چرخاندی',chk:function(){return !!sxObj('mWheel').ts;}},
+{id:'m21',ic:'🏁',n:'چالش ۲۱ روزه',d:'چالش ۲۱ روزه کامل شد',chk:function(){return !!sxObj('m21ch').done;}}
 ];
 function userStats(){
 var hist=store.get('logHistory',{});var days=0;
@@ -1869,10 +2017,12 @@ return{days:days,fasts:fasts,logs:store.get('totalLogs',0),actDays:actDays,point
 function renderAch(){
 var s=userStats(),done=store.get('ach',{})||{},count=0;
 var box=$('ag');
+var fresh=[];
 ACH.forEach(function(a){var ok=false;try{ok=!!a.chk(s);}catch(e){ok=false;}
-if(ok){if(!done[a.id]){done[a.id]=Date.now();}count++;}
+if(ok){if(!done[a.id]){done[a.id]=Date.now();fresh.push(a);}count++;}
 });
 store.set('ach',done);
+if(fresh.length)mvShowMedal(fresh[0]);
 if(box){box.innerHTML='';ACH.forEach(function(a){var ok=!!done[a.id];var d=el('div','ac'+(ok?' on':''));d.title=a.d;d.appendChild(el('div','ic',a.ic));d.appendChild(el('div','nm',a.n));box.appendChild(d);});}
 var sub=$('ach-sub');if(sub)sub.textContent=pd(count)+' از '+pd(ACH.length);
 var mini=$('ach-mini');
@@ -1906,7 +2056,6 @@ function allMealItems(){if(_mealCache)return _mealCache;var out=[];MEALS.forEach
 function mealTotal(k){var t=0;(meals[k]||[]).forEach(function(i){t+=i.c||0;});return t;}
 function totalCal(){var t=0;for(var i=0;i<MEALS.length;i++)t+=mealTotal(MEALS[i].k);return t;}
 function mealName(k){for(var i=0;i<MEALS.length;i++)if(MEALS[i].k===k)return MEALS[i].n;return '';}
-function mealCaloriesCount(){var n=0;for(var i=0;i<MEALS.length;i++)n+=(meals[MEALS[i].k]||[]).length;return n;}
 function saveMeals(addLogs){
 _invM();meals.d=today();
 var t=totalCal();
@@ -2322,6 +2471,7 @@ else txt='کالری هدف روی حفظ وزن تنظیم شده.';
 }
 box.appendChild(el('div','tx',txt));
 if(w.length){var last=w[w.length-1];box.appendChild(el('div','csub','آخرین ثبت: '+pd(last.w)+' kg — '+shamsi(new Date(last.d+'T00:00:00'))));}
+try{mvWeightTrend(w,pf);}catch(e){}
 }
 
 /* ================= SLEEP ================= */
@@ -2390,6 +2540,12 @@ function renderWater(){var b=$('fab-badge');if(b)b.textContent=pd(cups);}
 function addCup(){
 cups++;
 if(cups>20)cups=20;
+store.set('waterTotal',(store.get('waterTotal',0)||0)+1);
+store.set('lastWater',Date.now());
+var ch=store.get('cupHist',{});if(!ch||typeof ch!=='object')ch={};
+ch[today()]=Math.max(ch[today()]||0,cups);
+var ck=Object.keys(ch);if(ck.length>200)ck.sort().slice(0,ck.length-200).forEach(function(k){delete ch[k];});
+store.set('cupHist',ch);
 saveCups();renderWater();renderMealSummary();markActivity();refreshHome();
 var nw=waterNeed(profile());
 if(cups===nw){toast('💧 به هدف آب امروز رسیدی!');markDay();}
@@ -3479,14 +3635,16 @@ else if(id==='diary'){renderDiary();renderMonthCal();}
 else if(id==='fit'){renderFit();}
 else if(id==='insta'){renderInsta();}
 else if(id==='challenges'){renderChallenges();}
+else if(id==='motiv'){mvRenderAll();}
+else if(id==='cyc'){cyRender();}
 else if(id==='cook'){renderCook();}
 else if(id==='measure'){renderMeasure();}
 else if(id==='watercalc'){if($('wc-w')&&!$('wc-w').value)$('wc-w').value=profileWeight()||'';}
 else if(id==='fastgear'){fgRenderAll();}
 else if(id==='bio'){bioRenderAll();}
-else if(id==='nutri'){nuRenderAll();}
+else if(id==='nutri'){nuRenderAll();mvSuggestMeal();}
 else if(id==='social'){socRenderAll();}
-else if(id==='cloud'){clRenderAll();}
+else if(id==='cloud'){clRenderAll();try{sxStorageStatus();}catch(e){}}
 else if(id==='ux'){uxRenderAll();}
 else if(id==='course'){coRender();}
 else if(id==='widget'){wdRender();}
@@ -3557,7 +3715,6 @@ a.sort(function(x,y){return x.d<y.d?-1:(x.d>y.d?1:0);});
 store.setMany({wlog:a.slice(-400),weight:w});
 if(!opt||!opt.silent){markDay();markActivity();}
 }
-function profileWeight(){var p=profile();return p&&p.w?p.w:parseFloat(store.get('weight',0))||0;}
 function renderStreak(){
 var days=store.get('days',{})||{};
 var s=0,cur=new Date(),guard=0;
@@ -3642,7 +3799,7 @@ var t=totalCal(),target=0;
 if(pf)target=quickPlan(pf).target;
 if($('hcal'))$('hcal').textContent=pd(t);
 var sub=$('kcsub');
-if(sub)sub.textContent=target?('هدف: '+pd(target)+' kcal — '+pd(Math.max(0,target-t))+' باقی‌مانده'):'بدون هدف — پروفایل رو کامل کن';
+if(sub){var sg=(target?mvSmartTarget(target):0);sub.textContent=sg?((sg!==target?"🎯 هدف هوشمند: ":"هدف: ")+pd(sg)+" kcal — "+pd(Math.max(0,sg-t))+" باقی"+String.fromCharCode(8204)+"مانده"):"بدون هدف — پروفایل رو کامل کن";}
 var need=waterNeed(pf);
 if($('hwtr'))$('hwtr').textContent=pd(cups)+'/'+pd(need);
 var active=!!fsState.end||fsState.left>0;
@@ -3765,6 +3922,7 @@ var k=localStorage.key(i);
 if(k&&k.indexOf(PREFIX)===0)data[k]=localStorage.getItem(k);
 }
 var out={app:'fitalirezaakbari',version:2,date:new Date().toISOString(),data:data};
+try{storeSetNow('lastBackupTs',Date.now());}catch(e){}
 var blob=new Blob([JSON.stringify(out)],{type:'application/json'});
 var url=URL.createObjectURL(blob);
 var a=document.createElement('a');
@@ -3788,6 +3946,7 @@ try{localStorage.setItem(k,d.data[k]);n++;}catch(e){}
 });
 if(!n){toast('❌ داده قابل بازیابی پیدا نشد');return;}
 storeSetNow('lastRestore',Date.now());
+try{sxMirrorAll();}catch(e){}
 toast('✅ بازیابی شد؛ در حال بارگذاری...');
 setTimeout(function(){location.reload();},1200);
 }catch(e){toast('❌ خطا در خواندن فایل');}
@@ -4106,13 +4265,30 @@ var RECIPES=[
 {n:'سیب‌زمینی تنوری',ings:['سیب‌زمینی','پنیر'],k:340,prot:12,carb:45,fat:12,steps:['سیب‌زمینی رو ورقه کن.','با کمی روغن و ادویه در فر بپز.','آخر کار پنیر بریز.']},
 {n:'برنج و تن‌ماهی',ings:['برنج','تن‌ماهی'],k:450,prot:32,carb:48,fat:12,steps:['برنج رو بپز.','تن‌ماهی رو با پیاز تفت بده.','مخلوط کن و سرو کن.']},
 {n:'بادمجان شکم‌پر',ings:['بادمجان','گوشت','گوجه'],k:380,prot:22,carb:18,fat:24,steps:['بادمجان‌ها رو سرخ کن.','مواد گوشتی رو با پیاز بپز.','پر کن و با سس گوجه بپز.']},
-{n:'عدسی',ings:['لوبیا','گوجه'],k:260,prot:14,carb:38,fat:5,steps:['عدس رو با پیاز و آب بپز.','ادویه و گوجه اضافه کن.']}
+{n:'عدسی',ings:['لوبیا','گوجه'],k:260,prot:14,carb:38,fat:5,steps:['عدس رو با پیاز و آب بپز.','ادویه و گوجه اضافه کن.']},
+{n:'املت گوجه سریع',q:1,ings:['تخم‌مرغ','گوجه'],k:220,prot:15,carb:6,fat:14,steps:['گوجه‌ها رو در تابه گرم خرد کن.','تخم‌مرغ‌ها رو اضافه و هم بزن.','با سبزی خشک و نمک سرو کن.']},
+{n:'ساندویچ مرغ و پنیر سرد',q:1,ings:['مرغ','پنیر'],k:320,prot:28,carb:20,fat:12,steps:['سینه مرغ پخته رو ورقه کن.','روی نان با پنیر بچین.','با خیار و گوجه ببند.']},
+{n:'سوپ جو گوشت یک‌قابلمه',q:1,o:1,ings:['گوشت','قارچ','گوجه'],k:300,prot:20,carb:26,fat:10,steps:['همه مواد رو با آب در قابلمه بریز.','نیم‌ساعت با حرارت متوسط بپز.','با جعفری تازه سرو کن.']},
+{n:'خوراک سیب‌زمینی و تخم‌مرغ',o:1,ings:['سیب‌زمینی','تخم‌مرغ','گوجه'],k:380,prot:18,carb:44,fat:14,steps:['سیب‌زمینی‌های ریزشده رو نیم‌پز کن.','گوجه و ادویه اضافه کن.','روی مواد تخم‌مرغ بشکن و درب بپز.']},
+{n:'ماکارونی یک‌قابلمه',q:1,o:1,ings:['ماکارونی','گوجه'],k:480,prot:18,carb:72,fat:10,steps:['ماکارونی رو با آب و رب گوجه در قابلمه بریز.','بفض تا خودش بپزد و آبش کشیده بشه.','با سس مخصوص سرو کن.']},
+{n:'تن‌ماهی گوجه داغ',q:1,o:1,ings:['تن‌ماهی','گوجه'],k:260,prot:24,carb:8,fat:14,steps:['گوجه‌های خردکرده رو با ادویه تفت بده.','تن‌ماهی رو مخلوط کن.','۵ دقیقه جوش بخوره و با لیمو سرو کن.']}
 ];
+var _cookQ=false,_cookO=false;
 function renderCook(){
 var box=$('cook-list');if(!box)return;
 box.innerHTML='';
+var chips=el('div','ing-chips');
+var c1=el('button',_cookQ?'on':'','⚡ زیر ۱۵ دقیقه');
+c1.onclick=function(){_cookQ=!_cookQ;renderCook();};
+chips.appendChild(c1);
+var c2=el('button',_cookO?'on':'','🍲 یک قابلمه');
+c2.onclick=function(){_cookO=!_cookO;renderCook();};
+chips.appendChild(c2);
+box.appendChild(chips);
 var sel=Object.keys(_ingSel).filter(function(k){return _ingSel[k];});
 var list=RECIPES;
+if(_cookQ)list=list.filter(function(r){return r.q;});
+if(_cookO)list=list.filter(function(r){return r.o;});
 if(sel.length){
 list=RECIPES.filter(function(r){
 var all=true;
@@ -4127,11 +4303,11 @@ return any;
 });
 }
 }
-if(!list.length){box.appendChild(el('div','tx','با این مواد اولیه دستور خاصی پیدا نشد؛ مواد بیشتری انتخاب کن.'));return;}
+if(!list.length){box.appendChild(el('div','tx','با این فیلترها یا مواد انتخابی، دستوری پیدا نشد؛ یک فیلتر را بردار.'));return;}
 list.forEach(function(r){
 var d=el('details','rc');
 var s=el('summary');
-s.appendChild(el('span',null,'🍳 '+r.n));
+s.appendChild(el('span',null,'🍳 '+(r.q?'⚡':'')+(r.o?'🍲':'')+r.n));
 s.appendChild(el('span','mt',pd(r.k)+' kcal'));
 d.appendChild(s);
 var inn=el('div','in');
@@ -4370,7 +4546,6 @@ function sxOff(off){var d=new Date();d.setDate(d.getDate()+(off||0));return ymd(
 function sxStat(v,l,cl){return '<div class="stat2'+(cl?(' '+cl):'')+'"><b>'+v+'</b><span>'+l+'</span></div>';}
 function sxObj(k){var o=store.get(k,{});return (o&&typeof o==='object')?o:{};}
 function sxArr(k){var a=store.get(k,[]);return Array.isArray(a)?a:[];}
-function sxHours(spent){return Math.round(spent/360)/10;}
 
 /* ---------- پلن‌های فستینگ ---------- */
 var FG_STAGES=[
@@ -4425,17 +4600,6 @@ function fgScreenObj(){return sxObj('fgScreen');}
 function fgScreenDone(){var s=fgScreenObj();return !!s.ts;}
 function fgScreenRisk(){var s=fgScreenObj(),n=0;for(var k in s)if(k!=='ts'&&s[k])n++;return n;}
 function fgScreenPass(){return fgScreenDone()&&fgScreenRisk()===0;}
-function fgSaveLead(ch,txt){
-var rec=sxArr('leadRecords').slice(-199);
-var nm=norm(($('fp-name')||{}).value||'');
-var ph=fa(norm(($('fp-phone')||{}).value||'')).replace(/[^\d+]/g,'');
-rec.push({ts:Date.now(),name:nm,phone:ph,ch:ch,text:txt,done:false,note:''
-,plan:fpPlanData?(fpPlanData.plan+':'+(24-fpPlanData.plan)):''
-,goal:fpGoal,weight:fpPlanData?fpPlanData.s.w:0
-});
-store.set('leadRecords',rec);
-}
-
 /* ---------- موتور فستینگ: رندر ---------- */
 var fgLastChip='2';
 function fgLastMealMs(){
@@ -4526,7 +4690,10 @@ var b1=el('button','cta sm gh','⏱️ صفحه فستینگ');
 b1.onclick=function(){nav('fasting');};
 var b2=el('button','cta sm','🍽️ شکستن فست');
 b2.onclick=function(){fgStop(true);};
-r2.appendChild(b1);r2.appendChild(b2);
+var b3=el('button','cta sm','🧊 تمرکز');
+b3.style.width='auto';
+b3.onclick=function(){sxFocus(true);};
+r2.appendChild(b1);r2.appendChild(b2);r2.appendChild(b3);
 cd.appendChild(r2);
 box.appendChild(cd);
 var tips=el('div','csub');
@@ -4784,7 +4951,7 @@ var k=sxOff(-i),dur=byDay[k]||0;
 var cell=el('div');
 var h=Math.round(dur/360)/10;
 var bg=dur<=0?'var(--elev)':(h<12?'rgba(16,185,129,.25)':(h<16?'rgba(16,185,129,.55)':'var(--em)'));
-cell.style.cssText='aspect-ratio:1;border-radius:6px;background:'+bg+';border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:.58rem;color:var(--txt)';
+cell.style.cssText='aspect-ratio:1;border-radius:6px;background:'+bg+';border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;color:var(--txt)';
 cell.textContent=h>0?pd(h):'';
 cell.title=shamsi(new Date(k+'T00:00:00'))+(h>0?(' — '+pd(h)+' ساعت'):' — بدون فست');
 wrap.appendChild(cell);
@@ -4916,7 +5083,6 @@ else if(fgScreenDone())sub.textContent=fgScreenRisk()?('غربالگری: '+pd(f
 else sub.textContent='غربالگری انجام نشده';
 }
 }
-function fgRenderAllSafe(){try{fgRenderAll();}catch(e){}}
 (function(){setInterval(function(){fgMilestoneCheck();},60000);})();
 try{window.addEventListener('visibilitychange',function(){if(!document.hidden)fgMilestoneCheck();});}catch(e){}
 
@@ -6047,54 +6213,6 @@ rows.appendChild(card);
 box.appendChild(rows);
 box.appendChild(el('div','csub','این فید از محتوای اینستاگرام @'+CFG.igUser+' الگو گرفته؛ در پنل مدیریت می‌توانی محتوای دلخواه اضافه کنی.'));
 }
-function socShareCard(){
-try{
-var st=socStats();
-var cv=document.createElement('canvas');
-cv.width=1000;cv.height=560;
-var c=cv.getContext('2d');
-c.fillStyle='#06111f';c.fillRect(0,0,1000,560);
-var gr=c.createLinearGradient(0,0,1000,560);
-gr.addColorStop(0,'rgba(16,185,129,.30)');gr.addColorStop(1,'rgba(251,191,36,.10)');
-c.fillStyle=gr;c.fillRect(0,0,1000,560);
-c.fillStyle='#f8fafc';
-c.font='bold 44px Vazirmatn, Tahoma';
-c.direction='rtl';
-c.fillText('کارنامهی من در fitalirezaakbari',48,90);
-c.font='bold 30px Vazirmatn, Tahoma';
-c.fillStyle='#10b981';
-c.fillText((st.name||'من'),48,150);
-c.fillStyle='#f8fafc';
-c.font='bold 26px Vazirmatn, Tahoma';
-var items=[['امتیاز',st.score],['فستینگ کامل',st.fasts],['ساعت فستینگ',st.hrs],['روز فعال',st.days],['وعده ثبتشده',st.logs],['استریک روز',st.streak]];
-items.forEach(function(it,i){
-var x=48+(i%3)*310,y=230+Math.floor(i/3)*120;
-c.fillStyle='rgba(255,255,255,.06)';
-c.fillRect(x,y-40,280,92);
-c.fillStyle='#94a3b8';c.font='22px Vazirmatn, Tahoma';
-c.fillText(it[0],x+16,y);
-c.fillStyle='#10b981';c.font='bold 42px Vazirmatn, Tahoma';
-c.fillText(String(it[1]),x+16,y+46);
-});
-c.fillStyle='#94a3b8';c.font='20px Vazirmatn, Tahoma';
-c.fillText('instagram.com/'+CFG.igUser+' • '+shamsi(new Date()),48,530);
-cv.toBlob(function(blob){
-if(!blob){toast('ساخت تصویر ممکن نشد');return;}
-var file=null;
-try{file=new File([blob],'fitalirezaakbari-card.png',{type:'image/png'});}catch(e){}
-if(file&&navigator.canShare&&navigator.canShare({files:[file]})){
-navigator.share({files:[file],title:'کارنامه من'}).catch(function(){});
-}else{
-var a=document.createElement('a');
-a.href=URL.createObjectURL(blob);
-a.download='fitalirezaakbari-card.png';
-document.body.appendChild(a);a.click();
-setTimeout(function(){URL.revokeObjectURL(a.href);if(a.parentNode)a.parentNode.removeChild(a);},1500);
-toast('🖼️ کارنامه دانلود شد');
-}
-},'image/png');
-}catch(e){toast('ساخت تصویر ممکن نشد');}
-}
 function socCheckVs2(){
 try{
 var code=new URLSearchParams(location.search).get('vs2');
@@ -6234,7 +6352,7 @@ if(code===_otp.code&&_otp.code)done();
 else toast('کد نادرست است');
 }
 }
-var CL_KEYS=['profile','wlog','weight','fsState','fsHistory','fastingPlan','activity','days','streak','claimed','ach','sleep','cups','totalLogs','logHistory','meals','mealsAll','diary','fsWizardPref','bioKetones','bioVitals','nuPlan','nuShop','nuMicro','fgSet','fgScreen','uxQuiz','courseProg','courseCerts','socFriends','socChallenges','leadRecords','fgSet'];
+var CL_KEYS=['profile','wlog','weight','fsState','fsHistory','fastingPlan','activity','days','streak','claimed','ach','sleep','cups','totalLogs','logHistory','meals','mealsAll','diary','fsWizardPref','bioKetones','bioVitals','nuPlan','nuShop','nuMicro','fgSet','fgScreen','uxQuiz','courseProg','courseCerts','socFriends','socChallenges','fgSet'];
 function clSnapshot(){
 var out={};
 for(var i=0;i<CL_KEYS.length;i++){
@@ -6270,6 +6388,7 @@ try{
 for(var k in data){
 try{localStorage.setItem(storageKey(k),data[k]);}catch(e){}
 }
+try{sxMirrorAll();}catch(e){}
 location.reload();
 }catch(e){toast('بازیابی ممکن نشد');}
 }
@@ -7127,6 +7246,7 @@ uxRenderQuiz();
 uxRenderWidget();
 uxRenderA11y();
 uxRenderFamily();
+uxRenderCy();
 }catch(e){}
 }
 
@@ -7177,6 +7297,15 @@ var COURSES=[
 ],quiz:[
 {q:'سحری بهتر است شامل چه باشد؟',opts:['فقط چای و خرما','پروتئین + کربوهیدرات کامل','فقط آب'],a:1},
 {q:'افطار را با چه شروع کنیم؟',opts:['آب و خرما','غذای سرخ‌کردی','نوشابه'],a:0}
+]},
+{id:'c6',ic:'⏱️',n:'پنجره خوردن و پروتئین',d:'ساخت وعده در پنجره خوردن، پروتئین کافی و سیری هوشمند.',lessons:[
+{t:'پنجره خوردن چطور پر شود',h:'<p>در پنجره خوردن، اول آب و پروتئین، بعد کربوهیدرات. ترتیب خوردن روی قند خون اثر دارد.</p><ul><li>نخست پروتئین (تخم‌مرغ، مرغ، ماست)</li><li>بعد سبزیجات حجم‌دهنده</li><li>در پایان کربوهیدرات صفر</li></ul>'},
+{t:'پروتئین کافی یعنی چقدر',h:'<p>برای حفظ عضله در فستینگ، حدود ۱.۲ تا ۱.۶ گرم به ازای هر کیلو وزن بدن در روز. در هر وعده حداقل ۲۵ گرم هدف بگیر.</p><div class="tip">ماست، تخم‌مرغ، مرغ، تن‌ماهی و پنیر منابع ساده و در دسترس هستند.</div>'},
+{t:'سیری هوشمند',h:'<p>سیری با حجم و پروتئین می‌آید، نه با کالری. سبزیجات، سوپ رقیق و آبِ زیاد پیش از وعده، پرخوری جبرانی را کنترل می‌کند.</p>'}
+],quiz:[
+{q:'ترتیب خوردن در پنجره بهتر است چطور باشد؟',opts:['اول شیرینی','اول پروتئین و سبزیجات، آخر کربوهیدرات','همه با هم'],a:1},
+{q:'حداقل پروتئین هر وعده حدوداً چند گرم؟',opts:['۵ گرم','۲۵ گرم','۱۰۰ گرم'],a:1},
+{q:'سیری بیشتر از چه چیزی می‌آید؟',opts:['حجم و پروتئین','قند و نوشابه','چای شیرین'],a:0}
 ]}
 ];
 function coProg(){return sxObj('courseProg');}
@@ -7421,8 +7550,10 @@ var tiles=[
 {ic:'🧩',t:'پلن غذایی امروز',d:(store.get('nuPlan',null)?'پلن هفتگی آماده است':'ساخت پلن ۷ روزه با یک کلیک'),go:'nutri'},
 {ic:'🏅',t:'امتیاز: '+pd(st.score),d:'استریک '+pd(st.streak)+' روز • فست کامل '+pd(st.fasts),go:'social'},
 {ic:'🎓',t:'دوره‌های تخصصی',d:'گواهی پایان دوره بگیر',go:'course'},
+{ic:'🎮',t:'بازی و انگیزه',d:'چرخ شانس، دوئل فست، درخت عادت و مدال‌ها',go:'motiv'},
 {ic:'👥',t:'دوستان و رتبه‌بندی',d:'کد دوستی بساز و رقابت کن',go:'social'}
 ];
+try{if(store.get('cyOn',0))tiles.push({ic:'🌸',t:'چرخه و انرژی',d:'فاز امروز + توصیه‌ی فست، آب، تمرین و خواب',go:'cyc'});}catch(e){}
 tiles.forEach(function(t){
 var b=el('button','tile');
 b.appendChild(el('div','ic2',t.ic));
@@ -7435,6 +7566,1310 @@ var sub=$('sx-home-sub');
 if(sub)sub.textContent='پلن '+clPlanInfo().n+' • امتیاز '+pd(st.score);
 }
 function fsFast(){return fsFmt(fsRemaining());}
+/* ============================================================
+   SUPER MOTIVATION — فاز ۱۴ (بازی، حواس‌پرتی‌زدای نکبت، هدیه‌ها)
+   ============================================================ */
+var MV_TIPS=[
+'آب ساده‌ترین ابزار کنترل اشتهاست: یک لیوان قبل از هر وعده.',
+'پروتئین در هر وعده، عضله را در طول فست حفظ می‌کند.',
+'چای و قهوه بدون شکر در فست مجاز است؛ شکر یعنی فست شکسته.',
+'خواب کمتر از ۷ ساعت، گرسنگی فردا را چند برابر می‌کند.',
+'فست کوتاهِ منظم بهتر از فست طولانیِ پراکنده است.',
+'پرخوری جبرانی را با سوپ و پروتئین مهار کن، نه با احساس گناه.',
+'وزن‌کشی صبح ناشتا، هفته‌ای یک بار کافی است.',
+'شیرینی‌های نوشیدنی از غذای اصلی خطرناک‌ترند؛ لیبل همه چیز را بخوان.',
+'در روز پراسترس، پلن را سبک‌تر کن؛ پایداری مهم‌تر از شدت است.'
+];
+function mvName(){var p=profile();return (p&&p.name)?p.name:'دوست عزیز';}
+function mvAddPoints(n){try{store.set('bonusPoints',(store.get('bonusPoints',0)||0)+n);renderLevel();}catch(e){}}
+function mvGrantPro(days){
+try{
+var s=clSub();
+var base=(s.plan==='pro'&&s.exp&&s.exp>Date.now())?s.exp:Date.now();
+var exp=base+days*86400000;
+store.set('clSub',{plan:'pro',exp:exp,ts:Date.now()});
+toast('💎 '+pd(days)+' روز Pro فعال شد!');
+try{clRenderAll();}catch(e){}
+}catch(e){}
+}
+/* --- معیارهای هفتگی --- */
+function mvFast7Sec(){var sum=0;for(var i=0;i<7;i++){var k=sxOff(-i);sxArr('fsHistory').forEach(function(x){if(x.d===k&&x.ok)sum+=(x.dur||0);});}return sum;}
+function mvActDays7(){var a=sxObj('activity'),n=0;for(var i=0;i<7;i++){if(a[sxOff(-i)])n++;}return n;}
+function mvWater7(){var ch=sxObj('cupHist'),n=0;for(var i=0;i<7;i++)n+=(ch[sxOff(-i)]||0);return n;}
+function mvDayDone(k){
+var ok=false;
+sxArr('fsHistory').forEach(function(x){if(x.d===k&&x.ok)ok=true;});
+if(!ok){var h=store.get('logHistory',{})[k];if(h&&h.total>0){var act=sxObj('activity');ok=!!act[k];}}
+return ok;
+}
+/* --- پیش‌بینی روند واقعی وزن --- */
+function mvWeightTrend(w,pf){
+try{
+if(!w||w.length<2)return;
+var sub=w.slice(-5);
+var dAll=(new Date(sub[sub.length-1].d+'T00:00:00')-new Date(sub[0].d+'T00:00:00'))/86400000;
+if(!(dAll>=7))return;
+var slope=(sub[sub.length-1].w-sub[0].w)/dAll;
+if(Math.abs(slope)<0.01)return;
+var f30=Math.round((sub[sub.length-1].w+slope*30)*10)/10;
+var tip='📈 با روند واقعی وزن‌کشی‌های اخیر، حدود '+pd(f30)+' kg در ۳۰ روز آینده';
+if(pf.t&&pf.t!==pf.w&&((slope<0&&(f30<=pf.t+0.5))||(slope>0&&(f30>=pf.t-0.5))))tip+=' — تقریباً به هدف می‌رسی! 🎯';
+var box=$('weight-predict');
+if(box)box.appendChild(el('div','csub',tip));
+}catch(e){}
+}
+/* --- هدف هوشمند روزانه --- */
+function mvSmartTarget(target){
+try{
+var pf=profile();if(!pf)return target;
+var yv=sxOff(-1),burn=0;
+var ex=store.get('exlog',{})||{};
+(ex[yv]||[]).forEach(function(x){burn+=x.k||0;});
+var adj=burn>150?Math.min(280,Math.round(burn*0.45/10)*10):0;
+if(fsState&&fsState.end&&fsElapsed()>=6*3600)adj-=150;
+return Math.max(pf.male?1500:1200,Math.round((target+adj)/10)*10);
+}catch(e){return target;}
+}
+/* --- مدال تازه (پاپ‌آپ) --- */
+function mvShowMedal(a){
+var box=$('sx-medal-pop');if(!box)return;
+if($('sx-medal-ic'))$('sx-medal-ic').textContent=a.ic||'🏅';
+if($('sx-medal-nm'))$('sx-medal-nm').textContent=a.n||'مدال تازه!';
+if($('sx-medal-ds'))$('sx-medal-ds').textContent=a.d||'آفرین به تو!';
+var m=$('sx-medal-box');
+if(m){
+var olds=m.querySelectorAll('.sx-medal-conf');
+for(var k2=0;k2<olds.length;k2++){if(olds[k2].parentNode)olds[k2].parentNode.removeChild(olds[k2]);}
+for(var i=0;i<8;i++){var c=el('span','sx-medal-conf',['🎉','⭐','✨','🎊'][i%4]);c.style.left=(8+i*12)+'%';c.style.animationDelay=(i*0.08)+'s';m.appendChild(c);}
+}
+box.classList.add('open');
+}
+/* --- بانر هوشمند --- */
+function sxBannerOff(){try{store.set('mBannerOff',Date.now());}catch(e){}}
+function sxBannerTick(){
+var box=$('sx-banner');if(!box)return;
+if(store.get('mBannerOff',0)>Date.now()-45*60000){box.style.display='none';return;}
+var msg='',pf=profile();
+_sxbT='';
+var running=!!(fsState&&fsState.end);
+var lw=store.get('lastWater',0)||0;
+var waterDue=(lw>0&&(Date.now()-lw)>3*3600000);
+if(running){
+var rem=fsRemaining(),elp=fsElapsed(),ph=fsPhase(elp/3600);
+if(rem<=1800)msg='🍽️ کمتر از '+pd(Math.max(1,Math.ceil(rem/60)))+' دقیقه تا پایان فست — برای وعده‌ی اول، آب و پروتئین آماده کن.';
+else if(waterDue)msg='💧 '+pd(Math.round((Date.now()-lw)/3600000))+' ساعت از آخرین لیوان آب گذشته — آب بسنج!';
+else if(elp<3600)msg='⏳ فست فعال ('+ph.n+') — دو لیوان آب در ساعتِ اول خیلی کمک می‌کند.';
+else msg='⏳ فست فعال — '+pd(Math.round(rem/3600))+' ساعت مانده • فاز: '+ph.n;
+}else if(pf&&pf.w){
+var h=store.get('logHistory',{})[today()];
+var tToday=h&&h.total?h.total:0;
+if(waterDue)msg='💧 '+pd(Math.round((Date.now()-lw)/3600000))+' ساعت از آخرین آب گذشته — آب بسنج!';
+else if(!tToday&&new Date().getHours()>=11)msg='📝 هنوز چیزی ثبت نکردی — همین حالا اولین وعده را ثبت کن.';
+else if(tToday&&new Date().getHours()>=15){
+var tgt=quickPlan(pf).target;
+var remc=tgt-tToday;
+if(remc>0&&remc<tgt*0.35)msg='🍽️ فقط '+pd(Math.round(remc))+' کالری تا هدف امروز مانده — پروتئین را در اولویت بگذار.';
+}
+}
+if(!msg&&store.get('cyOn',0)){var _cym=cyBannerMsg();if(_cym){msg=_cym;_sxbT='cy';}}
+if(!msg){var _bkm=sxBkRemindMsg();if(_bkm){msg=_bkm;_sxbT='bk';}}
+if(!msg){box.style.display='none';try{document.body.classList.remove('sx-b-on');}catch(e){}return;}
+box.style.display='flex';
+try{document.body.classList.add('sx-b-on');var tn=document.querySelector('.topnav');if(tn&&tn.offsetHeight)box.style.top=tn.offsetHeight+'px';}catch(e){}
+box.innerHTML='';
+box.appendChild(el('span',null,msg));
+var bx=el('button','sxb-x','✕');
+bx.setAttribute('aria-label','بستن');
+bx.onclick=function(){if(_sxbT==='bk'){try{store.set('bkRemindTs',Date.now());}catch(e){}}else{sxBannerOff();}box.style.display='none';try{document.body.classList.remove('sx-b-on');}catch(e){}};
+box.appendChild(bx);
+}
+/* --- چالش ۲۱ روزه --- */
+function mv21DayKey(start,i){
+var d=new Date(start+'T00:00:00');
+d.setDate(d.getDate()+i);
+return ymd(d);
+}
+function mv21Render(){
+var box=$('m21');if(!box)return;
+box.innerHTML='';
+var o=sxObj('m21ch');
+var badge=$('m21-badge');
+if(!o.start){
+if(badge)badge.textContent='';
+box.appendChild(el('div','tx','۲۱ روز پیاپی پایداری. هر روز که فست کامل یا ثبت وعده + فعالیت داشته باشی، یک خانه روشن می‌شود.'));
+box.appendChild(el('div','csub','🏆 شرط برد: حداقل ۱۵ روزِ موفق از ۲۱ روز — در پایان «گواهی چالش» می‌گیری.'));
+var b=el('button','cta','🚀 شروع چالش');
+b.onclick=function(){store.set('m21ch',{start:today(),ts:Date.now()});try{markActivity();}catch(er){}toast('🏁 چالش ۲۱ روزه شروع شد — موفق باشی!');mv21Render();};
+box.appendChild(b);
+return;
+}
+var doneAll=!!o.done;
+var cnt=0,cells=el('div','m21-grid');
+for(var i=0;i<21;i++){
+var dk=mv21DayKey(o.start,i);
+var ok=(dk<=today())&&mvDayDone(dk);
+if(ok)cnt++;
+var c=el('div','m21-day'+(ok?' done':''));
+c.textContent=ok?'✓':pd(i+1);
+if(!ok&&dk===today())c.classList.add('today');
+cells.appendChild(c);
+}
+box.appendChild(cells);
+if(badge)badge.textContent=pd(cnt)+'/۲۱'+(doneAll?' 🏆':'');
+if(!doneAll&&cnt>=15){o.done=true;o.doneTs=Date.now();store.set('m21ch',o);doneAll=true;toast('🏁 چالش ۲۱ روزه کامل شد!');}
+if(doneAll){
+box.appendChild(el('div','csub','🎉 چالش ۲۱ روزه را کامل کردی — گواهیات آماده است.'));
+var b3=el('button','cta gh','📜 ساخت و دانلود گواهی');
+b3.style.width='auto';
+b3.onclick=function(){mv21Cert(cnt,o);};
+box.appendChild(b3);
+}else{
+var prog=el('div','prog2');
+var ii=el('i');
+ii.style.width=clamp(cnt/15*100,0,100)+'%';
+prog.appendChild(ii);box.appendChild(prog);
+box.appendChild(el('div','csub','پیشرفت به سمت برد: '+pd(cnt)+' از ۱۵ روزِ لازم'));
+var r2=el('div','r2');
+var b2=el('button','cta gh sm','↩️ رها کردن چالش');
+b2.style.width='auto';
+b2.onclick=function(){if(confirm('چالش را رها کنی و از نو شروع کنی؟')){store.set('m21ch',{});mv21Render();}};
+r2.appendChild(b2);
+box.appendChild(r2);
+}
+}
+function mv21Cert(cnt,o){
+try{
+var cv=document.createElement('canvas');
+cv.width=1100;cv.height=760;
+var x=cv.getContext('2d');
+x.fillStyle='#fdfcf8';x.fillRect(0,0,1100,760);
+x.strokeStyle='#10b981';x.lineWidth=14;x.strokeRect(22,22,1056,716);
+x.strokeStyle='#fbbf24';x.lineWidth=4;x.strokeRect(44,44,1012,672);
+x.direction='rtl';x.textAlign='center';
+x.fillStyle='#065f46';x.font='bold 44px Vazirmatn, Tahoma';
+x.fillText('🏁 گواهی چالش ۲۱ روزه فستینگ',550,140);
+x.font='26px Vazirmatn, Tahoma';x.fillStyle='#334155';
+x.fillText('این گواهی به',550,215);
+x.font='bold 58px Vazirmatn, Tahoma';x.fillStyle='#0f172a';
+x.fillText(mvName(),550,290);
+x.font='28px Vazirmatn, Tahoma';x.fillStyle='#334155';
+x.fillText('که '+pd(cnt)+' روزِ موفق از چالش ۲۱ روزه را با حداقل پایداری کامل کرد، تعلق دارد.',550,370);
+x.font='bold 30px Vazirmatn, Tahoma';x.fillStyle='#10b981';
+x.fillText('شروع: '+shamsi(new Date(o.start+'T00:00:00')),550,450);
+x.font='24px Vazirmatn, Tahoma';x.fillStyle='#64748b';
+x.fillText(shamsi(new Date()),550,535);
+x.fillText('امضای مربی: fitalirezaakbari',300,650);
+x.fillText('instagram.com/'+(typeof CFG!=='undefined'&&CFG.igUser?CFG.igUser:'fitalirezaakbari'),820,650);
+cv.toBlob(function(blob){
+if(!blob){toast('ساخت گواهی ممکن نشد');return;}
+var file=null;
+try{file=new File([blob],'fitalirezaakbari-21day.png',{type:'image/png'});}catch(e){}
+if(file&&navigator.canShare&&navigator.canShare({files:[file]})){
+navigator.share({files:[file],title:'گواهی چالش ۲۱ روزه'}).catch(function(){});
+}else{
+var a=document.createElement('a');
+a.href=URL.createObjectURL(blob);
+a.download='fitalirezaakbari-21day.png';
+document.body.appendChild(a);a.click();
+setTimeout(function(){URL.revokeObjectURL(a.href);if(a.parentNode)a.parentNode.removeChild(a);},1500);
+toast('📜 گواهی دانلود شد');
+}
+},'image/png');
+}catch(e){toast('ساخت گواهی ممکن نشد');}
+}
+/* --- درخت عادت --- */
+function mvTreeDays(){
+var d=0;
+for(var i=0;i<120;i++){
+if(!mvDayDone(sxOff(-i)))break;
+d++;
+}
+return d;
+}
+function mvTreeRender(){
+var box=$('mtree');if(!box)return;
+box.innerHTML='';
+var st=[{min:0,ic:'🌰',n:'دانه'},{min:3,ic:'🌱',n:'جوانه'},{min:7,ic:'🪴',n:'نهال'},{min:14,ic:'🌳',n:'درخت'},{min:30,ic:'🌸',n:'شکوفه'}];
+var d=mvTreeDays();
+var cur=st[0];
+for(var i=1;i<st.length;i++){if(d>=st[i].min)cur=st[i];}
+var nxt=null;
+for(var j=0;j<st.length;j++){if(d<st[j].min){nxt=st[j];break;}}
+if(st[st.length-1].min<=d)nxt=null;
+box.appendChild(el('div','csub','هر روزِ فعال (فست کامل یا ثبت وعده) درخت را یک قدم رشد می‌دهد. درخت نمی‌میرد — فقط پایداری رشدش را بیشتر می‌کند.'));
+var stage=el('div','mtree-stage');
+stage.appendChild(el('div','mtree-emoji',cur.ic));
+stage.appendChild(el('b',null,'روز '+pd(d)+' پیاپی — '+cur.n));
+box.appendChild(stage);
+if(nxt){
+var span=nxt.min-cur.min,have=d-cur.min;
+var bar=el('div','mtree-bar'),ii=el('i');
+ii.style.width=clamp(have/Math.max(1,span)*100,2,100)+'%';
+bar.appendChild(ii);box.appendChild(bar);
+box.appendChild(el('div','csub','تقریباً '+pd(Math.max(1,nxt.min-d))+' روز دیگر تا مرحله «'+nxt.n+'» '+nxt.ic));
+}else box.appendChild(el('div','csub','درختت کامل شکفته شده است — نهایتِ عادت! 🌸'));
+var badge=$('mtree-badge');
+if(badge)badge.textContent=cur.n;
+}
+/* --- چرخ شانس --- */
+var MV_WSEG=[
+{l:'۱۵ امتیاز',p:15,w:3,c:'#a7f3d0'},
+{l:'هیچ',p:0,w:2,c:'#f1f5f9'},
+{l:'۵ امتیاز',p:5,w:4,c:'#fef9c3'},
+{l:'💎 پرو ۳ روز',p:-1,w:1,c:'#fbcfe8'},
+{l:'۲۰ امتیاز',p:20,w:2,c:'#bbf7d0'},
+{l:'هیچ',p:0,w:2,c:'#e9d5ff'},
+{l:'۱۰ امتیاز',p:10,w:4,c:'#fde68a'},
+{l:'۵ امتیاز',p:5,w:3,c:'#fecdd3'}
+];
+var _mwRot=0,_mwBusy=false;
+function mvWheelRender(){
+var box=$('mwheel');if(!box)return;
+box.innerHTML='';
+var st=sxObj('mWheel');
+var last=st.ts||0;
+var wait=last&&Date.now()-last<7*86400000;
+if(last&&wait){
+box.appendChild(el('div','csub','🎡 این هفته چرخاندی — چرخ بعدی '+pd(Math.max(1,Math.ceil((last+7*86400000-Date.now())/86400000)))+' روز دیگر.'));
+var r=el('div','rw');
+r.appendChild(el('span',null,'جایزه‌ی هفته‌ی قبل: '+(st.res!=null?(st.res<0?'💎 پرو ۳ روز':(st.res>0?pd(st.res)+' امتیاز':'هیچِ باز')):'—')));
+box.appendChild(r);
+return;
+}
+var active=(mvActDays7()>0)||(myScore()>20);
+var wrap=el('div','mwheel-wrap');
+var cv=document.createElement('canvas');
+cv.id='mwheel-cv';cv.width=280;cv.height=280;
+mvWheelDraw(cv);
+var rot=el('div',null);
+rot.id='mwheel-rot';
+rot.appendChild(cv);
+rot.style.display='inline-block';
+var holder=el('div',null);
+holder.style.position='relative';holder.style.display='inline-block';
+holder.appendChild(rot);
+var ptr=el('div',null,'▾');ptr.style.cssText='position:absolute;top:-8px;left:50%;transform:translateX(-50%);font-size:1.6rem;color:#0f172a;pointer-events:none';
+holder.appendChild(ptr);
+wrap.appendChild(holder);
+box.appendChild(wrap);
+if(!active){
+box.appendChild(el('div','csub','🎡 چرخ این هفته برای کاربرانِ فعال است. اول چند روز از برنامه فعال باش (ثبت غذا یا فعالیت)، بعد بیا. 😄'));
+return;
+}
+var bw=0;MV_WSEG.forEach(function(s){bw+=s.w;});
+function pick(){
+var r=Math.random()*bw;
+for(var i=0;i<MV_WSEG.length;i++){r-=MV_WSEG[i].w;if(r<0)return i;}
+return 0;
+}
+var b=el('button','cta','🎡 بچرخان!');
+b.onclick=function(){
+var chosen=pick();
+var target=(-(chosen*45+22.5))%360;
+if(target<0)target+=360;
+var cur=_mwRot%360;
+if(cur<0)cur+=360;
+var delta=(target-cur+360)%360;
+_mwRot+=360*4+delta+(Math.random()*20-10);
+rot.style.transition='transform 3.2s cubic-bezier(.2,.7,.2,1)';
+rot.style.transform='rotate('+_mwRot+'deg)';
+b.disabled=true;_mwBusy=true;
+setTimeout(function(){
+b.disabled=false;_mwBusy=false;
+var s=MV_WSEG[chosen];
+store.set('mWheel',{ts:Date.now(),res:s.p});
+if(s.p<0){mvGrantPro(3);mvShowMedal({ic:'🎁',n:'برنده‌ی چرخ شانس!',d:'۳ روز Pro هدیه گرفتی'});}
+else if(s.p>0){mvAddPoints(s.p);toast('🎉 '+pd(s.p)+' امتیاز اضافه شد!');}
+else toast('این بار هیچ؛ هفته‌ی بعد دوباره بیا 🙂');
+mvWheelRender();renderAch();
+},3300);
+};
+box.appendChild(b);
+box.appendChild(el('div','csub','یک بار در هفته • جایزه‌ها: امتیاز و ۳ روز Pro'));
+}
+function mvWheelDraw(cv){
+try{
+var x=cv.getContext('2d');
+var cx=cv.width/2,cy=cv.height/2,R=cx-8;
+x.clearRect(0,0,cv.width,cv.height);
+MV_WSEG.forEach(function(s,i){
+var a0=-90+i*45;
+x.beginPath();x.moveTo(cx,cy);
+x.arc(cx,cy,R,a0*Math.PI/180,(a0+45)*Math.PI/180);
+x.closePath();x.fillStyle=s.c;x.fill();
+x.strokeStyle='#ffffff';x.lineWidth=2;x.stroke();
+x.save();x.translate(cx,cy);x.rotate((a0+22.5)*Math.PI/180);
+x.textAlign='right';x.fillStyle='#0f172a';
+x.font='bold '+Math.floor(R*0.115)+'px Vazirmatn, Tahoma';
+x.fillText(s.l,R-12,Math.floor(R*0.05));
+x.restore();
+});
+x.beginPath();x.arc(cx,cy,R*0.15,0,Math.PI*2);
+x.fillStyle='#ffffff';x.fill();
+x.strokeStyle='#e2e8f0';x.lineWidth=3;x.stroke();
+}catch(e){}
+}
+/* --- دوئل فست --- */
+function mvDuelRender(){
+var box=$('mduel');if(!box)return;
+box.innerHTML='';
+box.appendChild(el('div','tx','⚔️ کد دوئل بساز، برای دوستت بفرست، کد او را وارد کن — برنده کسی است که در ۷ روزِ اخیر ساعتِ فستِ بیشتری داشته.'));
+var hrs=store.get('mduelH',16)||16;
+var ch=el('div','chk');
+[12,14,16,18].forEach(function(hh){
+var b=el('button',hrs===hh?'on':'',pd(hh)+' ساعت');
+b.onclick=function(){store.set('mduelH',hh);mvDuelRender();};
+ch.appendChild(b);
+});
+box.appendChild(ch);
+var mine=Math.round(mvFast7Sec()/360)/10;
+var r1=el('div','rw');
+r1.appendChild(el('span',null,'ساعت فستِ ۷ روزه‌ی تو: '+pd(mine)+' ساعت'));
+box.appendChild(r1);
+var r2=el('div','r2');
+var b1=el('button','cta sm','🎁 ساخت کد دوئل');
+b1.style.width='auto';
+b1.onclick=function(){
+var code=socEncode({v:3,t:'duel',g:hrs,fast:mine,n:(profile()&&profile().name)||'دوست',ts:Date.now()});
+var box2=$('mduel-out');
+if(box2){box2.value=code;box2.style.display='block';}
+copyText(code);toast('🎯 کد دوئل ساخته و کپی شد');
+};
+r2.appendChild(b1);
+box.appendChild(r2);
+var inp=el('input','fc');
+inp.dir='ltr';
+inp.id='mduel-in';
+inp.placeholder='کد دوئل دوستت را اینجا بگذار';
+inp.style.marginTop='10px';
+box.appendChild(inp);
+var b2=el('button','cta sm','⚔️ انجام دوئل');
+b2.style.marginTop='8px';
+b2.onclick=function(){
+var v=(inp&&inp.value)||'';
+var d=socDecode(v);
+if(!d||d.t!=='duel'){toast('کد دوئل نامعتبر است');return;}
+var mine2=Math.round(mvFast7Sec()/360)/10;
+var tf=Math.round((d.fast||0)*10)/10;
+var res=(mine2>tf)?'me':((tf>mine2)?'they':'tie');
+var arr=sxArr('mduels');
+arr.push({ts:Date.now(),n:d.n||'دوست',mine:mine2,theirs:tf,res:res,goal:hrs});
+store.set('mduels',arr.slice(-8));
+mvDuelShowRes(res,d.n||'دوست',mine2,tf);
+setTimeout(function(){try{renderAch();}catch(e){}},4500);
+mvDuelRender();
+try{renderAch();}catch(e){}
+};
+box.appendChild(b2);
+var out=el('textarea','fc');
+out.id='mduel-out';out.rows=2;out.style.display='none';out.dir='ltr';
+box.appendChild(out); // placeholder attr — use id only
+var hist=sxArr('mduels');
+if(hist.length){
+box.appendChild(el('div','fl2','دوئل‌های اخیر'));
+hist.slice().reverse().forEach(function(dd){
+var r=el('div','mduel-rw');
+r.appendChild(el('span',null,(dd.res==='me'?'✅ بردی':(dd.res==='they'?'❌ باختی':'🤝 مساوی'))+' • '+dd.name+' • تو '+pd(dd.mine)+' دربرابر '+pd(dd.theirs)+' ساعت'));
+box.appendChild(r);
+});
+}
+}
+function mvDuelShowRes(res,n,mine2,tf){
+var msg=res==='me'?('🎉 بردی! تو '+pd(mine2)+' ساعت فست دربرابر '+pd(tf)+' ساعتِ '+n):(res==='they'?('💪 '+n+' با '+pd(tf)+' ساعت برد — دفعه بعد تو!'):('🤝 مساوی!'));
+mvShowMedal({ic:res==='me'?'🏆':'🤝',n:res==='me'?'برنده‌ی دوئل!':(res==='they'?'باخت با فرق کم':'مساوی'),d:msg});
+}
+/* --- گزارش هفته (کارت اشتراک‌گذاری) --- */
+function mvWeekCard(){
+try{
+var ws=computeWeekStats();
+var cv=document.createElement('canvas');
+cv.width=1080;cv.height=1350;
+var x=cv.getContext('2d');
+var g=x.createLinearGradient(0,0,1080,1350);
+g.addColorStop(0,'#ecfdf5');g.addColorStop(0.55,'#eef2ff');g.addColorStop(1,'#fdf2f8');
+x.fillStyle=g;x.fillRect(0,0,1080,1350);
+x.fillStyle='#10b981';x.fillRect(0,0,1080,16);
+x.direction='rtl';x.textAlign='center';
+x.fillStyle='#0f172a';x.font='bold 66px Vazirmatn, Tahoma';
+x.fillText('fitalirezaakbari',540,150);
+x.font='bold 40px Vazirmatn, Tahoma';x.fillStyle='#059669';
+x.fillText('📊 گزارش هفته‌ی تو',540,215);
+/* میله‌های فست ۷ روز */
+var fby={};
+sxArr('fsHistory').forEach(function(x){var k=x.d;var hrs=(x.dur||0)/3600;if(!fby[k]||fby[k]<hrs)fby[k]=hrs;});
+var bars=[],maxH=0;
+for(var i=6;i>=0;i--){
+var k=sxOff(-i);
+var hrs=Math.round((fby[k]||0)*10)/10;
+bars.push(hrs);if(hrs>maxH)maxH=hrs;
+}
+x.font='bold 30px Vazirmatn, Tahoma';x.fillStyle='#334155';
+x.fillText('ساعت فست روزها',540,300);
+var bw=90,gap=36,base=430,ox=540-((bw*7+gap*6)/2);
+bars.forEach(function(bh,bi){
+var hgt=maxH?bh/Math.max(4,maxH)*220:0;
+x.fillStyle=bh?('#10b981'):'#e2e8f0';
+x.beginPath();
+var xx=ox+bi*(bw+gap),yy=base-hgt;
+if(x.roundRect){x.roundRect(xx,yy,bw,Math.max(hgt,8),14);x.fill();}
+else{x.fillRect(xx,yy,bw,Math.max(hgt,8));}
+x.fillStyle=bh?'#065f46':'#94a3b8';
+x.font='bold 24px Vazirmatn, Tahoma';
+x.fillText(String(bh),xx+bw/2,yy-14);
+x.font='20px Vazirmatn, Tahoma';
+x.fillText(['۶+','۵+','۴+','۳+','۲+','۱+','امروز'][bi],xx+bw/2,base+38);
+});
+/* آمار */
+var stats=[
+['ساعت فست هفته',pd(Math.round(bars.reduce(function(a,b){return a+b;},0)*10)/10)+' ساعت','✅'],
+['فست کامل',pd(sxArr('fsHistory').filter(function(x){return x.ok&&x.d>=sxOff(-6);}).length)+' فست','⏱️'],
+['میانگین کالری',pd(ws.avg||0)+' kcal','🍽️'],
+['لیوان آب',pd(mvWater7())+' لیوان','💧'],
+['روزهای فعال',pd(mvActDays7())+' روز','🔥'],
+['استریک',pd(store.get('streak',0))+' روز','⚡']
+];
+var sy=560;
+stats.forEach(function(s,i){
+var yy=sy+i*105;
+x.fillStyle='rgba(15,23,42,0.045)';
+x.beginPath();
+if(x.roundRect){x.roundRect(160,yy,760,88,20);x.fill();}
+else x.fillRect(160,yy,760,88);
+x.textAlign='right';
+x.font='32px Vazirmatn, Tahoma';
+x.fillStyle='#334155';
+x.fillText(s[0]+' '+s[2],900,yy+58);
+x.textAlign='left';
+x.font='bold 38px Vazirmatn, Tahoma';
+x.fillStyle='#0f172a';
+x.fillText(s[1],200,yy+60);
+x.textAlign='center';
+});
+x.fillStyle='#64748b';x.font='24px Vazirmatn, Tahoma';
+x.fillText(shamsi(new Date())+' • '+mvName(),540,1250);
+x.fillStyle='#94a3b8';x.font='20px Vazirmatn, Tahoma';
+x.fillText('instagram.com/'+(CFG.igUser||'fitalirezaakbari'),540,1300);
+cv.toBlob(function(blob){
+if(!blob){toast('ساخت کارت ممکن نشد');return;}
+var file=null;
+try{file=new File([blob],'fitalirezaakbari-week.png',{type:'image/png'});}catch(e){}
+if(file&&navigator.canShare&&navigator.canShare({files:[file]})){
+navigator.share({files:[file],title:'گزارش هفته فیت'}).catch(function(){});
+}else{
+var a=document.createElement('a');
+a.href=URL.createObjectURL(blob);
+a.download='fitalirezaakbari-week.png';
+document.body.appendChild(a);a.click();
+setTimeout(function(){URL.revokeObjectURL(a.href);if(a.parentNode)a.parentNode.removeChild(a);},1500);
+toast('📊 کارت گزارش هفته دانلود شد');
+}
+},'image/png');
+}catch(e){toast('ساخت گزارش هفته ممکن نشد');}
+}
+/* --- کد هدیه و معرفی --- */
+function mvGiftRender(){
+var box=$('mref');if(!box)return;
+box.innerHTML='';
+box.appendChild(el('div','tx','کد هدیه بساز و برای دوستت بفرست؛ با وارد کردنِ آن در بخش «☁️ حساب» ۳ روز Pro می‌گیرد.'));
+var r1=el('div','r2');
+var b1=el('button','cta sm','🎁 ساخت کد هدیه Pro ۳ روزه');
+b1.style.width='auto';
+b1.onclick=function(){
+var code=socEncode({p:'pro',x:3,chk:'FS9',ts:Date.now()});
+var o=$('mref-out');
+if(o){o.value=code;o.style.display='block';o.style.height='42px';}
+copyText(code);
+toast('🎁 کد هدیه ساخته و کپی شد');
+};
+r1.appendChild(b1);
+box.appendChild(r1);
+var out=el('textarea','fc');
+out.id='mref-out';
+out.rows=1;
+out.style.display='none';
+out.dir='ltr';
+box.appendChild(out);
+var fr=socMyCode();
+var r2=el('div','rw');
+r2.appendChild(el('span',null,'👥 کد دوستی تو برای دعوت دوستان:'));
+var b2=el('button','cta gh sm','📋 کپی کد دوستی');
+b2.style.width='auto';
+b2.onclick=function(){copyText(fr);toast('کد دوستی کپی شد');};
+r2.appendChild(b2);
+box.appendChild(r2);
+box.appendChild(el('div','csub','نکته: پیگیریِ «چه کسی با کد تو عضو شد» در نسخه سروری فعال می‌شود؛ فعلاً هدیه‌دهی مستقیم کار می‌کند.'));
+/* --- معرفی (رفرال) با شمارنده سرور --- */
+var rc=sxRefCode();
+var ru=sxRefUrl();
+var refUrl=location.origin+location.pathname+'?ref='+rc;
+var box4=el('div','rw');
+box4.style.marginTop='10px';
+box4.appendChild(el('span',null,'👥 کد معرفی تو:'));
+var cd=el('b',null,rc);
+cd.style.cssText='direction:ltr;letter-spacing:2px;font-weight:900;color:var(--em)';
+box4.appendChild(cd);
+var b4=el('button','cta gh sm','🔗 کپی لینک دعوت');
+b4.style.width='auto';
+b4.onclick=function(){copyText(refUrl);toast('🔗 لینک دعوت کپی شد — بفرستش برای دوستت');};
+box4.appendChild(b4);
+box.appendChild(box4);
+var cntRow=el('div','rw');
+var cntSpan=el('span',null,ru?('شمارش عضوها: …'):'شمارش عضوها: نیاز به سرور معرفی');
+cntRow.appendChild(cntSpan);
+var cntBtn=el('button','cta gh sm','🎯 شمارش');
+cntBtn.style.width='auto';
+cntBtn.onclick=function(){
+if(!ru){toast('اول سرور معرفی را راه بینداز (راهنما: README)');return;}
+cntSpan.textContent='شمارش عضوها: …';
+sxRefApi({act:'count',ref:rc,device:''},function(j){
+cntSpan.textContent=j?('✅ با کد تو '+pd(j.count)+' نفر عضو شده‌اند'):'⚠️ شمارش ممکن نشد (اینترنت/آدرس سرور)';
+try{store.set('refCount',j?j.count:0);}catch(e){}
+});
+};
+cntRow.appendChild(cntBtn);
+box.appendChild(cntRow);
+if(ru){
+sxRefApi({act:'count',ref:rc,device:''},function(j){
+if(j)cntSpan.textContent='✅ با کد تو '+pd(j.count)+' نفر عضو شده‌اند';
+});
+}else{
+box.appendChild(el('div','csub','برای شمارش آنلاین: فایل referral-api.gs را در script.google.com منتشر کن و آدرسش را در CFG.refUrl (بالای فایل) بگذار — راهنمای کامل در README. خودِ لینک دعوت همین حالا کار می‌کند.'));
+}
+}
+function sxRefDeviceId(){
+var d=store.get('refDevice','');
+if(!d){
+try{d='d'+Date.now().toString(36)+Math.random().toString(36).slice(2,8);}catch(e){d='d'+Date.now().toString(36);}
+store.set('refDevice',d);
+}
+return d;
+}
+function sxRefCode(){
+var c=store.get('refCode','');
+if(!c){
+var pool='ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+c='';
+for(var i=0;i<6;i++)c+=pool.charAt(Math.floor(Math.random()*pool.length));
+store.set('refCode',c);
+}
+return c;
+}
+function sxRefUrl(){return (typeof CFG!=='undefined'&&CFG.refUrl)?String(CFG.refUrl).trim():'';}
+function sxRefApi(params,cb){
+var base=sxRefUrl();
+if(!base){cb(null);return;}
+var jn=(base.indexOf('?')>=0)?'&':'?';
+var url=base+jn+'act='+(params.act||'')+'&ref='+encodeURIComponent(params.ref||'')+'&device='+encodeURIComponent(params.device||'');
+try{
+fetch(url,{method:'GET'}).then(function(r){if(!r.ok)return null;try{return r.json();}catch(er){return null;}}).then(function(jm){cb(jm&&jm.ok?jm:null);}).catch(function(){cb(null);});
+}catch(e){cb(null);}
+}
+function sxRefJoin(){
+try{
+if(!(typeof URLSearchParams!=='undefined'))return;
+var u=new URLSearchParams(location.search).get('ref');
+if(!u)return;
+var code=String(u).toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,12);
+if(!code)return;
+var prev=store.get('refBy','');
+store.set('refBy',code);
+if(prev&&prev!==code)store.set('refSent',false);
+if(store.get('refSent',false))return;
+sxRefApi({act:'join',ref:code,device:sxRefDeviceId()},function(j){
+if(j){storeSetNow('refSent',true);try{toast('🙏 خوش آمدی! عضویتت با کد '+code+' ثبت شد');}catch(e){}}
+});
+}catch(e){}
+}
+/* --- درس صوتی روزانه --- */
+function mvAudioRender(){
+var box=$('maudio');if(!box)return;
+box.innerHTML='';
+var d=new Date(),start=new Date(d.getFullYear(),0,0);
+var idx=Math.floor((d-start)/86400000)%MV_TIPS.length;
+var tip=MV_TIPS[idx];
+var w=el('div','warn2 ok2');
+w.appendChild(el('div',null,'🎧 درس صوتی امروز:'));
+w.appendChild(el('p',null,tip));
+box.appendChild(w);
+var r=el('div','r2');
+var b1=el('button','cta','🔊 پخش با صدا');
+b1.style.width='auto';
+b1.onclick=function(){
+try{
+if(!window.speechSynthesis){toast('مرورگر پشتیبانی نمی‌کند');return;}
+var u=new SpeechSynthesisUtterance(tip);
+u.lang='fa-IR';u.rate=0.95;
+speechSynthesis.cancel();
+speechSynthesis.speak(u);
+toast('🔊 در حال پخش');
+}catch(e){toast('پخش صدا ممکن نشد');}
+};
+var b2=el('button','cta gh sm','📋 کپی متن');
+b2.style.width='auto';
+b2.onclick=function(){copyText(tip);toast('📋 متن کپی شد');};
+r.appendChild(b1);r.appendChild(b2);
+box.appendChild(r);
+}
+/* --- پیشنهاد وعده بعدی --- */
+function mvSuggestMeal(){
+try{
+var host=$('p-nutri');if(!host)return;
+var card=$('nu-suggest');
+if(!card){
+card=el('div','card');
+card.id='nu-suggest';
+var ch=el('div','ch');
+ch.appendChild(el('span',null,'🤖 پیشنهاد وعده بعدی'));
+card.appendChild(ch);
+host.insertBefore(card,host.firstChild);
+}
+card.innerHTML='';
+var ch2=el('div','ch');
+ch2.appendChild(el('span',null,'🤖 پیشنهاد وعده بعدی'));
+card.appendChild(ch2);
+var pf=profile();
+if(!pf){card.appendChild(el('div','csub','اول پروفایل و محاسبه کالری را کامل کن تا پیشنهاد هوشمند بگیری.'));return;}
+var t=totalCal(),tgt=quickPlan(pf).target;
+var rem=Math.max(0,tgt-t);
+if(rem<120){card.appendChild(el('div','tx','کالری امروزت تقریباً پر است — یک وعده‌ی سبکِ سبزیجاتی یا آب‌میوه‌ی طبیعی بهتر است.'));return;}
+var cand=[];
+RECIPES.forEach(function(r){if(r.k<=rem*0.6&&r.k>=rem*0.15)cand.push(r);});
+if(!cand.length)cand=RECIPES.slice(0,3);
+cand.slice(0,2).forEach(function(r){
+var rw=el('div','rw');
+rw.appendChild(el('span',null,'🍳 '+r.n+' — '+pd(r.k)+' kcal'));
+var b=el('button','cta gh sm','➕ ثبت');
+b.style.width='auto';
+b.onclick=function(){
+meals[currentMeal].push({n:r.n+' (۱ پرس)',c:r.k,prot:r.prot,carb:r.carb,fat:r.fat});
+saveMeals(1);
+toast('✅ «'+r.n+'» ثبت شد');
+mvSuggestMeal();
+};
+rw.appendChild(b);
+card.appendChild(rw);
+});
+card.appendChild(el('div','csub','⚖️ بر اساس '+pd(Math.max(0,rem))+' کالریِ باقی‌مانده امروز.'));
+}catch(e){}
+}
+function mvPlayTip(){try{mvAudioRender();}catch(e){}}
+/* --- جستجوی سراسری --- */
+function sxSearchOpen(){
+var mdl=$('sxsearch');if(!mdl)return;
+mdl.classList.add('open');
+if($('sx-search-i')){$('sx-search-i').value='';sxSearchRun('');setTimeout(function(){try{$('sx-search-i').focus();}catch(e){}},60);}
+}
+function sxSearchClose(){var m=$('sxsearch');if(m)m.classList.remove('open');}
+function sxSearchRun(q){
+q=String(q||'').trim().toLowerCase();
+var out=$('sx-search-out');if(!out)return;
+out.innerHTML='';
+if(!q){
+out.appendChild(el('div','csub','نام غذا، دستور پخت، درس دوره، مقاله یا نام پنل را بنویس…'));
+return;
+}
+var rows=[];
+document.querySelectorAll('#dr .nb[data-nav]').forEach(function(b){
+var txt=(b.textContent||'').toLowerCase();
+if(txt.indexOf(q)>=0)rows.push({ic:'📂',t:txt,go:function(){nav(b.getAttribute('data-nav'));},mt:'پنل'});
+});
+try{
+FOODS.forEach(function(f){
+var f2=false;
+(f[0]||[]).forEach(function(al){if(al.toLowerCase().indexOf(q)>=0)f2=true;});
+if(!f2&&String(f[2]||'').toLowerCase().indexOf(q)>=0)f2=true;
+if(f2&&rows.length<9)rows.push({ic:'🍽️',t:String(f[2]),mt:'غذا',go:function(){
+var r=estimateLocal(f[0][0]);
+if(r&&r.items.length){r.items.forEach(function(it){meals[currentMeal].push({n:it.n,c:it.c});});saveMeals(r.items.length);}
+else{meals[currentMeal].push({n:f[2],c:f[1]});saveMeals(1);}
+toast('✅ «'+f[2]+'» به وعده امروز اضافه شد');
+}});
+});
+}catch(e){}
+try{
+LIB.forEach(function(x,i){
+var hay=String(x.t+' '+(x.tags||'')).toLowerCase();
+if(hay.indexOf(q)<0)return;
+rows.push({ic:x.ic||'📚',t:String(x.t),mt:'مقاله',go:function(){
+nav('library');
+setTimeout(function(){
+try{
+var d=document.querySelector('#lib-grid details[data-i="'+i+'"]');
+if(d)d.open=true;
+}catch(e){}
+},250);
+}});
+});
+}catch(e){}
+try{
+RECIPES.forEach(function(r){
+if(String(r.n).toLowerCase().indexOf(q)<0)return;
+rows.push({ic:'🍳',t:String(r.n),mt:'دستور پخت',go:function(){nav('cook');}});
+});
+}catch(e){}
+try{
+COURSES.forEach(function(c){
+var cands=[];
+if(String(c.n).toLowerCase().indexOf(q)>=0)cands.push(c.n);
+(c.lessons||[]).forEach(function(ls){if(String(ls.t).toLowerCase().indexOf(q)>=0)cands.push(c.n+' • '+ls.t);});
+cands.slice(0,2).forEach(function(ct){
+rows.push({ic:c.ic||'🎓',t:ct,mt:'دوره',go:function(){nav('course');}});
+});
+});
+}catch(e){}
+if(!rows.length){
+out.appendChild(el('div','tx','چیزی پیدا نشد. کلمه‌ی کوتاه‌تری امتحان کن.'));
+return;
+}
+rows.slice(0,12).forEach(function(r){
+var b=el('button','sxq');
+b.appendChild(el('span','ic',r.ic));
+b.appendChild(el('span',null,r.t));
+b.appendChild(el('span','mt2',r.mt));
+b.onclick=function(){sxSearchClose();try{if(r.go)r.go();}catch(e){}};
+out.appendChild(b);
+});
+}
+/* --- حالت تمرکز فست --- */
+var _sfTimer=null;
+function sxFocus(on){
+var box=$('sx-focus');if(!box)return;
+if(on){
+if(!fsState||!fsState.end){toast('اول یک فست را شروع کن 🚀');return;}
+box.classList.add('open');
+document.body.classList.add('focus-on');
+if(_sfTimer)clearInterval(_sfTimer);
+_sfTimer=setInterval(function(){try{sxFocusTick();}catch(e){}},1000);
+try{sxFocusTick();}catch(e){}
+}else{
+box.classList.remove('open');
+document.body.classList.remove('focus-on');
+if(_sfTimer){clearInterval(_sfTimer);_sfTimer=null;}
+}
+}
+function sxFocusTick(){
+try{
+if(!fsState||!fsState.end){sxFocus(false);return;}
+var rem=fsRemaining(),elp=fsElapsed();
+var t=$('sf-time');if(t)t.textContent=fsFmt(rem);
+var cov=$('sf-cover');
+if(cov&&fsTotal)cov.style.setProperty('--p',String(clamp(elp/fsTotal*100,0,100))+'%');
+var ph=fsPhase(elp/3600);
+var l=$('sf-phase');if(l)l.textContent='🧊 حالت تمرکز — فاز: '+ph.n;
+var sb=$('sf-sub');if(sb)sb.textContent=(rem<=1800?'🍽️ '+pd(Math.ceil(rem/60))+' دقیقه تا پایان فست':'💧 آب و الکترولیت را پخش کن • '+ph.n);
+}catch(e){} }
+/* --- پشتیبان‌گیری هوشمند هفتگی --- */
+/* ================= فاز ایمنی داده: آینه IndexedDB + پشتیبان هوشمند ================= */
+var _sxbT='';
+function sxIdbRun(mode,fn,cb){
+try{
+if(!window.indexedDB){if(cb)cb(null);return;}
+var op=indexedDB.open('fitaData',1);
+op.onupgradeneeded=function(ev){
+var d=ev.target.result;
+try{if(!d.objectStoreNames.contains('kv'))d.createObjectStore('kv');}catch(e){}
+};
+op.onsuccess=function(ev){
+var d=ev.target.result,tx=null;
+try{tx=d.transaction('kv',mode);}catch(e){try{d.close();}catch(_){}if(cb)cb(null);return;}
+var st=tx.objectStore('kv'),out=null;
+try{out=fn(st);}catch(e){out=null;}
+tx.oncomplete=function(){try{d.close();}catch(_){}if(cb)cb(out===undefined?true:out);};
+tx.onerror=function(){try{d.close();}catch(_){}if(cb)cb(null);};
+};
+op.onerror=function(){if(cb)cb(null);};
+}catch(e){if(cb)cb(null);}
+}
+function sxMirror(k,v){
+if(!k)return;
+try{sxIdbRun('readwrite',function(st){try{st.put(v,k);}catch(e){}},null);}catch(e){}
+}
+function sxMirrorAll(){
+try{
+for(var i=0;i<localStorage.length;i++){
+var k=localStorage.key(i);
+if(k&&k.indexOf('fs_')===0){try{sxMirror(k,localStorage.getItem(k));}catch(me){}}
+}
+}catch(e){}
+}
+function sxAllKv(cb){
+try{
+sxIdbRun('readonly',function(st){
+var res=[];
+try{st.openCursor().onsuccess=function(ev){
+var c=ev.target.result;
+if(c){res.push({k:c.key,v:c.value});c.continue();}
+};}catch(e){}
+return res;
+},cb);
+}catch(e){if(cb)cb(null);}
+}
+function sxIdbRestore(){
+try{
+var pr=store.get('postRestore',0)||0;
+if(pr&&Date.now()-pr<10*60000){
+try{store.setNow('postRestore',0);}catch(e){}
+try{toast('♻️ حافظه از نسخهٔ امن بازگشت — داده‌هایت از دست نرفته بود!');}catch(e){}
+}
+var locKeys=0;
+try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&k.indexOf('fs_')===0)locKeys++;}}catch(e){}
+sxAllKv(function(pairs){
+try{
+if(!pairs)return;
+var rows=[],meta=0;
+(pairs||[]).forEach(function(x){
+if(!x)return;
+if(x.k==='_rst')meta=parseFloat(x.v)||0;
+else rows.push(x);
+});
+if(rows.length<3)return;
+if(meta&&Date.now()-meta<30*60000)return;
+/* شرط بازسازی: یا لوکال کاملاً خالی است، یا آینه عمیقاً پُرتر است (نشانه‌ی اخراج/پاک‌شدن) */
+var gap=rows.length-locKeys;
+if(!(locKeys===0||gap>=6))return;
+var n=0;
+rows.forEach(function(x){
+try{localStorage.setItem(String(x.k),String(x.v));n++;}catch(e){}
+});
+if(n){
+try{sxIdbRun('readwrite',function(st){try{st.put(String(Date.now()),'_rst');}catch(e){}},null);}catch(e){}
+try{storeSetNow('postRestore',Date.now());}catch(e){}
+location.reload();
+}
+}catch(e){}
+});
+}catch(e){}
+}
+function sxPersist(quiet){
+try{
+if(!(navigator.storage&&navigator.storage.persist&&navigator.storage.persisted))return;
+navigator.storage.persisted().then(function(p){
+if(p)return;
+navigator.storage.persist().then(function(g){
+if(g){try{toast('🔒 حافظهٔ پایدار فعال شد — داده‌ها دیگر اخراج نمی‌شوند');}catch(e){}}
+else if(!quiet){try{toast('حافظهٔ پایدار فعلاً رد شد — بعد از نصب PWA خودکار فعال می‌شود');}catch(e){}}
+try{if($('sx-stor'))sxStorageStatus();}catch(e){}
+}).catch(function(){});
+}).catch(function(){});
+}catch(e){}
+}
+function sxFullWipe(){
+try{
+if(!confirm('پاک‌سازی کامل: همهٔ داده‌های fitalirezaakbari (وعده‌ها، وزن، فستینگ، بازی و…) برای همیشه از این دستگاه حذف می‌شود. ادامه؟'))return;
+if(!confirm('مطمئنی؟ اگر هنوز فایل پشتیبان نداری، این کار برگشت‌ناپذیر است. آخرین هشدار!'))return;
+try{for(var i=localStorage.length-1;i>=0;i--){var k=localStorage.key(i);if(k&&k.indexOf('fs_')===0)try{localStorage.removeItem(k);}catch(e){}}}catch(e){}
+try{sxIdbRun('readwrite',function(st){try{st.clear();}catch(e){}},function(){
+try{location.reload();}catch(e){}
+});}catch(e){try{location.reload();}catch(er){}}
+}catch(e){}
+}
+function sxStorageStatus(){
+try{
+var box=$('sx-stor');
+if(!box){
+box=el('div','card');
+box.id='sx-stor';
+var pn=$('p-cloud');
+var first=pn?pn.querySelector('.card'):null;
+if(first&&first.parentNode)pn.insertBefore(box,first);
+else if(pn)pn.appendChild(box);
+}
+if(!box)return;
+box.innerHTML='';
+box.appendChild(el('div','ttl','🛡️ سلامت حافظه و پشتیبان'));
+var bkAgo=Date.now()-(store.get('lastBackupTs',0)||0);
+var r=el('div','rw');
+r.appendChild(el('span',null,bkAgo>60000?('آخرین پشتیبان: '+pd(Math.floor(bkAgo/86400000))+' روز پیش'):'آخرین پشتیبان: هنوز نگرفته‌ای'));
+var b=el('button','cta sm','⬇️ پشتیبان فوری');
+b.style.width='auto';
+b.onclick=function(){try{backup();sxStorageStatus();}catch(e){}};
+r.appendChild(b);
+box.appendChild(r);
+var st=el('div','csub','آینهٔ امن: فعال • در حال محاسبهٔ حجم…');
+box.appendChild(st);
+try{
+if(navigator.storage&&navigator.storage.estimate){
+navigator.storage.estimate().then(function(e2){
+try{if(st.parentNode)st.textContent='حجم داده‌ها: '+((e2&&e2.usage)?Math.max(0.1,e2.usage/1048576).toFixed(1):'0')+' مگابایت • آینهٔ امن: فعال';}catch(e3){}
+}).catch(function(){});
+}else{st.textContent='حجم داده‌ها: — • آینهٔ امن: فعال';}
+}catch(e){}
+try{
+if(navigator.storage&&navigator.storage.persisted){
+navigator.storage.persisted().then(function(p){
+try{if(!p&&st.parentNode){
+var ask=el('button','cta gh sm','🔒 درخواست حافظهٔ پایدار');
+ask.style.cssText='width:auto;margin-top:8px';
+ask.onclick=function(){sxPersist(true);};
+box.appendChild(ask);
+}}catch(e5){}
+}).catch(function(){});
+}
+}catch(e4){}
+var wipe=el('button','cta gh sm','🗑️ پاک‌سازی کامل از نو');
+wipe.style.cssText='width:auto;margin-top:8px';
+wipe.onclick=sxFullWipe;
+box.appendChild(wipe);
+}catch(e){}
+}
+/* --- پشتیبان هوشمند: یادآور داخل بنر --- */
+function sxBkRemindMsg(){
+try{
+var bkAgo=Date.now()-(store.get('lastBackupTs',0)||0);
+if(!(calcPoints()>=10))return null;
+if(bkAgo<=21*86400000)return null;
+if((Date.now()-(store.get('bkRemindTs',0)||0))<=3*86400000)return null;
+return '💾 نگهبان مهم: '+pd(Math.ceil(bkAgo/86400000))+' روز از آخرین فایل پشتیبان گذشته — ۳۰ ثانیه وقت بگذار و پشتیبان فوری بگیر تا هیچ ثبتی از دست نرود.';
+}catch(e){return null;}
+}
+/* ============================================================
+   SUPER CYCLE — فاز ۱۶: 🌸 چرخه و انرژی (ویژه بانوان)
+   پیش‌فرض مخفی؛ فعال‌سازی از پنل تنظیمات. تقریبی و آموزشی.
+   ============================================================ */
+var CY_SYMS=['دل‌درد','نفخ','هوس شیرینی','خستگی','سردرد','حساس‌بودن','خواب‌آلودگی','کمر درد','بی‌حوصلگی'];
+var CY_ADVICE={
+rule:{n:'🩸 قاعده‌سازی',fast:'فست طولانی نگیر؛ اگر فست فعالی، ۱۲ ساعته کافی است و کمی کوتاه‌تر عملاً مانع پیشرفت نمی‌شود.',water:'آهن ردپا جدی بگیر: عدس، گوشت کم‌چرب، اسفناج، خرما. آب هم +۱ لیوان.',ex:'امروز سبک: پیاده‌روی، کشش و حرکات ساده با وزن بدن. باشگاه سنگین لازم نیست.',sleep:'۷ ساعت یا بیشتر؛ گرم و راحت بخواب.',food:'وعده‌ها سبک اما مغذی؛ ۲-۳ مربع شکلات تلخ برای هوس راهگشاست.'},
+folli:{n:'🌿 فاز سازنده (فولیکولار)',fast:'بهترین هفته برای فست منظم ۱۴-۱۶ ساعته؛ بدن همکاری می‌کند.',water:'هدف معمول آب کافی است؛ خیلی دلخوری لازم ندارد.',ex:'قدرت بزن! وزنه‌ی سنگین‌تر این هفته بهترین بازده را دارد.',sleep:'خواب ساده‌تر به دست می‌آید؛ برنامه‌ی عادی ادامه.',food:'پروتئین در هر وعده؛ قبل تمرین کربوهیدرات کامل.'},
+ovu:{n:'☀️ روزهای اوج (اوولاسیون)',fast:'فست معمول مشکلی ندارد؛ اگر سردرد یا ضعف شدی، همان روز کوتاه‌ترش کن.',water:'یک لیوان آب اضافه کن؛ این فاز آب بدن را بیشتر می‌گیرد.',ex:'انرژی بالا است — تمرین قوی یا HIIT اشکالی ندارد.',sleep:'شب‌های مختصر بی‌خوابی طبیعی است؛ چای بابونه آرام‌کننده است.',food:'سبک و پرفیبر؛ اشتها معمولاً خودش آرام است.'},
+luteal:{n:'🌙 پیش‌دوره (لوتئال)',fast:'فست را ملایم کن (۱۲-۱۴ ساعت و نه بیشتر)؛ این هفته بدن سوخت بیشتری می‌خواهد.',water:'آب کافی + منیزیم: بادام، کاکائو تلخ، موز — نفخ را کم می‌کند.',ex:'تمرین متوسط؛ پیاده‌روی طولانی بهتر از HIIT سختی‌بخشی است.',sleep:'این هفته خواب را فدای هیچ چیز نکن؛ شب‌ها زودتر بخواب.',food:'هوس واقعی است، نه ضعف اراده: میان‌وعده پروتئینی + کربوهیدرات کامل؛ نمک و فست‌فود را سبک کن.'}
+};
+function cyActive(){try{return store.get('cyOn',0)?1:0;}catch(e){return 0;}}
+function cyLog(){try{return sxObj('cyLog');}catch(e){return {};}}
+function cyYmd(dt){try{return ymd(dt);}catch(e){return '';}}
+function cyParse(ym){try{return new Date(ym+'T00:00:00');}catch(e){return null;}}
+function cyDays(a,b){if(!a||!b)return 0;var d=cyParse(b)-cyParse(a);return Math.round(d/86400000);}
+function cyStarts(){var o=cyLog();var arr=o.starts||[];arr.sort();return arr;}
+function cyAvg(){
+try{
+var arr=cyStarts();
+if(arr.length<2)return 28;
+var ds=[],i;
+for(i=arr.length-1;i>0&&ds.length<6;i--){
+var g=cyDays(arr[i-1],arr[i]);
+if(g>=15&&g<=60)ds.push(g);
+}
+if(!ds.length)return 28;
+var s=0;for(i=0;i<ds.length;i++)s+=ds[i];
+return Math.min(38,Math.max(21,Math.round(s/ds.length)));
+}catch(e){return 28;}
+}
+function cySetOn(v,onDone){
+try{
+storeSetNow('cyOn',v?1:0);
+var b=document.querySelector('#dr [data-nav="cyc"]');
+if(b)b.style.display=v?'':'none';
+if(v){try{toast('🌸 فعال شد — از منوی «سلامت و تناسب اندام» پیدا می‌شود');}catch(e){}}
+else{try{toast('بخش چرخه خاموش شد');}catch(e){}}
+if($('ux-cyc'))uxRenderAll();
+if(typeof onDone==='function')onDone(v);
+}catch(e){}
+}
+function cyAddStart(ym){
+try{
+if(!ym)return false;
+var td=cyYmd(new Date());
+if(ym>td)return false;
+var arr=cyStarts();
+var last=arr.length?arr[arr.length-1]:'';
+if(last===ym)return false;
+if(last&&cyDays(last,ym)>=0&&cyDays(last,ym)<=2){arr[arr.length-1]=ym;}
+else{arr.push(ym);}
+store.set('cyLog',{starts:arr});
+try{markActivity();}catch(e){}
+return true;
+}catch(e){return false;}
+}
+function cyDelStart(ym){
+try{
+var arr=cyStarts().filter(function(x){return x!==ym;});
+store.set('cyLog',{starts:arr});
+cyRender();
+}catch(e){}
+}
+function cyInfo(){
+try{
+var arr=cyStarts();
+var len=cyAvg(),pd_=5;
+var tdy=cyYmd(new Date());
+if(!arr.length)return {empty:1,len:len};
+var s0=arr[arr.length-1];
+var dd=cyDays(s0,tdy);
+if(dd<0)return {empty:1,len:len};
+if(dd>len){ /* دوره بعد هنوز ثبت نشده */
+return {empty:0,len:len,day:dd+1,ph:'',phn:'منتظر دوره بعد',late:dd-len,prog:1};
+}
+var d1=dd+1;
+var mid=Math.round(len/2);
+var ph='',phn='';
+if(d1<=pd_){ph='rule';}
+else if(d1<=mid-2){ph='folli';}
+else if(d1<=mid+2){ph='ovu';}
+else{ph='luteal';}
+phn=CY_ADVICE[ph]?CY_ADVICE[ph].n:'';
+return {empty:0,len:len,day:d1,ph:ph,phn:phn,late:0,prog:d1/len};
+}catch(e){return {empty:1,len:28};}
+}
+function cyBannerMsg(){
+try{
+if(!cyActive())return null;
+if(store.get('cyTipDate','')===today())return null;
+var inf=cyInfo();
+if(inf.empty)return null;
+var m='';
+if(inf.late){m='🌸 دوره‌ات حدود '+pd(inf.late)+' روز از انتظار گذشته؛ طبیعی است. اگر مطمئنی شروع شده، ثبتش کن تا پیش‌بینی‌ها دقیق شوند.';}
+else if(inf.ph==='rule'){m='🌸 روزهای دوره: بدنت سرش شلوغ است — آهن و آب یادت نره و اگر خسته‌ای، فست امروز را سبک بگیر.';}
+else if(inf.ph==='luteal'){m='🌸 پیش‌دوره‌ای: هوس واقعی است، نه ضعف اراده. میان‌وعده‌ی پروتئینی بگیر و فست را ۱۲ ساعته ملایم کن.';}
+else{m='🌸 فاز «'+inf.phn+'» — توصیه‌ی امروز را در بخش چرخه ببین؛ آب و خواب این روزها کلید است.';}
+if(m&&m.length){try{storeSetNow('cyTipDate',today());}catch(e){}return m;}
+return null;
+}catch(e){return null;}
+}
+function cySymOf(ym){
+try{
+var o=sxObj('cySym');
+return (o[ym]||[]);
+}catch(e){return [];}
+}
+function cyToggleSym(s){
+try{
+var ym=cyYmd(new Date());
+var o=sxObj('cySym');
+var arr=(o[ym]||[]).slice();
+var i=arr.indexOf(s);
+if(i>=0){arr.splice(i,1);}else{arr.push(s);try{mvAddPoints(1);}catch(e){}}
+if(arr.length){o[ym]=arr;}else{delete o[ym];}
+store.set('cySym',o);
+try{markActivity();}catch(e){}
+cyDiarySync(arr);
+cyRender();
+}catch(e){}
+}
+function cyDiarySync(arr){
+try{
+if(!arr||!arr.length)return;
+var ym=cyYmd(new Date());
+var all=store.get('diary',{})||{};
+var cur=all[ym];
+var line='🌸 چرخه: '+arr.join('، ');
+if(!cur){all[ym]={t:line,ts:Date.now()};}
+else{
+var t=String(cur.t||'');
+if(t.indexOf('🌸 چرخه:')>=0){
+t=t.replace(/🌸 چرخه: [^\n]*/,line);
+}else{
+t=(t?t+'\n':'')+line;
+}
+all[ym]={t:t,ts:Date.now()};
+}
+store.set('diary',all);
+}catch(e){}
+}
+function cyPred(inf){
+try{
+if(inf.empty)return null;
+var arr=cyStarts();
+var s0=arr[arr.length-1];
+var len=inf.len;
+var tdedy=cyYmd(new Date());
+var base=s0;
+var list=[],k=1;
+while(list.length<3&&k<400){
+var nk=cyAddDays(base,k*len);
+if(nk>tdedy)list.push(nk);
+k++;
+}
+var fer=cyAddDays(list[0],Math.round(len/2)-3);
+return {next:list,fer:fer};
+}catch(e){return null;}
+}
+function cyAddDays(ym,n){
+try{
+var d=cyParse(ym);
+if(!d)return ym;
+d.setDate(d.getDate()+n);
+return cyYmd(d);
+}catch(e){return ym;}
+}
+function cyRender(){
+try{
+var on=cyActive();
+if($('cy-course')&&!$('cy-course')._w){
+$('cy-course').onclick=function(){
+try{
+var c4=null;COURSES.forEach(function(c){if(!c4&&c.id==='c4')c4=c;});
+nav('course');
+if(c4)coOpen(c4);
+}catch(e){nav('course');}
+};
+$('cy-course')._w=1;
+}
+var box=$('cy-main');if(!box)return;
+box.innerHTML='';
+if(!on){cyRenderOff(box);return;}
+var inf=cyInfo();
+var b2=$('cy-badge');
+/* حلقه فاز */
+var ring=el('div');
+ring.style.cssText='display:flex;justify-content:center;margin:4px 0 10px';
+if(!inf.empty){
+var deg=Math.max(4,Math.min(359,Math.round(inf.prog*360)));
+var rg=el('div');
+rg.style.cssText='width:118px;height:118px;border-radius:50%;background:conic-gradient(var(--em) '+deg+'deg, rgba(127,127,127,.22) 0deg);display:flex;align-items:center;justify-content:center';
+var inner=el('div');
+inner.style.cssText='width:94px;height:94px;border-radius:50%;background:var(--elev,rgba(255,255,255,.9));display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center';
+var nm=el('b',null,'روز '+pd(inf.day));
+nm.style.fontSize='1.05rem';
+inner.appendChild(nm);
+inner.appendChild(el('span',null,'≈ '+pd(inf.len)+' روزه'));
+rg.appendChild(inner);
+ring.appendChild(rg);
+box.appendChild(ring);
+if(b2)b2.textContent=inf.phn||'';
+if(inf.late){
+box.appendChild(el('div','tx','⏳ منتظر ثبت دوره بعد — '+pd(inf.late)+' روز از انتظار گذشته. اگر شروع شده، پایین ثبتش کن.'));
+}
+var pz=el('div','csub','فاز فعلی: ');
+var pb=el('b',null,inf.phn||'—');
+pb.style.color='var(--em)';
+pz.appendChild(pb);
+box.appendChild(pz);
+}else{
+if(b2)b2.textContent='';
+box.appendChild(el('div','tx','شروع دوره‌ت را ثبت کن تا عملی فازها و توصیه‌ها راه بیفتد.'));
+var msg2=el('div','csub','میانگین چیزی که می‌شناسیم: '+pd(cyAvg())+' روز (ابتدای کار تقریب ۲۸ روزه).');
+box.appendChild(msg2);
+}
+/* دکمه ثبت شروع (امروز/دیروز/…) */
+box.appendChild(el('div','csub','🩸 شروع دوره؟ اگر امروز نیست، از پایین انتخاب کن:'));
+var bts=el('div','r2');
+var opts=[[0,'امروز'],[1,'دیروز'],[2,'۲ روز پیش'],[3,'۳ روز پیش']];
+opts.forEach(function(op){
+var bb=el('button','cta gh sm',op[1]);
+bb.style.width='auto';
+bb.onclick=function(){
+var d=new Date();
+d.setDate(d.getDate()-op[0]);
+if(cyAddStart(cyYmd(d))){
+toast('✅ ثبت شد — شروع: '+shamsi(cyParse(cyYmd(d))));
+cyRender();
+}
+};
+bts.appendChild(bb);
+});
+box.appendChild(bts);
+/* پیش‌بینی‌ها */
+var pr=cyPred(inf);
+if(pr&&pr.next&&pr.next.length){
+var boxPr=el('div');
+boxPr.appendChild(el('div','csub','🔮 پیش‌بینی تقریبی (±۲ روز):'));
+pr.next.slice(0,3).forEach(function(nm,i){
+boxPr.appendChild(el('div','rw','دوره بعد '+pd(i+1)+': '+shamsi(cyParse(nm))));
+});
+boxPr.appendChild(el('div','rw','پنجره باروری تقریبی: '+shamsi(cyParse(cyAddDays(pr.fer,-2)))+' تا '+shamsi(cyParse(cyAddDays(pr.fer,2)))));
+box.appendChild(boxPr);
+}
+/* توصیه‌های فاز */
+var adv=$('cy-adv');
+if(adv){
+adv.innerHTML='';
+if(inf.ph&&CY_ADVICE[inf.ph]){
+var A=CY_ADVICE[inf.ph];
+var rows=[['⏱️ فستینگ',A.fast],['💧 آب و ریزمغذی',A.water],['🔥 تمرین',A.ex],['💤 خواب',A.sleep],['🍽 تغذیه',A.food]];
+rows.forEach(function(r){
+var rr=el('div','rw');
+rr.appendChild(el('span',null,r[0]));
+rr.appendChild(el('b',null,r[1]));
+adv.appendChild(rr);
+});
+}else{
+adv.appendChild(el('div','tx','بعد از ثبت شروع دوره، توصیه‌ی فاز جاری اینجا می‌نشیند.'));
+}
+}
+/* علائم */
+var symbox=$('cy-sym');
+if(symbox){
+symbox.innerHTML='';
+var cur=cySymOf(cyYmd(new Date()));
+var sb=$('cy-sym-badge');
+if(sb)sb.textContent=cur.length?pd(cur.length)+' مورد':'';
+var chs=el('div','ing-chips');
+CY_SYMS.forEach(function(s){
+var c=el('button',null,(cur.indexOf(s)>=0?'✅ ':'')+s);
+c.style.cssText='background:'+(cur.indexOf(s)>=0?'var(--em)':'var(--elev)')+';color:'+(cur.indexOf(s)>=0?'#fff':'var(--txt)')+';border:none;border-radius:10px;padding:7px 11px;font-size:.78rem;font-weight:700';
+c.onclick=function(){cyToggleSym(s);};
+chs.appendChild(c);
+});
+symbox.appendChild(chs);
+symbox.appendChild(el('div','csub','هر علائم انتخابی، هم اینجا ذخیره می‌شود و هم در «📔 دفترچه خاطرات» امروز +۱ امتیاز بابت ثبت و مراقبت از خودت.'));
+}
+/* سوابق */
+var hb=$('cy-hist');
+if(hb){
+hb.innerHTML='';
+var sts=cyStarts().slice().reverse();
+var hbadge=$('cy-hist-badge');
+if(hbadge)hbadge.textContent=sts.length?pd(sts.length)+' دوره':'';
+if(!sts.length){
+hb.appendChild(el('div','tx','هنوز دوره‌ای ثبت نشده.'));
+}else{
+hb.appendChild(el('div','csub','میانگین چرخه بر اساس '+pd(Math.min(sts.length,7))+' ثبت آخر: ≈ '+pd(cyAvg())+' روز'));
+sts.slice(0,7).forEach(function(ym){
+var r=el('div','rw');
+r.appendChild(el('span',null,'🩸 '+shamsi(cyParse(ym))));
+var d=el('button','cta gh sm','حذف');
+d.style.width='auto';
+d.onclick=function(){if(confirm('این ثبت حذف شود؟'))cyDelStart(ym);};
+r.appendChild(d);
+hb.appendChild(r);
+});
+}
+}
+}catch(e){}
+}
+function cyRenderOff(box){
+try{
+box.innerHTML='';
+box.appendChild(el('div','tx','این بخش خاموش است. برای فعال‌سازی:'));
+var b=el('button','cta','🌸 فعالش کن (فقط برای خودت ذخیره می‌شود)');
+b.onclick=function(){cySetOn(1);cyRender();};
+box.appendChild(b);
+box.appendChild(el('div','csub','تنظیم خاموش/روشن هم در «تنظیمات ◄ بخش چرخه و انرژی» هست. داده‌ها کاملاً لوکال‌اند؛ با قفل PIN هم محافظت می‌شوند.'));
+}catch(e){}
+}
+function uxRenderCy(){
+try{
+var box=$('ux-cyc');if(!box)return;
+box.innerHTML='';
+var on=cyActive();
+var r=el('div','rw');
+r.appendChild(el('span',null,'🌸 «چرخه و انرژی» در منو نشان داده شود؟'));
+var b=el('button','cta '+(on?'gh':'sm'),on?'✅ روشن — خاموش کن':'فعال کن');
+b.style.width='auto';
+b.onclick=function(){cySetOn(!on);};
+r.appendChild(b);
+box.appendChild(r);
+box.appendChild(el('div','csub','فاز چرخه + توصیه‌ی فستینگ، آب، تمرین و خواب هر فاز + پیش‌بینی دوره‌های بعد (تقریبی) + علائم روزانه. داده فقط در همین دستگاه، با قفل PIN'));
+}catch(e){}
+}
+function sxAutoBackup(){
+try{
+var last=store.get('lastAutoBackup',0)||0;
+if(Date.now()-last<7*86400000)return;
+if(calcPoints()<10)return;
+storeSetNow('lastAutoBackup',Date.now());
+backup();
+}catch(e){}
+}
+/* --- رندر پنل انگیزه --- */
+function mvRenderAll(){
+try{mv21Render();}catch(e){}
+try{mvTreeRender();}catch(e){}
+try{mvWheelRender();}catch(e){}
+try{mvDuelRender();}catch(e){}
+try{mvGiftRender();}catch(e){}
+try{mvAudioRender();}catch(e){}
+}
+
 function superInit(){
 try{clApplyAdmin();}catch(e){}
 var btn=function(id,fn){var b=$(id);if(b)b.onclick=fn;};
@@ -7459,14 +8894,31 @@ coRender();
 btn('wd-toggle',fsStartClick);
 btn('wd-exit',function(){uxWidgetMode(false);});
 btn('lock-btn',clTryUnlock);
+btn('go-motiv',function(){nav('motiv');});
+btn('btn-search',sxSearchOpen);
+btn('sx-search-x',sxSearchClose);
+btn('sx-medal-x',function(){var m=$('sx-medal-pop');if(m)m.classList.remove('open');});
+btn('mweek-btn',mvWeekCard);
+btn('maudio-play',mvPlayTip);
+btn('sf-exit',function(){sxFocus(false);});
+btn('sf-water',function(){try{addCup();}catch(e){}});
+if($('sxsearch'))$('sxsearch').addEventListener('click',function(e){if(e.target===this)sxSearchClose();});
+if($('sx-search-i'))$('sx-search-i').addEventListener('input',function(){sxSearchRun(this.value);});
 if($('mfast'))$('mfast').onclick=function(){nav('fastgear');};
+try{var cyb=document.querySelector('#dr [data-nav="cyc"]');if(cyb)cyb.style.display=cyActive()?'':'none';}catch(e){}
 if($('lock-pin'))$('lock-pin').addEventListener('keydown',function(e){if(e.key==='Enter'||e.keyCode===13)clTryUnlock();});
 var origRefresh=refreshHome;
 refreshHome=function(){
 try{origRefresh();}catch(e){}
 try{sxHome();}catch(e2){}
+try{sxBannerTick();}catch(e3){}
 };
 try{sxHome();}catch(e){}
+try{sxBannerTick();}catch(e){}
+setInterval(function(){try{sxBannerTick();}catch(e){}},60000);
+setTimeout(function(){try{sxAutoBackup();}catch(e){}},5000);
+setTimeout(function(){try{sxIdbRestore();}catch(e){}},700);
+setTimeout(function(){try{sxPersist();}catch(e){}},2600);
 uxApplyA11y();
 try{var q=new URLSearchParams(location.search);if(q.get('widget')==='1')uxWidgetMode(true);}catch(e){}
 var sec=sxObj('clSec');
@@ -7613,6 +9065,7 @@ if(b){b.disabled=true;b.title='برای فعال شدن، CFG.visionUrl را ت�
 }
 if($('fsSetupFab'))$('fsSetupFab').onclick=openFastSetup;
 checkVs();
+try{sxRefJoin();}catch(e){}
 renderHome();
 var onb=store.get('onboardDone',false),skipped=false;
 try{skipped=!!sessionStorage.getItem('fs_onb_skip');}catch(e){}
