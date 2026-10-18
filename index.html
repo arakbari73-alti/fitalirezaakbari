@@ -3642,6 +3642,7 @@ else if(id==='walk'){walkRender();}
 else if(id==='league'){lgRender();}
 else if(id==='snack'){snkRender();}
 else if(id==='gal'){galRender();}
+else if(id==='shop'){shopRender();}
 else if(id==='cook'){renderCook();}
 else if(id==='measure'){renderMeasure();}
 else if(id==='watercalc'){if($('wc-w')&&!$('wc-w').value)$('wc-w').value=profileWeight()||'';}
@@ -4332,6 +4333,7 @@ saveMeals(1);renderMealTabs();renderMealSections();refreshHome();
 toast('✅ وعده ثبت شد');
 };
 inn.appendChild(btn);
+try{inn.appendChild(shpCookBtns(r));}catch(e){}
 d.appendChild(inn);
 box.appendChild(d);
 });
@@ -7562,6 +7564,7 @@ try{if(store.get('cyOn',0))tiles.push({ic:'🌸',t:'چرخه و انرژی',d:'�
 try{tiles.push({ic:'🚶',t:'پیاده‌روی زنده',d:'تایمر + کالری لحظه‌ای',go:'walk'});}catch(e){}
 try{tiles.push({ic:'🏆',t:'لیگ ماهانه',d:'رقیب ماه قبلِ خودت شو',go:'league'});}catch(e){}
 try{tiles.push({ic:'🍽',t:'میان‌وعده‌ساز',d:'با کالری باقی‌مانده چی بخورم؟',go:'snack'});}catch(e){}
+try{tiles.push({ic:'🛒',t:'لیست خرید',d:'مواد دستور پخت با یک تپ',go:'shop'});}catch(e){}
 tiles.forEach(function(t){
 var b=el('button','tile');
 b.appendChild(el('div','ic2',t.ic));
@@ -9480,6 +9483,172 @@ if(_galCv){sxdSharePng(_galCv,'fitalirezaakbari-before-after.png');return;}
 galCanvas(s1,s2,!!_galBlur,function(cv){sxdSharePng(cv,'fitalirezaakbari-before-after.png');});
 }
 
+/* ============ فاز ۱۸: SUPER SHOP — لیست خرید هوشمند (متصل به دستور پخت و پلن تغذیه) ============ */
+function shpId(){return Date.now()*1000+Math.floor(Math.random()*999);}
+function shopArr(){return sxArr('shopList');}
+function shopAddIngs(ings){
+ings=ings||[];
+var a=shopArr();var add=0,back=0,dup=0;
+for(var j=0;j<ings.length;j++){
+  var x=String(ings[j]||'').trim();if(!x)continue;
+  var found=null;
+  for(var i=0;i<a.length;i++){if(a[i].n===x){found=a[i];break;}}
+  if(found){if(found.d){found.d=0;back++;}else{dup++;}continue;}
+  a.push({id:shpId(),n:x,q:'',d:0});add++;
+}
+store.set('shopList',a);
+try{markActivity();}catch(e){}
+if(add||back)toast('🛒 '+pd(add)+' قلم اضافه شد'+(back?(' • '+pd(back)+' قلم برگشت'):'')+(dup?(' • '+pd(dup)+' تکراری'):''));
+else if(dup)toast('این '+pd(dup)+' قلم قبلاً در لیست بود');
+else toast('چیزی برای افزودن نبود');
+shopRender();
+}
+function shopImportNu(){
+var nu=store.get('nuShop',[]);
+if(!nu||!nu.length){toast('اول در «تغذیه» دکمه‌ی ساخت لیست خرید پلن را بزن');return;}
+var a=shopArr();var add=0,dup=0;
+nu.forEach(function(p){
+var n=String(p&&p[0]||'').trim();if(!n)return;
+var q='×'+pd(p[1]||1);
+var found=null;for(var i=0;i<a.length;i++){if(a[i].n===n){found=a[i];break;}}
+if(found){if(found.d)found.d=0;else dup++;return;}
+a.push({id:shpId(),n:n,q:q,d:0});add++;
+});
+store.set('shopList',a);
+toast('🧺 '+pd(add)+' قلم از پلن تغذیه اضافه شد'+(dup?(' • '+pd(dup)+' تکراری'):''));
+shopRender();
+}
+function shopAddManual(){
+var ni=$('shp-n'),qi=$('shp-q');
+var n=ni?String(ni.value||'').trim():'';
+var q=qi?String(qi.value||'').trim():'';
+if(!n){toast('اسم قلم را بنویس');return;}
+var a=shopArr();
+for(var i=0;i<a.length;i++){
+if(a[i].n===n){
+if(a[i].d){a[i].d=0;store.set('shopList',a);toast('🛒 دوباره به لیست برگشت');}
+else toast('این قلم قبلاً در لیسته');
+if(ni)ni.value='';if(qi)qi.value='';
+shopRender();return;
+}
+}
+a.push({id:shpId(),n:n,q:q,d:0});
+store.set('shopList',a);
+try{markActivity();}catch(e){}
+if(ni)ni.value='';if(qi)qi.value='';
+toast('🛒 اضافه شد');
+shopRender();
+}
+function shopToggle(id){
+var a=shopArr();
+for(var i=0;i<a.length;i++){if(a[i].id===id){a[i].d=a[i].d?0:1;break;}}
+store.set('shopList',a);
+shopRender();
+}
+function shopDel(id){
+var a=shopArr().filter(function(x){return x.id!==id;});
+store.set('shopList',a);
+shopRender();
+}
+function shopClearDone(){
+var a=shopArr();var n=0;
+a.forEach(function(x){if(x.d)n++;});
+if(!n){toast('تیک‌خورده‌ای نیست');return;}
+store.set('shopList',a.filter(function(x){return !x.d;}));
+toast('🧹 '+pd(n)+' قلم پاک شد');
+shopRender();
+}
+function shopClearAll(){
+if(!confirm('همه‌ی لیست خرید پاک شود؟'))return;
+store.set('shopList',[]);
+toast('لیست خالی شد');
+shopRender();
+}
+function shopRender(){
+var box=$('shp-list');if(!box)return;
+box.innerHTML='';
+var a=shopArr();
+var badge=$('shp-badge');
+var pend=0;a.forEach(function(x){if(!x.d)pend++;});
+if(badge)badge.textContent=a.length?(pend?('مانده: '+pd(pend)+' قلم'):'همه تیک خورد ✅'):'خالی';
+if(!a.length){
+box.appendChild(el('div','csub','لیست خالیه — از «🍳 دستور پخت» مواد هر دستور را با یک تپ اینجا بریز، یا از فرم پایین قلم بنویس.'));
+}else{
+var sorted=a.slice().sort(function(x,y){return (x.d?1:0)-(y.d?1:0);});
+sorted.forEach(function(x){
+var row=el('div');row.style.cssText='display:flex;align-items:center;gap:8px;margin-bottom:6px';
+var b=el('button','nb',(x.d?'✅ ':'⬜ ')+x.n+(x.q?(' — '+x.q):''));
+b.style.flex='1';
+if(x.d){b.style.opacity='.55';b.style.textDecoration='line-through';}
+b.onclick=function(){shopToggle(x.id);};
+var dl=el('button','nb','🗑');
+dl.style.width='auto';
+dl.onclick=function(){shopDel(x.id);};
+row.appendChild(b);row.appendChild(dl);
+box.appendChild(row);
+});
+}
+var acts=$('shp-acts');if(acts){
+acts.innerHTML='';
+var row2=el('div');row2.style.cssText='display:flex;gap:6px;flex-wrap:wrap';
+var hasDone=false;a.forEach(function(x){if(x.d)hasDone=true;});
+if(hasDone){
+var c1=el('button','cta gh sm','🧹 پاک‌کردن تیک‌خورده‌ها');c1.style.width='auto';
+c1.onclick=shopClearDone;row2.appendChild(c1);
+}
+var nu=store.get('nuShop',[]);
+if(nu&&nu.length){
+var c0=el('button','cta gh sm','🧺 از پلن تغذیه');c0.style.width='auto';
+c0.onclick=shopImportNu;row2.appendChild(c0);
+}
+if(a.length){
+var c2=el('button','cta gh sm','📋 کپی لیست');c2.style.width='auto';
+c2.onclick=function(){
+var t='';a.forEach(function(x){if(!x.d)t+='- '+x.n+(x.q?(' — '+x.q):'')+'\n';});
+if(!t){toast('چیزی برای کپی نیست');return;}
+copyText('🛒 لیست خرید\n'+t);
+toast('📋 کپی شد');
+};
+row2.appendChild(c2);
+var c3=el('button','cta gh sm','🗑 پاک‌کردن همه');c3.style.width='auto';
+c3.onclick=shopClearAll;row2.appendChild(c3);
+}
+acts.appendChild(row2);
+}
+}
+function shpCookBtns(r){
+var row=el('div');row.style.cssText='display:flex;gap:6px;flex-wrap:wrap;margin:6px 0';
+var b=el('button','cta gh sm','🛒 افزودن مواد به لیست');
+b.style.cssText='width:auto;font-size:.72rem';
+b.onclick=function(){shopAddIngs(r.ings);};
+row.appendChild(b);
+var c=el('button','cta gh sm','📋 کپی مواد');
+c.style.cssText='width:auto;font-size:.72rem';
+c.onclick=function(){copyText(r.n+'\n- '+r.ings.join('\n- '));toast('📋 مواد کپی شد');};
+row.appendChild(c);
+return row;
+}
+function shpInit(){
+if(window._shpOn)return;window._shpOn=1;
+try{
+sxdPane('shop',
+'<div class="card"><div class="ch"><span>🛒 لیست خرید</span><span class="bs" id="shp-badge"></span></div>'+
+'<div class="csub" style="margin-bottom:8px">قلم‌ها را تیک بزن. از «🍳 دستور پخت» مواد هر دستور را با یک تپ همین‌جا بریز؛ عکس‌ها و داده‌ها فقط روی همین گوشی می‌مانند.</div>'+
+'<div id="shp-list"></div>'+
+'<div class="r2" style="margin-top:10px">'+
+'<div><label class="fl2" for="shp-n">قلم جدید</label><input id="shp-n" class="fc" placeholder="مثلاً ماست یونانی"></div>'+
+'<div><label class="fl2" for="shp-q">مقدار (اختیاری)</label><input id="shp-q" class="fc" placeholder="مثلاً ۲ عدد"></div>'+
+'</div>'+
+'<button class="cta sm" id="shp-add" style="margin-top:8px">➕ افزودن به لیست</button>'+
+'<div id="shp-acts" style="margin-top:8px"></div></div>');
+sxdNav('cook','🛒','لیست خرید','shop');
+sxdLink('p-cook','🛒 لیست خرید','مواد هر دستور پخت را با یک تپ به لیست خرید اضافه کن.','shop');
+var b=$('shp-add');if(b)b.onclick=shopAddManual;
+if($('shp-n'))$('shp-n').onkeydown=function(e){if(e&&(e.key==='Enter'||e.keyCode===13))shopAddManual();};
+shopRender();
+}catch(e){}
+}
+
 function sxAutoBackup(){
 try{
 var last=store.get('lastAutoBackup',0)||0;
@@ -9701,7 +9870,7 @@ try{skipped=!!sessionStorage.getItem('fs_onb_skip');}catch(e){}
 if(!profile()&&!onb&&!skipped)setTimeout(startOnboard,600);
 setInterval(remindTick,30000);
 try{if(!fsState.end)fsInit();}catch(e){}
-try{superInit();}catch(e){}try{sxdInit();}catch(e){}
+try{superInit();}catch(e){}try{sxdInit();}catch(e){}try{shpInit();}catch(e){}
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
 else init();
