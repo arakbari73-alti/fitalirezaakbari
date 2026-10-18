@@ -3637,6 +3637,11 @@ else if(id==='insta'){renderInsta();}
 else if(id==='challenges'){renderChallenges();}
 else if(id==='motiv'){mvRenderAll();}
 else if(id==='cyc'){cyRender();}
+else if(id==='sup'){supRender();}
+else if(id==='walk'){walkRender();}
+else if(id==='league'){lgRender();}
+else if(id==='snack'){snkRender();}
+else if(id==='gal'){galRender();}
 else if(id==='cook'){renderCook();}
 else if(id==='measure'){renderMeasure();}
 else if(id==='watercalc'){if($('wc-w')&&!$('wc-w').value)$('wc-w').value=profileWeight()||'';}
@@ -7554,6 +7559,9 @@ var tiles=[
 {ic:'👥',t:'دوستان و رتبه‌بندی',d:'کد دوستی بساز و رقابت کن',go:'social'}
 ];
 try{if(store.get('cyOn',0))tiles.push({ic:'🌸',t:'چرخه و انرژی',d:'فاز امروز + توصیه‌ی فست، آب، تمرین و خواب',go:'cyc'});}catch(e){}
+try{tiles.push({ic:'🚶',t:'پیاده‌روی زنده',d:'تایمر + کالری لحظه‌ای',go:'walk'});}catch(e){}
+try{tiles.push({ic:'🏆',t:'لیگ ماهانه',d:'رقیب ماه قبلِ خودت شو',go:'league'});}catch(e){}
+try{tiles.push({ic:'🍽',t:'میان‌وعده‌ساز',d:'با کالری باقی‌مانده چی بخورم؟',go:'snack'});}catch(e){}
 tiles.forEach(function(t){
 var b=el('button','tile');
 b.appendChild(el('div','ic2',t.ic));
@@ -7672,6 +7680,7 @@ if(remc>0&&remc<tgt*0.35)msg='🍽️ فقط '+pd(Math.round(remc))+' کالری
 }
 }
 if(!msg&&store.get('cyOn',0)){var _cym=cyBannerMsg();if(_cym){msg=_cym;_sxbT='cy';}}
+if(!msg){var _spm=supDueMsg();if(_spm){msg=_spm;_sxbT='sup';}}
 if(!msg){var _bkm=sxBkRemindMsg();if(_bkm){msg=_bkm;_sxbT='bk';}}
 if(!msg){box.style.display='none';try{document.body.classList.remove('sx-b-on');}catch(e){}return;}
 box.style.display='flex';
@@ -8851,6 +8860,626 @@ box.appendChild(r);
 box.appendChild(el('div','csub','فاز چرخه + توصیه‌ی فستینگ، آب، تمرین و خواب هر فاز + پیش‌بینی دوره‌های بعد (تقریبی) + علائم روزانه. داده فقط در همین دستگاه، با قفل PIN'));
 }catch(e){}
 }
+/* ============ فاز ۱۷: SUPER DAILY — مکمل، پیاده‌روی زنده، لیگ ماهانه، میان‌وعده‌ساز، گالری پیشرفت ============ */
+
+/* ---------- ۱۷.۰ ساخت پنل‌ها، دکمه‌های کشو و اتصال‌ها ---------- */
+function sxdNav(afterNav,ic,t,id){
+var dr=$('dr');if(!dr)return;
+var ref=dr.querySelector('.nb[data-nav="'+afterNav+'"]');if(!ref)return;
+var b=el('button','nb');
+b.setAttribute('data-nav',id);
+b.textContent=ic+' '+t;
+ref.parentNode.insertBefore(b,ref.nextSibling);
+}
+function sxdPane(id,html){
+if($('p-'+id))return;
+var host=$('p-cyc');if(!host||!host.parentNode)return;
+var s=document.createElement('section');
+s.id='p-'+id;s.className='pane';
+s.innerHTML=html;
+host.parentNode.appendChild(s);
+}
+function sxdLink(paneId,label,desc,go){
+var pane=$(paneId);if(!pane)return;
+var card=el('div','card');
+var ch=el('div','ch');
+var b=el('button','cta gh sm',label);
+b.setAttribute('data-nav',go);b.style.width='auto';
+ch.appendChild(b);card.appendChild(ch);
+if(desc)card.appendChild(el('div','csub',desc));
+pane.appendChild(card);
+}
+function sxdDate(v){
+try{
+var d=(typeof v==='number')?new Date(v):new Date(String(v)+'T00:00:00');
+var jp=jalaliParts(d);
+if(jp)return pd(jp.d)+' '+FA_MONTHS[jp.m-1];
+}catch(e){}
+return '';
+}
+function sxdSharePng(cv,name){
+if(!cv||!cv.toBlob){toast('مرورگر از این کارت پشتیبانی نمی‌کند');return;}
+cv.toBlob(function(blob){
+if(!blob){toast('خطا در ساخت تصویر');return;}
+var file=null;
+try{file=new File([blob],name,{type:'image/png'});}catch(e){}
+if(file&&navigator.canShare&&navigator.canShare({files:[file]})){navigator.share({files:[file],title:'fitalirezaakbari'}).catch(function(){});return;}
+try{
+var url=URL.createObjectURL(blob);
+var a=document.createElement('a');a.href=url;a.download=name;
+document.body.appendChild(a);a.click();document.body.removeChild(a);
+setTimeout(function(){URL.revokeObjectURL(url);},2000);
+}catch(e){toast('ذخیره نشد');}
+},'image/png');
+}
+function sxdInit(){
+if(window._sxdOn)return;window._sxdOn=1;
+try{
+sxdPane('sup',
+'<div class="card"><div class="ch"><span>💊 مکمل و دارو</span><span class="bs" id="sup-badge"></span></div>'+
+'<div class="csub" style="margin-bottom:8px">هر روز مصرف را تیک بزن؛ استریک می‌سازی و امتیاز می‌گیری. یادآور به‌صورت پیام بالای اپ نشان داده می‌شود.</div>'+
+'<div id="sup-list"></div>'+
+'<div class="r2" style="margin-top:10px">'+
+'<div><label class="fl2" for="sup-name">نام مکمل یا دارو</label><input id="sup-name" class="fc" placeholder="مثلاً ویتامین D"></div>'+
+'<div><label class="fl2" for="sup-time">ساعت یادآور (اختیاری)</label><input id="sup-time" type="time" class="fc"></div>'+
+'</div>'+
+'<button class="cta sm" id="sup-add" style="margin-top:8px">➕ افزودن به لیست</button></div>'+
+'<div class="card"><div class="ch"><span>ℹ️ نکته‌های مصرف (عمومی)</span></div><div id="sup-tips"></div>'+
+'<div class="csub" style="margin-top:6px">عمومی‌اند؛ جای مشورت با پزشک یا داروساز را نمی‌گیرند.</div></div>');
+sxdPane('walk',
+'<div class="card"><div class="ch"><span>🚶 پیاده‌روی زنده</span><span class="bs" id="walk-badge"></span></div><div id="walk-box"></div></div>'+
+'<div class="card"><div class="ch"><span>🕓 پیاده‌روی‌های اخیر</span></div><div id="walk-hist"></div></div>');
+sxdPane('league',
+'<div class="card"><div class="ch"><span>🏆 لیگ شخصی ماهانه</span><button class="cta gh sm" id="lg-share" style="width:auto">🖼️ کارت</button></div><div id="lg-box"></div></div>'+
+'<div class="card"><div class="ch"><span>📏 امتیازها چطور حساب می‌شوند؟</span></div><div class="csub">روز ثبت‌شده ۵ • فست کامل ۱۰ • روز آب کافی ۲ • روز ورزش ۳ • روز خواب ۱. مقایسه با ماه قبل تا «همین امروزِ ماه» انجام می‌شود تا منصفانه باشد.</div></div>');
+sxdPane('snack',
+'<div class="card"><div class="ch"><span>🍽 میان‌وعده‌ساز هوشمند</span><span class="bs" id="snk-badge"></span></div><div id="snk-box"></div><div id="snk-out" style="margin-top:10px"></div></div>'+
+'<div class="card"><div class="ch"><span>📖 راهنما</span></div><div class="csub">بر اساس کالری باقی‌مانده‌ی امروز از «دفترچه‌ی خوراک» پیشنهاد می‌دهد. نشان 🍬 یعنی قند پنهان نسبت‌اً بالا — برای وقتی که باقی‌مانده کم است احتیاط کن.</div></div>');
+sxdPane('gal',
+'<div class="card"><div class="ch"><span>📸 گالری پیشرفت (قبل/بعد)</span><button class="cta gh sm" id="gal-add" style="width:auto">➕ افزودن عکس</button></div>'+
+'<input type="file" id="gal-file" accept="image/*" style="display:none">'+
+'<div class="csub" style="margin-bottom:8px">روی دو عکس بزن تا کنار هم مقایسه شوند. عکس‌ها فقط روی همین گوشی می‌مانند و در «بیومتریک» هم دیده می‌شوند.</div>'+
+'<div id="gal-box"></div><div id="gal-cmp"></div></div>');
+sxdNav('cyc','📸','گالری پیشرفت','gal');
+sxdNav('cyc','💊','مکمل و دارو','sup');
+sxdNav('cyc','🚶','پیاده‌روی زنده','walk');
+sxdNav('motiv','🏆','لیگ ماهانه','league');
+sxdNav('nutri','🍽','میان‌وعده‌ساز','snack');
+sxdLink('p-nutri','🍽 میان‌وعده‌ساز','با کالری باقی‌مانده‌ی امروز چی بخورم؟','snack');
+sxdLink('p-bio','📸 گالری پیشرفت (قبل/بعد)','','gal');
+sxdLink('p-exercise','🚶 پیاده‌روی زنده','تایمر + کالری لحظه‌ای، ثبت خودکار در تاریخچه‌ی ورزش','walk');
+var btn=function(id,fn){var b=$(id);if(b)b.onclick=fn;};
+btn('sup-add',supAdd);
+btn('lg-share',lgShare);
+btn('gal-add',function(){var f=$('gal-file');if(f)f.click();});
+if($('gal-file'))$('gal-file').onchange=function(e){if(e.target.files&&e.target.files[0])galAdd(e.target.files[0]);};
+setInterval(sxdTick,1000);
+}catch(e){}
+}
+
+/* ---------- ۱۷.۱ مکمل و دارو ---------- */
+var SUP_TIPS=[
+'آهن: با معده‌ی خالی جذب بهتر است؛ اگر حالت بد می‌شود همراه غذا بخور. چای و قهوه را تا یک ساعت فاصله بده.',
+'کلسیم و آهن را همزمان نخور؛ حداقل ۲ ساعت فاصله بده.',
+'ویتامین D چربی‌دوست است؛ همراه وعده‌ای که چربی دارد بهتر جذب می‌شود.',
+'منیزیم معمولاً شب‌ها و قبل از خواب راحت‌تر تحمل می‌شود.',
+'اگر داروی خاص یا بیماری زمینه‌ای داری، این لیست را به پزشک یا داروساز نشان بده.'
+];
+function supRender(){
+var box=$('sup-list');if(!box)return;box.innerHTML='';
+var arr=sxArr('supList');var L=sxObj('supLog');var td=today();
+var done=0;
+arr.forEach(function(it){if(L[td]&&L[td][it.id])done++;});
+var badge=$('sup-badge');
+if(badge)badge.textContent=arr.length?('امروز: '+pd(done)+'/'+pd(arr.length)+' • استریک: '+pd(supStreak())+' روز'):'';
+if(!arr.length)box.appendChild(el('div','csub','هنوز مکملی اضافه نکرده‌ای — از فرم پایین شروع کن.'));
+arr.forEach(function(it){
+var on=!!(L[td]&&L[td][it.id]);
+var row=el('div');row.style.cssText='display:flex;align-items:center;gap:8px;margin-bottom:6px';
+var b=el('button','nb',(on?'✅ ':'⬜ ')+it.n+(it.t?' — '+pd(it.t):''));
+b.style.flex='1';
+b.onclick=function(){supToggle(it.id);};
+var d=el('button','nb','🗑');
+d.style.width='auto';
+d.onclick=function(){supDel(it.id);};
+row.appendChild(b);row.appendChild(d);box.appendChild(row);
+});
+var tips=$('sup-tips');
+if(tips&&!tips.getAttribute('data-done')){
+tips.setAttribute('data-done','1');
+SUP_TIPS.forEach(function(t){tips.appendChild(el('div','csub','• '+t));});
+}
+}
+function supToggle(id){
+var L=sxObj('supLog');var td=today();if(!L[td])L[td]={};
+if(L[td][id])delete L[td][id];else{L[td][id]=1;try{mvAddPoints(1);}catch(e){}}
+if(!Object.keys(L[td]).length)delete L[td];
+store.set('supLog',L);
+var arr=sxArr('supList');var all=arr.length>0;
+for(var i=0;i<arr.length;i++){if(!(L[td]&&L[td][arr[i].id])){all=false;break;}}
+var meta=sxObj('supMeta');
+if(all&&meta['a'+td]!==1){
+meta['a'+td]=1;store.set('supMeta',meta);
+try{mvAddPoints(2);toast('💊 عالی! همه‌ی مکمل‌های امروز کامل شد (+۲ امتیاز)');}catch(e){}
+}
+try{markActivity();}catch(e){}
+supRender();
+}
+function supAdd(){
+var n=$('sup-name')?String($('sup-name').value||'').trim():'';
+var t=$('sup-time')?String($('sup-time').value||''):'';
+if(!n){toast('نام مکمل را بنویس');return;}
+var arr=sxArr('supList');
+arr.push({id:Date.now(),n:n,t:t});
+store.set('supList',arr);
+if($('sup-name'))$('sup-name').value='';
+if($('sup-time'))$('sup-time').value='';
+toast('💊 اضافه شد');
+supRender();
+}
+function supDel(id){
+if(!confirm('این مکمل از لیست حذف شود؟ (سابقه‌ی تیک‌ها می‌ماند)'))return;
+var arr=sxArr('supList').filter(function(it){return it.id!==id;});
+store.set('supList',arr);
+supRender();
+}
+function supStreak(){
+var arr=sxArr('supList');if(!arr.length)return 0;
+var L=sxObj('supLog');var n=0;var d=new Date();
+for(var i=0;i<400;i++){
+var key=ymd(d);var all=true;
+for(var j=0;j<arr.length;j++){if(!(L[key]&&L[key][arr[j].id])){all=false;break;}}
+if(all)n++;else if(i>0)break;
+d.setDate(d.getDate()-1);
+}
+return n;
+}
+function supDueMsg(){
+var arr=sxArr('supList');if(!arr.length)return'';
+var L=sxObj('supLog');var td=today();
+var now=new Date();
+var hm=('0'+now.getHours()).slice(-2)+':'+('0'+now.getMinutes()).slice(-2);
+var meta=sxObj('supMeta');
+for(var i=0;i<arr.length;i++){
+var it=arr[i];if(!it.t)continue;
+if(L[td]&&L[td][it.id])continue;
+if(hm>=it.t&&meta['t'+td+'-'+it.id]!==1){
+meta['t'+td+'-'+it.id]=1;store.set('supMeta',meta);
+return '💊 وقت «'+it.n+'» است (ساعت '+pd(it.t)+'). بعد از مصرف تیکش بزن.';
+}
+}
+return '';
+}
+
+/* ---------- ۱۷.۲ پیاده‌روی زنده ---------- */
+function walkS(){return sxObj('walkS');}
+function walkSecs(){var s=walkS();return s.on?Math.max(0,Math.floor((Date.now()-s.st)/1000)):0;}
+function walkKcal(min){var w=profileWeight()||70;return Math.round(min*w*0.052);}
+function walkStart(){
+var s=walkS();
+if(s.on){toast('پیاده‌روی در حال ثبت است');return;}
+storeSetNow('walkS',{on:1,st:Date.now()});
+try{markActivity();}catch(e){}
+walkRender();
+toast('🚶 شروع شد — بزن بریم!');
+}
+function walkStop(save){
+var s=walkS();if(!s.on)return;
+var sec=Math.max(30,Math.floor((Date.now()-s.st)/1000));
+var min=Math.max(1,Math.round(sec/60));
+var kc=walkKcal(min);
+storeSetNow('walkS',{on:0,last:Date.now(),lastK:kc,lastMin:min});
+if(save===false){toast('لغو شد — چیزی ثبت نشد');walkRender();return;}
+var all=sxObj('exlog');var k=today();if(!all[k])all[k]=[];
+all[k].push({t:min,l:3.0,k:kc,n:'🚶 پیاده‌روی'});
+store.set('exlog',all);
+try{if(min>=10)mvAddPoints(1);}catch(e){}
+try{markDay();markActivity();}catch(e){}
+toast('🚶 ذخیره شد: '+pd(min)+' دقیقه • ≈'+pd(kc)+' کیلوکالری');
+walkRender();
+}
+function walkRender(){
+var box=$('walk-box');if(!box)return;box.innerHTML='';
+var s=walkS();var badge=$('walk-badge');
+if(s.on){
+var sec=walkSecs();
+var t=el('div',null,pd(pad2(Math.floor(sec/3600))+':'+pad2(Math.floor(sec%3600/60))+':'+pad2(sec%60)));
+t.id='walk-timer';
+t.style.cssText='font-size:2.1rem;font-weight:900;text-align:center;letter-spacing:3px';
+box.appendChild(t);
+var k=el('div','csub','کالری تقریبی: ≈'+pd(walkKcal(sec/60))+' • گام تقریبی: ≈'+pd(Math.round(sec/60*105)));
+k.style.textAlign='center';k.id='walk-live';
+box.appendChild(k);
+var row=el('div');row.style.cssText='display:flex;gap:8px;margin-top:10px';
+var st=el('button','cta','⏹ توقف و ذخیره');st.id='walk-stop';st.style.flex='1';
+st.onclick=function(){walkStop(true);};
+var cx=el('button','cta gh','✖️ لغو');cx.id='walk-cancel';cx.style.width='auto';
+cx.onclick=function(){walkStop(false);};
+row.appendChild(st);row.appendChild(cx);box.appendChild(row);
+if(badge)badge.textContent='⏱ در حال پیاده‌روی…';
+}else{
+box.appendChild(el('div','csub','کرنومتر را روشن کن؛ کالری از روی وزن و زمان (تقریبی) حساب می‌شود و بعد از توقف، خودکار در تاریخچه‌ی ورزش ثبت می‌شود.'));
+var st2=el('button','cta','▶️ شروع پیاده‌روی');st2.id='walk-start';st2.style.marginTop='8px';
+st2.onclick=walkStart;
+box.appendChild(st2);
+if(badge)badge.textContent=(s.lastK?('آخرین: '+pd(s.lastMin||0)+' دقیقه • ≈'+pd(s.lastK)+' کالری'):'');
+}
+var hist=$('walk-hist');
+if(hist){
+hist.innerHTML='';
+var all=sxObj('exlog');var keys=Object.keys(all).sort().reverse();var cnt=0;
+keys.forEach(function(k){
+var es=all[k]||[];var mins=0,kc=0;
+es.forEach(function(e){if(e&&e.n&&e.n.indexOf('🚶')>=0){mins+=e.t||0;kc+=e.k||0;}});
+if(!mins||cnt>=7)return;cnt++;
+var r=el('div','csub',sxdDate(k)+' — '+pd(mins)+' دقیقه • ≈'+pd(kc)+' کالری');
+hist.appendChild(r);
+});
+if(!cnt)hist.appendChild(el('div','csub','هنوز پیاده‌روی ثبت‌شده‌ای نیست.'));
+}
+}
+function sxdTick(){
+var s=walkS();if(!s.on)return;
+var sec=walkSecs();
+var t=$('walk-timer');
+if(t)t.textContent=pd(pad2(Math.floor(sec/3600))+':'+pad2(Math.floor(sec%3600/60))+':'+pad2(sec%60));
+var lv=$('walk-live');
+if(lv)lv.textContent='کالری تقریبی: ≈'+pd(walkKcal(sec/60))+' • گام تقریبی: ≈'+pd(Math.round(sec/60*105));
+}
+
+/* ---------- ۱۷.۳ لیگ شخصی ماهانه ---------- */
+function lgDaysCur(){
+var now=new Date();var jn=jalaliParts(now);var out=[];
+for(var i=0;i<40;i++){
+var d=new Date(now.getTime());d.setDate(d.getDate()-i);
+var jp=jalaliParts(d);
+if(jp&&jn&&jp.y===jn.y&&jp.m===jn.m)out.push(ymd(d));else break;
+}
+return out.reverse();
+}
+function lgDaysPrev(n){
+var now=new Date();var jn=jalaliParts(now);
+if(!jn)return [];
+var d=new Date(now.getTime());var g=0;
+while(g++<40){var jp=jalaliParts(d);if(jp&&jp.y===jn.y&&jp.m===jn.m)d.setDate(d.getDate()-1);else break;}
+var jp2=jalaliParts(d);if(!jp2)return [];
+var e=new Date(d.getTime());var g2=0;
+while(g2++<40){var t2=new Date(e.getTime());t2.setDate(t2.getDate()-1);var jt=jalaliParts(t2);if(jt&&jt.y===jp2.y&&jt.m===jp2.m)e=t2;else break;}
+var out=[];
+for(var i=0;i<n;i++){
+var dd=new Date(e.getTime());dd.setDate(dd.getDate()+i);
+var jd=jalaliParts(dd);
+if(jd&&jd.y===jp2.y&&jd.m===jp2.m)out.push(ymd(dd));else break;
+}
+return out;
+}
+function lgScore(keys){
+var hist=sxObj('logHistory'),cups=sxObj('cupHist'),ex=sxObj('exlog'),slp=sxObj('sleep');
+var fs=store.get('fsHistory',[]);if(!Array.isArray(fs))fs=[];
+var r={active:0,fasts:0,water:0,exd:0,sld:0};
+keys.forEach(function(k){
+var h=hist[k];if(h&&h.total>0)r.active++;
+if((cups[k]||0)>=8)r.water++;
+if(ex[k]&&ex[k].length)r.exd++;
+if(slp[k])r.sld++;
+});
+fs.forEach(function(f){if(f&&f.ok&&keys.indexOf(f.d)>=0)r.fasts++;});
+r.score=r.active*5+r.fasts*10+r.water*2+r.exd*3+r.sld;
+return r;
+}
+function lgRender(){
+var box=$('lg-box');if(!box)return;box.innerHTML='';
+var cur=lgDaysCur();var n=cur.length;var prv=lgDaysPrev(n);
+var a=lgScore(cur),b=lgScore(prv);
+var now=new Date();var jn=jalaliParts(now);
+var mName=jn?(FA_MONTHS[jn.m-1]+' '+pd(jn.y)):'';
+box.appendChild(el('div','csub','ماه '+mName+' — تا امروز ('+pd(n)+' روز) در برابر همین بازه‌ی ماه قبل:'));
+var max=Math.max(a.score,b.score,1);
+var mkBar=function(lab,val,isCur){
+var w=el('div');w.style.margin='8px 0';
+w.appendChild(el('div','csub',lab+' — '+pd(val)+' امتیاز'));
+var track=el('div');track.style.cssText='height:14px;border-radius:8px;background:var(--elev);border:1px solid var(--bd);overflow:hidden';
+var fill=el('div');
+fill.style.cssText='height:100%;width:'+Math.round(val/max*100)+'%;background:'+(isCur?'linear-gradient(90deg,var(--em),var(--em2))':'#5f7391');
+track.appendChild(fill);
+w.appendChild(track);
+return w;
+};
+box.appendChild(mkBar('🙋 این ماه (تا امروز)',a.score,true));
+box.appendChild(mkBar('📅 ماه قبل (همین بازه)',b.score,false));
+var msg;
+if(!n){msg='از فردا که چند روز ثبت شود، لیگ فعال می‌شود.';}
+else if(a.score>b.score)msg='🏆 جلوتری! با همین ریتم ادامه بده.';
+else if(a.score===b.score)msg='🤝 مساوی — یک قدم تا جلو زدن.';
+else msg='🚀 '+pd(b.score-a.score)+' امتیاز عقبی — با چند روز ثبت کامل جبران می‌شود.';
+var m=el('div','csub',msg);m.style.fontWeight='800';m.style.marginTop='6px';
+box.appendChild(m);
+var rows=[['روز فعال',a.active,b.active],['فست کامل',a.fasts,b.fasts],['روز ورزش',a.exd,b.exd],['آب کافی',a.water,b.water],['خواب ثبت‌شده',a.sld,b.sld]];
+var tb=el('div');tb.style.marginTop='8px';
+rows.forEach(function(r){
+tb.appendChild(el('div','csub',r[0]+': '+pd(r[1])+(r[1]>r[2]?' 🔼':(r[1]<r[2]?' 🔽':' ='))));
+});
+box.appendChild(tb);
+}
+function lgShare(){
+try{
+var cur=lgDaysCur();var n=cur.length;var prv=lgDaysPrev(n);
+var a=lgScore(cur),b=lgScore(prv);
+var now=new Date();var jn=jalaliParts(now);
+var mName=jn?(FA_MONTHS[jn.m-1]+' '+pd(jn.y)):'';
+var W=1080,H=1350;
+var cv=document.createElement('canvas');cv.width=W;cv.height=H;
+var g=cv.getContext('2d');
+var grd=g.createLinearGradient(0,0,0,H);
+grd.addColorStop(0,'#0b1220');grd.addColorStop(1,'#101d33');
+g.fillStyle=grd;g.fillRect(0,0,W,H);
+g.textAlign='center';
+g.fillStyle='#e8eef7';g.font='bold 56px Vazirmatn,Tahoma';
+g.fillText('🏆 لیگ شخصی ماهانه',W/2,150);
+g.fillStyle='#9fb3d1';g.font='34px Vazirmatn,Tahoma';
+g.fillText('ماه '+mName+' • تا امروز',W/2,215);
+var max=Math.max(a.score,b.score,1);
+var em=getCSS('--em'),em2=getCSS('--em2');
+var bar=function(y,val,lab,isCur){
+g.fillStyle='#9fb3d1';g.font='30px Vazirmatn,Tahoma';
+g.fillText(lab,W/2,y-26);
+var bw=800,bx=(W-bw)/2;
+g.fillStyle='rgba(255,255,255,.08)';g.fillRect(bx,y,bw,50);
+if(isCur){var lg=g.createLinearGradient(bx,0,bx+bw,0);lg.addColorStop(0,em);lg.addColorStop(1,em2);g.fillStyle=lg;}
+else g.fillStyle='#5f7391';
+g.fillRect(bx,y,Math.max(18,bw*val/max),50);
+g.fillStyle='#fff';g.font='bold 30px Vazirmatn,Tahoma';
+g.fillText(pd(val)+' امتیاز',W/2,y+92);
+};
+bar(340,a.score,'این ماه (تا امروز)',true);
+bar(560,b.score,'ماه قبل (همین بازه)',false);
+g.fillStyle='#e8eef7';g.font='bold 38px Vazirmatn,Tahoma';
+g.fillText(a.score>b.score?'🏆 جلوترم — با همین ریتم!':(a.score===b.score?'🤝 مساوی — یک قدم تا جلو زدن':'🚀 در تعقیب ماه قبل — جبران می‌کنم'),W/2,840);
+g.fillStyle='#9fb3d1';g.font='30px Vazirmatn,Tahoma';
+g.fillText('روز فعال '+pd(a.active)+' • فست کامل '+pd(a.fasts)+' • ورزش '+pd(a.exd)+' روز',W/2,920);
+g.fillText('آب کافی '+pd(a.water)+' روز • خواب '+pd(a.sld)+' روز',W/2,970);
+g.fillStyle='#e8eef7';g.font='bold 34px Vazirmatn,Tahoma';
+g.fillText('fitalirezaakbari',W/2,1190);
+g.fillStyle='#5f7391';g.font='28px Vazirmatn,Tahoma';
+g.fillText('@'+CFG.igUser,W/2,1245);
+sxdSharePng(cv,'fitalirezaakbari-league.png');
+}catch(e){toast('خطا در ساخت کارت');}
+}
+
+/* ---------- ۱۷.۴ میان‌وعده‌ساز هوشمند ---------- */
+var SNACKS=[
+['🥚 تخم‌مرغ آب‌پز (۲ عدد)',140,12,1,0],
+['🥛 ماست یونانی کم‌چرب (۱۵۰ گرم)',90,15,1,0],
+['🥤 شیک پروتئین (یک اسکوپ با آب)',120,24,1,0],
+['🍗 سینه‌ی مرغ پخته (۸۰ گرم)',130,24,1,0],
+['🧀 پنیر کم‌نمک (۴۰ گرم) + ۲ گردو',160,10,1,0],
+['🧀 پنیر کم‌نمک (۳۰ گرم) + نان سبوس‌دار',150,9,6,0],
+['🥒 ماست و خیار کوچک',85,6,6,0],
+['🥕 هویج خام (۲ عدد)',50,1,6,0],
+['🍎 سیب متوسط',95,0.5,5,0],
+['🍌 موز کوچک',90,1,5,0],
+['🍊 پرتقال متوسط',62,1,5,0],
+['🍓 توت‌فرنگی (یک فنجان)',50,1,5,0],
+['🍇 انگور (یک فنجان)',104,1,5,1],
+['🥜 بادام (۱۲ عدد)',85,3,4,0],
+['🌰 گردو (۴ عدد)',105,2.5,4,0],
+['🥑 آووکادو (نصف)',120,1.5,4,0],
+['🥜 کره‌ی بادام‌زمینی (یک ق.غ)',95,4,4,0],
+['🌽 ذرت بوداده (۳ فنجان، بدون کره)',95,3,3,0],
+['🥨 کراکر سبوس‌دار (۴ عدد)',90,2,3,0],
+['🫒 زیتون (۱۰ عدد) + پنیر',110,4,3,0],
+['🍫 شکلات تلخ ۸۵٪ (۲ مربع)',100,1.5,2,1],
+['🍪 بیسکویت سبوس‌دار (۲ عدد)',110,2,2,1],
+['🍦 بستنی کوچک (یک اسکوپ)',140,2,2,1],
+['🍯 عسل (یک ق.غ) + نان سبوس‌دار',120,2,2,1],
+['🧃 آبمیوه‌ی طبیعی (یک لیوان)',110,1,5,1],
+['🥔 سیب‌زمینی آب‌پز کوچک',90,2,6,0]
+];
+var _snkCap=150,_snkTag=0;
+function snkRemain(){
+var pf=profile();if(!pf||!pf.w)return null;
+var t=quickPlan(pf).target;
+var h=sxObj('logHistory')[today()];
+var e=h&&h.total?h.total:0;
+return Math.max(0,Math.round(t-e));
+}
+function snkChip(lab,active,fn){
+var b=el('button','cta gh sm',lab);
+b.style.cssText='width:auto;margin:0 6px 6px 0;padding:8px 10px;font-size:.75rem'+(active?';background:var(--em);color:#05080f;font-weight:900':'');
+b.onclick=fn;
+return b;
+}
+function snkRender(){
+var box=$('snk-box');if(!box)return;box.innerHTML='';
+var badge=$('snk-badge');
+var rem=snkRemain();
+if(rem===null){
+if(badge)badge.textContent='';
+box.appendChild(el('div','csub','اول در «پروفایل و هدف» اطلاعات بدنی را کامل کن تا کالری باقی‌مانده حساب شود.'));
+var g=el('button','cta sm','⬅️ رفتن به پروفایل');
+g.setAttribute('data-nav','profile');
+box.appendChild(g);
+var o0=$('snk-out');if(o0)o0.innerHTML='';
+return;
+}
+if(badge)badge.textContent='باقی‌مانده‌ی امروز: ≈'+pd(rem)+' کالری';
+var c1=el('div');c1.style.marginBottom='6px';
+c1.appendChild(snkChip('تا ۱۰۰',_snkCap===100,function(){_snkCap=100;snkRender();}));
+c1.appendChild(snkChip('تا ۱۵۰',_snkCap===150,function(){_snkCap=150;snkRender();}));
+c1.appendChild(snkChip('تا ۲۰۰',_snkCap===200,function(){_snkCap=200;snkRender();}));
+c1.appendChild(snkChip('هرچی موند',_snkCap===999,function(){_snkCap=999;snkRender();}));
+box.appendChild(c1);
+var c2=el('div');
+var TAGS=[[0,'همه'],[1,'پروتئینی'],[4,'مغز و چرب'],[5,'میوه'],[6,'لبنی و سبک'],[3,'شور'],[2,'شیرین']];
+TAGS.forEach(function(t){
+c2.appendChild(snkChip(t[1],_snkTag===t[0],(function(v){return function(){_snkTag=v;snkRender();};})(t[0])));
+});
+box.appendChild(c2);
+var go=el('button','cta sm','🍽 پیشنهاد بده');go.id='snk-go';go.style.marginTop='4px';
+go.onclick=snkSuggest;
+box.appendChild(go);
+snkSuggest();
+}
+function snkSuggest(){
+var out=$('snk-out');if(!out)return;out.innerHTML='';
+var rem=snkRemain();if(rem===null)return;
+if(rem<60){out.appendChild(el('div','csub','امروز تقریباً به سقف کالری رسیده‌ای؛ میان‌وعده را بسپار به فردا یا فقط آب/چای بدون قند.'));return;}
+var cap=_snkCap===999?999999:Math.min(_snkCap,Math.max(50,rem));
+var list=SNACKS.filter(function(s){return s[1]<=cap&&(_snkTag===0||s[3]===_snkTag);});
+if(_snkTag===1)list.sort(function(a,b){return b[2]-a[2];});
+else list.sort(function(a,b){return a[1]-b[1];});
+if(rem<200)list.sort(function(a,b){return a[1]-b[1];});
+var pick=list.slice(0,3);
+if(!pick.length){out.appendChild(el('div','csub','در این دسته چیزی زیر سقف انتخابی پیدا نشد — سقف را بالاتر ببر یا دسته را عوض کن.'));return;}
+pick.forEach(function(s){
+var card=el('div');
+card.style.cssText='border:1px solid var(--bd);border-radius:12px;padding:10px;margin-bottom:8px;background:var(--elev)';
+card.appendChild(el('div',null,s[0]+' • ≈'+pd(s[1])+' کالری'+(s[2]?' • پروتئین '+pd(s[2])+' گرم':'')+(s[4]?' • 🍬 قند پنهان':'')));
+var b=el('button','cta gh sm','➕ ثبت در میان‌وعده');b.style.cssText='width:auto;margin-top:8px';
+b.onclick=(function(nm,kc,pr){return function(){
+try{
+if(!meals.snack)meals.snack=[];
+meals.snack.push({n:nm,c:kc,prot:pr||0,carb:0,fat:0});
+saveMeals(1);
+toast('🍽 به میان‌وعده‌ی امروز اضافه شد');
+snkRender();
+}catch(e){toast('خطا در ثبت');}
+};})(s[0],s[1],s[2]);
+card.appendChild(b);
+out.appendChild(card);
+});
+}
+
+/* ---------- ۱۷.۵ گالری پیشرفت ---------- */
+var _galSel=[],_galBlur=0,_galCv=null;
+function galAdd(file){
+if(!file)return;
+var rd=new FileReader();
+rd.onload=function(){
+var img=new Image();
+img.onload=function(){
+var maxW=900;
+var sc=img.width>maxW?maxW/img.width:1;
+var cv=document.createElement('canvas');
+cv.width=Math.round(img.width*sc);
+cv.height=Math.round(img.height*sc);
+cv.getContext('2d').drawImage(img,0,0,cv.width,cv.height);
+var url=cv.toDataURL('image/jpeg',0.75);
+var w0=profileWeight();
+idbPut({id:Date.now(),ts:Date.now(),d:url,w:Math.round(w0*10)/10,n:''},function(ok){
+if(!ok){toast('ذخیره نشد — دوباره امتحان کن');return;}
+try{bioRenderPhotos();}catch(e){}
+toast('📸 عکس اضافه شد');
+galRender();
+});
+};
+img.src=rd.result;
+};
+rd.readAsDataURL(file);
+}
+function galCanvas(a1,a2,blur,cb){
+var W=1000,H=640;
+var cv=document.createElement('canvas');cv.width=W;cv.height=H;
+var g=cv.getContext('2d');
+g.fillStyle='#0b1220';g.fillRect(0,0,W,H);
+var i1=new Image(),i2=new Image();var done=0;
+var fin=function(){
+done++;if(done<2)return;
+var pad=20,hh=H-90,cw=(W-pad*3)/2;
+var draw=function(img,x,y,w,h){
+var sc=Math.max(w/img.width,h/img.height);
+var iw=img.width*sc,ih=img.height*sc;
+var ix=x+(w-iw)/2,iy=y+(h-ih)/2;
+g.save();
+g.beginPath();g.rect(x,y,w,h);g.clip();
+if(blur){try{g.filter='blur(16px)';}catch(e){}}
+g.drawImage(img,ix,iy,iw,ih);
+g.restore();
+try{g.filter='none';}catch(e){}
+};
+draw(i1,pad,30,cw,hh-30);
+draw(i2,W-pad-cw,30,cw,hh-30);
+g.textAlign='center';
+g.fillStyle='#9fb3d1';g.font='26px Vazirmatn,Tahoma';
+g.fillText(sxdDate(a1.ts)+(a1.w?' • '+pd(a1.w)+' کیلو':'')+(a1.n?(' • '+a1.n):''),pad+cw/2,H-34);
+g.fillText(sxdDate(a2.ts)+(a2.w?' • '+pd(a2.w)+' کیلو':'')+(a2.n?(' • '+a2.n):''),W-pad-cw/2,H-34);
+g.fillStyle='#e8eef7';g.font='bold 28px Vazirmatn,Tahoma';
+g.fillText('fitalirezaakbari',W/2,34);
+_galCv=cv;
+if(cb)cb(cv);
+};
+i1.onload=fin;i2.onload=fin;
+i1.src=a1.d;i2.src=a2.d;
+}
+function galRender(){
+var box=$('gal-box');var cmp=$('gal-cmp');
+if(!box)return;
+idbAll(function(arr){
+box.innerHTML='';if(cmp)cmp.innerHTML='';
+_galCv=null;
+if(!arr.length){
+box.appendChild(el('div','csub','هنوز عکسی نیست — با دکمه‌ی «افزودن عکس» اولین تصویر قبل/بعد را ثبت کن. (همین عکس‌ها در «بیومتریک» هم دیده می‌شوند)'));
+return;
+}
+var grid=el('div');
+grid.style.cssText='display:grid;grid-template-columns:repeat(3,1fr);gap:8px';
+var list=arr.slice().reverse();
+list.forEach(function(p){
+var cell=el('div');
+cell.style.cssText='position:relative;border-radius:10px;overflow:hidden;border:2px solid '+(_galSel.indexOf(p.id)>=0?'var(--em)':'var(--bd)')+';cursor:pointer';
+var im=document.createElement('img');
+im.src=p.d;
+im.style.cssText='width:100%;height:96px;object-fit:cover;display:block';
+cell.appendChild(im);
+var cap=el('div',null,sxdDate(p.ts)+(p.w?' • '+pd(p.w)+' کیلو':''));
+cap.style.cssText='font-size:.6rem;text-align:center;padding:3px;color:var(--mut)';
+cell.appendChild(cap);
+cell.onclick=function(){
+var ix=_galSel.indexOf(p.id);
+if(ix>=0)_galSel.splice(ix,1);
+else{if(_galSel.length>=2)_galSel.shift();_galSel.push(p.id);}
+galRender();
+};
+grid.appendChild(cell);
+});
+box.appendChild(grid);
+if(_galSel.length===2&&cmp){
+var s1=null,s2=null;
+arr.forEach(function(p){if(p.id===_galSel[0])s1=p;if(p.id===_galSel[1])s2=p;});
+if(s1&&s2){
+var tools=el('div');
+tools.style.cssText='display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:10px 0';
+var lb=document.createElement('label');
+lb.className='csub';
+lb.style.cssText='display:flex;align-items:center;gap:6px';
+var cb=document.createElement('input');
+cb.type='checkbox';cb.checked=!!_galBlur;
+cb.onchange=function(){_galBlur=cb.checked?1:0;galRender();};
+lb.appendChild(cb);
+lb.appendChild(document.createTextNode('محو کردن (برای اشتراک)'));
+tools.appendChild(lb);
+var sh=el('button','cta gh sm','🖼️ اشتراک مقایسه');
+sh.style.width='auto';
+sh.onclick=function(){galShare(s1,s2);};
+tools.appendChild(sh);
+var cl=el('button','cta gh sm','✖️ لغو انتخاب');
+cl.style.width='auto';
+cl.onclick=function(){_galSel=[];galRender();};
+tools.appendChild(cl);
+cmp.appendChild(tools);
+galCanvas(s1,s2,!!_galBlur,function(cv){
+cv.style.cssText='width:100%;border-radius:12px;border:1px solid var(--bd)';
+cmp.appendChild(cv);
+});
+}
+}
+});
+}
+function galShare(s1,s2){
+if(_galCv){sxdSharePng(_galCv,'fitalirezaakbari-before-after.png');return;}
+galCanvas(s1,s2,!!_galBlur,function(cv){sxdSharePng(cv,'fitalirezaakbari-before-after.png');});
+}
+
 function sxAutoBackup(){
 try{
 var last=store.get('lastAutoBackup',0)||0;
@@ -9072,7 +9701,7 @@ try{skipped=!!sessionStorage.getItem('fs_onb_skip');}catch(e){}
 if(!profile()&&!onb&&!skipped)setTimeout(startOnboard,600);
 setInterval(remindTick,30000);
 try{if(!fsState.end)fsInit();}catch(e){}
-try{superInit();}catch(e){}
+try{superInit();}catch(e){}try{sxdInit();}catch(e){}
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
 else init();
