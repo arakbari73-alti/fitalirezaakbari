@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl" data-theme="dark" data-accent="emerald">
+<html lang="fa" dir="rtl" data-theme="light" data-accent="emerald">
 <head>
 <meta charset="UTF-8">
 <meta name="theme-color" content="#10b981" id="meta-tc">
@@ -14,8 +14,7 @@
 <title>fitalirezaakbari | کالری‌شمار و فستینگ</title>
 <style>
 @font-face{font-family:Vazirmatn;src:url(fonts/Vazirmatn.woff2) format('woff2');font-weight:100 900;font-display:swap}
-:root{--bg:#05080f;--card:#0f172a;--elev:#1e293b;--em:#10b981;--em2:#0d9488;--glow:rgba(16,185,129,.25);--gold:#fbbf24;--txt:#f8fafc;--mut:#94a3b8;--bd:rgba(255,255,255,.08);--warn:#f97316;--blue:#0ea5e9;--violet:#8b5cf6}
-[data-theme=light]{--bg:#f8fafc;--card:#fff;--elev:#f1f5f9;--txt:#0f172a;--mut:#64748b;--bd:rgba(15,23,42,.1)}
+:root{--bg:#f8fafc;--card:#fff;--elev:#f1f5f9;--em:#10b981;--em2:#0d9488;--glow:rgba(16,185,129,.25);--gold:#fbbf24;--txt:#0f172a;--mut:#64748b;--bd:rgba(15,23,42,.1);--warn:#f97316;--blue:#0ea5e9;--violet:#8b5cf6}
 [data-accent=ocean]{--em:#0ea5e9;--em2:#0284c7;--glow:rgba(14,165,233,.3)}
 [data-accent=violet]{--em:#8b5cf6;--em2:#7c3aed;--glow:rgba(139,92,246,.3)}
 [data-accent=rose]{--em:#ec4899;--em2:#db2777;--glow:rgba(236,72,153,.3)}
@@ -39,8 +38,7 @@ body.scrolling .card{transition:none}
 body.scrolling .bar i{transition:none}
 body.scrolling .fs-ring .fgc{transition:none}
 body.scrolling #water-fab{transform:none;transition:none}
-.topnav{position:sticky;top:0;z-index:100;background:rgba(11,18,32,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);padding:0 20px;display:flex;align-items:center;gap:20px;height:64px}
-[data-theme=light] .topnav{background:rgba(255,255,255,.92)}
+.topnav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);padding:0 20px;display:flex;align-items:center;gap:20px;height:64px}
 .brand{display:flex;align-items:center;gap:10px;background:none;border:none;color:inherit;padding:6px 0}
 .b-logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--em),var(--gold));display:flex;align-items:center;justify-content:center;color:#05080f;font-weight:900;font-size:.8rem;box-shadow:0 4px 14px var(--glow)}
 .brand-text b{font-weight:900;font-size:1rem;display:block}
@@ -139,7 +137,7 @@ body.scrolling #water-fab{transform:none;transition:none}
 .ac.on{opacity:1;border-color:var(--gold);background:linear-gradient(135deg,rgba(251,191,36,.12),transparent)}
 .ac .ic{font-size:1.6rem}
 .ac .nm{font-size:.65rem;font-weight:800;margin-top:6px;line-height:1.3}
-.mdl{position:fixed;inset:0;z-index:3000;background:rgba(5,8,15,.85);backdrop-filter:blur(6px);display:none;overflow-y:auto;padding:60px 20px 24px}
+.mdl{position:fixed;inset:0;z-index:3000;background:rgba(15,23,42,.55);backdrop-filter:blur(6px);display:none;overflow-y:auto;padding:60px 20px 24px}
 .mdl.open{display:block}
 .mb{max-width:500px;margin:0 auto;background:var(--card);border-radius:18px;padding:24px;border:1px solid var(--bd)}
 .mc{position:fixed;top:20px;left:20px;background:var(--elev);color:var(--txt);border:1px solid var(--bd);width:42px;height:42px;border-radius:50%;font-size:1.2rem;z-index:10}
@@ -368,7 +366,7 @@ body.scrolling #water-fab{transform:none;transition:none}
 .plan-schedule .meal-row .time{color:var(--em);font-weight:900;direction:ltr;font-family:monospace;font-size:.85rem;flex-shrink:0}
 .plan-schedule .meal-row .name{color:var(--txt);font-weight:700;flex:1}
 .plan-schedule .meal-row .cal{color:var(--gold);font-weight:900;font-size:.8rem;flex-shrink:0}
-.install-modal{position:fixed;inset:0;z-index:5000;background:rgba(5,8,15,.92);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:20px}
+.install-modal{position:fixed;inset:0;z-index:5000;background:rgba(63,42,86,.55);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:20px}
 .install-modal.show{display:flex;animation:fadeIn .3s}
 .install-modal-box{max-width:400px;width:100%;background:var(--card);border:1px solid var(--em);border-radius:24px;padding:28px 22px;text-align:center;box-shadow:0 25px 60px rgba(0,0,0,.6);animation:slideUp2 .4s;max-height:90vh;overflow-y:auto}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -648,8 +646,7 @@ body{font-size:calc(14px * var(--fscale,1))}
 #lock{position:fixed;inset:0;background:var(--bg);z-index:400;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;padding:20px}
 #lock.open{display:flex}
 #lock .bx{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:24px;text-align:center;max-width:340px;width:100%}
-html[data-contrast=high]{--mut:#e2e8f0;--bd:rgba(255,255,255,.32)}
-html[data-theme=light][data-contrast=high]{--mut:#1e293b;--bd:rgba(15,23,42,.3)}
+html[data-contrast=high]{--mut:#1e293b;--bd:rgba(15,23,42,.3)}
 html[data-contrast=high] .card,html[data-contrast=high] .kpi{border-width:2px}
 html[data-motion=off] *,html[data-motion=off] *:before,html[data-motion=off] *:after{animation:none!important;transition:none!important}
 .cd-card{background:linear-gradient(135deg,var(--glow),rgba(251,191,36,.08));border:1px solid var(--glow);border-radius:16px;padding:16px;text-align:center}
@@ -674,6 +671,96 @@ body.widget-mode .wrap{padding:12px}
 @media(max-width:380px){
 .menu-group .nb{font-size:.68rem;padding:6px 2px}
 }
+
+/* --- دکمه شناور «⚡ فست» مخصوص موبایل --- */
+#mfast{display:none;position:fixed;bottom:calc(14px + env(safe-area-inset-bottom));inset-inline-start:12px;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--em),var(--em2));color:#fff;border:none;font-size:1.3rem;box-shadow:0 8px 22px var(--glow);z-index:998;align-items:center;justify-content:center;transition:.25s}
+#mfast:active{transform:scale(.9)}
+@media(max-width:680px){#mfast{display:flex}}
+body.widget-mode #mfast{display:none!important}
+
+/* --- ری‌دیزاین پنل فست هوشمند --- */
+#p-fastgear>.card{position:relative;overflow:hidden}
+#p-fastgear .card:first-child>.ch{background:linear-gradient(90deg,var(--glow),transparent 75%);border-radius:14px;padding:10px 12px}
+#p-fastgear .card:first-child>.ch span:first-child{background:linear-gradient(90deg,var(--em),var(--violet),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+#p-fastgear .cd-card.hero{position:relative;overflow:hidden;border:none;color:#fff;background:linear-gradient(130deg,var(--em),var(--em2) 45%,var(--violet));border-radius:20px;padding:22px 16px;text-align:center;box-shadow:0 14px 30px var(--glow)}
+#p-fastgear .cd-card.hero::before{content:'';position:absolute;top:-45%;left:-12%;width:65%;height:65%;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.3),transparent 70%)}
+#p-fastgear .cd-card.hero::after{content:'⏱️';position:absolute;left:-8px;bottom:-18px;font-size:5rem;opacity:.16;transform:rotate(-14deg);pointer-events:none}
+#p-fastgear .cd-card.hero.wait{background:linear-gradient(130deg,#f59e0b,#ec4899 55%,#8b5cf6)}
+#p-fastgear .cd-card.hero>div:first-child{position:relative;font-size:.78rem;font-weight:800;letter-spacing:.3px;color:rgba(255,255,255,.92)}
+#p-fastgear .cd-card.hero .cd-time{position:relative;font-size:2.7rem;font-weight:900;line-height:1.3;letter-spacing:2px;text-shadow:0 4px 16px rgba(0,0,0,.3);font-variant-numeric:tabular-nums}
+#p-fastgear .cd-card.hero.wait .cd-time{opacity:.72}
+#p-fastgear .cd-card.hero .cd-sub{position:relative;color:rgba(255,255,255,.95);margin-top:4px}
+#p-fastgear .cd-card.hero .prog2{position:relative;background:rgba(255,255,255,.28);height:10px;box-shadow:inset 0 2px 6px rgba(0,0,0,.2)}
+#p-fastgear .cd-card.hero .prog2 i{background:linear-gradient(90deg,#fff,#fef08a)}
+#p-fastgear .cd-card.hero .r2{position:relative;margin-top:14px;gap:10px}
+#p-fastgear .cd-card.hero .r2 .cta{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.45);box-shadow:none;font-weight:900}
+#p-fastgear .cd-card.hero .r2 .cta:hover{background:rgba(255,255,255,.28)}
+#p-fastgear .r2>.cta{border-radius:14px;box-shadow:0 8px 18px var(--glow)}
+#p-fastgear .pgrid{gap:12px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+#p-fastgear .pcard{position:relative;background:var(--elev);border:1px solid var(--bd);border-radius:16px;padding:14px;transition:.22s;overflow:hidden;text-align:start}
+#p-fastgear .pcard::before{content:'';position:absolute;top:-30px;left:-30px;width:92px;height:92px;border-radius:50%;background:radial-gradient(circle,var(--glow),transparent 72%);opacity:.85}
+#p-fastgear .pcard:hover{transform:translateY(-3px);border-color:var(--em);box-shadow:0 12px 24px var(--glow)}
+#p-fastgear .pcard>div:first-child{position:relative;display:inline-block;font-size:1.6rem;background:var(--card);border:1px solid var(--bd);border-radius:13px;padding:8px 10px;margin-bottom:10px;box-shadow:0 3px 8px rgba(0,0,0,.16)}
+#p-fastgear .pcard b{position:relative;display:block;font-size:.9rem;margin-bottom:5px}
+#p-fastgear .pcard p{position:relative;font-size:.67rem;color:var(--mut);line-height:1.75}
+#p-fastgear .pcard .phr{position:relative;display:inline-block;font-size:.62rem;font-weight:900;color:#05080f;background:linear-gradient(90deg,var(--gold),#f59e0b);border-radius:99px;padding:3px 9px;margin-top:8px}
+#p-fastgear .pcard .plock{position:absolute;top:12px;inset-inline-start:12px;font-size:.66rem;font-weight:900;color:#fca5a5;background:rgba(239,68,68,.18);border:1px solid rgba(239,68,68,.35);border-radius:99px;padding:2px 8px;z-index:1}
+#p-fastgear .pcard.locked{opacity:.62;filter:grayscale(.35)}
+#p-fastgear .pcard.on{border-color:transparent;border-width:2px;background:linear-gradient(var(--elev),var(--elev)) padding-box,linear-gradient(120deg,var(--em),var(--em2)) border-box;box-shadow:0 10px 24px var(--glow)}
+#p-fastgear .pcard.on::after{content:'انتخاب شد ✓';position:relative;display:block;width:max-content;font-size:.62rem;font-weight:900;color:#05080f;background:linear-gradient(90deg,var(--em),var(--em2));padding:3px 9px;border-radius:99px;margin-top:8px}
+#p-fastgear .tabs2{background:var(--elev);border:1px solid var(--bd);border-radius:14px;padding:4px;gap:0;overflow:hidden;margin-bottom:14px;scrollbar-width:none}
+#p-fastgear .tabs2 button{flex:1;min-width:0;text-align:center;background:none;border:none;border-radius:10px;padding:9px 10px;font-size:.76rem;font-weight:800;color:var(--mut);white-space:nowrap}
+#p-fastgear .tabs2 button:hover{color:var(--txt);background:rgba(127,127,127,.08)}
+#p-fastgear .tabs2 button.on{background:linear-gradient(135deg,var(--em),var(--em2));color:#fff;box-shadow:0 4px 12px var(--glow)}
+#p-fastgear .tstage{padding:10px 0}
+#p-fastgear .tstage:last-child{padding-bottom:2px}
+#p-fastgear .tstage .dot2{width:14px;height:14px;border:3px solid var(--bd);background:var(--elev);margin-top:4px}
+#p-fastgear .tstage.done .dot2{border-color:transparent;background:linear-gradient(135deg,var(--em),var(--em2))}
+#p-fastgear .tstage.cur .dot2{border-color:transparent;background:linear-gradient(135deg,var(--gold),#f59e0b);box-shadow:0 0 0 5px rgba(251,191,36,.18);animation:fgPulse 1.6s ease-in-out infinite}
+#p-fastgear .tstage.cur .tx2 b{color:var(--gold)}
+#p-fastgear .tstage .tx2{font-size:.8rem;line-height:1.9}
+#p-fastgear .tstage .tx2 b{font-size:.86rem;line-height:1.9;display:block}
+#p-fastgear .chk button{background:var(--elev);border:1.5px solid var(--bd);border-radius:999px;padding:8px 14px;font-size:.75rem;font-weight:800;color:var(--txt);transition:.2s}
+#p-fastgear .chk button:hover{border-color:var(--em)}
+#p-fastgear .chk button.on{background:linear-gradient(90deg,var(--em),var(--em2));color:#fff;border-color:transparent;box-shadow:0 4px 12px var(--glow)}
+#p-fastgear .adv{border-radius:14px}
+#p-fastgear .adv .ic3{background:var(--glow);border-radius:10px;padding:5px 7px}
+#p-fastgear .warn2.ok2{background:linear-gradient(120deg,var(--glow),rgba(139,92,246,.12));border-color:var(--glow)}
+#p-fastgear .stat2{border-radius:14px}
+#p-fastgear .stat2 b{background:linear-gradient(120deg,var(--em),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+@keyframes fgPulse{0%,100%{box-shadow:0 0 0 4px rgba(251,191,36,.16)}50%{box-shadow:0 0 0 9px rgba(251,191,36,.05)}}
+
+/* --- تم شاد: کل برنامه رنگی و سرزنده --- */
+html[data-theme=joy]{--bg:#fffbf4;--card:#ffffff;--elev:#fff4fa;--txt:#3f2a56;--mut:#8a7ba3;--bd:rgba(63,42,86,.12);--gold:#d97706}
+html[data-theme=joy][data-contrast=high]{--mut:#33224b;--bd:rgba(63,42,86,.45)}
+html[data-theme=joy] body{background-image:linear-gradient(165deg,#ffe9ec 0%,#fef3c7 30%,#e0f2fe 62%,#dcfce7 100%);background-attachment:fixed}
+html[data-theme=joy] .topnav{background:rgba(255,255,255,.9);box-shadow:0 2px 16px rgba(76,29,149,.09);border-bottom-color:transparent}
+html[data-theme=joy] .topnav::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:3px;border-radius:0 0 4px 4px;background:linear-gradient(90deg,#f43f5e,#f97316,#22c55e,#0ea5e9,#8b5cf6)}
+html[data-theme=joy] .card,html[data-theme=joy] .kpi{border-color:rgba(63,42,86,.08);box-shadow:0 6px 20px rgba(76,29,149,.07)}
+html[data-theme=joy] .kpi::before{background:radial-gradient(circle at top right,rgba(244,63,94,.2),transparent 62%),radial-gradient(circle at bottom left,rgba(139,92,246,.15),transparent 62%)}
+html[data-theme=joy] .hero{background:linear-gradient(120deg,#ec4899,#f97316 48%,#0ea5e9);box-shadow:0 14px 30px rgba(236,72,153,.28)}
+html[data-theme=joy] .cta{color:#fff}
+html[data-theme=joy] .nb.highlight,html[data-theme=joy] .tnl button.hl-plan{color:#fff;box-shadow:0 6px 16px var(--glow)}
+html[data-theme=joy] .tnl button.active{background:linear-gradient(90deg,var(--glow),rgba(139,92,246,.15))}
+html[data-theme=joy] .ch span:first-child{background:linear-gradient(90deg,#e11d48,#f97316 45%,#0ea5e9 80%,#7c3aed);-webkit-background-clip:text;background-clip:text;color:transparent}
+html[data-theme=joy] .bs{background:linear-gradient(90deg,rgba(225,29,72,.08),rgba(124,58,237,.1));border-radius:99px;padding:3px 10px}
+html[data-theme=joy] .tile{border-color:rgba(63,42,86,.06)}
+html[data-theme=joy] .tile:nth-of-type(1){background:linear-gradient(135deg,#ffedd5,#fff5eb)}
+html[data-theme=joy] .tile:nth-of-type(2){background:linear-gradient(135deg,#dbeafe,#eef4ff)}
+html[data-theme=joy] .tile:nth-of-type(3){background:linear-gradient(135deg,#d1fae5,#edfcf4)}
+html[data-theme=joy] .tile:nth-of-type(4){background:linear-gradient(135deg,#fce7f3,#fdf4fa)}
+html[data-theme=joy] .tile:nth-of-type(5){background:linear-gradient(135deg,#fef9c3,#fefce8)}
+html[data-theme=joy] .tile:nth-of-type(6){background:linear-gradient(135deg,#ede9fe,#f7f5ff)}
+html[data-theme=joy] .tile:hover{box-shadow:0 10px 22px rgba(76,29,149,.12)}
+html[data-theme=joy] .fc{background:#fff;border-width:1.5px}
+html[data-theme=joy] .rw,html[data-theme=joy] .adv,html[data-theme=joy] .stat2{background:#fff;border:1px solid var(--bd);box-shadow:0 2px 8px rgba(76,29,149,.05)}
+html[data-theme=joy] .tabs2 button.on,html[data-theme=joy] .chk button.on{color:#fff}
+html[data-theme=joy] .mdl{background:rgba(63,42,86,.45)}
+html[data-theme=joy] .mb{box-shadow:0 24px 60px rgba(76,29,149,.25)}
+html[data-theme=joy] .menu-group{background:#fdf2f8;border-color:rgba(63,42,86,.08)}
+html[data-theme=joy] .menu-group .nb{background:#fff}
+html[data-theme=joy] .menu-group-title{color:#c026d3}
+html[data-theme=joy] #p-fastgear .cd-card.hero.wait{background:linear-gradient(130deg,#f472b6,#a78bfa 55%,#38bdf8)}
 </style>
 </head>
 <body>
@@ -697,7 +784,7 @@ body.widget-mode .wrap{padding:12px}
 <div class="tna">
 <button id="uc" aria-label="پروفایل">👤</button>
 <button id="btn-thm" class="icb" aria-label="تم رنگی">🎨</button>
-<button id="btn-dk" class="icb" aria-label="حالت روز و شب">🌗</button>
+<button id="btn-dk" class="icb" aria-label="تغییر ظاهر: روشن و شاد">☀️</button>
 <button id="mt" class="icb" aria-label="منو">☰</button>
 </div>
 </header>
@@ -782,6 +869,7 @@ body.widget-mode .wrap{padding:12px}
 <button id="water-fab" aria-label="افزودن آب">
 💧<span class="bd" id="fab-badge">0</span>
 </button>
+<button id="mfast" aria-label="فست هوشمند" title="فست هوشمند">⚡</button>
 
 <main class="wrap">
 
@@ -1538,8 +1626,8 @@ body.widget-mode .wrap{padding:12px}
 <div class="ch"><span>🎨 ظاهر</span><button class="cta gh sm" id="thc">بستن</button></div>
 <div class="fl2">حالت نمایش</div>
 <div class="tm" id="thm-btns">
-<button data-theme="dark">🌙 تاریک</button>
 <button data-theme="light">☀️ روشن</button>
+<button data-theme="joy">🌈 شاد</button>
 </div>
 <div class="fl2">رنگ اصلی</div>
 <div class="tg" id="thm-colors"></div>
@@ -1598,7 +1686,7 @@ body.widget-mode .wrap{padding:12px}
 var PWA={themeColor:'#10b981'};
 var _manifestLink=null,_manifestURL=null;
 function buildManifest(){
-var m={name:'fitalirezaakbari',short_name:'fitalirezaakbari',start_url:'.',scope:'.',display:'standalone',orientation:'portrait',background_color:'#05080f',theme_color:PWA.themeColor,lang:'fa',dir:'rtl',description:'کالری‌شمار، فستینگ و مربی هوشمند',icons:[{src:'icon-192.png',sizes:'192x192',type:'image/png',purpose:'any maskable'},{src:'icon-512.png',sizes:'512x512',type:'image/png',purpose:'any maskable'}]};
+var m={name:'fitalirezaakbari',short_name:'fitalirezaakbari',start_url:'.',scope:'.',display:'standalone',orientation:'portrait',background_color:'#f8fafc',theme_color:PWA.themeColor,lang:'fa',dir:'rtl',description:'کالری‌شمار، فستینگ و مربی هوشمند',icons:[{src:'icon-192.png',sizes:'192x192',type:'image/png',purpose:'any maskable'},{src:'icon-512.png',sizes:'512x512',type:'image/png',purpose:'any maskable'}]};
 try{
 var blob=new Blob([JSON.stringify(m)],{type:'application/manifest+json'});
 var url=URL.createObjectURL(blob);
@@ -1712,7 +1800,8 @@ window.addEventListener('beforeunload',_sflush);
 
 /* ================= THEME ================= */
 var THEMES=[{id:'emerald',n:'زمرد',c1:'#10b981'},{id:'ocean',n:'اقیانوس',c1:'#0ea5e9'},{id:'violet',n:'بنفش',c1:'#8b5cf6'},{id:'rose',n:'رز',c1:'#ec4899'},{id:'sunset',n:'غروب',c1:'#f97316'},{id:'cyber',n:'سایبر',c1:'#06b6d4'},{id:'lime',n:'لیمویی',c1:'#84cc16'},{id:'crimson',n:'زرشکی',c1:'#ef4444'},{id:'indigo',n:'نیلی',c1:'#6366f1'}];
-var theme=store.get('theme','dark'),accent=store.get('accent','emerald');
+var theme=store.get('theme','light'),accent=store.get('accent','emerald');
+if(theme==='dark'){theme='light';try{store.set('theme','light');}catch(e){}}
 function themeById(id){for(var i=0;i<THEMES.length;i++)if(THEMES[i].id===id)return THEMES[i];return THEMES[0];}
 function applyTheme(){
 document.documentElement.setAttribute('data-theme',theme);
@@ -1720,6 +1809,7 @@ document.documentElement.setAttribute('data-accent',accent);
 var t=themeById(accent);
 PWA.themeColor=t.c1;
 var mtc=$('meta-tc');if(mtc)mtc.setAttribute('content',t.c1);
+var dkb=$('btn-dk');if(dkb){dkb.textContent=(theme==='joy')?'🌈':'☀️';dkb.setAttribute('aria-label',theme==='joy'?'تغییر ظاهر به روشن':'تغییر ظاهر به شاد');}
 buildManifest();
 }
 function renderThemeModal(){
@@ -4423,7 +4513,7 @@ var p=fgPlanById(st.plan);
 var sug=fgSuggested();
 if(running){
 var elH=fsElapsed()/3600,ph=fsPhase(elH);
-var cd=el('div','cd-card');
+var cd=el('div','cd-card hero');
 cd.appendChild(el('div',null,'⏳ فست فعال — پلن '+p.n));
 cd.appendChild(el('div','cd-time',fsFmt(fsRemaining())));
 cd.appendChild(el('div','cd-sub','سپری‌شده: '+pd(Math.round(elH*10)/10)+' ساعت • فاز: '+ph.n));
@@ -4445,7 +4535,7 @@ box.appendChild(tips);
 }else{
 var last=null,hist=sxArr('fsHistory');
 if(hist.length)last=hist[hist.length-1];
-var cd2=el('div','cd-card');
+var cd2=el('div','cd-card hero wait');
 cd2.appendChild(el('div',null,last?('🗓️ آخرین فست: '+pd(Math.round((last.dur||0)/360)/10)+' ساعت — '+(last.ok?'کامل ✅':'جزئی')):'✨ هنوز فستی ثبت نشده؛ اولین فست را شروع کن!'));
 cd2.appendChild(el('div','cd-time','--:--:--'));
 cd2.appendChild(el('div','cd-sub','آماده‌ی شروع: '+p.ic+' '+p.n));
@@ -4496,6 +4586,8 @@ var locked=p.hard&&!fgScreenPass();
 var c=el('button','pcard'+(st.plan===p.id?' on':'')+(locked?' locked':''));
 c.appendChild(el('div',null,p.ic));
 c.appendChild(el('b',null,p.n));
+if(locked){var pk=el('div','plock','🔒');pk.style.position='absolute';pk.style.top='12px';c.appendChild(pk);}
+else c.appendChild(el('div','phr',p.id==='52'?'۵روز+۲روز':(p.id==='ad'?'یک‌درمیان':pd(p.h||16)+' ساعت')));
 c.appendChild(el('p',null,p.desc));
 var d=el('div','dots');
 for(var i=1;i<=5;i++)d.appendChild(el('i',i<=p.diff?'on':''));
@@ -7367,6 +7459,7 @@ coRender();
 btn('wd-toggle',fsStartClick);
 btn('wd-exit',function(){uxWidgetMode(false);});
 btn('lock-btn',clTryUnlock);
+if($('mfast'))$('mfast').onclick=function(){nav('fastgear');};
 if($('lock-pin'))$('lock-pin').addEventListener('keydown',function(e){if(e.key==='Enter'||e.keyCode===13)clTryUnlock();});
 var origRefresh=refreshHome;
 refreshHome=function(){
@@ -7405,7 +7498,7 @@ if($('btn-thm'))$('btn-thm').onclick=function(){renderThemeModal();$('th').class
 if($('btm'))$('btm').onclick=function(){openMenu(false);renderThemeModal();$('th').classList.add('open');};
 if($('thc'))$('thc').onclick=function(){$('th').classList.remove('open');};
 if($('th'))$('th').addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});
-if($('btn-dk'))$('btn-dk').onclick=function(){theme=(theme==='dark')?'light':'dark';store.set('theme',theme);applyTheme();renderThemeModal();};
+if($('btn-dk'))$('btn-dk').onclick=function(){theme=(theme==='joy')?'light':'joy';store.set('theme',theme);applyTheme();renderThemeModal();try{toast(theme==='joy'?'🌈 تم شاد فعال شد':'☀️ تم روشن فعال شد');}catch(e){}};
 if($('mt'))$('mt').onclick=function(){openMenu(true);};
 if($('drx'))$('drx').onclick=function(){openMenu(false);};
 if($('db'))$('db').onclick=function(){openMenu(false);};
